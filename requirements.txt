@@ -1,0 +1,9 @@
+sentence-transformers
+faiss-cpu
+google-generativeai
+pandas
+tabulate
+transformers
+accelerate
+bitsandbytes
+groq

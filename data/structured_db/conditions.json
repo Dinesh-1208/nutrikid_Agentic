@@ -1,0 +1,2601 @@
+[
+  {
+    "condition_name": "malnutrition",
+    "required_tags": [
+      "balanced_diet",
+      "nutrient_dense"
+    ],
+    "avoid_tags": [
+      "junk_food",
+      "high_sugar",
+      "high_fat"
+    ],
+    "meal_pattern": "diverse_balanced"
+  },
+  {
+    "condition_name": "micronutrient_deficiency",
+    "required_tags": [
+      "vitamin_rich",
+      "mineral_rich",
+      "diverse_food"
+    ],
+    "avoid_tags": [
+      "processed_food"
+    ],
+    "meal_pattern": "balanced_variety"
+  },
+  {
+    "condition_name": "overweight_obesity",
+    "required_tags": [
+      "low_fat",
+      "low_sugar",
+      "high_fiber"
+    ],
+    "avoid_tags": [
+      "high_fat",
+      "high_sugar",
+      "processed_food"
+    ],
+    "meal_pattern": "controlled_portion"
+  },
+  {
+    "condition_name": "anemia",
+    "required_tags": [
+      "iron_rich",
+      "folate_rich"
+    ],
+    "avoid_tags": [
+      "low_nutrient_food"
+    ],
+    "meal_pattern": "nutrient_dense"
+  },
+  {
+    "condition_name": "unhealthy_diet_pattern",
+    "required_tags": [
+      "balanced_diet",
+      "diverse_food"
+    ],
+    "avoid_tags": [
+      "ultra_processed",
+      "high_sugar",
+      "high_salt",
+      "high_fat"
+    ],
+    "meal_pattern": "regular_controlled"
+  },
+  {
+    "condition_name": "nutrient_deficiency_risk",
+    "required_tags": [
+      "variety_food_groups",
+      "nutrient_dense"
+    ],
+    "avoid_tags": [
+      "restricted_diet"
+    ],
+    "meal_pattern": "diverse"
+  },
+  {
+    "condition_name": "imbalanced_diet",
+    "required_tags": [
+      "variety_food_groups"
+    ],
+    "avoid_tags": [
+      "single_food_group"
+    ],
+    "meal_pattern": "diverse"
+  },
+  {
+    "condition_name": "low_nutrient_intake",
+    "required_tags": [
+      "multi_food_groups",
+      "balanced_macros"
+    ],
+    "avoid_tags": [
+      "restricted_diet"
+    ],
+    "meal_pattern": "balanced"
+  },
+  {
+    "condition_name": "poor_nutrient_absorption",
+    "required_tags": [
+      "bioavailable_nutrients"
+    ],
+    "avoid_tags": [
+      "low_quality_diet"
+    ],
+    "meal_pattern": "balanced"
+  },
+  {
+    "condition_name": "micronutrient_deficiency",
+    "required_tags": [
+      "vitamin_rich",
+      "mineral_rich"
+    ],
+    "avoid_tags": [
+      "refined_food"
+    ],
+    "meal_pattern": "diverse"
+  },
+  {
+    "condition_name": "poor_growth",
+    "required_tags": [
+      "high_protein",
+      "balanced_macros"
+    ],
+    "avoid_tags": [
+      "low_energy"
+    ],
+    "meal_pattern": "frequent"
+  },
+  {
+    "condition_name": "pregnancy",
+    "required_tags": [
+      "nutrient_dense",
+      "iron_rich",
+      "folate_rich",
+      "omega3"
+    ],
+    "avoid_tags": [
+      "high_fat",
+      "high_sugar",
+      "ultra_processed",
+      "alcohol",
+      "tobacco"
+    ],
+    "meal_pattern": "frequent_balanced"
+  },
+  {
+    "condition_name": "lactation",
+    "required_tags": [
+      "high_calorie",
+      "high_protein",
+      "micronutrient_rich"
+    ],
+    "avoid_tags": [
+      "low_nutrient_food"
+    ],
+    "meal_pattern": "frequent_high_energy"
+  },
+  {
+    "condition_name": "low_birth_weight_risk",
+    "required_tags": [
+      "balanced_diet",
+      "adequate_weight_gain"
+    ],
+    "avoid_tags": [
+      "undernutrition"
+    ],
+    "meal_pattern": "nutrient_dense"
+  },
+  {
+    "condition_name": "undernourished_pregnant_woman",
+    "required_tags": [
+      "high_calorie",
+      "nutrient_dense"
+    ],
+    "avoid_tags": [
+      "low_energy"
+    ],
+    "meal_pattern": "frequent"
+  },
+  {
+    "condition_name": "overweight_pregnant_woman",
+    "required_tags": [
+      "controlled_calorie"
+    ],
+    "avoid_tags": [
+      "high_sugar",
+      "refined_food"
+    ],
+    "meal_pattern": "controlled"
+  },
+  {
+    "condition_name": "anemia",
+    "required_tags": [
+      "iron_rich",
+      "vitamin_c"
+    ],
+    "avoid_tags": [
+      "tea_with_meals"
+    ],
+    "meal_pattern": "nutrient_dense"
+  },
+  {
+    "condition_name": "breastfeeding",
+    "required_tags": [
+      "high_calorie",
+      "high_protein"
+    ],
+    "avoid_tags": [
+      "alcohol",
+      "drugs"
+    ],
+    "meal_pattern": "on_demand"
+  },
+  {
+    "condition_name": "infant_6_8_months",
+    "required_tags": [
+      "semi_solid",
+      "easy_digest",
+      "nutrient_dense"
+    ],
+    "avoid_tags": [
+      "solid_food",
+      "sugar_added",
+      "salt_added"
+    ],
+    "meal_pattern": "2_meals_plus_breastfeeding"
+  },
+  {
+    "condition_name": "infant_9_12_months",
+    "required_tags": [
+      "semi_solid",
+      "variety_food"
+    ],
+    "avoid_tags": [
+      "junk_food",
+      "hfss"
+    ],
+    "meal_pattern": "3_meals_plus_breastfeeding"
+  },
+  {
+    "condition_name": "infant_diarrhea",
+    "required_tags": [
+      "hygienic_food",
+      "easy_digest"
+    ],
+    "avoid_tags": [
+      "contaminated_food"
+    ],
+    "meal_pattern": "careful_feeding"
+  },
+  {
+    "condition_name": "infant_6_12_months",
+    "required_tags": [
+      "semi_solid",
+      "nutrient_dense",
+      "frequent_feeding"
+    ],
+    "avoid_tags": [
+      "liquid_food",
+      "added_sugar",
+      "added_salt"
+    ],
+    "meal_pattern": "4_small_meals_with_breastfeeding"
+  },
+  {
+    "condition_name": "child_above_1_year",
+    "required_tags": [
+      "balanced_diet",
+      "variety_food",
+      "solid_food"
+    ],
+    "avoid_tags": [
+      "added_sugar",
+      "ultra_processed"
+    ],
+    "meal_pattern": "3_meals_2_snacks"
+  },
+  {
+    "condition_name": "lactose_intolerance",
+    "required_tags": [
+      "low_lactose",
+      "curd_based"
+    ],
+    "avoid_tags": [
+      "milk",
+      "high_lactose"
+    ],
+    "meal_pattern": "moderate_frequency"
+  },
+  {
+    "condition_name": "infection_or_diarrhea",
+    "required_tags": [
+      "safe_food",
+      "easy_digest",
+      "hydration"
+    ],
+    "avoid_tags": [
+      "contaminated_food",
+      "raw_food"
+    ],
+    "meal_pattern": "small_frequent"
+  },
+  {
+    "condition_name": "infant_feeding",
+    "required_tags": [
+      "fresh_food",
+      "easy_digest",
+      "nutrient_dense"
+    ],
+    "avoid_tags": [
+      "processed_food",
+      "added_sugar",
+      "added_salt"
+    ],
+    "meal_pattern": "small_frequent"
+  },
+  {
+    "condition_name": "infant_complementary_feeding",
+    "required_tags": [
+      "semi_solid",
+      "easy_digest",
+      "nutrient_dense"
+    ],
+    "avoid_tags": [
+      "added_sugar",
+      "added_salt",
+      "processed_food"
+    ],
+    "meal_pattern": "frequent_small_meals"
+  },
+  {
+    "condition_name": "food_safety_infants",
+    "required_tags": [
+      "fresh_food",
+      "hygienic_preparation"
+    ],
+    "avoid_tags": [
+      "stale_food",
+      "contaminated_food"
+    ],
+    "meal_pattern": "immediate_consumption"
+  },
+  {
+    "condition_name": "complementary_feeding_post_6_months",
+    "required_tags": [
+      "semi_solid",
+      "nutrient_dense",
+      "frequent_feeding"
+    ],
+    "avoid_tags": [
+      "added_sugar",
+      "processed_food"
+    ],
+    "meal_pattern": "2_to_4_times_daily"
+  },
+  {
+    "condition_name": "infant_hygiene_feeding",
+    "required_tags": [
+      "hygienic_preparation",
+      "fresh_food"
+    ],
+    "avoid_tags": [
+      "contaminated_food"
+    ],
+    "meal_pattern": "safe_preparation"
+  },
+  {
+    "condition_name": "infant_illness_feeding",
+    "required_tags": [
+      "continue_feeding",
+      "easy_digest"
+    ],
+    "avoid_tags": [
+      "food_restriction"
+    ],
+    "meal_pattern": "continuous_feeding"
+  },
+  {
+    "condition_name": "pregnancy",
+    "required_tags": [
+      "nutrient_dense",
+      "high_protein",
+      "iron_rich",
+      "folate_rich"
+    ],
+    "avoid_tags": [
+      "high_fat",
+      "high_sugar",
+      "ultra_processed"
+    ],
+    "meal_pattern": "frequent_balanced"
+  },
+  {
+    "condition_name": "anemia",
+    "required_tags": [
+      "iron_rich"
+    ],
+    "avoid_tags": [
+      "low_iron"
+    ],
+    "meal_pattern": "nutrient_dense"
+  },
+  {
+    "condition_name": "breastfeeding",
+    "required_tags": [
+      "high_calorie",
+      "high_protein"
+    ],
+    "avoid_tags": [
+      "toxic_substances"
+    ],
+    "meal_pattern": "frequent"
+  },
+  {
+    "condition_name": "infant_6_12_months",
+    "required_tags": [
+      "semi_solid",
+      "nutrient_dense",
+      "frequent_feeding"
+    ],
+    "avoid_tags": [
+      "liquid_food",
+      "sugar_added",
+      "salt_added"
+    ],
+    "meal_pattern": "frequent_small_meals"
+  },
+  {
+    "condition_name": "child_above_1_year",
+    "required_tags": [
+      "balanced_diet",
+      "variety_food"
+    ],
+    "avoid_tags": [
+      "added_sugar"
+    ],
+    "meal_pattern": "3_meals_plus_snacks"
+  },
+  {
+    "condition_name": "lactose_intolerance",
+    "required_tags": [
+      "low_lactose",
+      "curd_based"
+    ],
+    "avoid_tags": [
+      "milk_excess"
+    ],
+    "meal_pattern": "controlled"
+  },
+  {
+    "condition_name": "infection_or_diarrhea",
+    "required_tags": [
+      "safe_food",
+      "hygienic_preparation"
+    ],
+    "avoid_tags": [
+      "contaminated_food"
+    ],
+    "meal_pattern": "careful_feeding"
+  },
+  {
+    "condition_name": "pregnancy",
+    "required_tags": [
+      "leafy_vegetables",
+      "fruits"
+    ],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "dietary_rules": {
+      "extra_kcal": 300,
+      "extra_protein_g": 15
+    },
+    "probiotic_protocol": "LGG supplementation 1 month before delivery and 6 months after delivery to reduce infant atopic eczema by 50%."
+  },
+  {
+    "condition_name": "lactation",
+    "required_tags": [
+      "fluids",
+      "leafy_vegetables",
+      "fruits"
+    ],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "dietary_rules": {
+      "extra_kcal": 500,
+      "extra_protein_g": 25
+    }
+  },
+  {
+    "condition_name": "breast_engorgement",
+    "required_tags": [],
+    "avoid_tags": [
+      "prelacteal_feeds",
+      "bottle_feeding"
+    ],
+    "meal_pattern": "frequent_on_demand"
+  },
+  {
+    "condition_name": "mastitis",
+    "required_tags": [
+      "fluids"
+    ],
+    "avoid_tags": [],
+    "meal_pattern": "frequent_unrestricted"
+  },
+  {
+    "condition_name": "cleft_palate",
+    "required_tags": [
+      "expressed_breast_milk"
+    ],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "feeding_tools": [
+      "palada",
+      "long_spoon",
+      "long_dropper",
+      "feeding_plate"
+    ]
+  },
+  {
+    "condition_name": "tuberculosis_maternal",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "medication_rules": {
+      "mother": [
+        "chemotherapy"
+      ],
+      "baby": [
+        "chemoprophylaxis",
+        "INH",
+        "rifampicin"
+      ]
+    },
+    "breastfeeding_status": "continue"
+  },
+  {
+    "condition_name": "hepatitis_b_maternal",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "required_steps": [
+      "immunoglobulin_for_baby",
+      "vaccination_for_baby"
+    ],
+    "breastfeeding_status": "continue"
+  },
+  {
+    "condition_name": "congenital_lactose_intolerance",
+    "required_tags": [],
+    "avoid_tags": [
+      "animal_milk"
+    ],
+    "meal_pattern": "",
+    "breastfeeding_status": "permanent_contraindication"
+  },
+  {
+    "condition_name": "galactosaemia",
+    "required_tags": [],
+    "avoid_tags": [
+      "animal_milk"
+    ],
+    "meal_pattern": "",
+    "breastfeeding_status": "permanent_contraindication"
+  },
+  {
+    "condition_name": "congestive_heart_failure_infant",
+    "required_tags": [
+      "expressed_breast_milk"
+    ],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "reason": "low_sodium_content"
+  },
+  {
+    "condition_name": "preterm_infant",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "dietary_rules": {
+      "energy_kcal_kg_day": [
+        110,
+        165
+      ],
+      "fluid_ml_kg_day": [
+        150,
+        200
+      ],
+      "protein_g_kg_day": [
+        3,
+        3.5
+      ]
+    },
+    "feeding_route": {
+      "above_34wks_or_1.8kg": "breast",
+      "below_34wks_or_1.8kg": "gavage"
+    },
+    "prebiotic_note": "Oligosaccharides may be beneficial in preventing NEC."
+  },
+  {
+    "condition_name": "low_birth_weight",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "definitions": {
+      "LBW": "< 2.5 kg",
+      "VLBW": "< 1.5 kg",
+      "ELBW": "< 1.0 kg"
+    },
+    "essential_amino_acids_additional": [
+      "arginine",
+      "cysteine",
+      "taurine"
+    ]
+  },
+  {
+    "condition_name": "sga_malnourished",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Asymmetric IUGR; reduced weight but near-normal length and head circumference.",
+    "ponderal_index": "< 2.0",
+    "catch_up_potential": "high_with_early_intervention"
+  },
+  {
+    "condition_name": "sga_hypoplastic",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Symmetric IUGR; reduced weight, length, and head circumference.",
+    "ponderal_index": "2.0 - 2.5",
+    "catch_up_potential": "limited"
+  },
+  {
+    "condition_name": "failure_to_thrive_organic",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "causes": [
+      "Cleft lip/palate",
+      "GERD",
+      "Lactose intolerance",
+      "RTA",
+      "CCF"
+    ]
+  },
+  {
+    "condition_name": "normal_growth_norms",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "milestones": {
+      "weight": {
+        "double": "4 months",
+        "triple": "1 year",
+        "quadruple": "2 years"
+      }
+    },
+    "growth_velocity": {
+      "weight_kg_per_year": {
+        "first_year": 6,
+        "pre_school": 2,
+        "school_age": 3
+      },
+      "height_cm_per_year": {
+        "first_year": 25,
+        "second_year": 12.5,
+        "thereafter": 6
+      }
+    }
+  },
+  {
+    "condition_name": "short_stature",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "formulas": {
+      "mid_parental_height_boys": "((Paternal_height + Maternal_height) / 2) + 6.5",
+      "mid_parental_height_girls": "((Paternal_height + Maternal_height) / 2) - 6.5",
+      "predicted_height_range": "+/- 2.5 cm from MPH"
+    },
+    "diagnostic_rule": "If child height centile < MPH centile, investigate for endocrine/metabolic causes."
+  },
+  {
+    "condition_name": "iodine_deficiency",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Lack of iodine leading to goitre and CNS defects.",
+    "clinical_features": [
+      "Goitre",
+      "Hypothyroidism",
+      "Still birth",
+      "CNS defects"
+    ],
+    "requirement_mcg_day": [
+      50,
+      150
+    ]
+  },
+  {
+    "condition_name": "zinc_deficiency_signs",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Zinc deficiency manifestations.",
+    "clinical_features": [
+      "Acrodermatitis enteropathica",
+      "Growth retardation",
+      "Alopecia",
+      "Reduced taste sensation (hypogeusia)",
+      "Anorexia"
+    ],
+    "treatment": "1-2 mg/kg/day"
+  },
+  {
+    "condition_name": "selenium_deficiency_signs",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Selenium deficiency manifestations.",
+    "clinical_features": [
+      "Keshan cardiomyopathy",
+      "Arthritis",
+      "Myalgia",
+      "Liver necrosis"
+    ]
+  },
+  {
+    "condition_name": "fluorosis",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Excessive intake of fluorine (> 2-3 ppm in water).",
+    "clinical_features": [
+      "Dental fluorosis",
+      "Genu valgum (knock-knees)"
+    ]
+  },
+  {
+    "condition_name": "hypocalcaemia_infantile",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Reduced ionized calcium leading to tetany or multisystem irritability.",
+    "predisposing_factors": [
+      "LBW",
+      "Preterm",
+      "Infant of Diabetic Mother (IDM)",
+      "Exclusive Cow's Milk (Ca:P < 2)"
+    ],
+    "treatment": {
+      "oral": "100-200 mg/kg/day elemental calcium",
+      "emergency": "0.5-1 mL/kg of 10% Calcium Gluconate IV"
+    }
+  },
+  {
+    "condition_name": "william_syndrome",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "signs": [
+      "Elfin facies",
+      "Supravalvular aortic stenosis",
+      "Idiopathic hypercalcaemia"
+    ]
+  },
+  {
+    "condition_name": "potassium_imbalance",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "hypokalaemia_signs": [
+      "Abdominal distension",
+      "Ileus",
+      "Flaccid paralysis",
+      "Flat T waves/U waves on ECG"
+    ],
+    "hyperkalaemia_signs": [
+      "Tall tented T waves",
+      "Ventricular fibrillation"
+    ],
+    "requirement": "2-3 mEq/kg/day"
+  },
+  {
+    "condition_name": "hypomagnesaemia",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "signs": [
+      "Seizures",
+      "Apathy",
+      "Tetany (shared property with Ca)"
+    ],
+    "treatment": "0.1-0.2 ml/kg of 50% MgSO4 IM 12 hourly"
+  },
+  {
+    "condition_name": "iron_deficiency_anaemia",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "signs": [
+      "Microcytic hypochromic blood smear",
+      "Koilonychia (spoon nails)",
+      "Pica (Geophagia, Amylophagia, Pagophagia)",
+      "Lack of concentration"
+    ],
+    "who_hb_thresholds": {
+      "newborn": 13.0,
+      "6mo_to_6yr": 11.0,
+      "6yr_to_12yr": 12.0
+    },
+    "treatment_dose": "6 mg/kg elemental iron for 3-4 months"
+  },
+  {
+    "condition_name": "rickets_nutritional",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Vitamin D deficiency leading to failure of bone mineralisation.",
+    "clinical_signs": [
+      "Large head",
+      "Hot cross bun appearance",
+      "Rachitic rosaries",
+      "Pigeon chest",
+      "Harrison's sulcus",
+      "Knock knee",
+      "Double malleoli"
+    ],
+    "treatment": "6 lakh IU Vitamin D (oral or IM)"
+  },
+  {
+    "condition_name": "scurvy",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Vitamin C deficiency affecting collagen synthesis.",
+    "clinical_signs": [
+      "Bleeding gums",
+      "Pseudoparalysis",
+      "Subperiosteal bleeding",
+      "Tender scorbutic rosaries"
+    ],
+    "dietary_requirement_mg_day": 50
+  },
+  {
+    "condition_name": "pellagra",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Niacin deficiency, common in maize eaters.",
+    "classic_triad": [
+      "Dermatitis",
+      "Diarrhoea",
+      "Dementia"
+    ],
+    "signs": [
+      "Casal's necklace",
+      "Glove and stocking dermatitis"
+    ]
+  },
+  {
+    "condition_name": "hypercholesterolemia_risk",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "ideal_ratios": {
+      "total_cholesterol_to_hdl": "< 3.5:1",
+      "ldl_to_hdl": "< 2.5:1",
+      "hdl_to_ldl": "> 0.4"
+    },
+    "warning_thresholds": {
+      "total_cholesterol_to_hdl": "> 5:1",
+      "ldl_to_hdl": "> 3.5:1",
+      "hdl_to_ldl": "< 0.3"
+    }
+  },
+  {
+    "condition_name": "beriberi",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Thiamine deficiency.",
+    "types": {
+      "wet": "High-output cardiac failure",
+      "dry": "Neuritis",
+      "infantile": "Aphonia and combined features"
+    }
+  },
+  {
+    "condition_name": "lathyrism",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Neurological disorder caused by excessive consumption of Kesari dhal containing BOAA toxin.",
+    "prevention": "Parboil Lathyrus sativa seeds to remove toxin.",
+    "toxin": "Beta-oxalyl amino alanine (BOAA)"
+  },
+  {
+    "condition_name": "aflatoxin_poisoning",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Liver damage caused by Aspergillus flavus fungus affecting groundnuts.",
+    "source": "Groundnut",
+    "consequence": "Liver damage"
+  },
+  {
+    "condition_name": "coeliac_sprue",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Gluten sensitivity leading to malabsorption.",
+    "triggers": [
+      "wheat",
+      "ragi",
+      "oats",
+      "barley"
+    ],
+    "active_component": "Gliadine"
+  },
+  {
+    "condition_name": "indian_childhood_cirrhosis",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Liver disease linked to excess copper intake and cooking in copper vessels.",
+    "cause": [
+      "Excess copper intake",
+      "Cooking in copper vessels"
+    ]
+  },
+  {
+    "condition_name": "wilson_disease",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Genetic copper overload disorder.",
+    "treatment_adjuvant": "High zinc supplementation (Zinc competes with Copper for absorption)."
+  },
+  {
+    "condition_name": "short_bowel_syndrome",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Reduced small intestinal length causing malabsorption.",
+    "clinical_note": "Large intestine absorbs short chain fatty acids (SCFA) produced by fermentation, acting as an energy source."
+  },
+  {
+    "condition_name": "glaucoma",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Increased intraocular pressure.",
+    "supportive_care": "Spirulina consumption is traditionally noted to assist in management."
+  },
+  {
+    "condition_name": "hunger_pangs_excessive",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Persistent feeling of hunger.",
+    "management": "Phenylalanine (as in Spirulina) signals the brain to stop hunger pangs."
+  },
+  {
+    "condition_name": "persistent_diarrhoea_recovery",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Recovery phase of chronic diarrhea.",
+    "dietary_aid": "Amylase Rich Food (ARF) to increase calorie density and reduce viscosity."
+  },
+  {
+    "condition_name": "atopic_dermatitis_eczema",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Allergic skin condition.",
+    "probiotic_aid": "LGG supplementation shown to reduce incidence by 50% in children with family history.",
+    "mechanism": "Increased IL-10 (anti-inflammatory cytokine)."
+  },
+  {
+    "condition_name": "rotavirus_diarrhoea",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Viral infectious diarrhoea in children.",
+    "probiotic_treatment": "LGG reduces duration of hospitalization and increases IgA-secreting cells.",
+    "preventive": "Supplemented formula (B. bifidus + S. thermophilus) reduces shedding (10% vs 39%)."
+  },
+  {
+    "condition_name": "clostridium_difficile_diarrhoea",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Antibiotic-associated bacterial infection.",
+    "biotherapeutic_agent": "Saccharomyces boulardii (yeast) reduces toxin production and relapses."
+  },
+  {
+    "condition_name": "ulcerative_colitis",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Inflammatory bowel disease.",
+    "probiotic_maintenance": "Non-pathogenic E. coli or VSL#3 (combination of 8 strains) maintains remission."
+  },
+  {
+    "condition_name": "crohn_disease",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Inflammatory bowel disease.",
+    "turbo_probiotics": "Genetically engineered Lactococcus lactis secreting IL-10 used for treatment."
+  },
+  {
+    "condition_name": "helicobacter_pylori_infection",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Gastric bacterial infection leading to ulcers.",
+    "probiotic_antagonist": "L. salivarius and L. acidophilus improve eradication rates (87% vs 70%)."
+  },
+  {
+    "condition_name": "cystic_fibrosis_respiratory",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Supportive care for CF respiratory health.",
+    "support": "LGG supplementation reduces incidence of severe respiratory infections."
+  },
+  {
+    "condition_name": "severe_acute_malnutrition_sam",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Severe lack of protein and/or calories in children.",
+    "who_criteria": [
+      "W/H < -3 SD",
+      "MAC < 11.5 cm",
+      "Visible severe wasting",
+      "Nutritional oedema"
+    ],
+    "consequences": [
+      "Reduced brain cell number (glial cells)",
+      "Reduced DNA/RNA/protein in brain",
+      "Low BAEP and nerve conduction velocity"
+    ],
+    "management_phases": [
+      "Stabilization (Initial resuscitation)",
+      "Rehabilitation (Nutritional restoration)"
+    ]
+  },
+  {
+    "condition_name": "kwashiorkor",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Oedematous protein-energy malnutrition; disease of the 'deposed child'.",
+    "triad": [
+      "Growth retardation",
+      "Oedema",
+      "Mental changes (apathy, misery)"
+    ],
+    "oedema_grading": {
+      "Grade I": "Pedal oedema",
+      "Grade II": "Grade I + facial oedema",
+      "Grade III": "Grade II + paraspinal and chest oedema",
+      "Grade IV": "Grade III + ascites"
+    },
+    "clinical_signs": {
+      "pathognomonic": "Flaky paint dermatosis",
+      "skin": "Crazy pavement dermatosis",
+      "hair": "Red boy appearance, Flag sign (hypochromotrichia)",
+      "liver": "Hepatomegaly (fatty infiltration)",
+      "face": "Moon face",
+      "heart": "Microcardia (atrophy) or nutritional cardiomyopathy",
+      "recovery_sign": "Tick Sign (initial weight loss followed by gain)"
+    },
+    "hormonal_profile": {
+      "cortisol": "high_free_cortisol (low binding)",
+      "insulin": "very_low (failure of anabolism)",
+      "growth_hormone": "very_high (compensatory)",
+      "IGF_somatomedins": "very_low"
+    },
+    "biochemical_profile": {
+      "A_G_ratio": "reversed",
+      "albumin": "< 3.0 g/dl (critical)",
+      "BCAA_alanine": "very_low",
+      "NE_E_amino_acid_ratio": "> 3.5",
+      "NE_E_fatty_acid_ratio": "> 3.0"
+    }
+  },
+  {
+    "condition_name": "marasmus",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Non-oedematous protein-energy malnutrition characterized by extreme wasting.",
+    "signs": [
+      "Old man appearance",
+      "Baggy pants appearance (loose skin at buttocks)",
+      "Alert/irritable appetite",
+      "Wasting of brown fat"
+    ],
+    "wasting_grading": {
+      "Grade I": "Axilla and groin",
+      "Grade II": "Thigh and buttocks",
+      "Grade III": "Chest and abdomen",
+      "Grade IV": "Buccal pad of fat (last to disappear)"
+    },
+    "hormonal_profile": {
+      "cortisol": "very_high (stress-induced catabolism)",
+      "insulin": "normal_to_low",
+      "growth_hormone": "normal_to_high",
+      "IGF_somatomedins": "low"
+    },
+    "adaptation_status": "Successful (state of hibernation)"
+  },
+  {
+    "condition_name": "nutritional_dwarfing",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Chronic PEM leading to stunting without acute wasting.",
+    "synonyms": [
+      "Bonsai children",
+      "Pocket editions"
+    ],
+    "cause": "Prolonged mild/moderate PEM + micronutrient deficiency."
+  },
+  {
+    "condition_name": "early_lactation_failure_elf_syndrome",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Severe undernutrition in young infants due to abrupt stoppage of breastfeeding.",
+    "cluster_findings": [
+      "Weaning to ragi/bottle too early (< 4 months)",
+      "Oedema",
+      "Apathy",
+      "Keratomalacia",
+      "Hypoalbuminaemia"
+    ],
+    "notes": "Often occurs after a diarrhoeal episode where breastfeeding is wrongly stopped."
+  },
+  {
+    "condition_name": "invisible_malnutrition",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Mild to moderate malnutrition not immediately obvious.",
+    "signs": [
+      "Breast addiction (6-24 months)",
+      "Low resistance to infection",
+      "Flat/downward growth curve"
+    ]
+  },
+  {
+    "condition_name": "kwashi_shake_tremors",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Tremors seen during recovery/treatment phase of PEM.",
+    "causes": [
+      "Vitamin B factor deficiency (increased demand)",
+      "Electrolyte imbalance",
+      "GABA imbalance",
+      "Dysmyelination"
+    ],
+    "types": [
+      "Frequent blinking",
+      "Tremulous cry (vocal cord tremor)",
+      "Body tremors"
+    ]
+  },
+  {
+    "condition_name": "nutritionally_acquired_immunodeficiency_syndrome_naids",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Severe secondary immunodeficiency caused by PEM, comparable to HIV/AIDS.",
+    "features": [
+      "Thymic atrophy",
+      "Lymphopenia",
+      "Reduced T helper/suppressor ratio",
+      "Low secretory IgA",
+      "Defective skin/mucosal barriers",
+      "False-negative Mantoux tests"
+    ]
+  },
+  {
+    "condition_name": "kwashiorkor_myelopathy",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Neurological degeneration in PEM characterized by anterior horn cell damage.",
+    "signs": [
+      "Motor weakness",
+      "Reduced nerve conduction velocity",
+      "Hypotonia"
+    ]
+  },
+  {
+    "condition_name": "transient_autism_malnutrition",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Functional isolation seen in malnourished children.",
+    "signs": [
+      "Irritability",
+      "Apathy",
+      "Withdrawal from social interaction",
+      "Lack of self-esteem"
+    ]
+  },
+  {
+    "condition_name": "nutritional_cardiomyopathy",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Heart dysfunction linked to specific nutrient gaps in PEM.",
+    "causes": [
+      "Thiamine deficiency",
+      "Selenium deficiency",
+      "Severe anaemia"
+    ],
+    "signs": [
+      "Cardiomegaly",
+      "Congestive heart failure (CCF)"
+    ]
+  },
+  {
+    "condition_name": "nutrition_recovery_syndrome",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Apparent worsening during nutritional rehabilitation of severe PEM.",
+    "features": [
+      "Hepatomegaly (transient increase)",
+      "Hypertrichosis",
+      "Gynaecomastia",
+      "Parotid swelling",
+      "Ascites/Abdominal distension",
+      "Eosinophilia"
+    ],
+    "note": "Self-limited condition; continue nutritional therapy."
+  },
+  {
+    "condition_name": "refeeding_syndrome",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Metabolic disturbance that occurs during the reinstitution of nutrition to patients who are starved or severely malnourished.",
+    "biochemical_marker": "Hypophosphataemia"
+  },
+  {
+    "condition_name": "childhood_obesity",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "definition": "Excess adipose tissue; BMI > 30 kg/m2 or > 20% above ideal weight.",
+    "risk_factors": [
+      "Urbanization",
+      "Sedentary lifestyle",
+      "High-fat high-sugar junk food",
+      "Maternal malnutrition (Programming)",
+      "Excessive TV viewing"
+    ],
+    "comorbidities": [
+      "Type 2 Diabetes",
+      "Hypertension",
+      "OSA",
+      "Coronary artery disease",
+      "Nonalcoholic fatty liver disease"
+    ],
+    "tracking_risk": "80% of obese children become obese adults."
+  },
+  {
+    "condition_name": "metabolic_syndrome_obesity",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "A cluster of conditions including insulin resistance, dyslipidaemia, and hypertension linked to central obesity.",
+    "biochemical_markers": [
+      "Elevated Free Fatty Acids (FFA)",
+      "Hypertriglyceridaemia",
+      "Low HDL cholesterol",
+      "Small dense LDL particles",
+      "Elevated TNF-alpha"
+    ],
+    "hormonal_profile": {
+      "leptin": "high (resistance)",
+      "adiponectin": "low",
+      "resistin": "high",
+      "insulin": "high (resistance)"
+    }
+  },
+  {
+    "condition_name": "insulin_resistance_ffa_induced",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Impaired glucose uptake in skeletal muscle due to elevated plasma FFA levels.",
+    "mechanism": "Impaired GLUT4 translocation to the cell membrane.",
+    "consequence": "Hyperinsulinaemia and potential progression to Type 2 Diabetes."
+  },
+  {
+    "condition_name": "prader_willi_syndrome",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Syndromic obesity due to paternal chromosome 15 deficiency/microdeletion.",
+    "hallmarks": [
+      "Hypotonia",
+      "Mental retardation",
+      "Hypogonadism",
+      "Hyperphagia starting after infancy"
+    ],
+    "tags": [
+      "genetic_syndrome",
+      "syndromic_obesity"
+    ]
+  },
+  {
+    "condition_name": "beckwith_widemann_syndrome",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Foetal overgrowth syndrome with excess IGF-II (Chromosome 11).",
+    "tags": [
+      "genetic_syndrome",
+      "overgrowth"
+    ]
+  },
+  {
+    "condition_name": "lawrence_moon_biedl_bardet_syndrome",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Autosomal recessive obesity syndrome.",
+    "features": [
+      "Retinitis pigmentosa",
+      "Polysyndactyly",
+      "Hypogonadism",
+      "Nephropathy"
+    ],
+    "tags": [
+      "genetic_syndrome",
+      "autosomal_recessive"
+    ]
+  },
+  {
+    "condition_name": "constitutional_obesity",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Most common type; due to excessive calorie intake.",
+    "features": [
+      "Taller stature",
+      "Advanced bone age",
+      "Early puberty",
+      "Disproportionately small external genitalia (embedded in fat)"
+    ],
+    "peak_ages": [
+      "Infancy",
+      "6 years",
+      "Puberty"
+    ]
+  },
+  {
+    "condition_name": "cushing_syndrome_obesity",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Endocrine obesity characterized by short stature and central fat distribution.",
+    "distinguishing_feature": "Short stature (unlike constitutional obesity)",
+    "tags": [
+      "endocrine_obesity",
+      "cortisol_excess"
+    ]
+  },
+  {
+    "condition_name": "polycystic_ovarian_syndrome_pcos",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "features": [
+      "Late onset obesity",
+      "Menstrual irregularities",
+      "Hirsutism",
+      "Acne"
+    ],
+    "biochemical_link": "Insulin resistance",
+    "tags": [
+      "endocrine_obesity",
+      "adolescent_health"
+    ]
+  },
+  {
+    "condition_name": "iron_deficiency_anaemia_ida",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Most common micronutrient deficiency; impacts IQ (9-point reduction) and work efficiency.",
+    "who_grading_g_dl": {
+      "pregnant_women": {
+        "mild": "10-10.9",
+        "moderate": "7-10",
+        "severe": "< 7"
+      },
+      "children_6mo_6yr": {
+        "mild": "10-10.9",
+        "moderate": "7-10",
+        "severe": "< 7"
+      },
+      "newborn": {
+        "anaemic": "< 14.5"
+      }
+    },
+    "neurological_impact": "Decreased dopaminergic receptors, increased opiate receptors.",
+    "tags": [
+      "hidden_hunger",
+      "maternal_mortality",
+      "IQ_reduction"
+    ]
+  },
+  {
+    "condition_name": "vitamin_a_deficiency_vad",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "clinical_indicators": [
+      "Night blindness (> 1% prevalence signifies public health problem)",
+      "Bitot's spots (> 0.5%)",
+      "Corneal scars (> 0.05%)",
+      "Keratomalacia (> 0.01%)"
+    ],
+    "diagnostic_tests": [
+      "Serum retinol",
+      "Conjunctival impression cytology (CIC)",
+      "1% Rose Bengal staining",
+      "Dark adaptometry"
+    ],
+    "tags": [
+      "preventable_blindness",
+      "immunity"
+    ]
+  },
+  {
+    "condition_name": "iodine_deficiency_disorder_idd",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "severity_by_urinary_iodine_ug_l": {
+      "severe": "< 20",
+      "moderate": "20-49",
+      "mild": "50-99",
+      "no_deficiency": "> 100"
+    },
+    "features": [
+      "Goitre",
+      "Mental retardation (IQ drop 10 points)",
+      "Growth retardation"
+    ],
+    "tags": [
+      "preventable_mental_retardation",
+      "endemic_goitre"
+    ]
+  },
+  {
+    "condition_name": "hypervitaminosis_a_gulf_syndrome",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Toxicity due to excessive intake of A and D fish oil pearls.",
+    "symptoms": [
+      "Benign intracranial hypertension (BIH)",
+      "Hyperostosis of tibia",
+      "Teratogenic effects"
+    ],
+    "tags": [
+      "toxicity",
+      "excess_intake"
+    ]
+  },
+  {
+    "condition_name": "hypovolaemia_shock_continuum",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "stages": {
+      "covert_compensated": "BP normal, thirst, drowsiness, nausea. Splanchnic circulation sacrificed for systemic.",
+      "overt_compensated": "Tachycardia, wide pulse pressure, cold extremities, systolic BP maintained.",
+      "decompensated_shock": "Low BP, tachycardia changes to bradycardia, myocardial hypoxia, urine < 1 ml/kg/hour."
+    },
+    "emergency_intervention": "Bolus 10-20 ml/kg NS or RL; repeat as needed (max 8 rations)."
+  },
+  {
+    "condition_name": "dehydration_spectrum",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "clinical_grades_children": {
+      "mild": "3-5% weight loss, thirsty, alert.",
+      "moderate": "7-10% weight loss, drowsy, rapid pulse, sunken eyes.",
+      "severe": "10-15% weight loss, comatose, feeble pulse, BP < 90 mmHg, skin retracts > 2s."
+    },
+    "sodium_types": {
+      "isotonic": "Serum Na 135-145 mEq/L",
+      "hypotonic": "Serum Na < 130 mEq/L (convulsion risk)",
+      "hypertonic": "Serum Na > 150 mEq/L (CNS hemorrhage risk; correct slowly @ 10 mEq/L/day)"
+    }
+  },
+  {
+    "condition_name": "potassium_imbalance_critical",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "hypokalaemia": {
+      "features": [
+        "Hypotonia",
+        "Depressed reflexes",
+        "Ileus",
+        "Cardiac arrhythmia (prolonged QT, flat T)"
+      ],
+      "causes": [
+        "PEM",
+        "DKA",
+        "Nebulization",
+        "Diuretics"
+      ]
+    },
+    "hyperkalaemia": {
+      "features": [
+        "Arrhythmia",
+        "Cardiac arrest",
+        "Tall tented T waves"
+      ],
+      "treatment": [
+        "Sodium bicarbonate",
+        "Calcium gluconate",
+        "Insulin-glucose drip"
+      ]
+    }
+  },
+  {
+    "condition_name": "siadh_critical_care",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Syndrome of Inappropriate ADH secretion common in head injury or pneumonia.",
+    "fluid_management": "Restrict fluid to 2/3 maintenance if oedema or hyponatraemia present."
+  },
+  {
+    "condition_name": "tpn_induced_cholestasis",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Liver dysfunction and bile flow obstruction occurring after prolonged parenteral nutrition (usually > 3 weeks).",
+    "biochemical_indicators": [
+      "Elevated conjugated bilirubin",
+      "Altered LFT",
+      "Giant cell hepatitis"
+    ],
+    "tags": [
+      "TPN_complication",
+      "liver_dysfunction",
+      "pediatric_critical_care"
+    ]
+  },
+  {
+    "condition_name": "tpn_sepsis_risk",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Major infectious complication of central venous access in parenteral nutrition.",
+    "prevention": "Strict asepsis, laminar flow hood preparation, daily set changes.",
+    "tags": [
+      "central_line_infection",
+      "TPN_complication"
+    ]
+  },
+  {
+    "condition_name": "enteral_feeding_complications",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "mechanical": [
+      "Tube dislodgement",
+      "Aspiration pneumonia",
+      "Tube migration"
+    ],
+    "metabolic": [
+      "Azotaemia (high protein load)",
+      "Hypercapnia",
+      "Hyperphosphataemia",
+      "Electrolyte imbalance"
+    ],
+    "git": [
+      "Oesophagitis",
+      "Dumping syndrome (hyperosmolar load)",
+      "Abdominal cramps"
+    ]
+  },
+  {
+    "condition_name": "acute_diarrhoeal_disease_add",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Increase in frequency, fluidity, and volume of stool; usually self-limiting (4-7 days).",
+    "pathogenesis": {
+      "osmotic": "Villus cell damage leading to reduced absorption (e.g., rotavirus, disaccharidase deficiency). Stops on fasting.",
+      "secretory": "Enterotoxins (e.g., cholera, ETEC) stimulate crypt cell secretion. Does not stop on fasting.",
+      "invasive": "Cytotoxin-mediated inflammation producing blood and mucus (Dysentery)."
+    },
+    "tags": [
+      "ORT_management",
+      "small_bowel",
+      "villus_damage"
+    ]
+  },
+  {
+    "condition_name": "persistent_diarrhoea_pd",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Diarrhoea lasting more than 14 days.",
+    "clinical_markers": {
+      "perianal_excoriation": "Suggests osmotic diarrhoea (acidic stool)",
+      "steatorrhoea": "Suggested by > 6-8 droplets per LPF on Sudan Red stain; suggests fat malabsorption.",
+      "prolapse_rectum": "Often seen in Whip Worm (WW) colitis."
+    },
+    "tags": [
+      "chronic_diarrhoea",
+      "malabsorption",
+      "fasting_trial"
+    ]
+  },
+  {
+    "condition_name": "acute_nephritic_syndrome_agn",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "clinical_features": [
+      "Oliguria (< 1 ml/kg/hr)",
+      "Haematuria",
+      "Oedema",
+      "Hypertension"
+    ],
+    "complications": [
+      "Hypertensive encephalopathy",
+      "Congestive cardiac failure (CCF)",
+      "Acute renal failure"
+    ],
+    "tags": [
+      "renal_disease",
+      "oliguria",
+      "hypertension"
+    ]
+  },
+  {
+    "condition_name": "chronic_renal_failure_crf",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "staging_gfr": {
+      "mild": "20-40 ml/min/1.73m2",
+      "moderate": "5-20 ml/min/1.73m2",
+      "severe": "< 5 ml/min/1.73m2"
+    },
+    "features": [
+      "Growth retardation (Stunting)",
+      "Renal rickets",
+      "Anaemia (low erythropoietin)",
+      "Uraemia"
+    ],
+    "tags": [
+      "stunting",
+      "ESRD",
+      "renal_osteodystrophy"
+    ]
+  },
+  {
+    "condition_name": "hepatic_encephalopathy",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "pathophysiology": "Elevated ammonia levels due to liver failure.",
+    "emergency_management": [
+      "Protein avoidance",
+      "Lactulose (1-2 ml/kg)",
+      "Neomycin/Ampicillin for gut sterilization",
+      "BCAA supplementation"
+    ],
+    "tags": [
+      "liver_failure",
+      "hyperammonaemia",
+      "BCAA"
+    ]
+  },
+  {
+    "condition_name": "short_bowel_syndrome_sbs",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Occurs when > 20% of the intestine is resected.",
+    "adaptation_phases": {
+      "stage_1": "0-4 weeks: Profuse watery diarrhoea.",
+      "stage_2": "Up to 6 months: Reduction in diarrhoea and adaptation.",
+      "stage_3": "After 6 months: Stability and tolerance."
+    },
+    "tags": [
+      "intestinal_resection",
+      "B12_deficiency",
+      "malabsorption"
+    ]
+  },
+  {
+    "condition_name": "pancreatic_insufficiency_cystic_fibrosis",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "features": [
+      "Steatorrhoea (fat malabsorption)",
+      "Creatorrhoea (protein malabsorption)",
+      "Fat-soluble vitamin deficiency"
+    ],
+    "management": "Pancreatic enzyme replacement (1500 IU lipase/kg/meal).",
+    "tags": [
+      "cystic_fibrosis",
+      "lipase_deficiency",
+      "steatorrhoea"
+    ]
+  },
+  {
+    "condition_name": "diabetes_mellitus_type_1",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Insulin-dependent, often 'brittle' in children.",
+    "features": [
+      "Honeymoon phase (temporary insulin reduction)",
+      "Risk of DKA"
+    ],
+    "biochemical_goals": [
+      "FBS < 115 mg/dl",
+      "PPBS < 140 mg/dl",
+      "Glycated Hb 6-8%"
+    ],
+    "tags": [
+      "juvenile_diabetes",
+      "insulin_dependent",
+      "honeymoon_phase"
+    ]
+  },
+  {
+    "condition_name": "pickwickian_syndrome",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Extreme form of obesity with cardiorespiratory disease.",
+    "features": [
+      "Alveolar hypoventilation",
+      "Polycythaemia",
+      "Cyanosis",
+      "Somnolence",
+      "Sleep apnoea"
+    ],
+    "tags": [
+      "morbid_obesity",
+      "respiratory_failure"
+    ]
+  },
+  {
+    "condition_name": "genetic_dyslipidaemias",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "subtypes": [
+      "Familial Combined Hyperlipidaemia (FCHL)",
+      "Familial Hypertriglyceridaemia (FHTG)",
+      "Lipoprotein Lipase (LPL) Deficiency"
+    ],
+    "diagnosis_thresholds": {
+      "acceptable": "Cholesterol < 170, TG < 160, LDL < 110, HDL > 50",
+      "borderline": "Cholesterol 170-200",
+      "high_risk": "Cholesterol > 200, LDL > 130"
+    },
+    "tags": [
+      "primary_hyperlipidaemia",
+      "lipid_disorders"
+    ]
+  },
+  {
+    "condition_name": "secondary_hyperlipidaemia",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "associated_diseases": [
+      "Obesity",
+      "Hypothyroidism",
+      "Nephrotic syndrome",
+      "GSD",
+      "Diabetes",
+      "Biliary atresia",
+      "Anorexia nervosa"
+    ],
+    "tags": [
+      "metabolic_complication",
+      "lipid_profile"
+    ]
+  },
+  {
+    "condition_name": "phenylketonuria_pku",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Deficiency of phenylalanine hydroxylase or THBP cofactor.",
+    "odour": "Musty or mousy odour (phenylacetic acid) in urine.",
+    "clinical_features": [
+      "Mental retardation",
+      "Blue-eyed blondes (melanin deficiency)",
+      "Seizures",
+      "Seborrhoea"
+    ],
+    "management": "Low phenylalanine diet (25-50 mg/kg), maintain serum PA 3-15 mg%.",
+    "tags": [
+      "IEM",
+      "phenylalanine",
+      "musty_odour",
+      "Lofenalac"
+    ]
+  },
+  {
+    "condition_name": "homocystinuria",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Cystathionine synthetase deficiency leading to accumulated homocystine.",
+    "features": [
+      "Marfan phenotype",
+      "Ectopia lentis (lens subluxation)",
+      "Thrombosis risk",
+      "Mental retardation"
+    ],
+    "management": "Low methionine diet, large doses of B6 (200-1000mg), B12, and Folic acid.",
+    "tags": [
+      "IEM",
+      "methionine_restriction",
+      "ectopia_lentis"
+    ]
+  },
+  {
+    "condition_name": "maple_syrup_urine_disease_msud",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Defect in branched chain keto acid dehydrogenase.",
+    "odour": "Sweet odour of maple syrup or burnt sugar in urine/body fluids.",
+    "clinical_features": [
+      "Feeding difficulty",
+      "Shrill cry",
+      "Alternating hyper/hypotonia",
+      "Convulsions"
+    ],
+    "management": "Low branched-chain amino acid diet (Valine, Leucine, Isoleucine), high-dose thiamine cofactor.",
+    "tags": [
+      "IEM",
+      "BCAA",
+      "maple_syrup_odour",
+      "thiamine"
+    ]
+  },
+  {
+    "condition_name": "galactosaemia",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Deficiency in galactose-1-phosphate uridyl transferase or galactokinase.",
+    "clinical_features": [
+      "FTT",
+      "Hepatomegaly",
+      "Cirrhosis",
+      "Cataracts (early sign)",
+      "Mental retardation"
+    ],
+    "dietary_management": "Absolute avoidance of lactose and galactose. Use Soya isolate formulas (Nusobee, Zerolac); avoid whole soya flour.",
+    "tags": [
+      "IEM",
+      "lactose_free",
+      "galactose",
+      "cataracts"
+    ]
+  },
+  {
+    "condition_name": "organic_acidaemias",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "subtypes": {
+      "isovaleric": "Sweaty feet odour in urine; use glycine (250 mg/kg).",
+      "multiple_carboxylase": "Tom cat urine smell; use biotin (10 mg/day).",
+      "propionic_methylmalonic": "Ketotic hyperglycinaemia; use B12, Biotin, L-carnitine."
+    },
+    "tags": [
+      "IEM",
+      "odour_diagnosis",
+      "biotin",
+      "carnitine"
+    ]
+  },
+  {
+    "condition_name": "glycogen_storage_disorders_gsd",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Abnormal concentration or structure of glycogen.",
+    "clinical_features": [
+      "Early morning hypoglycaemia",
+      "Hepatomegaly",
+      "Lactic acidosis"
+    ],
+    "management": "Frequent feedings, continuous night NG feeding, uncooked corn starch for slow absorption.",
+    "tags": [
+      "IEM",
+      "hypoglycaemia",
+      "corn_starch",
+      "night_feeding"
+    ]
+  },
+  {
+    "condition_name": "staphylococcal_food_poisoning",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Nausea, vomiting, and collapse due to preformed heat-resistant enterotoxins (A-E).",
+    "incubation_period": "1-6 hours",
+    "common_sources": [
+      "Ham",
+      "Pork",
+      "Pastries",
+      "Potato salad"
+    ],
+    "tags": [
+      "food_poisoning",
+      "Staph_aureus",
+      "vomiting",
+      "short_incubation"
+    ]
+  },
+  {
+    "condition_name": "botulism",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Lethal toxin blocking acetylcholine release at the neuromuscular junction.",
+    "incubation_period": "18-36 hours",
+    "clinical_features": [
+      "Descending paralysis",
+      "Blurred vision",
+      "Dry mouth",
+      "Dysarthria",
+      "Respiratory failure"
+    ],
+    "types": [
+      "Food-borne (canned foods)",
+      "Infantile (spores in honey/dust)",
+      "Wound"
+    ],
+    "tags": [
+      "Clostridium_botulinum",
+      "neurotoxin",
+      "paralysis",
+      "SIDS_risk"
+    ]
+  },
+  {
+    "condition_name": "scombroid_poisoning",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Histamine response due to ingestion of spoiled fish (Tuna, Mackerel, Mahi-mahi).",
+    "incubation_period": "< 1 hour",
+    "features": [
+      "Allergic-like reaction",
+      "GIT symptoms"
+    ],
+    "tags": [
+      "histamine",
+      "fish_poisoning",
+      "bluefish"
+    ]
+  },
+  {
+    "condition_name": "food_allergy_type_1",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Immediate IgE-mediated hypersensitivity reaction.",
+    "onset": "Within 1 hour",
+    "features": [
+      "Anaphylaxis",
+      "Urticaria",
+      "Angioedema",
+      "Bronchospasm"
+    ],
+    "common_allergens": [
+      "Cow's milk (beta lactoglobulin)",
+      "Egg white",
+      "Peanuts",
+      "Shrimp"
+    ],
+    "tags": [
+      "anaphylaxis",
+      "IgE",
+      "immediate_reaction"
+    ]
+  },
+  {
+    "condition_name": "food_allergy_type_3",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Intermediate Arthus-type immune complex reaction (IgG mediated).",
+    "onset": "8-24 hours",
+    "features": [
+      "Primarily gastrointestinal symptoms"
+    ],
+    "tags": [
+      "IgG",
+      "immune_complex",
+      "intermediate_allergy"
+    ]
+  },
+  {
+    "condition_name": "food_intolerance",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Non-immunological adverse reaction to food components.",
+    "examples": [
+      "Lactose intolerance",
+      "MSG (Aginomoto) intolerance"
+    ],
+    "tags": [
+      "non_immunological",
+      "intolerance"
+    ]
+  },
+  {
+    "condition_name": "foetal_origins_of_adult_disease_foad",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "The 'Barker Hypothesis' proposing that foetal undernutrition leads to permanent metabolic programming and adult CVD/Diabetes.",
+    "mechanisms": [
+      "Brain-sparing adaptation",
+      "Reduced pancreatic beta cell mass",
+      "Low nephron numbers",
+      "Up-regulation of HPA axis"
+    ],
+    "indicators": {
+      "low_ponderal_index": "Stronger predictor of CHD than birth weight.",
+      "small_baby_syndrome": "Consistent relation to insulin resistance and hypertension."
+    },
+    "tags": [
+      "Barker_hypothesis",
+      "thrifty_phenotype",
+      "epigenetics",
+      "insulin_resistance"
+    ]
+  },
+  {
+    "condition_name": "anorexia_nervosa_bulimia",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Psychological eating disorders common in adolescent dieters seeking to remain slim.",
+    "features": [
+      "Distorted body image",
+      "Severe caloric restriction (Anorexia)",
+      "Binge-purge cycles (Bulimia)"
+    ],
+    "tags": [
+      "adolescent_nutrition",
+      "eating_disorders",
+      "psychological_distress"
+    ]
+  },
+  {
+    "condition_name": "precocious_puberty",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Appearance of secondary sexual characteristics before the expected age.",
+    "diagnostic_age": {
+      "girls": "< 8 years",
+      "boys": "< 9 years"
+    },
+    "tags": [
+      "adolescent_growth",
+      "hormonal_imbalance"
+    ]
+  },
+  {
+    "condition_name": "chronic_energy_deficiency_ced",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Prolonged inadequate energy intake leading to low BMI, common in adolescents and prospective mothers.",
+    "bmi_thresholds": {
+      "underweight_ced": "< 15 kg/m2",
+      "severe_underweight": "< 13 kg/m2"
+    },
+    "tags": [
+      "BMI",
+      "CED",
+      "undernutrition",
+      "adolescent_growth"
+    ]
+  },
+  {
+    "condition_name": "acne_vulgaris",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Common skin condition in adolescence influenced by hormones and diet.",
+    "nutritional_management": {
+      "avoid": [
+        "Fatty foods",
+        "Chocolates",
+        "Soft drinks",
+        "Beer"
+      ],
+      "supplement": [
+        "Vitamin A",
+        "Zinc",
+        "Polyunsaturated fats (PUFA)"
+      ]
+    },
+    "tags": [
+      "skin_health",
+      "adolescence",
+      "acne_diet"
+    ]
+  },
+  {
+    "condition_name": "sarcopenia",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Progressive loss of skeletal muscle mass and strength associated with aging, replaced by fat.",
+    "effects": [
+      "Reduced BMR (5% decline per decade)",
+      "Increased risk of falls and fractures"
+    ],
+    "management": "Resistance exercise and adequate protein intake.",
+    "tags": [
+      "geriatric",
+      "muscle_wasting",
+      "BMR_decline"
+    ]
+  },
+  {
+    "condition_name": "pernicious_anaemia_geriatric",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Vitamin B12 deficiency common in the elderly due to hypochlorhydria (reduced gastric acid).",
+    "prevalence": "Approximately 1/3 of older adults.",
+    "tags": [
+      "B12_deficiency",
+      "hypochlorhydria",
+      "anaemia"
+    ]
+  },
+  {
+    "condition_name": "dysphagia_geriatric",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Difficulty in swallowing resulting from stroke, Alzheimer's, or physiological changes.",
+    "risks": [
+      "Dehydration",
+      "Weight loss",
+      "Nutritional deficiencies"
+    ],
+    "management": "ADA Level 1-4 textured diets.",
+    "tags": [
+      "swallowing_difficulty",
+      "geriatric_care"
+    ]
+  },
+  {
+    "condition_name": "pressure_ulcers_decubitus",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Skin breakdown caused by prolonged pressure, common in bedridden or institutionalized elderly.",
+    "stages": [
+      "Stage I to Stage IV (increasing severity)"
+    ],
+    "nutritional_requirements": {
+      "protein": "1-1.5 g/kg",
+      "calories": "30-35 kcal/kg",
+      "fluid": "25-35 cc/kg"
+    },
+    "tags": [
+      "skin_integrity",
+      "wound_healing",
+      "geriatric_nutrition"
+    ]
+  },
+  {
+    "condition_name": "xerostomia",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Lack of salivation (dry mouth) affecting over 70% of the elderly.",
+    "consequences": [
+      "Reduced appetite",
+      "Difficulty chewing",
+      "Denture discomfort"
+    ],
+    "tags": [
+      "salivation",
+      "oral_health",
+      "geriatric"
+    ]
+  },
+  {
+    "condition_name": "neonatal_bacterial_infection_imnci",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Critical clinical evaluation for infants 1 week to 2 months.",
+    "clinical_signs": [
+      "Convulsions",
+      "Fast breathing (> 60 breaths/min)",
+      "Severe chest indrawing",
+      "Nasal flaring or Grunting",
+      "Bulging fontanelle",
+      "Umbilical redness extending to skin",
+      "Lethargy or unconsciousness"
+    ],
+    "tags": [
+      "IMNCI",
+      "neonatal_sepsis",
+      "emergency_triage"
+    ]
+  },
+  {
+    "condition_name": "malaria_imnci_risk",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Fever evaluation based on endemic risk (High/Low).",
+    "clinical_signs": [
+      "Fever (temp >= 37.5 C or hot to touch)",
+      "Stiff neck",
+      "Fever present every day for > 7 days"
+    ],
+    "tags": [
+      "IMNCI",
+      "malaria",
+      "fever_evaluation"
+    ]
+  },
+  {
+    "condition_name": "rabies_exposure_classes",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Triage categories for post-exposure prophylaxis (PEP).",
+    "categories": {
+      "Class_I": "Licks on intact skin, touching animal. Treatment: None (if history reliable).",
+      "Class_II": "Minor scratches, no bleeding, licks on broken skin. Treatment: Immediate vaccination.",
+      "Class_III": "Multiple bites, bleeding wounds, mucosal contamination. Treatment: RIG + Vaccination."
+    },
+    "tags": [
+      "rabies",
+      "PEP",
+      "emergency_medicine"
+    ]
+  },
+  {
+    "condition_name": "ascariasis_roundworm",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Most common helminth infection (Ascaris lumbricoides), transmitted faecal-orally.",
+    "clinical_features": [
+      "Loeffler-like syndrome (cough, eosinophilia)",
+      "Worm mass obstruction",
+      "25% nutrient wastage"
+    ],
+    "management": "Piperazine or Pyrantel pamoate; deworming mandatory prior to elective surgery.",
+    "tags": [
+      "helminths",
+      "roundworm",
+      "nutrient_wastage",
+      "Loeffler_syndrome"
+    ]
+  },
+  {
+    "condition_name": "ancylostomiasis_hookworm",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Intestinal parasite sucking up to 0.2 ml blood per worm per day.",
+    "manifestations": [
+      "Iron deficiency anaemia",
+      "Hypoalbuminaemia",
+      "Ground itch at penetration site"
+    ],
+    "management": "Albendazole, Mebendazole, or Pyrantel pamoate.",
+    "tags": [
+      "hookworm",
+      "anaemia",
+      "blood_loss",
+      "helminths"
+    ]
+  },
+  {
+    "condition_name": "scarabiasis_dung_beetle_disease",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Passage of live adult dung beetles per rectum, common in unclothed children.",
+    "mechanism": "Beetles crawl up through the anus due to faecal smell and warmth; they do not develop in the gut.",
+    "management": "Warm soap and water enema; prevention of reinfection.",
+    "tags": [
+      "scarabiasis",
+      "dung_beetle",
+      "rectal_passage"
+    ]
+  },
+  {
+    "condition_name": "tuberculosis_pediatric",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Chronic infection (Robert Koch, 1882) leading to a vicious cycle with malnutrition.",
+    "diagnosis": [
+      "Gastric aspirate for AFB",
+      "Mantoux test (>10 mm)",
+      "Chest X-ray"
+    ],
+    "management": "DOTS (Directly Observed Treatment Short-course) using HRZE drugs.",
+    "tags": [
+      "TB",
+      "DOTS",
+      "AFB",
+      "pulmonary_tuberculosis"
+    ]
+  },
+  {
+    "condition_name": "multidrug_resistant_tb_mdr",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Tuberculosis resistant to at least INH and Rifampicin.",
+    "management": "DOTS-Plus (Category IV) using 6 drugs (Kanamycin, Ofloxacin, Ethionamide, etc.) for 18-24 months.",
+    "tags": [
+      "MDR-TB",
+      "DOTS-Plus",
+      "drug_resistance"
+    ]
+  },
+  {
+    "condition_name": "water_intoxication_hyponatraemia",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Critical electrolyte imbalance (low sodium) caused by over-consumption of water relative to exertion/loss, common in recreational exercisers.",
+    "risks": [
+      "Neurological dysfunction",
+      "Cerebral oedema",
+      "Fatality if untreated"
+    ],
+    "tags": [
+      "sports_nutrition",
+      "hydration",
+      "hyponatraemia"
+    ]
+  },
+  {
+    "condition_name": "diverticulosis",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Condition where small pouches (diverticula) form in the intestinal wall, often managed by a high-fiber diet.",
+    "nutritional_management": "Increased intake of insoluble and soluble fiber (20-35 g/day) to prevent constipation and add stool bulk.",
+    "tags": [
+      "fiber",
+      "GI_health",
+      "constipation_prevention"
+    ]
+  },
+  {
+    "condition_name": "heat_exhaustion_stroke",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Spectrum of heat illness caused by severe dehydration and thermoregulatory failure.",
+    "symptoms": [
+      "Dizziness",
+      "Muscle cramps",
+      "Fatigue",
+      "Loss of consciousness"
+    ],
+    "risks": [
+      "Dehydration > 2% body weight",
+      "Elevated exercise heart rate"
+    ],
+    "tags": [
+      "heat_stroke",
+      "sports_medicine",
+      "dehydration"
+    ]
+  },
+  {
+    "condition_name": "foot_strike_haemolysis",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Mechanical damage to red blood cells in the feet due to running on hard surfaces with poor footwear.",
+    "consequence": "Iron loss leading to athletic anaemia/deficiency.",
+    "prevention": [
+      "High-quality footwear",
+      "Soft running surfaces"
+    ],
+    "tags": [
+      "iron_deficiency",
+      "sports_anaemia",
+      "haemolysis"
+    ]
+  },
+  {
+    "condition_name": "glycogen_depletion_bonking",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Total exhaustion of muscle/liver glycogen stores (typically after 2 hours of moderate-high intensity exercise), leading to sudden fatigue and performance collapse.",
+    "clinical_signs": [
+      "Hitting the wall",
+      "Sudden power drop",
+      "Mental confusion"
+    ],
+    "management": "Refueling with easily digestible carbohydrates during exercise (30-60g/hr) and high-CHO recovery meals.",
+    "tags": [
+      "glycogen",
+      "bonking",
+      "endurance_exercise",
+      "hitting_the_wall"
+    ]
+  },
+  {
+    "condition_name": "rapid_infancy_catch_up_growth",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Accelerated weight/height gain in infants (especially SGA) intended to correct early growth faltering.",
+    "long_term_risks": [
+      "Obesity in childhood and later life",
+      "Early insulin resistance",
+      "Adverse effects on body composition and puberty",
+      "Metabolic Syndrome"
+    ],
+    "tags": [
+      "catch_up_growth",
+      "SGA",
+      "insulin_resistance",
+      "obesity_risk"
+    ]
+  },
+  {
+    "condition_name": "early_adiposity_rebound",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Premature increase in BMI following the nadir (usually at 5-6 years), associated with metabolic risks.",
+    "consequences": [
+      "Increased adult BMI",
+      "Non-communicable disease (NCD) predisposition",
+      "Undue fatness"
+    ],
+    "tags": [
+      "adiposity_rebound",
+      "NCD_risk",
+      "BMI_trajectory"
+    ]
+  },
+  {
+    "condition_name": "global_developmental_retardation_nutritional",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Delay in motor, adaptive, language, and social domains caused by early-life multideprivation.",
+    "pathophysiology": [
+      "Reduced nerve conduction velocity",
+      "Electrophysiological changes",
+      "Structural/biochemical brain alterations"
+    ],
+    "management": "Composite stimulation package (Nutritional input + Developmental stimulation + Psychosocial support).",
+    "tags": [
+      "developmental_delay",
+      "brain_growth",
+      "malnutrition_impact"
+    ]
+  },
+  {
+    "condition_name": "nutritional_brain_growth_faltering",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Failure to achieve 80% brain volume by age 2 due to chronic malnutrition.",
+    "critical_period": "First 24 months (rapid brain growth phase)",
+    "impact": [
+      "Intellectual impairment",
+      "Reduced synaptic connectivity",
+      "Incomplete myelination"
+    ],
+    "tags": [
+      "brain_development",
+      "critical_window",
+      "myelination"
+    ]
+  },
+  {
+    "condition_name": "stranger_anxiety",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Normal developmental phase occurring around 6 months where the infant shows distress towards unfamiliar faces.",
+    "clinical_notes": "Peak occurs between 6-9 months; signifies healthy attachment to primary caretakers.",
+    "tags": [
+      "developmental_phase",
+      "social_milestone",
+      "attachment"
+    ]
+  },
+  {
+    "condition_name": "intellectual_retardation_spectrum",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Deficit in cognitive ability measured by IQ, categorized into levels of functional capability.",
+    "classification": {
+      "borderline": "70-85 (Educational vulnerability)",
+      "mild_educable": "50-70 (Special classes)",
+      "moderate_trainable": "35-50 (Workshop setting)",
+      "severe": "20-35 (Self-care training)",
+      "profound": "Below 20 (Custodian care)"
+    },
+    "tags": [
+      "mental_retardation",
+      "IQ_levels",
+      "cognitive_deficit"
+    ]
+  },
+  {
+    "condition_name": "omega_6_lipid_toxicity",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Adverse effects from high omega-6 to omega-3 ratios (e.g., > 5:1), common in sunflower/safflower oils.",
+    "risks": [
+      "Angiotoxicity",
+      "Impaired immune function",
+      "Platelet aggregation",
+      "Albuminuria"
+    ],
+    "management": "Shift to oils with medium chain triglycerides (MCTs) like coconut oil to achieve ratio < 5:1.",
+    "tags": [
+      "lipid_balance",
+      "coconut_oil",
+      "angiotoxicity",
+      "omega_ratios"
+    ]
+  },
+  {
+    "condition_name": "functional_isolation_nutritional",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Behavioral state in severely malnourished children where they withdraw from the environment and fail to interact or seek stimulation.",
+    "consequences": [
+      "Delayed psychosocial development",
+      "Cognitive stunting",
+      "Lack of mother-child interaction"
+    ],
+    "management": "Composite Stimulation Package (STIM) to re-engage the child with the environment.",
+    "tags": [
+      "malnutrition_behavior",
+      "environmental_withdrawal",
+      "stimulation"
+    ]
+  }
+]

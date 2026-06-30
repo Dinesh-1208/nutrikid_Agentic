@@ -1,0 +1,2161 @@
+[
+  {
+    "goal_name": "balanced_nutrition",
+    "required_tags": [
+      "diverse_food_groups",
+      "balanced_diet"
+    ],
+    "avoid_tags": [
+      "single_food_dependency"
+    ],
+    "meal_frequency": 3
+  },
+  {
+    "goal_name": "disease_prevention",
+    "required_tags": [
+      "healthy_diet",
+      "physical_activity"
+    ],
+    "avoid_tags": [
+      "sedentary_lifestyle",
+      "junk_food"
+    ],
+    "meal_frequency": 3
+  },
+  {
+    "goal_name": "weight_management",
+    "required_tags": [
+      "controlled_calorie",
+      "balanced_macros"
+    ],
+    "avoid_tags": [
+      "high_calorie_processed"
+    ],
+    "meal_frequency": 4
+  },
+  {
+    "goal_name": "balanced_diet",
+    "required_tags": [
+      "variety_food_groups",
+      "macro_micro_balance"
+    ],
+    "avoid_tags": [
+      "monotonic_diet"
+    ],
+    "meal_frequency": 3
+  },
+  {
+    "goal_name": "healthy_eating_habit",
+    "required_tags": [
+      "vegetables_daily",
+      "fruits_daily",
+      "whole_grains"
+    ],
+    "avoid_tags": [
+      "snacking",
+      "junk_food"
+    ],
+    "meal_frequency": 3
+  },
+  {
+    "goal_name": "macro_balance",
+    "required_tags": [
+      "carb_50_60",
+      "protein_10_15",
+      "fat_20_30"
+    ],
+    "avoid_tags": [
+      "imbalanced_macros"
+    ],
+    "meal_frequency": 3
+  },
+  {
+    "goal_name": "diet_diversity",
+    "required_tags": [
+      "5_food_groups"
+    ],
+    "avoid_tags": [
+      "limited_food_groups"
+    ],
+    "meal_frequency": 3
+  },
+  {
+    "goal_name": "balanced_macro_distribution",
+    "required_tags": [
+      "carb_50_60",
+      "protein_10_15",
+      "fat_20_30"
+    ],
+    "avoid_tags": [
+      "high_fat",
+      "low_protein"
+    ],
+    "meal_frequency": 3
+  },
+  {
+    "goal_name": "age_based_nutrition",
+    "required_tags": [
+      "age_specific_diet"
+    ],
+    "avoid_tags": [],
+    "meal_frequency": 3
+  },
+  {
+    "goal_name": "nutrient_adequacy",
+    "required_tags": [
+      "balanced_micro_macro"
+    ],
+    "avoid_tags": [
+      "deficiency"
+    ],
+    "meal_frequency": 3
+  },
+  {
+    "goal_name": "healthy_pregnancy",
+    "required_tags": [
+      "extra_calories",
+      "folate",
+      "iron"
+    ],
+    "avoid_tags": [
+      "junk_food"
+    ],
+    "meal_frequency": 4
+  },
+  {
+    "goal_name": "healthy_lactation",
+    "required_tags": [
+      "high_energy",
+      "high_protein"
+    ],
+    "avoid_tags": [],
+    "meal_frequency": 5
+  },
+  {
+    "goal_name": "pregnancy_weight_management",
+    "required_tags": [
+      "balanced_calories"
+    ],
+    "avoid_tags": [
+      "excess_fat",
+      "refined_cereals"
+    ],
+    "meal_frequency": 4
+  },
+  {
+    "goal_name": "iron_boost",
+    "required_tags": [
+      "iron_rich",
+      "vitamin_c"
+    ],
+    "avoid_tags": [
+      "tea_with_meals"
+    ],
+    "meal_frequency": 3
+  },
+  {
+    "goal_name": "breast_milk_optimization",
+    "required_tags": [
+      "frequent_feeding",
+      "balanced_diet"
+    ],
+    "avoid_tags": [],
+    "meal_frequency": 5
+  },
+  {
+    "goal_name": "optimal_breastfeeding",
+    "required_tags": [
+      "frequent_feeding",
+      "balanced_diet"
+    ],
+    "avoid_tags": [],
+    "meal_frequency": 5
+  },
+  {
+    "goal_name": "infant_growth",
+    "required_tags": [
+      "high_energy",
+      "high_protein",
+      "micronutrient_rich"
+    ],
+    "avoid_tags": [
+      "low_nutrition"
+    ],
+    "meal_frequency": 3
+  },
+  {
+    "goal_name": "dietary_diversity",
+    "required_tags": [
+      "cereals",
+      "pulses",
+      "nuts",
+      "milk",
+      "vegetables",
+      "fruits"
+    ],
+    "avoid_tags": [],
+    "meal_frequency": 3
+  },
+  {
+    "goal_name": "infant_weight_gain",
+    "required_tags": [
+      "energy_dense",
+      "frequent_meals",
+      "high_calorie"
+    ],
+    "avoid_tags": [
+      "low_calorie"
+    ],
+    "meal_frequency": 4
+  },
+  {
+    "goal_name": "safe_feeding",
+    "required_tags": [
+      "hygiene",
+      "safe_storage",
+      "clean_preparation"
+    ],
+    "avoid_tags": [
+      "unsafe_food",
+      "stale_food"
+    ],
+    "meal_frequency": 3
+  },
+  {
+    "goal_name": "digestive_support",
+    "required_tags": [
+      "easy_digest",
+      "enzyme_rich"
+    ],
+    "avoid_tags": [
+      "hard_to_digest"
+    ],
+    "meal_frequency": 3
+  },
+  {
+    "goal_name": "increase_energy_density",
+    "required_tags": [
+      "energy_dense",
+      "nutrient_dense"
+    ],
+    "avoid_tags": [
+      "low_calorie"
+    ],
+    "meal_frequency": 4
+  },
+  {
+    "goal_name": "improve_digestion_infants",
+    "required_tags": [
+      "easy_digest",
+      "enzyme_rich"
+    ],
+    "avoid_tags": [
+      "hard_to_digest"
+    ],
+    "meal_frequency": 4
+  },
+  {
+    "goal_name": "safe_infant_feeding",
+    "required_tags": [
+      "fresh_food",
+      "hygienic_preparation"
+    ],
+    "avoid_tags": [
+      "stale_food",
+      "processed_food"
+    ],
+    "meal_frequency": 4
+  },
+  {
+    "goal_name": "improve_digestibility",
+    "required_tags": [
+      "easy_digest",
+      "enzyme_rich"
+    ],
+    "avoid_tags": [
+      "hard_food"
+    ],
+    "meal_frequency": 4
+  },
+  {
+    "goal_name": "infant_growth_support",
+    "required_tags": [
+      "protein_rich",
+      "balanced_meal"
+    ],
+    "avoid_tags": [
+      "nutrient_poor"
+    ],
+    "meal_frequency": 4
+  },
+  {
+    "goal_name": "support_infant_growth",
+    "required_tags": [
+      "protein_rich",
+      "nutrient_dense"
+    ],
+    "avoid_tags": [
+      "low_nutrition"
+    ],
+    "meal_frequency": 4
+  },
+  {
+    "goal_name": "prevent_malnutrition",
+    "required_tags": [
+      "frequent_meals",
+      "balanced_food"
+    ],
+    "avoid_tags": [
+      "skipping_meals"
+    ],
+    "meal_frequency": 4
+  },
+  {
+    "goal_name": "healthy_snacking",
+    "required_tags": [
+      "natural_food",
+      "home_made"
+    ],
+    "avoid_tags": [
+      "junk_food",
+      "added_sugar"
+    ],
+    "meal_frequency": 2
+  },
+  {
+    "goal_name": "healthy_pregnancy",
+    "required_tags": [
+      "extra_calories",
+      "extra_protein",
+      "micronutrients"
+    ],
+    "avoid_tags": [
+      "junk_food"
+    ],
+    "meal_frequency": 4
+  },
+  {
+    "goal_name": "infant_weight_gain",
+    "required_tags": [
+      "energy_dense",
+      "frequent_meals"
+    ],
+    "avoid_tags": [
+      "low_calorie"
+    ],
+    "meal_frequency": 4
+  },
+  {
+    "goal_name": "safe_feeding",
+    "required_tags": [
+      "hygiene",
+      "safe_storage"
+    ],
+    "avoid_tags": [
+      "unsafe_food"
+    ],
+    "meal_frequency": 3
+  },
+  {
+    "goal_name": "digestive_support",
+    "required_tags": [
+      "easy_digest",
+      "enzyme_rich"
+    ],
+    "avoid_tags": [],
+    "meal_frequency": 3
+  },
+  {
+    "goal_name": "exclusive_breastfeeding",
+    "required_tags": [],
+    "avoid_tags": [
+      "prelacteal_feeds",
+      "water",
+      "artificial_teats"
+    ],
+    "meal_frequency": "on_demand",
+    "duration": "0-6 months"
+  },
+  {
+    "goal_name": "continued_breastfeeding",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "duration": "up to 2 years",
+    "benefits": [
+      "brain_growth",
+      "myelination"
+    ]
+  },
+  {
+    "goal_name": "complementary_feeding",
+    "required_tags": [
+      "weaning_foods"
+    ],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "start_age": "4-6 months"
+  },
+  {
+    "goal_name": "minimal_enteral_feeding",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "target": "preterm_babies_on_TPN",
+    "benefits": [
+      "gut_maturation",
+      "prevent_mucosal_atrophy"
+    ],
+    "method": "few drops of colostrum"
+  },
+  {
+    "goal_name": "warm_chain",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "target": "LBW_babies",
+    "description": "Maintenance of optimum temperature during transport and care"
+  },
+  {
+    "goal_name": "catch_up_growth",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "target": "LBW_preterm",
+    "expected_gain": "200g per week for term babies"
+  },
+  {
+    "goal_name": "family_pot_feeding",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "target_age": "12 months",
+    "description": "The child should be taking everything cooked at home by one year of age.",
+    "rules": [
+      "gradual_switch",
+      "thickened_and_mashed",
+      "no_hot_spices"
+    ]
+  },
+  {
+    "goal_name": "safety_net",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "target": "malnutrition_prevention",
+    "components": [
+      "supplementary_feeding",
+      "group_eating",
+      "akshayapatra_concept"
+    ]
+  },
+  {
+    "goal_name": "qualitative_adaptation",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Process of adapting cow's milk for infant formula to achieve a composition closer to breast milk.",
+    "steps": [
+      "dilution",
+      "adding_carbohydrate",
+      "adding_fat",
+      "modifying_mineral_profile"
+    ]
+  },
+  {
+    "goal_name": "neat_programme",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Nutritional Education aimed at Toddlers to improve parental practices and child intake.",
+    "target": "low_income_caregivers"
+  },
+  {
+    "goal_name": "internal_regulation_of_eating",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Goal for infantile anorexia treatment to remove conflict and restore self-regulation.",
+    "method": "reduce stress and control at mealtime"
+  },
+  {
+    "goal_name": "iodine_prophylaxis",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Universal salt iodization to prevent deficiency.",
+    "standard": "Consumer level salt must contain 15 ppm iodine."
+  },
+  {
+    "goal_name": "anaemia_prophylaxis",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Iron and folic acid supplementation for high-risk children.",
+    "dosage": "Folifer Paed: 20mg elemental iron + 100mcg folic acid for 3 months."
+  },
+  {
+    "goal_name": "vitamin_a_prophylaxis",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "schedule": "9 doses between 9 months and 5 years, every 6 months."
+  },
+  {
+    "goal_name": "vitamin_d_sunlight",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "method": "Expose babies to sunlight after oiling."
+  },
+  {
+    "goal_name": "bovine_milk_avoidance",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "rule": "Avoid for first 2 years to prevent iron deficiency and GI blood loss."
+  },
+  {
+    "goal_name": "balanced_diet_adult_male",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "components": {
+      "cereal_g": 400,
+      "legumes_g": 60,
+      "roots_tubers_g": 50,
+      "vegetables_g": 50,
+      "glv_g": 50,
+      "fruits_g": 50,
+      "milk_ml": 250,
+      "oil_fats_g": 30,
+      "sugar_g": 30
+    }
+  },
+  {
+    "goal_name": "rda_vitamins_minerals",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "allowances": {
+      "vitamin_a_iu": 1500,
+      "vitamin_d_iu": 400,
+      "vitamin_e_mg": [
+        5,
+        15
+      ],
+      "thiamine_mg": [
+        0.5,
+        1.5
+      ],
+      "riboflavin_mg": [
+        0.5,
+        1.5
+      ],
+      "niacin_mg": [
+        5,
+        15
+      ],
+      "folic_acid_mcg": [
+        50,
+        150
+      ],
+      "cyanocobalamine_mcg": [
+        0.5,
+        1.5
+      ],
+      "vitamin_c_mg": 40,
+      "calcium_mg": [
+        500,
+        1000
+      ],
+      "phosphorus_mg": [
+        800,
+        1000
+      ],
+      "magnesium_mg": [
+        200,
+        300
+      ],
+      "iron_mg": [
+        10,
+        20
+      ],
+      "iodine_mcg": [
+        50,
+        150
+      ],
+      "zinc_mg": [
+        5,
+        15
+      ],
+      "fluoride_mg": [
+        1,
+        5
+      ],
+      "selenium_mcg": 100,
+      "chromium_mcg": 10
+    }
+  },
+  {
+    "goal_name": "arf_preparation",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "steps": [
+      "Soak grain with 3x water for 12 hours",
+      "Drain and wrap in moist muslin cloth for 48 hours to germinate",
+      "Dry germinated grain in sunlight for 8 hours",
+      "Devegetate/remove sprouts",
+      "Roast at 80\u00b0C for 10 mins until brittle",
+      "Grind to fine powder"
+    ]
+  },
+  {
+    "goal_name": "safe_food_processing",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "rules": [
+      "Wash before cutting, not after",
+      "Use minimum water for boiling; use leftover water for soups",
+      "Avoid deep frying at high temperatures (toxic volatiles)",
+      "Steam or pressure cook for maximum nutrient retention",
+      "Cook rice with 2 to 2.5 times water"
+    ]
+  },
+  {
+    "goal_name": "coefficient_calorie_requirement",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "scales": {
+      "1-3 yrs": 0.4,
+      "3-5 yrs": 0.5,
+      "5-7 yrs": 0.6,
+      "7-9 yrs": 0.7,
+      "9-12 yrs": 0.8,
+      "12-21 yrs": 1.0
+    }
+  },
+  {
+    "goal_name": "rainbow_revolution_consumption",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "colors": [
+      "Green",
+      "Yellow",
+      "Orange",
+      "Red",
+      "Violet",
+      "Indigo",
+      "Blue"
+    ]
+  },
+  {
+    "goal_name": "nutrient_declaration_compliance",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "type_i": {
+      "definition": "Regulatory min/max (e.g., added Vitamin C, low fat)",
+      "compliance": "90-110% of declared value"
+    },
+    "type_ii": {
+      "definition": "Naturally occurring without regulation",
+      "compliance": ">80% of declared value"
+    }
+  },
+  {
+    "goal_name": "probiotic_exposure_target",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "ancestral_baseline": "1,000,000x current Western intake"
+  },
+  {
+    "goal_name": "anthropometric_expected_norms",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "weight_kg": {
+      "birth": 3,
+      "3_to_12_months": "(age_months + 9) / 2",
+      "1_to_6_years": "(age_years * 2) + 8",
+      "7_to_12_years": "(age_years * 7 - 5) / 2"
+    },
+    "height_cm": {
+      "birth": 50,
+      "3_months": 60,
+      "1_year": 75,
+      "2_to_12_years": "(age_years * 6) + 77"
+    }
+  },
+  {
+    "goal_name": "environmental_health_commandments",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "rules": [
+      "Safe drinking water",
+      "Sanitary disposal of excreta",
+      "Proper waste disposal",
+      "Air pollution control",
+      "Noise reduction",
+      "Proper housing standards",
+      "Prevention of radiation exposure",
+      "Control of biological hazards"
+    ]
+  },
+  {
+    "goal_name": "socioeconomic_status_assessment",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "tool": "Kuppuswami Scale",
+    "factors": [
+      "Education",
+      "Occupation",
+      "Income"
+    ],
+    "poverty_line_baseline": "Rs 372 per capita per month (2000 AD)"
+  },
+  {
+    "goal_name": "child_survival_packages",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "GOBIFFF": [
+      "Growth Monitoring",
+      "Oral Rehydration",
+      "Breastfeeding",
+      "Immunization",
+      "Food Supplementation",
+      "Female Education",
+      "Family Planning"
+    ]
+  },
+  {
+    "goal_name": "jelliffe_clinical_signs_checklist",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "organ_systems": {
+      "Hair": [
+        "Lack of lustre",
+        "Flag sign",
+        "Easy pluckability"
+      ],
+      "Face": [
+        "Moon face",
+        "Naso-labial dyssebacia"
+      ],
+      "Eyes": [
+        "Bitot's spots",
+        "Conjunctival xerosis",
+        "Keratomalacia"
+      ],
+      "Lips_Tongue": [
+        "Angular stomatitis",
+        "Cheilosis",
+        "Atrophic papillae"
+      ],
+      "Skin": [
+        "Xerosis",
+        "Flaky-paint dermatosis",
+        "Pellagrous dermatosis"
+      ],
+      "Skeletal": [
+        "Craniotabes",
+        "Rachitic rosary",
+        "Knock-knees"
+      ],
+      "Nervous": [
+        "Psychomotor change",
+        "Loss of ankle/knee jerks"
+      ]
+    }
+  },
+  {
+    "goal_name": "ecology_of_pem_assessment",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "jelliffe_factors": [
+      "Conditioning influences (LBW, Infection)",
+      "Cultural practices (Food fads, child rearing)",
+      "Socio-economic factors (Poverty, Overcrowding)",
+      "Food production and intake (Delayed weaning)",
+      "Utilization of health services (Surveillance gaps)"
+    ]
+  },
+  {
+    "goal_name": "brain_growth_benchmarks",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "size_relative_to_adult": {
+      "birth": "25%",
+      "6_months": "50%",
+      "2_years": "75%",
+      "5_years": "90%",
+      "10_years": "95%"
+    },
+    "critical_period": "mid-gestation to early pre-school years"
+  },
+  {
+    "goal_name": "nutritional_immunomodulation_protocol",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "active_agents": [
+      "Curd/Yogurt",
+      "Leaf Protein Concentrate (LPC)"
+    ],
+    "mechanism": "Balance SIRS/CARS by modulating pro/anti-inflammatory cytokines",
+    "biological_markers": [
+      "TNF-alpha",
+      "IFN-gamma",
+      "IL-10",
+      "IL-4"
+    ]
+  },
+  {
+    "goal_name": "behavioral_screening_indicators",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "negative_behaviors": [
+      "Transient Autism (functional isolation)",
+      "Withdrawal from competition",
+      "Timid/Anxious behavior",
+      "Poor impulse control",
+      "Erratic activity"
+    ]
+  },
+  {
+    "goal_name": "who_sam_management_steps",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "steps": [
+      "1. Hypoglycaemia (Stabilization)",
+      "2. Hypothermia (Stabilization)",
+      "3. Dehydration (Stabilization)",
+      "4. Electrolytes (Stabilization)",
+      "5. Infection (Stabilization)",
+      "6. Micronutrients (Stabilization/Rehab)",
+      "7. Cautious Feeding (F-75) (Stabilization)",
+      "8. Catch-up Growth (F-100) (Rehab)",
+      "9. Sensory Stimulation (Rehab)",
+      "10. Follow-up (Post-discharge)"
+    ]
+  },
+  {
+    "goal_name": "nimfes_comprehensive_care",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "components": {
+      "Nutrition": "Growth monitoring and supplementation",
+      "Immunization": "Age-appropriate vaccines",
+      "Medical_care": "Prompt management of infections",
+      "Family_planning": "Spacing and timing of births",
+      "Education": "Mothercraft and hygiene training",
+      "Stimulation": "Developmental surveillance and TLC"
+    }
+  },
+  {
+    "goal_name": "sam_discharge_criteria",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "mandatory": [
+      "Weight-for-length 90% (or -1 SD)",
+      "No oedema",
+      "Eating 120-130 kcal/kg/day",
+      "Consistent weight gain (>5 g/kg/day for 3 days)",
+      "Social smile returned",
+      "Caregivers trained"
+    ],
+    "early_discharge_conditions": [
+      "Child > 1 year",
+      "Good appetite and weight gain",
+      "No oedema",
+      "Antibiotic course completed",
+      "Vitamin A and minerals given for 2 weeks",
+      "Motivated and trained mother",
+      "Local Health Worker support available"
+    ]
+  },
+  {
+    "goal_name": "energy_balance_maintenance",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Achieve a match between energy intake and energy expenditure to prevent obesity.",
+    "components": {
+      "intake": "Calorie content of food (4 kcal/g carb/protein, 9 kcal/g fat)",
+      "expenditure": "RMR + Meal-induced thermogenesis + Physical activity"
+    }
+  },
+  {
+    "goal_name": "neat_expenditure_boost",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Increase Non-Exercise Activity Thermogenesis (NEAT) to enhance daily energy expenditure.",
+    "examples": [
+      "Standing",
+      "Fidgeting",
+      "Walking during daily tasks",
+      "Avoiding prolonged sedentary time"
+    ]
+  },
+  {
+    "goal_name": "waist_hip_ratio_screening",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Assess risk of metabolic disease using WHR.",
+    "risk_thresholds": {
+      "males": "> 0.95",
+      "females": "> 0.80"
+    }
+  },
+  {
+    "goal_name": "barker_hypothesis_prevention",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Prevent early onset of adult diseases by ensuring adequate intrauterine nutrition and avoiding rapid postnatal overfeeding.",
+    "target": "IUGR babies",
+    "focus": "Balanced catch-up growth without excessive fat deposition."
+  },
+  {
+    "goal_name": "obesity_dietary_intervention",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Weight loss through structured calorie reduction.",
+    "standard_deficit": "600 kcal/day",
+    "diet_types": [
+      "Low Calorie Diet (LCD): 800-1500 kcal/day",
+      "Very Low Calorie Diet (VLCD): < 800 kcal/day (max 4 weeks)",
+      "Atkins: High-protein, low-carbohydrate",
+      "Formula: 40% CHO, 30% Pro, 30% Fat"
+    ],
+    "monitoring": "Food diary (account for 1/3 underestimation risk)"
+  },
+  {
+    "goal_name": "physical_activity_obesity",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "recommendation": "30 minutes of moderate-intensity activity 5+ days/week.",
+    "moderate_intensity_test": "Breathing harder but can still talk comfortably.",
+    "extended_target": "45-60 minutes for fat utilization",
+    "avoidance": "Sit for no more than 30 minutes at a time."
+  },
+  {
+    "goal_name": "behavioural_stages_of_change",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "stages": [
+      "Pre-contemplation (No intention)",
+      "Contemplation (Awareness, no commitment)",
+      "Preparation (Intending action next month)",
+      "Active change (Modifying environment)",
+      "Maintenance (Preventing relapse)"
+    ]
+  },
+  {
+    "goal_name": "pharmacotherapy_orlistat_criteria",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Pancreatic lipase inhibitor for obesity management.",
+    "indications": [
+      "BMI >= 30",
+      "BMI >= 28 with comorbidities (Diabetes, Hypertension)"
+    ],
+    "success_metrics": [
+      "5% weight loss at 3 months",
+      "10% weight loss at 6 months"
+    ],
+    "age_limit": "18-75 years"
+  },
+  {
+    "goal_name": "weekly_iron_prophylaxis",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "target": "Adolescent girls and boys",
+    "strategy": "Directly observed swallow pill on Saturdays",
+    "rationale": "Intestinal mucosal cells renew every 4-5 days; weekly doses are theoretically conclusive for prophylaxis.",
+    "benefits": [
+      "Reduce future pregnancy anaemia",
+      "Improve concentration",
+      "Correct menstrual irregularities"
+    ]
+  },
+  {
+    "goal_name": "vitamin_a_treatment_schedule",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "target": "Clinically deficient or severe PEM children",
+    "regimen": "1 lakh units (< 1 yr) or 2 lakh units (> 1 yr) x 2 doses on consecutive days; repeat at 6 months.",
+    "special_note": " measles cases must receive one dose."
+  },
+  {
+    "goal_name": "dietary_micronutrient_optimization",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "strategies": [
+      "3 Gs: Greens, Grams, and Grains (Iron rich)",
+      "Avoid coffee/tea with meals (hinders iron absorption)",
+      "Include lime juice/citrus (Vitamin C enhances iron/calcium absorption)",
+      "Cooking in iron pots",
+      "GYOR: Green, Yellow, Orange, Red vegetables (Rainbow Revolution)"
+    ]
+  },
+  {
+    "goal_name": "periconceptional_folic_acid",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "target": "Couples planning pregnancy",
+    "dose": "400 mcg/day",
+    "critical_window": "First 4 weeks of pregnancy (Neurulation/NTD prevention)"
+  },
+  {
+    "goal_name": "universal_salt_iodisation_usi",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "standard": "30-50 ppm potassium iodate at manufacturing; 15 ppm at consumer level.",
+    "monitoring": "Urinary iodine dipstick analysis"
+  },
+  {
+    "goal_name": "holliday_segar_maintenance_fluid",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Standard calculation for maintenance calories and fluid based on weight.",
+    "rules": {
+      "0_to_10_kg": "100 ml or kcal/kg",
+      "10_to_20_kg": "1000 + 50 ml or kcal/kg (for each kg > 10)",
+      "above_20_kg": "1500 + 20 ml or kcal/kg (for each kg > 20)"
+    },
+    "adjustments": {
+      "fever": "+12% per 1 degree C rise",
+      "activity": "+30% for excessive; -30% for comatose",
+      "renal_cardiac_failure": "Reduce to 2/3 maintenance"
+    }
+  },
+  {
+    "goal_name": "dehydration_deficit_correction",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Replacement of extra losses based on percentage body weight deficit.",
+    "calculation": "1% deficit = 10 ml/kg fluid required.",
+    "strategy": "Correct 2/3 of calculated deficit (approx 20-100 ml/kg) in 3-6 hours.",
+    "fluids": [
+      "Normal Saline (NS)",
+      "Ringer Lactate (RL)",
+      "DNS if starving"
+    ]
+  },
+  {
+    "goal_name": "critical_care_energy_target",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Calorie and protein requirements during acute illness and stress.",
+    "hospital_calculation": "150-200 kcal/kg (observed weight) in moderate to severe malnutrition.",
+    "protein_target": "1.5-2 g/kg (maintenance); 3-4 g/kg (PEM recovery)",
+    "maximum_protein": "7 g/kg/day",
+    "fat_guideline": "25-45% of total calories; include MCT for malabsorption."
+  },
+  {
+    "goal_name": "potassium_replacement_protocol",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "maintenance": "1 ml of 15% KCl added to 100 ml IV fluid (2 mEq/L)",
+    "hypokalaemia_correction": "Up to 2 ml of 15% KCl per 100 ml IV fluid (40 mEq/L)",
+    "precaution": "Do not administer if IV fluid is not continued unless hypokalaemia is documented."
+  },
+  {
+    "goal_name": "enteral_nutrition_golden_rule",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "principle": "If the gut works, use it.",
+    "advantages": [
+      "Promotes GI function",
+      "Stimulates enteric trophic hormones (enteroglucagon, gastrin)",
+      "8x less costly than parenteral nutrition",
+      "Prevents mucosal atrophy"
+    ],
+    "target_osmolarity": "275-295 mOsm/L (Iso-osmolar with plasma)"
+  },
+  {
+    "goal_name": "tpn_indication_criteria",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Parenteral nutrition for patients who cannot eat, should not eat, or will not eat.",
+    "absolute_indications": [
+      "Intestinal failure (Short gut, pseudo-obstruction)",
+      "Necrotising enterocolitis (NEC)",
+      "Bowel rest required for > 2 weeks"
+    ],
+    "peripheral_pn_limit": "Glucose concentration <= 10-12%; Lipids allowed peripherally."
+  },
+  {
+    "goal_name": "parenteral_nutrient_dosing",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "infant_targets": {
+      "glucose": "15-30 g/kg/day (Rate: 6-12 mg/kg/min)",
+      "protein_amino_acids": "2.5-4 g/kg/day",
+      "fat_lipids": "1-3 g/kg/day",
+      "calories": "110 kcal/kg/day"
+    },
+    "weaning_protocol": "Stop TPN only when 70% of kilocalories are taken orally/enterally."
+  },
+  {
+    "goal_name": "tpn_monitoring_schedule",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "daily": [
+      "Weight",
+      "I/O chart",
+      "Dextrostix (4x)",
+      "Urine sugar/acetone",
+      "Electrolytes",
+      "Acid-base balance"
+    ],
+    "biweekly": [
+      "Haematocrit",
+      "Urea",
+      "Ammonia",
+      "Lipid profile",
+      "Calcium",
+      "Phosphorus"
+    ],
+    "weekly": [
+      "LFT",
+      "Total protein",
+      "Albumin",
+      "Creatinine",
+      "Blood culture"
+    ]
+  },
+  {
+    "goal_name": "ort_management_plans",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "WHO/UNICEF strategy for treating dehydration in diarrhoeal diseases.",
+    "plans": {
+      "plan_a": "No dehydration: 1/2 to 1 glass/purge of ORS or Home Available Fluids (HAF).",
+      "plan_b": "Some dehydration: 70-100 ml/kg ORS over 4 hours.",
+      "plan_c": "Severe dehydration: 100 ml/kg IV Ringer Lactate/Normal Saline over 3-6 hours."
+    },
+    "ors_composition_mmol_l": {
+      "sodium": 75,
+      "glucose": 75,
+      "potassium": 20,
+      "chloride": 65,
+      "citrate": 10
+    }
+  },
+  {
+    "goal_name": "ppn_12_percent_composition",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Standard 12% Partial Parenteral Nutrition solution preparation.",
+    "recipe": {
+      "10_percent_glucose": "400 ml",
+      "50_percent_glucose": "40 ml",
+      "normal_saline": "100 ml",
+      "sodium_bicarbonate_7.5": "15 ml",
+      "kcl_15": "5 ml",
+      "calcium_gluconate_10": "5 ml",
+      "mvi_paediatric": "2 cc"
+    }
+  },
+  {
+    "goal_name": "predicted_basal_metabolic_rate_pbmr",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Formulas to estimate caloric needs of the critically ill child.",
+    "who_equation_3_10yr": {
+      "boy": "(22.7 x Wt) + 495 kcal/day",
+      "girl": "(22.5 x Wt) + 499 kcal/day"
+    },
+    "correction_factors": {
+      "fever": "+12% per 1 degree C above 37",
+      "ards": "+20%",
+      "sepsis_trauma_surgery": "+10% to 30% depending on severity"
+    }
+  },
+  {
+    "goal_name": "stepwise_diarrhoea_dietary_management",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Dietary escalation for persistent or chronic diarrhoea.",
+    "levels": {
+      "level_1_low_milk": "50 ml/kg/day milk with curd and cereal gruel.",
+      "level_2_milk_free": "Cereal-pulse mix (SAT Mix) or amylase rich food (ARF).",
+      "level_3_lactose_sucrose_free": "Chicken glucose puree or soya-based formulas."
+    }
+  },
+  {
+    "goal_name": "diabetes_insulin_management",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "standard_dose": "1 unit/kg/day",
+    "distribution": {
+      "morning_2_3": "2/3 intermediate + 1/3 plain insulin",
+      "evening_1_3": "2/3 intermediate + 1/3 plain insulin"
+    },
+    "timing": "20 minutes prior to food",
+    "human_insulin_indication": "Requirement > 2 U/kg/day (indicates antibodies to bovine/porcine)"
+  },
+  {
+    "goal_name": "diabetes_exercise_carbohydrate_allowances",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "mild_exercise": "10-15 g CHO per hour",
+    "moderate_exercise": "25 g CHO before + 10-15 g/hr",
+    "severe_exercise": "50 g CHO before + 10-15 g/hr",
+    "precaution": "Avoid exercise if RBS > 300 mg/dl; No extra CHO if RBS 180-300 mg/dl."
+  },
+  {
+    "goal_name": "hyperlipidaemia_step_diets",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "step_1": {
+      "indication": "LDL > 110 mg/dl",
+      "fat_calories": "30% (Equal SFA/MUFA/PUFA ratio)",
+      "cholesterol_limit": "300 mg/day"
+    },
+    "step_2": {
+      "indication": "LDL > 130 mg/dl",
+      "fat_calories": "< 7%",
+      "cholesterol_limit": "200 mg/day"
+    }
+  },
+  {
+    "goal_name": "pritikin_lifetime_eating_plan",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "High-carbohydrate, high-fibre, low-fat diet for cardiovascular health.",
+    "targets": {
+      "fat_calories": "10%",
+      "carbohydrate_calories": "> 80%",
+      "protein_calories": "10-15%",
+      "fibre_target": "30-40 g per 1000 kcal",
+      "sodium_limit": "4 g NaCl/day",
+      "cholesterol_limit": "100 mg/day"
+    }
+  },
+  {
+    "goal_name": "obesity_protein_modified_fast_pmf",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Highly restrictive hypocaloric diet for severe obesity.",
+    "protocol": {
+      "protein_dose": "1.5-2.5 g/kg ideal weight per day",
+      "energy_limit": "< 50% RDA (approx 1000 kcal for adolescents)",
+      "sources": [
+        "Lean meat",
+        "Fish",
+        "Egg whites",
+        "Soya"
+      ],
+      "supplements": [
+        "KCl (25 mEq)",
+        "Calcium (800 mg)",
+        "Multivitamins"
+      ]
+    },
+    "monitoring": [
+      "Ketonuria",
+      "Nitrogen balance",
+      "Renal function",
+      "Hepatic function",
+      "Cardiac arrhythmias"
+    ]
+  },
+  {
+    "goal_name": "ketogenic_diet_seizure_protocol",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "indication": "Infantile and myoclonic seizures (e.g., West Syndrome, Lennox-Gastaut).",
+    "composition": {
+      "fat_calories": "80%",
+      "mct_proportion": "60% of fat (coconut/cotton seed oil)",
+      "carbohydrate_protein": "Remaining 20%",
+      "mechanism": "Increases inhibitory neurotransmitter GABA"
+    }
+  },
+  {
+    "goal_name": "pku_therapeutic_targets",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Management of Phenylketonuria.",
+    "phenylalanine_allowance": "25-50 mg/kg/day",
+    "serum_pa_target": "3-15 mg%",
+    "essential_addition": "Liberal tyrosine (precursor for melanin and dopamine)"
+  },
+  {
+    "goal_name": "msud_plasma_targets",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Acceptable plasma levels for MSUD management.",
+    "valine": "2.6 mg%",
+    "isoleucine": "0.9 mg%",
+    "leucine": "2.6 mg%",
+    "cofactor_therapy": "Thiamine (large doses)"
+  },
+  {
+    "goal_name": "galactosaemia_dietary_rules",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "absolute_exclusion": [
+      "All milk (breast, cow, goat)",
+      "Lactose",
+      "Organ meat (liver)",
+      "Baked foods with milk solids"
+    ],
+    "permitted_formulas": [
+      "Soya protein isolate (Nusobee, Zerolac)"
+    ],
+    "restricted": [
+      "Whole soya flour (due to stachyose/raffinose)"
+    ]
+  },
+  {
+    "goal_name": "food_allergy_diagnostic_protocol",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "gold_standard": "Elimination followed by double-blind placebo-controlled food challenge (DBPCFC).",
+    "steps": [
+      "Identify suspected allergen (Cow's milk, Egg, Soya)",
+      "Strict elimination diet for 2-4 weeks",
+      "Reintroduction/Challenge to confirm reproducibility",
+      "Follow-up: Discontinue elimination by age 3 as tolerance develops"
+    ]
+  },
+  {
+    "goal_name": "botulism_prevention_management",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "preventative_rules": [
+      "Adopt safe methods for canning",
+      "Reheat home-canned food to 80\u00b0C for 5-10 minutes (destroys toxin)",
+      "Avoid honey for infants < 1 year (SIDS risk)"
+    ],
+    "emergency_management": [
+      "Mechanical ventilation (descending paralysis)",
+      "Avoid aminoglycosides (potentiates NMJ block)",
+      "Supportive care"
+    ]
+  },
+  {
+    "goal_name": "food_poisoning_prevention_6fs",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "components": [
+      "Flies",
+      "Food",
+      "Fluid",
+      "Fingers",
+      "Faeces",
+      "Fomites"
+    ],
+    "action": "Ensure strict hygiene across all 6 channels to prevent bacterial transmission."
+  },
+  {
+    "goal_name": "adolescent_nutritional_targets",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Daily energy and micronutrient requirements for the transitional growth stage.",
+    "energy": {
+      "boys": "2400 kcal (Adult sedentary male equivalent)",
+      "girls": "2100 kcal"
+    },
+    "interventions": {
+      "weekly_iron": "Recommended to prevent anaemia and support prospective motherhood.",
+      "zinc_supplementation": "Shown to improve weight and height gain in LBW/malnourished adolescents."
+    }
+  },
+  {
+    "goal_name": "foetal_programming_prevention",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Breaking the intergenerational cycle of growth failure.",
+    "targets": {
+      "mother": "Maintenance of optimum BMI and waist/hip ratio (0.8 for women).",
+      "birth_indicator": "Ponderal Index (weight/length) monitoring.",
+      "girl_child": "Education and priority nutrition as a 'privileged child' and prospective mother."
+    },
+    "slogan": "When you educate a girl, you educate a generation."
+  },
+  {
+    "goal_name": "adolescent_healthy_campaign",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "principles": [
+      "Moderation: Avoid 'empty calories' from soft drinks and snacks.",
+      "Variety: Ensure diverse choices within each food group.",
+      "Breakfast: Essential 'brain food' to maintain classroom performance."
+    ]
+  },
+  {
+    "goal_name": "maternal_nutritional_additions",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Extra nutritional requirements during pregnancy and lactation.",
+    "pregnancy": {
+      "extra_calories": "+300 kcal/day",
+      "extra_protein": "+15 g/day",
+      "slogan": "Eating one extra meal for the baby."
+    },
+    "lactation": {
+      "extra_calories": "+500 kcal/day",
+      "extra_protein": "+25 g/day",
+      "fluid_requirement": "High fluid intake required"
+    }
+  },
+  {
+    "goal_name": "adolescent_immunization_schedule",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "tetanus_toxoid": "Booster at 10 and 16 years.",
+    "rubella": "1 dose for girls at 12-13 years (if not given earlier).",
+    "typhoid": "Repeat every 3-5 years.",
+    "hepatitis_b": "3 doses (0, 1, 6 months) if not given earlier."
+  },
+  {
+    "goal_name": "pre_pregnancy_readiness_targets",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "ideal_weight": "45 kg",
+    "ideal_height": "145 cm",
+    "minimum_acceptable": {
+      "weight": "42 kg",
+      "height": "142 cm"
+    }
+  },
+  {
+    "goal_name": "geriatric_nutritional_targets",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Nutrition principles to delay aging effects and manage age-related physiological changes.",
+    "protein": "0.8-1.0 g/kg (Increase to 1.5 g/kg during infection/wound)",
+    "micronutrients": {
+      "increased": [
+        "B6",
+        "B12",
+        "Riboflavin",
+        "Zinc",
+        "Vitamin D",
+        "Antioxidants (E, C, Carotenoids)"
+      ],
+      "decreased": [
+        "Vitamin A"
+      ]
+    },
+    "calorie_floor": "1800 kcal (Below this requires strict nutrient-dense food focus)"
+  },
+  {
+    "goal_name": "geriatric_fluid_balance",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Dehydration prevention guidelines for older adults.",
+    "formula_options": [
+      "1 ml water per 1 kcal consumed (e.g., 1.8 L for 1800 kcal)",
+      "25-30 ml water per 1 kg body weight"
+    ],
+    "risk_factors": [
+      "Reduced thirst sensation",
+      "Diuretics",
+      "Laxatives"
+    ]
+  },
+  {
+    "goal_name": "geriatric_weight_loss_assessment",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "significant_loss_thresholds": {
+      "one_week": "2%",
+      "one_month": "5%",
+      "six_months": "10%"
+    },
+    "assessment_tools": [
+      "Medical history",
+      "BMI evaluation (21-27 target)",
+      "Skin turgor",
+      "Lab values (BUN, Albumin)"
+    ]
+  },
+  {
+    "goal_name": "national_nutrition_goals_2012",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Strategic targets recommended for the XI Five Year Plan to address the malnutrition emergency.",
+    "targets": {
+      "underweight_under_5": "Reduce to 20%",
+      "severe_undernutrition": "Eradicate completely",
+      "first_hour_breastfeeding": "Increase to 80%",
+      "exclusive_breastfeeding_6_mo": "Increase to 90%",
+      "complementary_feeding_6_mo": "Increase to 90%",
+      "anaemia_prevalence": "Reduce to 25% in high-risk groups",
+      "idd_prevalence": "Reduce to < 5%"
+    }
+  },
+  {
+    "goal_name": "icds_supplementary_nutrition_standards",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Bridge the calorie gap (calculated as 810 kcal actual vs 1200 kcal required).",
+    "standards": {
+      "pre_school_child": {
+        "calories": "300 kcal",
+        "protein": "10-12 g"
+      },
+      "pregnant_nursing_mother": {
+        "calories": "500 kcal",
+        "protein": "25 g"
+      }
+    },
+    "coverage": "300 days per year"
+  },
+  {
+    "goal_name": "mid_day_meal_programme_targets",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "School feeding initiative for primary school children.",
+    "standards": {
+      "calories": "1/3 of daily requirement",
+      "protein": "1/2 of daily requirement"
+    }
+  },
+  {
+    "goal_name": "gobifff_strategy",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Comprehensive child survival framework (Growth, ORT, Breastfeeding, Immunization, Family Welfare, Female Education, Food Supplementation).",
+    "components": [
+      "Growth monitoring",
+      "Oral Rehydration Therapy",
+      "Breastfeeding",
+      "Immunization",
+      "Family welfare",
+      "Female education",
+      "Food supplementation"
+    ]
+  },
+  {
+    "goal_name": "reproductive_and_child_health_rch_components",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Integrated package for maternal and child survival.",
+    "child_survival": [
+      "Essential NB care",
+      "Immunization",
+      "Vitamin A prophylaxis",
+      "IMNCI management of ARI/Diarrhoea"
+    ],
+    "safe_motherhood": [
+      "Antenatal care (ANC)",
+      "Essential obstetric care",
+      "Postnatal care"
+    ],
+    "adolescent_care": [
+      "Family life education",
+      "Menstrual hygiene",
+      "Prophylaxis for anaemia"
+    ]
+  },
+  {
+    "goal_name": "national_nutrition_goals_2000_archive",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Historical benchmarks for evaluating progress.",
+    "targets": {
+      "lbw_incidence": "< 10%",
+      "severe_malnutrition_reduction": "Reduce by half",
+      "vit_a_blindness": "Eliminate",
+      "anaemia_pregnant_women": "Reduce to 25%",
+      "iodized_salt_coverage": "Universal (reduce IDD to 10%)"
+    }
+  },
+  {
+    "goal_name": "national_immunization_schedule_uip",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Standard schedule for infants in India.",
+    "schedule": {
+      "birth": [
+        "BCG",
+        "OPV-0",
+        "HepB-0"
+      ],
+      "6_10_14_weeks": [
+        "DPT (1,2,3)",
+        "OPV (1,2,3)",
+        "HepB (1,2,3)"
+      ],
+      "9_months": [
+        "Measles",
+        "Vitamin A (1st dose)"
+      ],
+      "16_24_months": [
+        "DPT Booster-1",
+        "OPV Booster",
+        "Measles-2"
+      ],
+      "5_years": [
+        "DT Booster"
+      ],
+      "10_16_years": [
+        "TT Booster"
+      ]
+    }
+  },
+  {
+    "goal_name": "cold_chain_maintenance_standards",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "System for ensuring vaccine potency from manufacturer to beneficiary.",
+    "temperature_range": "2 to 8 degrees Celsius",
+    "storage_rules": {
+      "do_not_freeze": [
+        "DPT",
+        "DT",
+        "TT",
+        "HepB",
+        "Hib",
+        "HepA"
+      ],
+      "freeze_safe": [
+        "OPV",
+        "Measles",
+        "MMR",
+        "BCG (pre-reconstitution)"
+      ],
+      "management": [
+        "FIFO (First-In-First-Out)",
+        "FEFO (First-to-Expire-First-Out)"
+      ]
+    },
+    "monitoring": "Twice daily temperature recording; Alcohol stem thermometers preferred."
+  },
+  {
+    "goal_name": "imnci_general_danger_signs",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Urgent referral indicators for children 2 months to 5 years.",
+    "signs": [
+      "Not able to drink or breastfeed",
+      "Vomits everything",
+      "Convulsions",
+      "Lethargic or unconscious"
+    ]
+  },
+  {
+    "goal_name": "dots_tuberculosis_regimens",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Revised National TB Control Programme (RNTCP) categories.",
+    "categories": {
+      "Category_I": "New smear-positive / seriously ill. 2(HRZE)3 + 4(HR)3",
+      "Category_II": "Defaulters / Retreatment. 2(HRZES)3 + 1(HRZE)3 + 5(HRE)3",
+      "Category_III": "New smear-negative / not seriously ill. 2(HRZ)3 + 4(HR)3"
+    },
+    "principles": [
+      "DOT (Directly Observed Therapy) 3 times weekly",
+      "Self-administered daily therapy is an alternative but less compliant"
+    ]
+  },
+  {
+    "goal_name": "millennium_development_goals_mdg",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Universal framework for development adopted by UN Member States in 2000.",
+    "goals": [
+      "1. Eradicate extreme poverty and hunger",
+      "2. Achieve universal primary education",
+      "3. Promote gender equality and empower women",
+      "4. Reduce child mortality",
+      "5. Improve maternal health",
+      "6. Combat HIV/AIDS, malaria and other diseases",
+      "7. Ensure environmental sustainability",
+      "8. Develop a global partnership for development"
+    ],
+    "target_year": "2015"
+  },
+  {
+    "goal_name": "periodic_deworming_schedule",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Management of helminthic reservoir to break the transmission chain.",
+    "schedule": {
+      "high_risk": "Quarterly (every 3 months) for children prone to reinfection.",
+      "standard": "Half-yearly (every 6 months)."
+    },
+    "pinworm_special": "Retreatment at 2-4 week intervals for 3 courses; family treatment required."
+  },
+  {
+    "goal_name": "sports_nutritional_macronutrients",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Daily energy targets for strength and endurance athletes.",
+    "carbohydrates": {
+      "target": "500-600 g/day or 8 g/kg body weight",
+      "energy_percentage": "55-60%",
+      "logic": "Maintain muscle glycogen stores to prevent power drop."
+    },
+    "protein": {
+      "target": "1.8 g/kg body weight",
+      "energy_percentage": "15%",
+      "sources": [
+        "Complete proteins (Animal/Soy)",
+        "Combined incomplete proteins"
+      ]
+    },
+    "fat": {
+      "target": "< 30% of daily calories",
+      "saturated_limit": "< 10%"
+    }
+  },
+  {
+    "goal_name": "athlete_hydration_protocol",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Systematic fluid replacement to ensure safety and performance.",
+    "pre_exercise": "15-20 oz (2-3 hours before) + 8-10 oz (15 mins before).",
+    "during_exercise": "8-10 ounces every 10-15 minutes.",
+    "post_exercise": "16-24 oz (2-3 glasses) for every 1 pound weight loss.",
+    "beverage_composition": {
+      "sodium": "20-30 mEq",
+      "potassium": "2-5 mEq",
+      "carbohydrate": "5-10%"
+    },
+    "monitoring": [
+      "Urine color (Light/diluted = hydrated)",
+      "Pre-and-post workout weighing"
+    ]
+  },
+  {
+    "goal_name": "post_exercise_recovery_nutrition",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Refueling logic for glycogen replenishment and muscle repair.",
+    "cho_to_pro_ratio": "4:1 (Carbohydrate to Protein)",
+    "timing": "Within 2 hours after exercise",
+    "fuel_priority": "Glucose (Energy bars/drinks) for immediate muscle glucose restoration."
+  },
+  {
+    "goal_name": "dietary_sodium_intake_limits",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Maximum daily intake to regulate blood pressure and volume.",
+    "healthy_adults": "2300 mg per day (1 teaspoon salt)",
+    "hypertensive_restricted": "1500 mg per day",
+    "caution": "Hidden sodium in monosodium glutamate, sodium nitrite, and processed meats."
+  },
+  {
+    "goal_name": "daily_energy_and_fluid_formulas",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Approximate calculation for daily kcal and ml requirements.",
+    "categories": {
+      "sedentary": "Weight (kg) x 25",
+      "moderately_active": "Weight (kg) x 30",
+      "active_endurance": "Weight (kg) x 40",
+      "underweight": "Weight (kg) x 45"
+    },
+    "note": "Energy (kcal) and Fluid (ml) values are approximately equivalent numerically in this simplified scale."
+  },
+  {
+    "goal_name": "pre_competition_feeding_timeline",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Strategic nutrient timing to maximize glycogen and minimize GI distress.",
+    "timeline": {
+      "3_4_hours_before": "Solid meal: Pasta, Baked potato, Cereal with low-fat milk, Toast with lean meat.",
+      "2_3_hours_before": "Snack: Bread, Bagels, Low-fat yogurt, Fresh fruit.",
+      "1_hour_before": "Liquid/Light: Fruit juice, Energy gels, 1.5 cups sports drink."
+    }
+  },
+  {
+    "goal_name": "anaerobic_to_aerobic_transition",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Metabolic shift logic for performance optimization.",
+    "lactate_threshold": "Point where lactic acid build-up causes fatigue; requires intensity reduction.",
+    "efficiency_gain": "Aerobic metabolism is 20x more efficient at generating ATP from carbohydrates than anaerobic glycolysis."
+  },
+  {
+    "goal_name": "healthy_catch_up_growth_monitoring",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Strategic management of growth correction in previously malnourished or SGA infants.",
+    "objectives": [
+      "Avoid rapid infancy surges to prevent subsequent obesity.",
+      "Monitor weight-for-length and adiposity alongside weight gain.",
+      "Maintain a steady, non-aggressive trajectory to avoid early insulin resistance."
+    ],
+    "logic": "Attempts to augment growth too rapidly often result in undue fatness and metabolic syndrome rather than healthy height."
+  },
+  {
+    "goal_name": "developmental_milestone_benchmarks",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Standard progress markers across four key domains.",
+    "gross_motor": {
+      "3_months": "Head control",
+      "7_months": "Sits alone",
+      "10_months": "Cruising (holds furniture)",
+      "12_months": "Walks with one hand held",
+      "15_months": "Walks alone",
+      "2_years": "Climbs stairs (2 feet per step)",
+      "3_years": "Climbs stairs (1 foot per step)",
+      "5_years": "Skips"
+    },
+    "fine_motor_adaptive": {
+      "4_months": "Reaches and grasps objects",
+      "9_months": "Neat pincer grasp",
+      "1_year": "Tower of 2 cubes; releases on request",
+      "2_years": "Tower of 6 cubes; scribbles",
+      "3_years": "Copies a circle",
+      "4_years": "Copies a cross",
+      "6_years": "Copies a diamond"
+    },
+    "language": {
+      "1_month": "Turns head to sound",
+      "2_months": "Coos",
+      "3_months": "Babbles",
+      "4_months": "Laughs aloud",
+      "7_months": "Responds to name",
+      "10_months": "Combines monosyllables; waves bye-bye",
+      "12_months": "Says 2-3 words with meaning",
+      "18_months": "Vocabulary of ~20 words",
+      "2_years": "Joins 2 words; refers to self as 'I'",
+      "3_years": "Vocabulary of ~250 words",
+      "4_years": "Narrates recent events"
+    },
+    "personal_social": {
+      "1_month": "Regards faces",
+      "6_weeks": "Social smile",
+      "3_months": "Recognises mother/caretakers",
+      "6_months": "Mirror play; stranger anxiety; drinks from cup",
+      "12_months": "Imitates others",
+      "15_months": "Self-feeds with spoon (little spilling)",
+      "3_years": "Dresses and undresses (with help); Gender identity"
+    },
+    "toilet_training": {
+      "10_months": "Can be made to sit on toilet seat",
+      "18_months": "Walks to toilet; Dry by day",
+      "2_years": "Generally toilet trainable",
+      "3_years": "Bowel control; Dry by night"
+    }
+  },
+  {
+    "goal_name": "developmental_quotient_dq_assessment",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Quantitative measure of developmental progress.",
+    "formula": "DQ = (Developmental Age / Chronological Age) * 100",
+    "interpretation": "Evaluates maturity and behaviour across functional areas. Dissociation between areas (e.g., advanced in motor but retarded in language) requires separate evaluation."
+  },
+  {
+    "goal_name": "early_brain_growth_optimization",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Critical targets for the first 24 months of life.",
+    "biological_targets": {
+      "brain_volume_at_2_years": "80% of adult size",
+      "body_mass_at_2_years": "20% of adult size",
+      "myelination": "Targeting near-completion by 24 months"
+    },
+    "strategy": "Composite stimulation package (Nutrition + Stimulation + Healthcare)."
+  },
+  {
+    "goal_name": "intellectual_and_cognitive_classification",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Framework for assessing mental capability and stages of development.",
+    "iq_formula": "IQ = (Mental Age / Chronological Age) * 100",
+    "piaget_cognitive_stages": {
+      "sensorimotor": "0-2 years",
+      "preoperational": "2-7 years",
+      "concrete_operational": "7-11 years",
+      "formal_operational": "Above 11 years"
+    }
+  },
+  {
+    "goal_name": "primary_health_care_components_medicine",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Essential health care services universally accessible (Alma Ata).",
+    "acronym_medicine": {
+      "M": "Maternal and child health (inc. family planning)",
+      "E": "Environmental sanitation (Safe water)",
+      "D": "Drugs (Essential)",
+      "I": "Indigenous/Endemic disease control",
+      "C": "Control of communicable diseases",
+      "N": "Nutrition promotion"
+    }
+  },
+  {
+    "goal_name": "nutritional_therapy_recovery_targets",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Specific targets for restoring malnourished children (PEM).",
+    "therapeutic_diet": "150-200 kcal/kg/day + 3-4 g protein/kg/day",
+    "target_weight_gain": "10-15 g/kg/day (5x-10x faster than normal)",
+    "recovery_duration": "Attainment of weight-for-height in 1-3 months",
+    "rehabilitation_strategy": "To get well and keep well via centre or home-based care."
+  },
+  {
+    "goal_name": "composite_stimulation_package_stim",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Comprehensive rehabilitation model for at-risk or malnourished infants.",
+    "medical_pillar": [
+      "Primary health care",
+      "Immunization",
+      "Intercurrent infection treatment",
+      "Periodic deworming (quarterly/half-yearly)"
+    ],
+    "nutritional_pillar": [
+      "Dietary evaluation (24h recall)",
+      "Growth monitoring",
+      "ICDS supplementation (300 kcal/10g pro)",
+      "SAT Mix supplementation",
+      "Nutrition Education"
+    ],
+    "stimulation_pillar": [
+      "Developmental evaluation (Denver/TDSC)",
+      "Individualized tasks",
+      "Play Therapy",
+      "Motor coordination tasks",
+      "ADL training"
+    ],
+    "psychosocial_pillar": [
+      "Social interview",
+      "Counselling",
+      "Parenting skills training"
+    ]
+  },
+  {
+    "goal_name": "age_appropriate_developmental_tasks_0_24mo",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Specific stimulation activities to prevent delay and foster catch-up.",
+    "0_3_months": [
+      "Colorful mobiles above bed",
+      "Frequent position changes (back/tummy/sides)",
+      "Singing and talking"
+    ],
+    "3_6_months": [
+      "Ground play with toys around",
+      "Head/Shoulder practice in prone position",
+      "Rolling over with toy help",
+      "Squeezing noisy toys"
+    ],
+    "6_9_months": [
+      "Sitting up to reach toys",
+      "Object transfer (offering 2nd toy)",
+      "Bouncing on knees",
+      "Call by name response"
+    ],
+    "9_12_months": [
+      "Crawling with pull toys",
+      "Naming body parts/pictures",
+      "Pincer grasp practice (filling containers)",
+      "Imitating bye-bye/clapping"
+    ],
+    "12_24_months": [
+      "Walking up steps/Running",
+      "Block building and knocking",
+      "Crayons/Scribbling",
+      "Training ADLs (brushing/eating/dressing)"
+    ]
+  },
+  {
+    "goal_name": "motor_coordination_tasks_mct_benchmarks",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Progression of hand and feet coordination skills.",
+    "6_12_months": [
+      "Bang 2 cubes",
+      "Pat with palm",
+      "Pincer grasp"
+    ],
+    "12_18_months": [
+      "Scribble",
+      "Use spoon/cup",
+      "Feed doll"
+    ],
+    "18_24_months": [
+      "Kick ball",
+      "Throw ball",
+      "Brush teeth"
+    ],
+    "above_24_months": [
+      "Hand/Feet tapping while counting up to 3 or 4",
+      "Copying shapes while counting"
+    ]
+  },
+  {
+    "goal_name": "socio_economic_status_kuppuswami_2007",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Classification of family status based on updated Indian standards.",
+    "parameters": [
+      "Education of Head of Family",
+      "Occupation of Head of Family",
+      "Monthly Income"
+    ],
+    "classification": {
+      "Class_I": "Upper (Score 26-29)",
+      "Class_II": "Upper Middle (Score 16-25)",
+      "Class_III": "Lower Middle (Score 11-15)",
+      "Class_IV": "Upper Lower (Score 5-10)",
+      "Class_V": "Lower (Score < 5)"
+    }
+  },
+  {
+    "goal_name": "sanitation_and_micro_environment_scoring",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Assessment of the child's living conditions and maternal support.",
+    "briscoe_sanitation_scale": [
+      "Water source (Drinking/Washing/Bathing)",
+      "Defecation behavior (< 5 yrs)",
+      "Hand washing (Before food/After defecation)",
+      "Appearance of mother's hands/cloth"
+    ],
+    "elizabeth_micro_environment_scale": {
+      "maternal_attitude": [
+        "Acceptance vs Rejection",
+        "Yelling/Hitting/Punishing/Ignoring"
+      ],
+      "supportive_system": [
+        "In-law help",
+        "Social support network",
+        "Friends/Neighbours help",
+        "Maternal happiness"
+      ]
+    }
+  },
+  {
+    "goal_name": "iotf_bmi_benchmarks_children",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "International Obesity Task Force (IOTF) BMI cut-offs for children aged 2-18.",
+    "logic": "Values defined to pass through BMI of 25 (Overweight) and 30 (Obese) at Age 18.",
+    "sample_cut_offs_age_2": {
+      "overweight_males": 18.41,
+      "overweight_females": 18.02,
+      "obese_males": 20.09,
+      "obese_females": 19.81
+    },
+    "sample_cut_offs_age_10": {
+      "overweight_males": 19.84,
+      "overweight_females": 19.86,
+      "obese_males": 24.0,
+      "obese_females": 24.11
+    }
+  },
+  {
+    "goal_name": "infant_milk_substitutes_ims_act_compliance",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_frequency": "",
+    "description": "Adherence to the IMS Act (1992/1994) to protect breastfeeding.",
+    "prohibitions": [
+      "No advertisement of infant milk substitutes or feeding bottles",
+      "No free samples to mothers",
+      "No inducements to health workers",
+      "No donation or subsidized supplies except to orphanages"
+    ],
+    "labeling_requirements": [
+      "Important Notice: Breast milk is best for your baby",
+      "No pictures of infants or women on labels",
+      "No terms like 'humanized' or 'maternalized'"
+    ]
+  }
+]

@@ -1,0 +1,151 @@
+[
+  {
+    "allergy": "nut_allergy",
+    "avoid_foods": [
+      "nuts_seeds"
+    ],
+    "severity": "high"
+  },
+  {
+    "allergy": "lactose_intolerance",
+    "avoid_foods": [
+      "milk_curd"
+    ],
+    "severity": "medium"
+  },
+  {
+    "allergy": "lactose_intolerance",
+    "avoid_foods": [
+      "milk"
+    ],
+    "severity": "medium"
+  },
+  {
+    "allergy": "nut_allergy",
+    "avoid_foods": [
+      "nuts"
+    ],
+    "severity": "high"
+  },
+  {
+    "allergy": "milk_lactose",
+    "avoid_foods": [
+      "milk"
+    ],
+    "severity": "moderate"
+  },
+  {
+    "allergy": "egg_protein",
+    "avoid_foods": [
+      "grated_boiled_egg",
+      "egg_pudding",
+      "eggnog",
+      "plain_dalia_boiled_egg",
+      "boiled_egg"
+    ],
+    "severity": "high"
+  },
+  {
+    "allergy": "milk",
+    "avoid_foods": [
+      "eggnog",
+      "milk_added_recipes",
+      "milk_added_foods",
+      "curd"
+    ],
+    "severity": "moderate"
+  },
+  {
+    "allergy": "fish",
+    "avoid_foods": [
+      "mashed_fish",
+      "pomfret_fish_mashed",
+      "murrel_fish_mashed"
+    ],
+    "severity": "moderate"
+  },
+  {
+    "allergy": "egg_protein",
+    "avoid_foods": [
+      "egg_pudding",
+      "eggnog",
+      "plain_dalia_boiled_egg"
+    ],
+    "severity": "high"
+  },
+  {
+    "allergy": "milk",
+    "avoid_foods": [
+      "eggnog",
+      "milk_added_foods"
+    ],
+    "severity": "moderate"
+  },
+  {
+    "allergy": "nut_allergy",
+    "avoid_foods": [
+      "peanut_powder",
+      "sesame_powder"
+    ],
+    "severity": "high"
+  },
+  {
+    "allergy": "egg_protein",
+    "avoid_foods": [
+      "boiled_egg"
+    ],
+    "severity": "high"
+  },
+  {
+    "allergy": "milk",
+    "avoid_foods": [
+      "curd"
+    ],
+    "severity": "moderate"
+  },
+  {
+    "allergy": "fish",
+    "avoid_foods": [
+      "pomfret_fish_mashed",
+      "murrel_fish_mashed"
+    ],
+    "severity": "moderate"
+  },
+  {
+    "allergy": "cow_milk_protein_allergy",
+    "avoid_foods": [
+      "cows_milk",
+      "unmodified_bovine_milk"
+    ],
+    "severity": "",
+    "triggers": [
+      "lactoglobulin",
+      "alpha_casein"
+    ],
+    "symptoms": [
+      "diarrhoea",
+      "respiratory_allergy",
+      "eczema"
+    ]
+  },
+  {
+    "allergy": "milk_protein_sensitive_enteropathy",
+    "avoid_foods": [
+      "bovine_milk",
+      "unmodified_cow_milk"
+    ],
+    "severity": "",
+    "description": "Intestinal sensitivity to animal milk proteins causing blood loss."
+  },
+  {
+    "allergy": "gluten_sensitivity",
+    "avoid_foods": [
+      "wheat",
+      "barley",
+      "rye"
+    ],
+    "severity": "",
+    "description": "Avoidance in early infancy (before 4-6 months).",
+    "preferred_alternative": "rice"
+  }
+]

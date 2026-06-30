@@ -1,0 +1,5863 @@
+[
+  {
+    "id": "RAG_INTRO_1",
+    "text": "A balanced diet containing all essential nutrients is necessary for maintaining good health throughout life.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "balanced_diet"
+      ]
+    }
+  },
+  {
+    "id": "RAG_INTRO_2",
+    "text": "Nutrition during early life, especially the first 1000 days, plays a critical role in growth and development.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "early_growth",
+        "child_development"
+      ]
+    }
+  },
+  {
+    "id": "RAG_INTRO_3",
+    "text": "A balanced diet helps reduce the risk of non-communicable diseases such as diabetes and cardiovascular diseases.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "disease_prevention"
+      ]
+    }
+  },
+  {
+    "id": "RAG_INTRO_4",
+    "text": "No single food can provide all essential nutrients, so a variety of foods must be consumed.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "diet_diversity"
+      ]
+    }
+  },
+  {
+    "id": "RAG_INTRO_5",
+    "text": "Appropriate dietary habits and physical activity are essential for maintaining overall health.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "healthy_lifestyle"
+      ]
+    }
+  },
+  {
+    "id": "RAG_INTRO_6",
+    "text": "Healthy diets include whole grains, pulses, milk, vegetables, and fruits as key food groups.",
+    "metadata": {
+      "type": "food",
+      "tags": [
+        "food_groups",
+        "balanced_diet"
+      ]
+    }
+  },
+  {
+    "id": "RAG_INTRO_7",
+    "text": "Cereals and millets are staple foods and are commonly consumed along with pulses in Indian diets.",
+    "metadata": {
+      "type": "food",
+      "tags": [
+        "staple_food"
+      ]
+    }
+  },
+  {
+    "id": "RAG_INTRO_8",
+    "text": "Dietary guidelines emphasize the importance of hygiene, safe water, and environmental factors in nutrition outcomes.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "hygiene",
+        "health"
+      ]
+    }
+  },
+  {
+    "id": "RAG_SCENARIO_1",
+    "text": "India faces a dual burden of malnutrition where undernutrition and obesity coexist in the population.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "malnutrition"
+      ]
+    }
+  },
+  {
+    "id": "RAG_SCENARIO_2",
+    "text": "Unhealthy diets contribute significantly to diseases such as hypertension, diabetes, and heart disease.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "unhealthy_diet"
+      ]
+    }
+  },
+  {
+    "id": "RAG_SCENARIO_3",
+    "text": "High consumption of processed foods rich in sugar, fat, and salt leads to obesity and micronutrient deficiencies.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "processed_food",
+        "obesity"
+      ]
+    }
+  },
+  {
+    "id": "RAG_SCENARIO_4",
+    "text": "Dietary diversification helps reduce micronutrient deficiencies such as iron and folate deficiency.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "micronutrient"
+      ]
+    }
+  },
+  {
+    "id": "RAG_SCENARIO_5",
+    "text": "Low intake of diverse foods leads to poor intake of essential fatty acids and micronutrients.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "poor_diet"
+      ]
+    }
+  },
+  {
+    "id": "RAG_SCENARIO_6",
+    "text": "Balanced diets and appropriate food choices can reduce the risk of chronic diseases and improve long-term health.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "long_term_health"
+      ]
+    }
+  },
+  {
+    "id": "RAG_GUIDELINE_1",
+    "text": "A balanced meal should include cereals, pulses, vegetables, fruits, and milk in appropriate proportions.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "balanced_meal"
+      ]
+    }
+  },
+  {
+    "id": "RAG_GUIDELINE_2",
+    "text": "Cereals contribute a large portion of daily energy intake, but over-reliance can reduce micronutrient intake.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "energy_source"
+      ]
+    }
+  },
+  {
+    "id": "RAG_GUIDELINE_3",
+    "text": "Unhealthy dietary patterns can lead to anemia, obesity, and other metabolic disorders.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "diet_risk"
+      ]
+    }
+  },
+  {
+    "id": "RAG_G1_1",
+    "text": "A balanced diet requires consuming a variety of foods from different food groups.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "balanced_diet"
+      ]
+    }
+  },
+  {
+    "id": "RAG_G1_2",
+    "text": "A healthy meal includes vegetables, whole grains, pulses, fruits, and moderate amounts of fats and sugars.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "healthy_meal"
+      ]
+    }
+  },
+  {
+    "id": "RAG_G1_3",
+    "text": "Vegetables and fruits provide vitamins, minerals, fiber, and antioxidants essential for health.",
+    "metadata": {
+      "type": "food",
+      "tags": [
+        "vitamins",
+        "fiber"
+      ]
+    }
+  },
+  {
+    "id": "RAG_G1_4",
+    "text": "No single food can provide all nutrients, so dietary diversity is necessary.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "diet_diversity"
+      ]
+    }
+  },
+  {
+    "id": "RAG_G1_5",
+    "text": "Ultra-processed foods high in fat, sugar, and salt should be avoided for better health.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "junk_food"
+      ]
+    }
+  },
+  {
+    "id": "RAG_G1_6",
+    "text": "Healthy eating includes consuming green leafy vegetables and fruits daily.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "vegetables",
+        "fruits"
+      ]
+    }
+  },
+  {
+    "id": "RAG_G1_7",
+    "text": "Whole grains should form at least half of cereal intake for better nutrition.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "whole_grains"
+      ]
+    }
+  },
+  {
+    "id": "RAG_G1_8",
+    "text": "Pulses and legumes provide important protein and fiber in the diet.",
+    "metadata": {
+      "type": "food",
+      "tags": [
+        "protein"
+      ]
+    }
+  },
+  {
+    "id": "RAG_G1_9",
+    "text": "Nuts and seeds are rich in healthy fats, proteins, and micronutrients.",
+    "metadata": {
+      "type": "food",
+      "tags": [
+        "healthy_fats"
+      ]
+    }
+  },
+  {
+    "id": "RAG_G1_10",
+    "text": "Limiting added fat, salt, and sugar intake is essential for maintaining good health.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "limit_sugar"
+      ]
+    }
+  },
+  {
+    "id": "RAG_G1_11",
+    "text": "Physical activity is necessary for proper utilization of nutrients from food.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "physical_activity"
+      ]
+    }
+  },
+  {
+    "id": "RAG_G1_12",
+    "text": "Including different varieties within each food group helps meet diverse nutrient requirements.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "variety"
+      ]
+    }
+  },
+  {
+    "id": "RAG_G1_13",
+    "text": "Macronutrients like carbohydrates, proteins, and fats are needed in large amounts, while micronutrients are required in smaller amounts.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "macronutrients"
+      ]
+    }
+  },
+  {
+    "id": "RAG_G1_14",
+    "text": "Dietary requirements vary based on age, gender, and physical activity levels.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "individual_needs"
+      ]
+    }
+  },
+  {
+    "id": "RAG_G1_15",
+    "text": "Low food intake during critical life stages like childhood can negatively impact growth and development.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "growth"
+      ]
+    }
+  },
+  {
+    "id": "RAG_LIFE_1",
+    "text": "Balanced diet is essential at every stage of life for growth, development, and maintaining health.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "balanced_diet"
+      ]
+    }
+  },
+  {
+    "id": "RAG_LIFE_2",
+    "text": "Infants require exclusive breastfeeding in the first six months for optimal growth and development.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "infant_nutrition"
+      ]
+    }
+  },
+  {
+    "id": "RAG_LIFE_3",
+    "text": "Children need nutrient-rich foods for growth, brain development, and cognition.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "child_growth"
+      ]
+    }
+  },
+  {
+    "id": "RAG_LIFE_4",
+    "text": "Adolescents require proper nutrition for growth spurts and bone development.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "adolescent_growth"
+      ]
+    }
+  },
+  {
+    "id": "RAG_LIFE_5",
+    "text": "Adults need balanced diets to maintain productivity and prevent lifestyle diseases.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "adult_health"
+      ]
+    }
+  },
+  {
+    "id": "RAG_LIFE_6",
+    "text": "Elderly individuals require proper nutrition to stay active and healthy.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "elderly"
+      ]
+    }
+  },
+  {
+    "id": "RAG_GROUP_1",
+    "text": "Consuming foods from at least five to seven different food groups ensures adequate nutrient intake.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "food_groups"
+      ]
+    }
+  },
+  {
+    "id": "RAG_GROUP_2",
+    "text": "Different food groups provide essential nutrients such as proteins, vitamins, minerals, and fiber.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "nutrients"
+      ]
+    }
+  },
+  {
+    "id": "RAG_GROUP_3",
+    "text": "Cereals provide a major portion of daily energy intake.",
+    "metadata": {
+      "type": "food",
+      "tags": [
+        "energy_source"
+      ]
+    }
+  },
+  {
+    "id": "RAG_GROUP_4",
+    "text": "Pulses, beans, and meat provide important proteins and essential nutrients.",
+    "metadata": {
+      "type": "food",
+      "tags": [
+        "protein"
+      ]
+    }
+  },
+  {
+    "id": "RAG_GROUP_5",
+    "text": "Fruits and vegetables provide vitamins, antioxidants, and fiber necessary for health.",
+    "metadata": {
+      "type": "food",
+      "tags": [
+        "vitamins"
+      ]
+    }
+  },
+  {
+    "id": "RAG_GROUP_6",
+    "text": "Spices and herbs add flavor and contain beneficial bioactive compounds.",
+    "metadata": {
+      "type": "food",
+      "tags": [
+        "bioactive"
+      ]
+    }
+  },
+  {
+    "id": "RAG_MACRO_1",
+    "text": "A balanced diet should provide 50 to 60 percent of calories from carbohydrates.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "macros"
+      ]
+    }
+  },
+  {
+    "id": "RAG_MACRO_2",
+    "text": "Proteins should contribute about 10 to 15 percent of total calorie intake.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "protein"
+      ]
+    }
+  },
+  {
+    "id": "RAG_MACRO_3",
+    "text": "Fats should contribute about 20 to 30 percent of total calorie intake.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "fat"
+      ]
+    }
+  },
+  {
+    "id": "RAG_RDA_1",
+    "text": "Recommended Dietary Allowance represents the average daily intake level sufficient to meet nutrient requirements of most individuals.",
+    "metadata": {
+      "type": "general"
+    }
+  },
+  {
+    "id": "RAG_RDA_2",
+    "text": "Estimated Average Requirement is used for planning dietary intake for populations.",
+    "metadata": {
+      "type": "general"
+    }
+  },
+  {
+    "id": "RAG_RDA_3",
+    "text": "Nutrient requirements vary based on age, gender, and physiological conditions.",
+    "metadata": {
+      "type": "general"
+    }
+  },
+  {
+    "id": "RAG_CARB_1",
+    "text": "Carbohydrates are the primary source of energy and should form the largest portion of the diet.",
+    "metadata": {
+      "type": "food"
+    }
+  },
+  {
+    "id": "RAG_CARB_2",
+    "text": "Dietary fiber improves digestion, reduces glucose absorption, and increases satiety.",
+    "metadata": {
+      "type": "food"
+    }
+  },
+  {
+    "id": "RAG_PROTEIN_1",
+    "text": "Proteins are essential for body structure, growth, and repair.",
+    "metadata": {
+      "type": "food"
+    }
+  },
+  {
+    "id": "RAG_PROTEIN_2",
+    "text": "Combining cereals and pulses provides better quality protein due to complementary amino acids.",
+    "metadata": {
+      "type": "food"
+    }
+  },
+  {
+    "id": "RAG_FAT_1",
+    "text": "Fats provide concentrated energy and help in absorption of fat-soluble vitamins.",
+    "metadata": {
+      "type": "food"
+    }
+  },
+  {
+    "id": "RAG_FAT_2",
+    "text": "Excess fat intake can lead to obesity and metabolic disorders.",
+    "metadata": {
+      "type": "food"
+    }
+  },
+  {
+    "id": "RAG_MICRO_1",
+    "text": "Vitamins and minerals are required in small amounts but are essential for body functions.",
+    "metadata": {
+      "type": "general"
+    }
+  },
+  {
+    "id": "RAG_MICRO_2",
+    "text": "Antioxidants protect the body from oxidative damage.",
+    "metadata": {
+      "type": "general"
+    }
+  },
+  {
+    "id": "RAG_MINERAL_1",
+    "text": "Minerals such as calcium, iron, and zinc are essential for body functions like bone health, oxygen transport, and immunity.",
+    "metadata": {
+      "type": "general"
+    }
+  },
+  {
+    "id": "RAG_MINERAL_2",
+    "text": "Iron deficiency can lead to anemia and reduced oxygen transport in the body.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG_VITAMIN_1",
+    "text": "Fat-soluble vitamins can be stored in the body, while water-soluble vitamins need regular intake.",
+    "metadata": {
+      "type": "general"
+    }
+  },
+  {
+    "id": "RAG_VITAMIN_2",
+    "text": "Vitamins can be destroyed by heat, air, and cooking processes.",
+    "metadata": {
+      "type": "general"
+    }
+  },
+  {
+    "id": "RAG_DIET_1",
+    "text": "Diet planning should be based on Estimated Average Requirement for population-level nutrition.",
+    "metadata": {
+      "type": "general"
+    }
+  },
+  {
+    "id": "RAG_DIET_2",
+    "text": "Recommended Dietary Allowance is used for individual nutrition planning.",
+    "metadata": {
+      "type": "general"
+    }
+  },
+  {
+    "id": "RAG_GUIDE_1",
+    "text": "A variety of foods should be chosen based on age, gender, and physical activity.",
+    "metadata": {
+      "type": "general"
+    }
+  },
+  {
+    "id": "RAG_GUIDE_2",
+    "text": "Combining cereals, pulses, and millets improves overall nutrient quality.",
+    "metadata": {
+      "type": "food"
+    }
+  },
+  {
+    "id": "RAG_GUIDE_3",
+    "text": "Fresh and locally available vegetables should be preferred in daily diet.",
+    "metadata": {
+      "type": "food"
+    }
+  },
+  {
+    "id": "RAG_GUIDE_4",
+    "text": "Animal-based foods such as milk, eggs, and meat provide high-quality protein.",
+    "metadata": {
+      "type": "food"
+    }
+  },
+  {
+    "id": "RAG_GUIDE_5",
+    "text": "Regular physical activity is essential to maintain a healthy lifestyle.",
+    "metadata": {
+      "type": "general"
+    }
+  },
+  {
+    "id": "RAG_PREG_1",
+    "text": "Pregnancy is a nutritionally demanding period requiring additional food for both mother and fetus.",
+    "metadata": {
+      "type": "condition",
+      "condition": "pregnancy"
+    }
+  },
+  {
+    "id": "RAG_PREG_2",
+    "text": "Extra nutrients are needed during pregnancy for fetal growth and development.",
+    "metadata": {
+      "type": "condition",
+      "condition": "pregnancy"
+    }
+  },
+  {
+    "id": "RAG_PREG_3",
+    "text": "Iron, folic acid, vitamin B12, iodine, and omega-3 fatty acids are critical during pregnancy.",
+    "metadata": {
+      "type": "condition",
+      "condition": "pregnancy"
+    }
+  },
+  {
+    "id": "RAG_PREG_4",
+    "text": "Poor nutrition during pregnancy can negatively affect fetal growth and development.",
+    "metadata": {
+      "type": "condition",
+      "condition": "pregnancy"
+    }
+  },
+  {
+    "id": "RAG_PREG_5",
+    "text": "Undernourished mothers have a higher risk of delivering low birth weight babies.",
+    "metadata": {
+      "type": "condition",
+      "condition": "pregnancy"
+    }
+  },
+  {
+    "id": "RAG_PREG_6",
+    "text": "The first 1000 days from conception to two years of age are critical for child development.",
+    "metadata": {
+      "type": "general",
+      "tags": [
+        "1000_days"
+      ]
+    }
+  },
+  {
+    "id": "RAG_PREG_7",
+    "text": "A healthy diet during pregnancy improves birth weight and reduces risk of infections in newborns.",
+    "metadata": {
+      "type": "condition",
+      "condition": "pregnancy"
+    }
+  },
+  {
+    "id": "RAG_PREG_8",
+    "text": "Folic acid supplementation before and during pregnancy reduces risk of anemia and birth defects.",
+    "metadata": {
+      "type": "condition",
+      "condition": "pregnancy"
+    }
+  },
+  {
+    "id": "RAG_PREG_9",
+    "text": "Calcium and vitamin D are essential for bone development of the fetus.",
+    "metadata": {
+      "type": "condition",
+      "condition": "pregnancy"
+    }
+  },
+  {
+    "id": "RAG_PREG_10",
+    "text": "Highly processed foods high in fat, sugar, and salt should be avoided during pregnancy.",
+    "metadata": {
+      "type": "condition",
+      "condition": "pregnancy"
+    }
+  },
+  {
+    "id": "RAG_LACT_1",
+    "text": "Lactation increases the need for calories, protein, and micronutrients.",
+    "metadata": {
+      "type": "condition",
+      "condition": "lactation"
+    }
+  },
+  {
+    "id": "RAG_LACT_2",
+    "text": "During the first six months of lactation, additional 600 kcal energy is required daily.",
+    "metadata": {
+      "type": "condition",
+      "condition": "lactation"
+    }
+  },
+  {
+    "id": "RAG_LACT_3",
+    "text": "Breastfeeding supports infant growth and reduces health risks.",
+    "metadata": {
+      "type": "condition",
+      "condition": "lactation"
+    }
+  },
+  {
+    "id": "RAG_LACT_4",
+    "text": "Balanced diets during lactation support optimal milk production.",
+    "metadata": {
+      "type": "condition",
+      "condition": "lactation"
+    }
+  },
+  {
+    "id": "RAG_PRECON_1",
+    "text": "Women should be at least 21 years old and maintain optimal weight before pregnancy.",
+    "metadata": {
+      "type": "general"
+    }
+  },
+  {
+    "id": "RAG_PRECON_2",
+    "text": "Pre-pregnancy health checks should include anemia, blood pressure, and glucose levels.",
+    "metadata": {
+      "type": "general"
+    }
+  },
+  {
+    "id": "RAG_PREG_DIET_1",
+    "text": "Pregnant women should consume a variety of foods including cereals, pulses, vegetables, fruits, nuts, and dairy.",
+    "metadata": {
+      "type": "condition",
+      "condition": "pregnancy"
+    }
+  },
+  {
+    "id": "RAG_PREG_DIET_2",
+    "text": "Green leafy vegetables and fruits are essential sources of vitamins and minerals during pregnancy.",
+    "metadata": {
+      "type": "condition",
+      "condition": "pregnancy"
+    }
+  },
+  {
+    "id": "RAG_PREG_DIET_3",
+    "text": "Nuts and oilseeds provide essential fatty acids important for fetal development.",
+    "metadata": {
+      "type": "food"
+    }
+  },
+  {
+    "id": "RAG_PREG_DIET_4",
+    "text": "Fish and meat can be included as sources of high-quality protein and micronutrients.",
+    "metadata": {
+      "type": "food"
+    }
+  },
+  {
+    "id": "RAG_PREG_DIET_5",
+    "text": "Highly processed foods and foods high in sugar, fat, and salt should be avoided during pregnancy.",
+    "metadata": {
+      "type": "condition",
+      "condition": "pregnancy"
+    }
+  },
+  {
+    "id": "RAG_DO_1",
+    "text": "Vitamin C rich foods improve iron absorption and should be included in the diet.",
+    "metadata": {
+      "type": "general"
+    }
+  },
+  {
+    "id": "RAG_DO_2",
+    "text": "Small and frequent meals help manage nausea during pregnancy.",
+    "metadata": {
+      "type": "condition",
+      "condition": "pregnancy"
+    }
+  },
+  {
+    "id": "RAG_DONT_1",
+    "text": "Smoking, alcohol, and tobacco should be strictly avoided during pregnancy.",
+    "metadata": {
+      "type": "condition",
+      "condition": "pregnancy"
+    }
+  },
+  {
+    "id": "RAG_DONT_2",
+    "text": "Caffeinated beverages should be limited as they may affect fetal growth.",
+    "metadata": {
+      "type": "condition",
+      "condition": "pregnancy"
+    }
+  },
+  {
+    "id": "RAG_DONT_3",
+    "text": "Avoid heavy physical activity and lifting heavy objects during pregnancy.",
+    "metadata": {
+      "type": "condition",
+      "condition": "pregnancy"
+    }
+  },
+  {
+    "id": "RAG_SAFETY_1",
+    "text": "Food safety is important during pregnancy to prevent infections from contaminated food.",
+    "metadata": {
+      "type": "condition",
+      "condition": "pregnancy"
+    }
+  },
+  {
+    "id": "RAG_IRON_1",
+    "text": "Iron is essential for hemoglobin synthesis and prevention of anemia.",
+    "metadata": {
+      "type": "food"
+    }
+  },
+  {
+    "id": "RAG_IRON_2",
+    "text": "Vitamin C improves iron absorption from plant-based foods.",
+    "metadata": {
+      "type": "food"
+    }
+  },
+  {
+    "id": "RAG_IRON_3",
+    "text": "Tea and certain beverages reduce iron absorption and should not be consumed with meals.",
+    "metadata": {
+      "type": "food"
+    }
+  },
+  {
+    "id": "RAG_FOLATE_1",
+    "text": "Folic acid is essential during pregnancy for preventing anemia and supporting fetal development.",
+    "metadata": {
+      "type": "condition",
+      "condition": "pregnancy"
+    }
+  },
+  {
+    "id": "RAG_FOLATE_2",
+    "text": "Green leafy vegetables, legumes, and nuts are rich sources of folate.",
+    "metadata": {
+      "type": "food"
+    }
+  },
+  {
+    "id": "RAG_PUFA_1",
+    "text": "Omega-3 fatty acids are important for brain development of the fetus.",
+    "metadata": {
+      "type": "food"
+    }
+  },
+  {
+    "id": "RAG_PUFA_2",
+    "text": "Fish and seeds like flax and chia are good sources of omega-3 fatty acids.",
+    "metadata": {
+      "type": "food"
+    }
+  },
+  {
+    "id": "RAG_BF_1",
+    "text": "Breast milk is the most complete and natural food for infants.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breastfeeding"
+    }
+  },
+  {
+    "id": "RAG_BF_2",
+    "text": "Exclusive breastfeeding for the first six months ensures optimal infant growth.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breastfeeding"
+    }
+  },
+  {
+    "id": "RAG_BF_3",
+    "text": "Colostrum is rich in nutrients and antibodies and should not be discarded.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breastfeeding"
+    }
+  },
+  {
+    "id": "RAG_BF_4",
+    "text": "Frequent suckling ensures adequate milk production.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breastfeeding"
+    }
+  },
+  {
+    "id": "RAG_BF_5",
+    "text": "Breastfeeding reduces infections and improves immunity in infants.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breastfeeding"
+    }
+  },
+  {
+    "id": "RAG_BF_6",
+    "text": "Breastfeeding also provides long-term health benefits including reduced risk of obesity and diabetes.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breastfeeding"
+    }
+  },
+  {
+    "id": "RAG_BF_7",
+    "text": "Water or other feeds are not required during exclusive breastfeeding.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breastfeeding"
+    }
+  },
+  {
+    "id": "RAG_BF_8",
+    "text": "Breastfeeding should start within one hour of birth.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breastfeeding"
+    }
+  },
+  {
+    "id": "RAG_BF_9",
+    "text": "Breastfeeding should continue up to two years along with complementary foods.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breastfeeding"
+    }
+  },
+  {
+    "id": "RAG_BF_10",
+    "text": "Breast milk contains antibodies that protect infants from infections.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breastfeeding"
+    }
+  },
+  {
+    "id": "RAG_BF_11",
+    "text": "Not breastfeeding increases risk of infections and chronic diseases in children.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breastfeeding"
+    }
+  },
+  {
+    "id": "RAG_BF_12",
+    "text": "Alcohol, tobacco, and certain drugs can pass into breast milk and harm the infant.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breastfeeding"
+    }
+  },
+  {
+    "id": "RAG_IRON_4",
+    "text": "Iron deficiency during pregnancy increases risk of maternal mortality and low birth weight in infants.",
+    "metadata": {
+      "type": "condition",
+      "condition": "pregnancy"
+    }
+  },
+  {
+    "id": "RAG_IRON_5",
+    "text": "Iron from animal foods is better absorbed than iron from plant sources.",
+    "metadata": {
+      "type": "food"
+    }
+  },
+  {
+    "id": "RAG_IRON_6",
+    "text": "Green leafy vegetables, pulses and dry fruits are plant sources of iron.",
+    "metadata": {
+      "type": "food"
+    }
+  },
+  {
+    "id": "RAG_IRON_7",
+    "text": "Tea reduces iron absorption and should be avoided near meal times.",
+    "metadata": {
+      "type": "food"
+    }
+  },
+  {
+    "id": "RAG_FOLATE_3",
+    "text": "Folic acid supplementation during early pregnancy is essential to prevent developmental defects.",
+    "metadata": {
+      "type": "condition",
+      "condition": "pregnancy"
+    }
+  },
+  {
+    "id": "RAG_PUFA_3",
+    "text": "Long-chain omega-3 fatty acids support fetal brain development.",
+    "metadata": {
+      "type": "food"
+    }
+  },
+  {
+    "id": "RAG_BF_13",
+    "text": "Breast milk is easily digested and better absorbed than formula milk.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breastfeeding"
+    }
+  },
+  {
+    "id": "RAG_BF_14",
+    "text": "Breast milk contains immunoglobulins, lactoferrin and protective factors against infections.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breastfeeding"
+    }
+  },
+  {
+    "id": "RAG_BF_15",
+    "text": "Breastfeeding reduces risk of respiratory and diarrheal infections in infants.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breastfeeding"
+    }
+  },
+  {
+    "id": "RAG_BF_16",
+    "text": "Breastfeeding supports cognitive and brain development in children.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breastfeeding"
+    }
+  },
+  {
+    "id": "RAG_BF_17",
+    "text": "Breast milk promotes healthy gut flora due to prebiotic factors.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breastfeeding"
+    }
+  },
+  {
+    "id": "RAG_BF_18",
+    "text": "Breastfeeding delays return of menstruation and helps birth spacing.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breastfeeding"
+    }
+  },
+  {
+    "id": "RAG_BF_19",
+    "text": "Breastfeeding lowers the risk of breast and ovarian cancer in mothers.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breastfeeding"
+    }
+  },
+  {
+    "id": "RAG_BF_20",
+    "text": "Water, honey, glucose or formula should not be given during the first six months.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breastfeeding"
+    }
+  },
+  {
+    "id": "RAG_BF_21",
+    "text": "Frequent suckling and complete emptying of one breast ensures adequate milk production.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breastfeeding"
+    }
+  },
+  {
+    "id": "RAG_BF_22",
+    "text": "Inadequate breast milk production is often a misconception and should not lead to stopping breastfeeding.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breastfeeding"
+    }
+  },
+  {
+    "id": "RAG_BF_23",
+    "text": "Stress and poor emotional health can affect milk production.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breastfeeding"
+    }
+  },
+  {
+    "id": "RAG_BF_24",
+    "text": "Proper positioning and latching are important for effective breastfeeding.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breastfeeding"
+    }
+  },
+  {
+    "id": "RAG_BF_25",
+    "text": "Expressed breast milk can be stored in refrigeration for up to 8 hours.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breastfeeding"
+    }
+  },
+  {
+    "id": "RAG_BF_26",
+    "text": "Medicines, alcohol and drugs can pass into breast milk and harm infants.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breastfeeding"
+    }
+  },
+  {
+    "id": "RAG_BF_27",
+    "text": "Breastfeeding should continue even if the mother has mild illnesses unless medically advised.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breastfeeding"
+    }
+  },
+  {
+    "id": "RAG_HIV_1",
+    "text": "HIV can be transmitted through breast milk, and feeding decisions should be guided medically.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG_COVID_1",
+    "text": "Mothers with COVID-19 are encouraged to continue breastfeeding with precautions.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG_RISK_1",
+    "text": "Not breastfeeding increases risk of obesity, diabetes and infections in children.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breastfeeding"
+    }
+  },
+  {
+    "id": "RAG_FULL_1",
+    "text": "Iron is required for hemoglobin production and prevention of anemia.",
+    "metadata": {
+      "type": "food"
+    }
+  },
+  {
+    "id": "RAG_FULL_2",
+    "text": "Vitamin C improves absorption of iron from plant-based foods.",
+    "metadata": {
+      "type": "food"
+    }
+  },
+  {
+    "id": "RAG_FULL_3",
+    "text": "Tea reduces iron absorption and should not be consumed with meals.",
+    "metadata": {
+      "type": "food"
+    }
+  },
+  {
+    "id": "RAG_FULL_4",
+    "text": "Folic acid is essential during pregnancy for fetal development.",
+    "metadata": {
+      "type": "condition",
+      "condition": "pregnancy"
+    }
+  },
+  {
+    "id": "RAG_FULL_5",
+    "text": "Exclusive breastfeeding for six months is essential for infant growth.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breastfeeding"
+    }
+  },
+  {
+    "id": "RAG_FULL_6",
+    "text": "Breast milk contains antibodies that protect infants from infections.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breastfeeding"
+    }
+  },
+  {
+    "id": "RAG_FULL_7",
+    "text": "Breastfeeding reduces the risk of obesity, diabetes and infections in children.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breastfeeding"
+    }
+  },
+  {
+    "id": "RAG_FULL_8",
+    "text": "Water or other foods should not be given during the first six months of breastfeeding.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breastfeeding"
+    }
+  },
+  {
+    "id": "RAG_FULL_9",
+    "text": "Alcohol, tobacco and certain medicines can harm infants through breast milk.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breastfeeding"
+    }
+  },
+  {
+    "id": "RAG_FULL_10",
+    "text": "Breastfeeding should begin within one hour after birth.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breastfeeding"
+    }
+  },
+  {
+    "id": "RAG_INF_1",
+    "text": "Infants aged 6 to 8 months should be given complementary foods at least twice a day along with breastfeeding.",
+    "metadata": {
+      "type": "condition",
+      "condition": "infant_6_8_months"
+    }
+  },
+  {
+    "id": "RAG_INF_2",
+    "text": "Infants aged 9 to 12 months should receive complementary foods at least three times a day.",
+    "metadata": {
+      "type": "condition",
+      "condition": "infant_9_12_months"
+    }
+  },
+  {
+    "id": "RAG_INF_3",
+    "text": "Home-made complementary foods are more nutritious and easily digestible than processed foods.",
+    "metadata": {
+      "type": "food"
+    }
+  },
+  {
+    "id": "RAG_INF_4",
+    "text": "Highly processed foods high in fat, sugar, and salt should be avoided in infant diets.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG_INF_5",
+    "text": "Infants require 650 to 720 kcal per day between 6 to 12 months of age.",
+    "metadata": {
+      "type": "general"
+    }
+  },
+  {
+    "id": "RAG_INF_6",
+    "text": "Breast milk provides around 500 kcal and 5 grams of protein per day after six months.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG_INF_7",
+    "text": "Complementary foods should be introduced gradually, starting with thin consistency and increasing thickness over time.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG_INF_8",
+    "text": "New foods should be introduced one at a time and monitored for intolerance or allergies.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG_INF_9",
+    "text": "Infant food should be semi-solid and not watery to ensure adequate nutrition.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG_INF_10",
+    "text": "Sugar and salt should not be added to complementary foods for infants.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG_INF_11",
+    "text": "Infants should be introduced to family foods by around one year of age.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG_INF_12",
+    "text": "Dietary diversity is achieved when infants consume cereals, pulses, nuts, milk, vegetables, and fruits daily.",
+    "metadata": {
+      "type": "goal"
+    }
+  },
+  {
+    "id": "RAG_INF_13",
+    "text": "Proper hygiene during food preparation is essential to prevent infections in infants.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG_INF_14",
+    "text": "Infants have higher micronutrient needs relative to body weight compared to adults.",
+    "metadata": {
+      "type": "general"
+    }
+  },
+  {
+    "id": "RAG_EXTRA_1",
+    "text": "Infants should be fed semi-solid foods in small quantities starting with 2-3 teaspoons.",
+    "metadata": {
+      "type": "condition",
+      "condition": "infant_6_12_months"
+    }
+  },
+  {
+    "id": "RAG_EXTRA_2",
+    "text": "Food consistency should gradually move from semi-solid to solid as the child grows.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG_EXTRA_3",
+    "text": "Responsive feeding helps children develop healthy eating habits.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG_INF_FULL_1",
+    "text": "Infants should be fed at least four times a day in small quantities.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG_INF_FULL_2",
+    "text": "Complementary foods should be semi-solid rather than watery to ensure proper nutrition.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG_INF_FULL_3",
+    "text": "Infants initially may spit out food as they learn swallowing; this is normal.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG_INF_FULL_4",
+    "text": "Complementary feeding should start in small amounts and gradually increase.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG_INF_FULL_5",
+    "text": "Responsive feeding involves active interaction between caregiver and child during feeding.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG_INF_FULL_6",
+    "text": "Children should not be forced to eat and should be fed patiently.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG_INF_FULL_7",
+    "text": "Caregivers should observe hunger and satiety cues while feeding infants.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG_INF_FULL_8",
+    "text": "Hygienic practices during food preparation prevent infections and diarrhea.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG_INF_FULL_9",
+    "text": "Vegetables should be thoroughly washed to remove contaminants before cooking.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG_INF_FULL_10",
+    "text": "Food should be protected from flies and insects during feeding.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG_INF_FULL_11",
+    "text": "Stored food should be consumed within its safe shelf life.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG_INF_FULL_12",
+    "text": "Lactose intolerance during diarrhea is usually temporary and can be managed by reducing milk intake.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG_INF_FULL_13",
+    "text": "Curd can be used as an alternative to milk in lactose intolerance.",
+    "metadata": {
+      "type": "food"
+    }
+  },
+  {
+    "id": "RAG_INF_FULL_14",
+    "text": "Amylase-rich foods help liquefy cereals and improve digestion in infants.",
+    "metadata": {
+      "type": "food"
+    }
+  },
+  {
+    "id": "RAG_INF_FULL_15",
+    "text": "Amylase reduces bulk of food and increases energy density for infants.",
+    "metadata": {
+      "type": "food"
+    }
+  },
+  {
+    "id": "RAG_INF_FULL_16",
+    "text": "Balanced diets for children above one year provide around 1110 kcal and 36.7 grams protein daily.",
+    "metadata": {
+      "type": "general"
+    }
+  },
+  {
+    "id": "RAG_INF_FULL_17",
+    "text": "Added sugar should be completely avoided for children below two years.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG_ARF_1",
+    "text": "Amylase-rich foods increase energy density of infant foods and improve digestibility.",
+    "metadata": {
+      "type": "food",
+      "tags": [
+        "digestion_support"
+      ]
+    }
+  },
+  {
+    "id": "RAG_ARF_2",
+    "text": "Preparation of amylase-rich foods involves soaking, germinating, drying and grinding cereals.",
+    "metadata": {
+      "type": "food"
+    }
+  },
+  {
+    "id": "RAG_ARF_3",
+    "text": "Adding small quantities of amylase-rich foods reduces bulk and makes food easier to consume.",
+    "metadata": {
+      "type": "food"
+    }
+  },
+  {
+    "id": "RAG_COOK_1",
+    "text": "Complementary foods should be freshly prepared and consumed within 1-2 hours.",
+    "metadata": {
+      "type": "condition",
+      "condition": "infant_feeding"
+    }
+  },
+  {
+    "id": "RAG_COOK_2",
+    "text": "Eggs can be added to infant foods either by cooking with the mixture or by boiling and grating.",
+    "metadata": {
+      "type": "food",
+      "food_name": "egg"
+    }
+  },
+  {
+    "id": "RAG_COOK_3",
+    "text": "Milk, peanut powder or sesame powder can be added to increase energy and taste.",
+    "metadata": {
+      "type": "food",
+      "tags": [
+        "energy_dense"
+      ]
+    }
+  },
+  {
+    "id": "RAG_RULE_1",
+    "text": "Sugar and salt should not be added to infant foods.",
+    "metadata": {
+      "type": "condition",
+      "condition": "infant_feeding"
+    }
+  },
+  {
+    "id": "RAG_RULE_2",
+    "text": "Processed foods high in fat, sugar and salt should be avoided in infants.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG_RULE_3",
+    "text": "Homemade foods are more nutritious and digestible than processed complementary foods.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG2001",
+    "text": "Amylase rich foods improve digestibility and reduce thickness of infant foods.",
+    "metadata": {
+      "type": "food",
+      "tags": [
+        "digestion_support"
+      ]
+    }
+  },
+  {
+    "id": "RAG2002",
+    "text": "Complementary foods should be freshly prepared and consumed within 1 to 2 hours.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG2003",
+    "text": "Eggs can be added to infant food either by cooking or grating after boiling.",
+    "metadata": {
+      "type": "food",
+      "food_name": "egg"
+    }
+  },
+  {
+    "id": "RAG2004",
+    "text": "Milk or nut powders can be added to increase energy and taste in infant foods.",
+    "metadata": {
+      "type": "food"
+    }
+  },
+  {
+    "id": "RAG2005",
+    "text": "Salt and sugar should be avoided in infant food preparation.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG2006",
+    "text": "Homemade complementary foods are more nutritious and safer than processed foods.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG3001",
+    "text": "Breast milk alone is not sufficient after six months of age.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG3002",
+    "text": "Complementary foods should be introduced after six months while continuing breastfeeding.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG3003",
+    "text": "Infants should be fed complementary foods two to four times daily.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG3004",
+    "text": "Homemade foods are preferred for infant feeding.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG3005",
+    "text": "Hygiene must be maintained during preparation and feeding of infant food.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG3006",
+    "text": "Feeding should continue during illness to prevent malnutrition.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG3007",
+    "text": "Salt and sugar intake should be minimized in infant foods.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "RAG3008",
+    "text": "Processed foods and sugary beverages should be avoided in infants.",
+    "metadata": {
+      "type": "condition"
+    }
+  },
+  {
+    "id": "goal_breastfeeding_001",
+    "text": "Breast milk is the natural food for the infant and is species-specific.",
+    "metadata": {
+      "type": "goal",
+      "goal": "exclusive_breastfeeding",
+      "tags": [
+        "natural_food"
+      ]
+    }
+  },
+  {
+    "id": "goal_breastfeeding_002",
+    "text": "Babies thrive on breast milk alone during the first 4-6 months of age.",
+    "metadata": {
+      "type": "goal",
+      "goal": "exclusive_breastfeeding",
+      "tags": [
+        "exclusive_feeding"
+      ]
+    }
+  },
+  {
+    "id": "goal_breastfeeding_003",
+    "text": "Breastfeeding should be initiated within half an hour of a normal delivery and within four hours of a caesarean section.",
+    "metadata": {
+      "type": "goal",
+      "goal": "exclusive_breastfeeding",
+      "tags": [
+        "early_initiation"
+      ]
+    }
+  },
+  {
+    "id": "food_colostrum_001",
+    "text": "Colostrum is the first milk secreted in the first 2-4 days, and babies only need 10-40 ml of it.",
+    "metadata": {
+      "type": "food",
+      "food_name": "colostrum",
+      "tags": [
+        "early_days"
+      ]
+    }
+  },
+  {
+    "id": "food_colostrum_002",
+    "text": "Colostrum is rich in protein and immunoglobulins, providing early immunity.",
+    "metadata": {
+      "type": "food",
+      "food_name": "colostrum",
+      "tags": [
+        "immunity",
+        "high_protein"
+      ]
+    }
+  },
+  {
+    "id": "goal_breastfeeding_004",
+    "text": "Prelacteal feeds like honey, distilled water, or glucose satisfy the baby's thirst and reduce the vigor to suckle.",
+    "metadata": {
+      "type": "goal",
+      "goal": "exclusive_breastfeeding",
+      "tags": [
+        "avoid_prelacteal"
+      ]
+    }
+  },
+  {
+    "id": "goal_breastfeeding_005",
+    "text": "Prelacteal feeds can lead to diarrhea and helminthic infestation in newborns.",
+    "metadata": {
+      "type": "goal",
+      "goal": "exclusive_breastfeeding",
+      "tags": [
+        "infection_risk",
+        "avoid_prelacteal"
+      ]
+    }
+  },
+  {
+    "id": "goal_breastfeeding_006",
+    "text": "Feeding from both breasts during a session ensures the baby gets both foremilk and hindmilk.",
+    "metadata": {
+      "type": "goal",
+      "goal": "exclusive_breastfeeding",
+      "tags": [
+        "feeding_technique"
+      ]
+    }
+  },
+  {
+    "id": "food_breastmilk_001",
+    "text": "Foremilk satisfies the baby's thirst, while hindmilk satisfies nutritional demands and ensures more milk production.",
+    "metadata": {
+      "type": "food",
+      "food_name": "breast_milk",
+      "tags": [
+        "foremilk",
+        "hindmilk"
+      ]
+    }
+  },
+  {
+    "id": "condition_engorgement_001",
+    "text": "Breast engorgement occurs when milk is not removed, making the breast full, tender, and lumpy.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breast_engorgement",
+      "tags": [
+        "breast_fullness"
+      ]
+    }
+  },
+  {
+    "id": "condition_engorgement_002",
+    "text": "Breast engorgement can be prevented by avoiding prelacteal feeds and breastfeeding frequently on demand.",
+    "metadata": {
+      "type": "condition",
+      "condition": "breast_engorgement",
+      "tags": [
+        "prevention",
+        "frequent_feeding"
+      ]
+    }
+  },
+  {
+    "id": "condition_sore_nipple_001",
+    "text": "Sore or cracked nipples are commonly caused by poor attachment, where the baby sucks only the nipple.",
+    "metadata": {
+      "type": "condition",
+      "condition": "sore_nipple",
+      "tags": [
+        "poor_attachment",
+        "nipple_trauma"
+      ]
+    }
+  },
+  {
+    "id": "condition_sore_nipple_002",
+    "text": "Proper attachment ensures the baby's mouth is wide open, covering much of the areola and not just the nipple.",
+    "metadata": {
+      "type": "condition",
+      "condition": "sore_nipple",
+      "tags": [
+        "proper_attachment",
+        "prevention"
+      ]
+    }
+  },
+  {
+    "id": "condition_blocked_duct_001",
+    "text": "A blocked duct is a painful, hard swelling without fever, caused by thick milk blocking the lactiferous duct.",
+    "metadata": {
+      "type": "condition",
+      "condition": "blocked_duct",
+      "tags": [
+        "painful_swelling"
+      ]
+    }
+  },
+  {
+    "id": "condition_mastitis_001",
+    "text": "Mastitis is a breast infection that causes the breast to become red, hot, tender, and swollen, often requiring antibiotics.",
+    "metadata": {
+      "type": "condition",
+      "condition": "mastitis",
+      "tags": [
+        "breast_infection",
+        "antibiotics"
+      ]
+    }
+  },
+  {
+    "id": "condition_mastitis_002",
+    "text": "Mastitis requires effective milk removal, and mothers should continue breastfeeding frequently from the affected breast.",
+    "metadata": {
+      "type": "condition",
+      "condition": "mastitis",
+      "tags": [
+        "milk_removal",
+        "frequent_feeding"
+      ]
+    }
+  },
+  {
+    "id": "condition_pregnancy_001",
+    "text": "During pregnancy, mothers should consume an extra 300 kcal and 15g of protein daily.",
+    "metadata": {
+      "type": "condition",
+      "condition": "pregnancy",
+      "tags": [
+        "extra_calories",
+        "extra_protein"
+      ]
+    }
+  },
+  {
+    "id": "condition_lactation_001",
+    "text": "During lactation, mothers should consume an extra 400-500 kcal and 25g of protein daily.",
+    "metadata": {
+      "type": "condition",
+      "condition": "lactation",
+      "tags": [
+        "extra_calories",
+        "extra_protein"
+      ]
+    }
+  },
+  {
+    "id": "goal_breastfeeding_007",
+    "text": "Exclusive demand feeding is the ideal schedule, as milk production and baby needs vary.",
+    "metadata": {
+      "type": "goal",
+      "goal": "exclusive_breastfeeding",
+      "tags": [
+        "demand_feeding",
+        "self_regulation"
+      ]
+    }
+  },
+  {
+    "id": "goal_breastfeeding_008",
+    "text": "Boiled water or fruit juice is not necessary for babies on exclusive demand feeding.",
+    "metadata": {
+      "type": "goal",
+      "goal": "exclusive_breastfeeding",
+      "tags": [
+        "no_water_needed"
+      ]
+    }
+  },
+  {
+    "id": "condition_burping_001",
+    "text": "Burping after feeding helps release swallowed air and prevents abdominal distension or colic.",
+    "metadata": {
+      "type": "condition",
+      "condition": "general_care",
+      "tags": [
+        "burping",
+        "prevent_colic"
+      ]
+    }
+  },
+  {
+    "id": "condition_positioning_001",
+    "text": "Placing babies in the right lateral position after feeding can help prevent aspiration.",
+    "metadata": {
+      "type": "condition",
+      "condition": "general_care",
+      "tags": [
+        "positioning",
+        "prevent_aspiration"
+      ]
+    }
+  },
+  {
+    "id": "condition_positioning_002",
+    "text": "Prone position is not recommended for sleeping babies as it is associated with Sudden Infant Death Syndrome (SIDS).",
+    "metadata": {
+      "type": "condition",
+      "condition": "general_care",
+      "tags": [
+        "positioning",
+        "SIDS_risk"
+      ]
+    }
+  },
+  {
+    "id": "condition_sufficiency_001",
+    "text": "Signs of sufficient breast milk include frequent pale urine, 1-6 liquid stools daily, and consistent weight gain.",
+    "metadata": {
+      "type": "condition",
+      "condition": "general_care",
+      "tags": [
+        "milk_sufficiency",
+        "weight_gain"
+      ]
+    }
+  },
+  {
+    "id": "condition_bottle_feeding_001",
+    "text": "Feeding bottles cause nipple confusion because sucking from a bottle is easier than breastfeeding.",
+    "metadata": {
+      "type": "condition",
+      "condition": "general_care",
+      "tags": [
+        "nipple_confusion",
+        "bottle_feeding"
+      ]
+    }
+  },
+  {
+    "id": "goal_breastfeeding_009",
+    "text": "Breastfeeding should be continued for up to two years to support maximum brain growth and myelination.",
+    "metadata": {
+      "type": "goal",
+      "goal": "continued_breastfeeding",
+      "tags": [
+        "brain_growth",
+        "long_term_feeding"
+      ]
+    }
+  },
+  {
+    "id": "condition_illness_001",
+    "text": "Breastfeeding should continue during infant illness as it is easily digestible and provides immunological factors.",
+    "metadata": {
+      "type": "condition",
+      "condition": "infant_illness",
+      "tags": [
+        "digestible_food",
+        "immunity"
+      ]
+    }
+  },
+  {
+    "id": "condition_illness_002",
+    "text": "Babies with congestive heart failure benefit from expressed breast milk due to its low sodium content.",
+    "metadata": {
+      "type": "condition",
+      "condition": "congestive_heart_failure_infant",
+      "tags": [
+        "low_sodium",
+        "EBM"
+      ]
+    }
+  },
+  {
+    "id": "condition_maternal_illness_001",
+    "text": "Breastfeeding can continue during most maternal illnesses like viral fever, mastitis, and UTI.",
+    "metadata": {
+      "type": "condition",
+      "condition": "maternal_illness",
+      "tags": [
+        "continue_breastfeeding"
+      ]
+    }
+  },
+  {
+    "id": "condition_contraindication_001",
+    "text": "Congenital lactose intolerance and galactosaemia are rare but permanent contraindications to breastfeeding.",
+    "metadata": {
+      "type": "condition",
+      "condition": "contraindication"
+    }
+  },
+  {
+    "id": "food_breastmilk_002",
+    "text": "Breast milk contains Long Chain Polyunsaturated Fatty Acids (LCPUFAs) like DHA and Arachidonic acid for visual and neural development.",
+    "metadata": {
+      "type": "food",
+      "food_name": "breast_milk",
+      "tags": [
+        "LCPUFA",
+        "brain_growth"
+      ]
+    }
+  },
+  {
+    "id": "food_cows_milk_001",
+    "text": "Cow's milk has a high solute load which puts a heavy strain on an infant's immature kidneys.",
+    "metadata": {
+      "type": "food",
+      "food_name": "cows_milk",
+      "tags": [
+        "high_solute_load",
+        "kidney_strain"
+      ]
+    }
+  },
+  {
+    "id": "condition_preterm_001",
+    "text": "Sucking and swallowing become coordinated in babies only around 34 weeks of gestation.",
+    "metadata": {
+      "type": "condition",
+      "condition": "preterm_infant",
+      "tags": [
+        "sucking_reflex",
+        "coordination"
+      ]
+    }
+  },
+  {
+    "id": "goal_minimal_enteral_001",
+    "text": "A few drops of colostrum can promote gut maturity and prevent mucosal atrophy in sick preterms on IV fluids.",
+    "metadata": {
+      "type": "goal",
+      "goal": "minimal_enteral_feeding",
+      "tags": [
+        "gut_maturation",
+        "colostrum"
+      ]
+    }
+  },
+  {
+    "id": "condition_preterm_002",
+    "text": "Preterm infants have higher growth velocity than term babies but start with very little nutrient stores.",
+    "metadata": {
+      "type": "condition",
+      "condition": "preterm_infant",
+      "tags": [
+        "growth_velocity",
+        "nutrient_stores"
+      ]
+    }
+  },
+  {
+    "id": "condition_lbw_001",
+    "text": "One dose of vitamin K (0.5-1 mg) at birth is recommended for all low birth weight babies to prevent hemorrhagic disease.",
+    "metadata": {
+      "type": "condition",
+      "condition": "low_birth_weight",
+      "tags": [
+        "vitamin_k",
+        "prevention"
+      ]
+    }
+  },
+  {
+    "id": "food_preterm_milk_001",
+    "text": "Preterm milk is nutrient-denser than term milk, containing higher protein, sodium, and IgA to support the baby's needs.",
+    "metadata": {
+      "type": "food",
+      "food_name": "preterm_milk",
+      "tags": [
+        "nutrient_dense",
+        "high_protein"
+      ]
+    }
+  },
+  {
+    "id": "condition_kmc_001",
+    "text": "Kangaroo Mother Care involves the mother acting as an incubator to provide warmth, nutrition, and stimulation.",
+    "metadata": {
+      "type": "condition",
+      "condition": "kangaroo_mother_care",
+      "tags": [
+        "warmth",
+        "bonding"
+      ]
+    }
+  },
+  {
+    "id": "goal_complementary_001",
+    "text": "Complementary feeding after 6 months is essential to prevent micronutrient deficiencies as breast milk alone is no longer sufficient.",
+    "metadata": {
+      "type": "goal",
+      "goal": "complementary_feeding",
+      "tags": [
+        "timing",
+        "nutrient_gap"
+      ]
+    }
+  },
+  {
+    "id": "condition_readiness_001",
+    "text": "Babies are biologically ready for semisolids at 4-6 months when the extrusion reflex perishes and intestinal amylase matures.",
+    "metadata": {
+      "type": "condition",
+      "condition": "complementary_feeding_readiness",
+      "tags": [
+        "biological_readiness",
+        "amylase_maturity"
+      ]
+    }
+  },
+  {
+    "id": "food_rice_porridge_001",
+    "text": "Rice is the best first cereal for weaning because it is gluten-free and easily digestible.",
+    "metadata": {
+      "type": "food",
+      "food_name": "rice_porridge",
+      "tags": [
+        "first_cereal",
+        "gluten_free"
+      ]
+    }
+  },
+  {
+    "id": "goal_family_pot_001",
+    "text": "By one year of age, a child should eat thickened, mashed versions of the regular family food without hot spices.",
+    "metadata": {
+      "type": "goal",
+      "goal": "family_pot_feeding",
+      "tags": [
+        "family_pot",
+        "transition"
+      ]
+    }
+  },
+  {
+    "id": "condition_illness_003",
+    "text": "After an illness, give the child an extra meal daily for 1-2 weeks to regain lost weight.",
+    "metadata": {
+      "type": "condition",
+      "condition": "infant_illness",
+      "tags": [
+        "recovery",
+        "weight_gain"
+      ]
+    }
+  },
+  {
+    "id": "condition_toddler_001",
+    "text": "Toddlers may experience physiological anorexia and reduced growth rates, requiring coaxing and group eating to maintain intake.",
+    "metadata": {
+      "type": "condition",
+      "condition": "toddler_feeding",
+      "tags": [
+        "physiological_anorexia",
+        "behavioral"
+      ]
+    }
+  },
+  {
+    "id": "goal_safety_net_001",
+    "text": "The Akshayapatra concept uses a special container for children to eat small pieces of food while playing to prevent malnutrition.",
+    "metadata": {
+      "type": "goal",
+      "goal": "safety_net",
+      "tags": [
+        "akshayapatra",
+        "behavioral_feeding"
+      ]
+    }
+  },
+  {
+    "id": "condition_afass_001",
+    "text": "Replacement feeding is only an alternative when it is Acceptable, Feasible, Affordable, Sustainable, and Safe (AFASS).",
+    "metadata": {
+      "type": "condition",
+      "condition": "afass_criteria",
+      "tags": [
+        "replacement_feeding",
+        "safety"
+      ]
+    }
+  },
+  {
+    "id": "food_formula_001",
+    "text": "Whole cow's milk is unsuitable for infants during the first year of life as it can cause gastrointestinal blood loss and anemia.",
+    "metadata": {
+      "type": "food",
+      "food_name": "cows_milk",
+      "tags": [
+        "unsuitable",
+        "anemia_risk"
+      ]
+    }
+  },
+  {
+    "id": "food_formula_002",
+    "text": "Whey-adapted starter formula has a whey-to-casein ratio greater than 1, achieving an amino acid pattern closer to breast milk.",
+    "metadata": {
+      "type": "food",
+      "food_name": "whey_adapted_starter_formula",
+      "tags": [
+        "whey_casein",
+        "amino_acids"
+      ]
+    }
+  },
+  {
+    "id": "food_formula_003",
+    "text": "Casein-predominant formulas satisfy the baby for longer due to slower gastric passage.",
+    "metadata": {
+      "type": "food",
+      "food_name": "casein_predominant_starter_formula",
+      "tags": [
+        "satiety",
+        "digestion"
+      ]
+    }
+  },
+  {
+    "id": "food_formula_004",
+    "text": "Probiotics in formula, like Bifidobacteria lactis, can enhance the immune system and reduce the incidence of diarrhea.",
+    "metadata": {
+      "type": "food",
+      "food_name": "infant_formula",
+      "tags": [
+        "probiotics",
+        "immunity"
+      ]
+    }
+  },
+  {
+    "id": "condition_picky_001",
+    "text": "Picky eating is characterized by food avoidance, slow eating, and unwillingness to try new types of food, peaking at age 2-3.",
+    "metadata": {
+      "type": "condition",
+      "condition": "picky_eating",
+      "tags": [
+        "fussy_eater",
+        "neophobia"
+      ]
+    }
+  },
+  {
+    "id": "condition_supertaster_001",
+    "text": "Genetic supertasters have a high density of taste buds, making certain vegetables like broccoli and cabbage taste intolerably bitter.",
+    "metadata": {
+      "type": "condition",
+      "condition": "supertaster_genotype",
+      "tags": [
+        "taste_buds",
+        "bitterness"
+      ]
+    }
+  },
+  {
+    "id": "rag_biological_001",
+    "text": "Leptin is the 'satiety signal' produced by fat cells that reduces appetite, while Ghrelin is the 'hunger signal' that stimulates eating.",
+    "metadata": {
+      "type": "general_knowledge",
+      "tags": [
+        "leptin",
+        "ghrelin",
+        "appetite_control"
+      ]
+    }
+  },
+  {
+    "id": "rag_behavioral_001",
+    "text": "Most children need to be offered a new food 10-15 times before they will try it.",
+    "metadata": {
+      "type": "general_knowledge",
+      "tags": [
+        "food_exposure",
+        "neophobia"
+      ]
+    }
+  },
+  {
+    "id": "condition_infantile_anorexia_001",
+    "text": "Infantile anorexia involves failure to gain weight and intense parent-infant conflict over issues of autonomy and control during feeding.",
+    "metadata": {
+      "type": "condition",
+      "condition": "infantile_anorexia",
+      "tags": [
+        "weight_failure",
+        "relationship_conflict"
+      ]
+    }
+  },
+  {
+    "id": "rag_growth_001",
+    "text": "A child's birth weight typically doubles by 4 months, triples by 1 year, and quadruples by 2 years.",
+    "metadata": {
+      "type": "growth_metric",
+      "tags": [
+        "weight_milestones"
+      ]
+    }
+  },
+  {
+    "id": "rag_growth_002",
+    "text": "Brain growth is maximum in the first two years of life, reaching 80% of adult size by age 2.",
+    "metadata": {
+      "type": "growth_metric",
+      "tags": [
+        "brain_growth",
+        "early_development"
+      ]
+    }
+  },
+  {
+    "id": "rag_lbw_001",
+    "text": "The Barker Hypothesis suggests that low birth weight (LBW) programs infants for early degenerative adulthood diseases like insulin resistance and diabetes.",
+    "metadata": {
+      "type": "general_knowledge",
+      "tags": [
+        "barker_hypothesis",
+        "lbw_sequelae"
+      ]
+    }
+  },
+  {
+    "id": "rag_growth_model_001",
+    "text": "The ICP Model divides linear growth into Infancy (nutrition-driven), Childhood (GH-thyroxine driven), and Puberty (sex steroid-driven).",
+    "metadata": {
+      "type": "growth_metric",
+      "tags": [
+        "icp_model",
+        "determinants_of_growth"
+      ]
+    }
+  },
+  {
+    "id": "condition_ftt_001",
+    "text": "Failure to Thrive (FTT) is divided into Organic (known medical condition) and Psychosocial (neglect/poverty), with the majority being psychosocial.",
+    "metadata": {
+      "type": "condition",
+      "condition": "failure_to_thrive_organic",
+      "tags": [
+        "ftt_types",
+        "medical_assessment"
+      ]
+    }
+  },
+  {
+    "id": "rag_growth_chart_001",
+    "text": "The growth chart or 'Road to Health' was popularized by David Morley for growth monitoring. Upward curves are ideal, while flat or downward curves indicate a need for investigation.",
+    "metadata": {
+      "type": "general_knowledge",
+      "tags": [
+        "growth_chart",
+        "road_to_health"
+      ]
+    }
+  },
+  {
+    "id": "rag_who_mgrs_001",
+    "text": "The WHO Multicentre Growth Reference Study (MGRS) established breastfeeding as the biological norm for growth, involving healthy children from six diverse countries.",
+    "metadata": {
+      "type": "general_knowledge",
+      "tags": [
+        "who_mgrs",
+        "breastfeeding_norm"
+      ]
+    }
+  },
+  {
+    "id": "rag_nutri_biochem_001",
+    "text": "Tryptophan is a precursor to serotonin and niacin; 60 mg of tryptophan yields 1 mg of niacin (Vitamin B3).",
+    "metadata": {
+      "type": "nutritional_biochemistry",
+      "tags": [
+        "tryptophan",
+        "niacin",
+        "serotonin"
+      ]
+    }
+  },
+  {
+    "id": "rag_nutri_biochem_002",
+    "text": "Glutamine is the most abundant amino acid in plasma and is considered an 'antistress nutrient' and a neuroregulator.",
+    "metadata": {
+      "type": "nutritional_biochemistry",
+      "tags": [
+        "glutamine",
+        "antistress"
+      ]
+    }
+  },
+  {
+    "id": "rag_carbs_001",
+    "text": "Maltodextrin is a glucose polymer that reduces osmolarity by five times compared to glucose, making it gentler on the GI tract.",
+    "metadata": {
+      "type": "nutritional_biochemistry",
+      "tags": [
+        "maltodextrin",
+        "osmolarity"
+      ]
+    }
+  },
+  {
+    "id": "rag_fiber_001",
+    "text": "Dietary fiber increases GI transit time, binds bile salts to lower cholesterol, and helps prevent constipation and colon cancer.",
+    "metadata": {
+      "type": "general_knowledge",
+      "tags": [
+        "fiber_benefits",
+        "cholesterol_lowering"
+      ]
+    }
+  },
+  {
+    "id": "rag_protein_001",
+    "text": "The energy yield for proximate principles is: Carbohydrate (4 Cal/g), Protein (4 Cal/g), and Fat (9 Cal/g).",
+    "metadata": {
+      "type": "nutritional_biochemistry",
+      "tags": [
+        "caloric_factors",
+        "proximate_principles"
+      ]
+    }
+  },
+  {
+    "id": "rag_vitamin_a_001",
+    "text": "Vitamin A Prophylaxis: Children 9mo-5yr get 9 megadoses every 6mo. 1st dose (1 lakh IU) at 9mo with measles vaccine; subsequent doses (2 lakh IU) at 6mo intervals.",
+    "metadata": {
+      "type": "protocol",
+      "tags": [
+        "vitamin_a_prophylaxis",
+        "pulse_dosing"
+      ]
+    }
+  },
+  {
+    "id": "rag_vitamin_d_001",
+    "text": "Nutritional rickets shows X-ray signs like cupping, lipping, and flaring of the metaphysis with a widened growth plate (physis).",
+    "metadata": {
+      "type": "diagnostic",
+      "tags": [
+        "rickets_xray",
+        "bone_mineralisation"
+      ]
+    }
+  },
+  {
+    "id": "rag_vitamin_c_001",
+    "text": "Scurvy X-ray features include the 'White line of Fraenkel' at the metaphysis, 'Ringed epiphysis', and the 'Corner sign'.",
+    "metadata": {
+      "type": "diagnostic",
+      "tags": [
+        "scurvy_xray",
+        "metaphyseal_signs"
+      ]
+    }
+  },
+  {
+    "id": "rag_fats_001",
+    "text": "Desirable omega-6 to omega-3 (n-6:n-3) ratio is between 5:1 and 10:1. High n-6 ratios (e.g., sunflower oil) can predispose to angiotoxicity and free radical disease.",
+    "metadata": {
+      "type": "nutritional_biochemistry",
+      "tags": [
+        "omega_ratio",
+        "angiotoxicity",
+        "PUFA"
+      ]
+    }
+  },
+  {
+    "id": "rag_fats_002",
+    "text": "MCT (Medium Chain Triglycerides) in coconut oil are C8-C10 fatty acids that are absorbed directly into the portal vein, bypassing normal fat absorption pathways.",
+    "metadata": {
+      "type": "nutritional_biochemistry",
+      "tags": [
+        "MCT",
+        "fat_malabsorption",
+        "coconut_oil"
+      ]
+    }
+  },
+  {
+    "id": "rag_vitamin_e_001",
+    "text": "Vitamin E (Tocopherol) is an antioxidant used to prevent Retinopathy of Prematurity (ROP) and Bronchopulmonary Dysplasia (BPD) in preterm infants.",
+    "metadata": {
+      "type": "general_knowledge",
+      "tags": [
+        "vitamin_e",
+        "preterm_care",
+        "antioxidant"
+      ]
+    }
+  },
+  {
+    "id": "rag_vitamin_k_001",
+    "text": "Haemorrhagic disease of the newborn (HDN) is more common in breastfed babies because breast milk is lower in Vitamin K than cow's milk (15 vs 60 mcg/dl).",
+    "metadata": {
+      "type": "condition_knowledge",
+      "tags": [
+        "hdn",
+        "vitamin_k",
+        "breastfeeding_risk"
+      ]
+    }
+  },
+  {
+    "id": "rag_biochem_001",
+    "text": "Vitamin B12 is the 'red vitamin', present only in animal foods. It is essential for myelin synthesis; deficiency leads to CNS degeneration and knuckle pigmentation.",
+    "metadata": {
+      "type": "nutritional_biochemistry",
+      "tags": [
+        "vitamin_b12",
+        "myelin",
+        "animal_source"
+      ]
+    }
+  },
+  {
+    "id": "rag_minerals_001",
+    "text": "Cadman's product (Calcium x Phosphorus) should ideally be 40 for optimal bone mineralisation.",
+    "metadata": {
+      "type": "nutritional_biochemistry",
+      "tags": [
+        "cadmans_product",
+        "bone_mineralisation"
+      ]
+    }
+  },
+  {
+    "id": "rag_iron_001",
+    "text": "Iron deficiency can cause specific types of pica: Geophagia (eating mud), Amylophagia (eating raw rice), and Pagophagia (eating ice cubes).",
+    "metadata": {
+      "type": "diagnostic",
+      "tags": [
+        "iron_deficiency",
+        "pica_types"
+      ]
+    }
+  },
+  {
+    "id": "rag_magnesium_001",
+    "text": "Magnesium acts as an antagonist to Calcium; it is used as a bronchodilator in refractory asthma by inhibiting smooth muscle contractility.",
+    "metadata": {
+      "type": "therapeutic",
+      "tags": [
+        "magnesium_asthma",
+        "bronchodilator"
+      ]
+    }
+  },
+  {
+    "id": "rag_iron_002",
+    "text": "Iron absorption is inhibited by phytates, oxalates, tea, coffee, and high phosphate in cow's milk. It is enhanced by Vitamin C and an acid medium.",
+    "metadata": {
+      "type": "nutritional_biochemistry",
+      "tags": [
+        "iron_absorption",
+        "interactions"
+      ]
+    }
+  },
+  {
+    "id": "rag_tpn_minerals_001",
+    "text": "Trace element deficiencies in TPN: Zinc (dermatitis, alopecia), Copper (refractory anemia), Selenium (cardiomyopathy), Chromium (hyperglycemia).",
+    "metadata": {
+      "type": "clinical_knowledge",
+      "tags": [
+        "tpn_deficiencies",
+        "trace_elements"
+      ]
+    }
+  },
+  {
+    "id": "rag_potassium_001",
+    "text": "Hypokalaemia (low potassium) is often noted in diarrhoea and PEM, manifesting as hypotonia and ileus with flat T waves on ECG.",
+    "metadata": {
+      "type": "clinical_knowledge",
+      "tags": [
+        "hypokalaemia",
+        "ecg_signs"
+      ]
+    }
+  },
+  {
+    "id": "rag_trace_elements_001",
+    "text": "Iodine is a constituent of thyroxine. Sea foods and iodized salt are key sources. Iodized salt should contain 15 ppm (15 mcg/g) at the consumer level.",
+    "metadata": {
+      "type": "general_knowledge",
+      "tags": [
+        "iodine",
+        "thyroxine",
+        "iodized_salt"
+      ]
+    }
+  },
+  {
+    "id": "rag_trace_elements_002",
+    "text": "Zinc is a cofactor in various enzymes and is important in protein and nucleic acid synthesis. Deficiency leads to acrodermatitis enteropathica and reduced taste sensation.",
+    "metadata": {
+      "type": "clinical_knowledge",
+      "tags": [
+        "zinc",
+        "hypogeusia",
+        "acrodermatitis"
+      ]
+    }
+  },
+  {
+    "id": "rag_trace_elements_003",
+    "text": "Copper is a constituent of ceruloplasmin. It competes with Zinc and Molybdenum for absorption in the GI tract.",
+    "metadata": {
+      "type": "nutritional_biochemistry",
+      "tags": [
+        "copper",
+        "ceruloplasmin",
+        "absorption_competition"
+      ]
+    }
+  },
+  {
+    "id": "rag_trace_elements_004",
+    "text": "Fluorine at 1 ppm in water prevents dental caries, but concentrations above 2-3 ppm cause dental fluorosis and genu valgum (knock-knees).",
+    "metadata": {
+      "type": "general_knowledge",
+      "tags": [
+        "fluorine",
+        "fluorosis",
+        "dental_health"
+      ]
+    }
+  },
+  {
+    "id": "rag_trace_elements_005",
+    "text": "Selenium is an antioxidant cofactor. Deficiency is linked to Keshan cardiomyopathy, myalgia, and liver necrosis.",
+    "metadata": {
+      "type": "clinical_knowledge",
+      "tags": [
+        "selenium",
+        "antioxidant",
+        "keshan_disease"
+      ]
+    }
+  },
+  {
+    "id": "rag_precise_numerical_001",
+    "text": "Serum Iodine: 50-150 mcg/dl. Serum Zinc: 60-150 mcg/dl. Serum Copper: 75-150 mcg/dl. Serum Selenium: 10-15 mcg/dl.",
+    "metadata": {
+      "type": "precise_metrics",
+      "tags": [
+        "serum_levels",
+        "trace_elements"
+      ]
+    }
+  },
+  {
+    "id": "rag_precise_numerical_002",
+    "text": "Trace Element Requirements: Iodine (100-150 mcg/day), Zinc (5-15 mg/day), Copper (1-3 mg/day), Chromium (10-70 mcg/day), Manganese (1-5 mg/day).",
+    "metadata": {
+      "type": "precise_metrics",
+      "tags": [
+        "daily_requirements",
+        "trace_elements"
+      ]
+    }
+  },
+  {
+    "id": "rag_precise_numerical_003",
+    "text": "Zinc supplementation in Diarrhoea: 10 mg elemental Zn/day for infants < 6 months; 20 mg/day for those > 6 months, for a duration of 14 days.",
+    "metadata": {
+      "type": "protocol",
+      "tags": [
+        "zinc_supplementation",
+        "diarrhoea_protocol"
+      ]
+    }
+  },
+  {
+    "id": "rag_precise_numerical_004",
+    "text": "0.6 mg of beta-carotene is equivalent to 1 unit (IU) of Vitamin A.",
+    "metadata": {
+      "type": "conversion_factor",
+      "tags": [
+        "vitamin_a",
+        "beta_carotene"
+      ]
+    }
+  },
+  {
+    "id": "rag_antinutrients_001",
+    "text": "Trypsin inhibitors (legumes, egg white) are heat-labile and can be removed by cooking. Ovomucoid is the specific inhibitor in duck's egg white.",
+    "metadata": {
+      "type": "antinutrient_data",
+      "tags": [
+        "trypsin_inhibitor",
+        "cooking"
+      ]
+    }
+  },
+  {
+    "id": "rag_antinutrients_002",
+    "text": "Cyanogenic glucosides (linimarin) in Tapioca/Cassava can be removed by leaching out with water (double cooking).",
+    "metadata": {
+      "type": "antinutrient_data",
+      "tags": [
+        "tapioca",
+        "cyanide_prevention"
+      ]
+    }
+  },
+  {
+    "id": "rag_swelling_001",
+    "text": "Swelling ratios on cooking: Rice (3x), Wheat (4x), Pulses (2x). Raw rice acquires significant moisture; 50g raw yields 1 cup cooked.",
+    "metadata": {
+      "type": "food_science",
+      "tags": [
+        "swelling_ratio",
+        "calorie_density"
+      ]
+    }
+  },
+  {
+    "id": "rag_arf_001",
+    "text": "Amylase Rich Food (ARF) reduces the viscosity of porridges, allowing for high calorie density without increasing volume. It is rich in vitamins and has low phytates.",
+    "metadata": {
+      "type": "food_science",
+      "tags": [
+        "ARF",
+        "viscosity",
+        "calorie_density"
+      ]
+    }
+  },
+  {
+    "id": "rag_spirulina_001",
+    "text": "Spirulina is a single-celled algae with 70% protein. It contains phenylalanine which signals the brain to stop hunger pangs.",
+    "metadata": {
+      "type": "food_science",
+      "tags": [
+        "spirulina",
+        "appetite_control"
+      ]
+    }
+  },
+  {
+    "id": "rag_digestion_001",
+    "text": "Key Digestive Enzymes: Ptyalin (saliva), Pepsin (stomach), Trypsin (pancreas), Enterokinase (intestine). Keanin is the milk-acting enzyme in infants.",
+    "metadata": {
+      "type": "physiology",
+      "tags": [
+        "enzymes",
+        "digestion"
+      ]
+    }
+  },
+  {
+    "id": "rag_hormones_001",
+    "text": "Digestive Hormones: Gastrin regulates gastric secretion. Secretin regulates bicarbonate. CCK (Cholecystokinin) mediates gall bladder contraction and enzyme release.",
+    "metadata": {
+      "type": "physiology",
+      "tags": [
+        "hormones",
+        "gastrin",
+        "CCK",
+        "secretin"
+      ]
+    }
+  },
+  {
+    "id": "rag_phytochemical_001",
+    "text": "Phytochemicals: Allicin (Onion/Garlic), Curcumin (Turmeric), Lycopene (Tomato), Genistein (Soya). They are functional food components with antioxidant properties.",
+    "metadata": {
+      "type": "food_science",
+      "tags": [
+        "phytochemicals",
+        "functional_foods"
+      ]
+    }
+  },
+  {
+    "id": "rag_rda_001",
+    "text": "RDA is defined as individual minimum requirement plus two standard deviations (+2 SD), covering needs of over 99% of a healthy group.",
+    "metadata": {
+      "type": "standards",
+      "tags": [
+        "RDA_definition",
+        "margin_of_safety"
+      ]
+    }
+  },
+  {
+    "id": "rag_probiotics_001",
+    "text": "Probiotics are living organisms (bacteria/yeast) that improve endogenous microflora. Must be of human origin and have proven health benefits.",
+    "metadata": {
+      "type": "definition",
+      "tags": [
+        "probiotics",
+        "microflora"
+      ]
+    }
+  },
+  {
+    "id": "rag_probiotics_002",
+    "text": "Probiotic strains: Lactobacillus (LGG, acidophilus, reuteri, plantarum), Bifidobacteria (bifidus, longum), Streptococcus thermophilus, Saccharomyces boulardii (yeast).",
+    "metadata": {
+      "type": "classification",
+      "tags": [
+        "probiotic_strains"
+      ]
+    }
+  },
+  {
+    "id": "rag_probiotics_003",
+    "text": "LGG (Lactobacillus GG) reduces rotavirus diarrhoea duration, enhances IgA secretion, and reduces antibiotic-associated diarrhoea risk by 75%.",
+    "metadata": {
+      "type": "clinical_fact",
+      "tags": [
+        "LGG",
+        "rotavirus",
+        "IgA"
+      ]
+    }
+  },
+  {
+    "id": "rag_probiotics_004",
+    "text": "Saccharomyces boulardii is effective against bacterial and C. difficile diarrhoea by reducing toxin production.",
+    "metadata": {
+      "type": "clinical_fact",
+      "tags": [
+        "S.boulardii",
+        "C.difficile"
+      ]
+    }
+  },
+  {
+    "id": "rag_antioxidant_mechanism_001",
+    "text": "ROS (Reactive Oxygen Species) include Superoxide, Hydrogen Peroxide, and Hydroxyl radical. Hydroxyl is the most toxic and attacks cell membrane lipids (lipid peroxidation).",
+    "metadata": {
+      "type": "biochemistry",
+      "tags": [
+        "ROS",
+        "hydroxyl_radical",
+        "lipid_peroxidation"
+      ]
+    }
+  },
+  {
+    "id": "rag_antioxidant_mechanism_002",
+    "text": "Antioxidant enzymes: Superoxide dismutase (SOD), Catalase, Glutathione Peroxidase (Selenium-dependent).",
+    "metadata": {
+      "type": "biochemistry",
+      "tags": [
+        "SOD",
+        "catalase",
+        "glutathione_peroxidase"
+      ]
+    }
+  },
+  {
+    "id": "rag_nutrients_type_001",
+    "text": "Type I Nutrients: Regulatory min/max (Vitamin C added). Type II Nutrients: Naturally occurring without regulation (Vitamin C in fresh orange juice).",
+    "metadata": {
+      "type": "definition",
+      "tags": [
+        "Type_I_Nutrients",
+        "Type_II_Nutrients"
+      ]
+    }
+  },
+  {
+    "id": "rag_super_nutrients_001",
+    "text": "Super Nutrients for brain health: Vitamin A, Iron, Folic Acid, and Omega-3 fatty acids.",
+    "metadata": {
+      "type": "classification",
+      "tags": [
+        "super_nutrients",
+        "brain_health"
+      ]
+    }
+  },
+  {
+    "id": "rag_malnutrition_iceberg_001",
+    "text": "The 'Tip of the Iceberg' phenomenon: Kwashiorkor and Marasmus are severe forms, but many more children suffer from moderate or invisible malnutrition.",
+    "metadata": {
+      "type": "epidemiology",
+      "tags": [
+        "iceberg_phenomenon",
+        "undernutrition"
+      ]
+    }
+  },
+  {
+    "id": "rag_malnutrition_biochem_001",
+    "text": "Early indicators of malnutrition include reduction in carrier proteins (Transferrin, Ceruloplasmin) and serum enzymes (Amylase, Lipase).",
+    "metadata": {
+      "type": "biochemistry",
+      "tags": [
+        "biochemical_markers",
+        "carrier_proteins"
+      ]
+    }
+  },
+  {
+    "id": "rag_malnutrition_biochem_002",
+    "text": "Serum albumin levels are slow to drop but serve as a strong predictor of mortality in malnourished children.",
+    "metadata": {
+      "type": "biochemistry",
+      "tags": [
+        "albumin",
+        "mortality_predictor"
+      ]
+    }
+  },
+  {
+    "id": "rag_malnutrition_morphology_001",
+    "text": "Morphological signs: Buccal smear show >70% mutilated cells. Hair roots show telogen phase (resting) dominance and reduced size.",
+    "metadata": {
+      "type": "morphology",
+      "tags": [
+        "buccal_smear",
+        "hair_shaft"
+      ]
+    }
+  },
+  {
+    "id": "rag_malnutrition_anthropometry_001",
+    "text": "Mid Arm Circumference (MAC): <12.5 cm indicates severe PEM; 12.5-13.5 cm indicates moderate PEM (1-5 yr age group).",
+    "metadata": {
+      "type": "anthropometry",
+      "tags": [
+        "MAC",
+        "PEM_grading"
+      ]
+    }
+  },
+  {
+    "id": "rag_malnutrition_anthropometry_002",
+    "text": "Age-independent tests for PEM: Bangle test (4cm inner diameter), Quae stick (height-MAC ratio), Shakir's tape (colored zones).",
+    "metadata": {
+      "type": "anthropometry",
+      "tags": [
+        "age_independent_indicators",
+        "community_screening"
+      ]
+    }
+  },
+  {
+    "id": "rag_malnutrition_anthropometry_003",
+    "text": "Ponderal Index (W/H^3): >2.5 is normal; <2.0 indicates asymmetric IUGR/malnutrition.",
+    "metadata": {
+      "type": "anthropometry",
+      "tags": [
+        "ponderal_index",
+        "IUGR"
+      ]
+    }
+  },
+  {
+    "id": "rag_malnutrition_classification_001",
+    "text": "Gomez Classification (W/A): Normal (>90%), Grade I (75-90%), Grade II (60-75%), Grade III (<60% or Oedema).",
+    "metadata": {
+      "type": "classification",
+      "tags": [
+        "Gomez_classification",
+        "weight_for_age"
+      ]
+    }
+  },
+  {
+    "id": "rag_malnutrition_classification_002",
+    "text": "Wellcome Trust Classification: Kwashiorkor (60-80% W/A + Oedema), Marasmus (<60% W/A, no Oedema).",
+    "metadata": {
+      "type": "classification",
+      "tags": [
+        "Wellcome_Trust",
+        "oedema"
+      ]
+    }
+  },
+  {
+    "id": "rag_malnutrition_classification_003",
+    "text": "IAP Classification (W/A): Normal (>80%), Grade I (71-80%), Grade II (61-70%), Grade III (51-60%), Grade IV (<50%).",
+    "metadata": {
+      "type": "classification",
+      "tags": [
+        "IAP_classification",
+        "Indian_Academy_of_Pediatrics"
+      ]
+    }
+  },
+  {
+    "id": "rag_malnutrition_classification_004",
+    "text": "Waterlow Classification: Wasting (W/H) indicates acute malnutrition; Stunting (H/A) indicates chronic/past malnutrition.",
+    "metadata": {
+      "type": "classification",
+      "tags": [
+        "Waterlow_classification",
+        "stunting",
+        "wasting"
+      ]
+    }
+  },
+  {
+    "id": "rag_pem_pathogenesis_001",
+    "text": "Hormonal adaptation in PEM: Cortisol (catabolic) maintains glucose pool via gluconeogenesis; Insulin (anabolic) maintains protein synthesis.",
+    "metadata": {
+      "type": "physiology",
+      "tags": [
+        "cortisol",
+        "insulin",
+        "adaptation"
+      ]
+    }
+  },
+  {
+    "id": "rag_pem_pathogenesis_002",
+    "text": "Oedema in Kwashiorkor is multifactorial: Hypoalbuminaemia reduces oncotic pressure, triggering Renin-Angiotensin-Aldosterone to retain Na+ and H2O.",
+    "metadata": {
+      "type": "physiology",
+      "tags": [
+        "oedema_pathogenesis",
+        "hypoalbuminaemia",
+        "RAAS"
+      ]
+    }
+  },
+  {
+    "id": "rag_pem_pathogenesis_003",
+    "text": "Fatty liver in Kwashiorkor: Reduced Beta-lipoproteins (carrier proteins) prevent the export of fatty acids from the liver.",
+    "metadata": {
+      "type": "pathology",
+      "tags": [
+        "fatty_liver",
+        "beta_lipoprotein"
+      ]
+    }
+  },
+  {
+    "id": "rag_pem_biochem_001",
+    "text": "Kwashiorkor Amino Acid Profile: NE/E amino acid ratio > 3.5; low BCAA (Valine, Leucine, Isoleucine) and low Alanine.",
+    "metadata": {
+      "type": "biochemistry",
+      "tags": [
+        "amino_acid_ratio",
+        "BCAA"
+      ]
+    }
+  },
+  {
+    "id": "rag_pem_biochem_002",
+    "text": "Critical Albumin Level: Below 3.0 g/dl, oncotic pressure falls and moon face/fatty liver development begins.",
+    "metadata": {
+      "type": "biochemistry",
+      "tags": [
+        "albumin_threshold",
+        "oncotic_pressure"
+      ]
+    }
+  },
+  {
+    "id": "rag_pem_metabolism_001",
+    "text": "Glycogen sources in PEM: 70% from pyruvate/lactate, 20% from glycerol, and <10% from gluconeogenic amino acids.",
+    "metadata": {
+      "type": "metabolism",
+      "tags": [
+        "glycogen",
+        "gluconeogenesis"
+      ]
+    }
+  },
+  {
+    "id": "rag_pem_metabolism_002",
+    "text": "Hypoglycaemia thresholds: Blood sugar < 40 mg% (asymptomatic); < 30 mg% (symptomatic).",
+    "metadata": {
+      "type": "metabolism",
+      "tags": [
+        "hypoglycaemia_threshold"
+      ]
+    }
+  },
+  {
+    "id": "rag_pem_lipids_001",
+    "text": "Mortality predictors in PEM: Low serum phospholipids and low total lipids observed as bad prognostic signs.",
+    "metadata": {
+      "type": "metabolism",
+      "tags": [
+        "lipid_predictors",
+        "mortality"
+      ]
+    }
+  },
+  {
+    "id": "rag_pem_water_001",
+    "text": "Water balance in severe PEM: Total body water increases with an ECF/ICF ratio similar to a newborn baby.",
+    "metadata": {
+      "type": "physiology",
+      "tags": [
+        "total_body_water",
+        "ECF_ICF_ratio"
+      ]
+    }
+  },
+  {
+    "id": "rag_pem_immunity_001",
+    "text": "Nutritionally Acquired Immunodeficiency Syndrome (NAIDS): Defective skin barriers, chemotaxis, and killing; low secretory IgA; thymic atrophy; lymphopenia.",
+    "metadata": {
+      "type": "immunology",
+      "tags": [
+        "NAIDS",
+        "thymic_atrophy",
+        "IgA"
+      ]
+    }
+  },
+  {
+    "id": "rag_pem_immunity_002",
+    "text": "Cytokine response in PEM: SIRS (Proinflammatory: IL-1B, IL-6, IL-8, TNF-a) vs CARS (Anti-inflammatory: IL-1Ra, IL-4, IL-10). Imbalance leads to clinical PEM syndrome.",
+    "metadata": {
+      "type": "immunology",
+      "tags": [
+        "cytokines",
+        "SIRS",
+        "CARS"
+      ]
+    }
+  },
+  {
+    "id": "rag_pem_brain_001",
+    "text": "Brain weight benchmarks: Birth (25% adult size), 6 months (50%), 2 years (75%), 5 years (90%). Adult brain weighs approx. 1234g.",
+    "metadata": {
+      "type": "growth_metric",
+      "tags": [
+        "brain_weight",
+        "adult_size"
+      ]
+    }
+  },
+  {
+    "id": "rag_pem_epidemiology_001",
+    "text": "Global Killer Status: Malnutrition contributes directly or indirectly to 54% of all child deaths per year.",
+    "metadata": {
+      "type": "epidemiology",
+      "tags": [
+        "mortality_statistics"
+      ]
+    }
+  },
+  {
+    "id": "rag_pem_neuro_001",
+    "text": "Kwashiorkor Myelopathy: Reduction in anterior horn cells and degenerative changes in the spinal cord; leads to low motor nerve conduction velocity.",
+    "metadata": {
+      "type": "neurology",
+      "tags": [
+        "myelopathy",
+        "anterior_horn_cells"
+      ]
+    }
+  },
+  {
+    "id": "rag_pem_behavior_001",
+    "text": "Functional Isolation: PEM reduces playful activity and exploratory motivation, leading to 'Transient Autism' and social smile regression.",
+    "metadata": {
+      "type": "psychology",
+      "tags": [
+        "transient_autism",
+        "behavioral_delay"
+      ]
+    }
+  },
+  {
+    "id": "rag_pem_management_001",
+    "text": "Initial resuscitation in severe PEM focuses on life-threatening emergencies: Hypoglycaemia, Hypothermia, Septicaemia, Dehydration, CCF, and severe Anaemia.",
+    "metadata": {
+      "type": "protocol",
+      "tags": [
+        "resuscitation",
+        "SAM_management"
+      ]
+    }
+  },
+  {
+    "id": "rag_pem_management_002",
+    "text": "Oedema in Kwashiorkor should NOT be treated with diuretics; diuretics like frusemide are only used if CCF is present.",
+    "metadata": {
+      "type": "protocol",
+      "tags": [
+        "oedema_rule",
+        "diuretics"
+      ]
+    }
+  },
+  {
+    "id": "rag_pem_management_003",
+    "text": "Anaemia rule in PEM: Small packed cell transfusion (5-10 ml/kg) with frusemide. Oral iron is withheld until stabilized/dewormed to prevent E. coli overgrowth.",
+    "metadata": {
+      "type": "protocol",
+      "tags": [
+        "anaemia",
+        "iron_therapy"
+      ]
+    }
+  },
+  {
+    "id": "rag_pem_nutri_therapy_001",
+    "text": "Nutritional restoration phase targets: 150-200 kcal/kg/day and 3-4 g protein/kg/day. Bridge the '400 kcal calorie gap' seen in Indian children.",
+    "metadata": {
+      "type": "protocol",
+      "tags": [
+        "nutritional_therapy",
+        "calorie_targets"
+      ]
+    }
+  },
+  {
+    "id": "rag_pem_nutri_therapy_002",
+    "text": "SAT Mix Recipe: Rice, Wheat, Blackgram, and Sugar in the ratio 1:1:1:2. Provides 380 kcal and 8g protein per 100g.",
+    "metadata": {
+      "type": "food_science",
+      "tags": [
+        "SAT_mix",
+        "local_weaning_food"
+      ]
+    }
+  },
+  {
+    "id": "rag_pem_nutri_therapy_003",
+    "text": "F-75 Starter Formula: 75 kcal/100ml. F-100 Catch-up Formula: 100 kcal/100ml. F-100 contains 2.9g protein/100ml.",
+    "metadata": {
+      "type": "food_science",
+      "tags": [
+        "F-75",
+        "F-100",
+        "therapeutic_feeds"
+      ]
+    }
+  },
+  {
+    "id": "rag_pem_nutri_therapy_004",
+    "text": "Wait for 'Return of Appetite' (usually after 1 week) before transitioning from F-75 stabilization to F-100 rehabilitation.",
+    "metadata": {
+      "type": "protocol",
+      "tags": [
+        "transition_rule",
+        "appetite"
+      ]
+    }
+  },
+  {
+    "id": "rag_pem_management_004",
+    "text": "Holliday and Segar Formula for Maintenance: 100 ml/kg (1st 10kg), 1000 + 50 ml/each kg (10-20kg), 1500 + 20 ml/each kg (>20kg).",
+    "metadata": {
+      "type": "protocol",
+      "tags": [
+        "fluid_calculation",
+        "maintenance"
+      ]
+    }
+  },
+  {
+    "id": "rag_pem_management_005",
+    "text": "Dehydration Fluid in PEM: Use ReSoMal if available. If IV needed, use Ringer Lactate with 5% Dextrose at 15 ml/kg/hr for the first hour.",
+    "metadata": {
+      "type": "protocol",
+      "tags": [
+        "ReSoMal",
+        "dehydration_IV"
+      ]
+    }
+  },
+  {
+    "id": "rag_sam_shock_001",
+    "text": "Emergency Treatment of Shock: Ringer's lactate with 5% dextrose or 1/2 normal saline with 5% dextrose at 15 ml/kg/hour for the first hour. Assess after 1 hour.",
+    "metadata": {
+      "type": "emergency_protocol",
+      "tags": [
+        "SAM_shock",
+        "fluid_therapy"
+      ]
+    }
+  },
+  {
+    "id": "rag_sam_anaemia_001",
+    "text": "Severe Anaemia Transfusion: Give whole blood 10 ml/kg slowly over 3 hours with Frusemide 1 mg/kg IV. If CCF present, use packed cells (5-7 ml/kg).",
+    "metadata": {
+      "type": "emergency_protocol",
+      "tags": [
+        "severe_anaemia",
+        "transfusion"
+      ]
+    }
+  },
+  {
+    "id": "rag_vit_a_eye_care_001",
+    "text": "Vitamin A Eye Care: For corneal ulcers, instill Chloramphenicol/Tetracycline eye drops (1%) 2-3 hourly for 7-10 days and Atropine eye drops (1%) 3 times daily for 3-5 days.",
+    "metadata": {
+      "type": "clinical_care",
+      "tags": [
+        "xerophthalmia",
+        "corneal_ulcer"
+      ]
+    }
+  },
+  {
+    "id": "rag_home_feeding_discharged_001",
+    "text": "Post-discharge Home Feeding: Feed at least 5 times a day. Modify home food to match F-100 density. High energy snacks between meals.",
+    "metadata": {
+      "type": "rehabilitation",
+      "tags": [
+        "home_care",
+        "post_discharge"
+      ]
+    }
+  },
+  {
+    "id": "rag_obesity_epidemic_001",
+    "text": "The Obesity Epidemic: Obesity is associated with an 8-year reduction in life expectancy. Type 2 diabetes risk increases 10-fold once BMI exceeds 30 kg/m2. Childhood obesity tracks into adulthood in 80% of cases.",
+    "metadata": {
+      "type": "epidemiology",
+      "tags": [
+        "obesity",
+        "life_expectancy",
+        "diabetes_risk"
+      ]
+    }
+  },
+  {
+    "id": "rag_adipokine_logic_001",
+    "text": "WAT as an Endocrine Organ: White Adipose Tissue (WAT) secretes adipokines like Leptin (appetite suppressor), Adiponectin (insulin sensitizer), and TNF-alpha (pro-inflammatory). Obesity is characterized by chronic mild inflammation and adipokine dysregulation.",
+    "metadata": {
+      "type": "biochemistry",
+      "tags": [
+        "WAT",
+        "adipokines",
+        "leptin",
+        "adiponectin"
+      ]
+    }
+  },
+  {
+    "id": "rag_leptin_mechanism_001",
+    "text": "Leptin and Energy Balance: Leptin is a 16,000 MW cytokine-like protein that suppresses food intake by interacting with hypothalamic pathways (inhibits NPY, MCH; upregulates POMC/CART). ob/ob mice lack functional leptin and have reduced diet-induced thermogenesis.",
+    "metadata": {
+      "type": "hormonal_regulation",
+      "tags": [
+        "leptin",
+        "appetite_control",
+        "ob_gene"
+      ]
+    }
+  },
+  {
+    "id": "rag_insulin_resistance_ffa_001",
+    "text": "FFA and Insulin Resistance: Elevated Free Fatty Acids (FFA) in obesity impair glucose transport in skeletal muscle by inhibiting GLUT4 translocation. This is a primary driver of the metabolic syndrome and CAD risk.",
+    "metadata": {
+      "type": "pathophysiology",
+      "tags": [
+        "FFA",
+        "insulin_resistance",
+        "GLUT4",
+        "metabolic_syndrome"
+      ]
+    }
+  },
+  {
+    "id": "rag_barker_hypothesis_001",
+    "text": "Barker Hypothesis (Programming): Intrauterine Growth Retardation (IUGR) followed by rapid postnatal weight gain is a major risk factor for early adult-onset diseases like CAD, Hypertension, and NIDDM.",
+    "metadata": {
+      "type": "programming",
+      "tags": [
+        "barker_hypothesis",
+        "IUGR",
+        "adult_onset_disease"
+      ]
+    }
+  },
+  {
+    "id": "rag_thrifty_gene_001",
+    "text": "Thrifty Gene Hypothesis: An evolutionary adaptive mechanism for storing energy as fat during famine. In affluent societies with surplus food, this 'thrifty' metabolism becomes a disadvantage, predisposing to obesity.",
+    "metadata": {
+      "type": "evolutionary_biology",
+      "tags": [
+        "thrifty_gene",
+        "obesity_predisposition",
+        "adaptation"
+      ]
+    }
+  },
+  {
+    "id": "rag_metabolic_syndrome_dyslipidaemia_001",
+    "text": "Obesity Dyslipidaemia: Characterized by hypertriglyceridaemia (high VLDL), low HDL, and small dense LDL particles. High FFA delivery to the liver increases VLDL secretion and CETP-mediated exchange, making LDL 3x more atherogenic.",
+    "metadata": {
+      "type": "pathophysiology",
+      "tags": [
+        "dyslipidaemia",
+        "VLDL",
+        "HDL",
+        "LDL",
+        "CETP"
+      ]
+    }
+  },
+  {
+    "id": "rag_obesity_screen_time_001",
+    "text": "Screen Time and Obesity: TV viewing and video games increase obesity risk by 2% per hour. Mechanistically, they reduce metabolic rates, increase mindless snacking, and expose children to high-fat/high-sugar food advertisements.",
+    "metadata": {
+      "type": "behavioral_risk",
+      "tags": [
+        "screen_time",
+        "TV_viewing",
+        "metabolic_rate",
+        "snacking"
+      ]
+    }
+  },
+  {
+    "id": "rag_exercise_energy_equivalents_001",
+    "text": "Exercise Calorie Equivalents: Running 9 km/hr burns 600 kcal (equivalent to 2 chocolate bars). Walking 5 km/hr burns 260 kcal (1.5 pints of beer). Forging this link helps patients understand the 'cost' of snacking.",
+    "metadata": {
+      "type": "exercise_physiology",
+      "tags": [
+        "calorie_equivalents",
+        "exercise_matching",
+        "snacking_cost"
+      ]
+    }
+  },
+  {
+    "id": "rag_bariatric_surgery_types_001",
+    "text": "Bariatric Surgery: Roux-en-Y Gastric Bypass is a double-action procedure inducing both restriction (10ml pouch) and malabsorption. Vertical Banded Gastroplasty is a restrictive procedure using staples and a banded stoma (11mm diameter).",
+    "metadata": {
+      "type": "surgical_intervention",
+      "tags": [
+        "gastroplasty",
+        "gastric_bypass",
+        "malabsorption",
+        "restrictive_procedure"
+      ]
+    }
+  },
+  {
+    "id": "rag_metabolic_syndrome_criteria_001",
+    "text": "Metabolic Syndrome Criteria: A cluster of risk factors including Abdominal Obesity, Atherogenic Dyslipidaemia (High TG, Low HDL), Elevated BP, Insulin Resistance, and a Prothrombotic/Proinflammatory state (High PAI-1, CRP).",
+    "metadata": {
+      "type": "clinical_definition",
+      "tags": [
+        "metabolic_syndrome",
+        "abdominal_obesity",
+        "dyslipidaemia",
+        "inflammation"
+      ]
+    }
+  },
+  {
+    "id": "rag_syndromic_obesity_details_001",
+    "text": "Syndromic Obesity: Prader-Willi Syndrome is the most common syndromic type, caused by microdeletion of paternal chromosome 15. Lawrence-Moon-Biedl-Bardet is an autosomal recessive condition involving retinitis pigmentosa and polydactyly.",
+    "metadata": {
+      "type": "genetics",
+      "tags": [
+        "prader_willi",
+        "LMBB_syndrome",
+        "chromosome_15",
+        "genetic_obesity"
+      ]
+    }
+  },
+  {
+    "id": "rag_hidden_hunger_definition_001",
+    "text": "Hidden Hunger: Micronutrient malnutrition compromises both survival and quality of survival. Mild iodine deficiency can lower a child's IQ by 10 points, while iron deficiency contributes to 20% of maternal deaths and 9 IQ points loss in children.",
+    "metadata": {
+      "type": "definition",
+      "tags": [
+        "hidden_hunger",
+        "IQ_impact",
+        "micronutrient_malnutrition"
+      ]
+    }
+  },
+  {
+    "id": "rag_developmental_critical_windows_001",
+    "text": "Critical Windows for Nutrients: Folate is essential in the first 4 weeks (Neurulation). Iodine and Vitamin A are critical in weeks 7-10 for CNS development and thyroid gland formation. Nutrients act as gene activators during these periods.",
+    "metadata": {
+      "type": "developmental_biology",
+      "tags": [
+        "critical_window",
+        "folate",
+        "iodine",
+        "vitamin_a",
+        "gestation"
+      ]
+    }
+  },
+  {
+    "id": "rag_smart_nutrients_brain_001",
+    "text": "Smart Nutrients: Micronutrients that promote brain growth and function. Iron deficiency during critical brain growth leads to irreversible changes by decreasing dopaminergic receptors and increasing opiate receptors.",
+    "metadata": {
+      "type": "neurobiology",
+      "tags": [
+        "smart_nutrients",
+        "brain_growth",
+        "dopamine",
+        "iron_deficiency"
+      ]
+    }
+  },
+  {
+    "id": "rag_vitamin_a_indicators_001",
+    "text": "VAD Public Health Indicators: Prevalence of Night Blindness > 1%, Bitot's Spots > 0.5%, or Keratomalacia > 0.01% in a community signifies a public health problem. Slow pupillary reflex is an early functional sign.",
+    "metadata": {
+      "type": "epidemiology",
+      "tags": [
+        "VAD",
+        "Bitot_spots",
+        "night_blindness",
+        "WHO_indicators"
+      ]
+    }
+  },
+  {
+    "id": "rag_gulf_syndrome_toxicity_001",
+    "text": "Gulf Syndrome: Hypervitaminosis A and D due to excessive intake of fish oil pearls. Symptoms include benign intracranial hypertension, hyperostosis of the tibia, and potential teratogenic effects.",
+    "metadata": {
+      "type": "toxicology",
+      "tags": [
+        "gulf_syndrome",
+        "vitamin_toxicity",
+        "hypervitaminosis",
+        "BIH"
+      ]
+    }
+  },
+  {
+    "id": "rag_iron_bioavailability_logic_001",
+    "text": "Iron Bioavailability: Ferrous iron is better absorbed than ferric iron. Heme iron (animal sources) is 35% bioavailable, whereas non-heme iron (plant sources) is only 5%. Vitamin C (lime juice) significantly enhances non-heme absorption.",
+    "metadata": {
+      "type": "biochemistry",
+      "tags": [
+        "iron_absorption",
+        "heme_iron",
+        "bioavailability",
+        "ferrous_vs_ferric"
+      ]
+    }
+  },
+  {
+    "id": "rag_fluid_compartments_001",
+    "text": "Total Body Water (TBW): TBW is 78% at birth, reducing to 60% by 1 year. Extracellular Fluid (ECF) reduces relative to Intracellular Fluid (ICF) during infancy. Formula: TBW (L) = Weight (kg) x 0.6 + 0.251.",
+    "metadata": {
+      "type": "physiology",
+      "tags": [
+        "TBW",
+        "ECF",
+        "ICF",
+        "body_water_formula"
+      ]
+    }
+  },
+  {
+    "id": "rag_osmolarity_logic_001",
+    "text": "Serum Osmolarity: Roughly double the serum Sodium (Na) concentration (e.g., Na 140 = 280 mOsm/L). ECF and ICF are in osmotic equilibrium. Cations and anions must balance except in transient states.",
+    "metadata": {
+      "type": "biochemistry",
+      "tags": [
+        "osmolarity",
+        "sodium",
+        "electrolyte_balance"
+      ]
+    }
+  },
+  {
+    "id": "rag_dehydration_star_signs_001",
+    "text": "Key Signs of Dehydration: Thirst, Alertness, Pulse quality, Respiration depth, Systolic BP, Skin pinch retraction speed, and Urine output. Severe dehydration is marked by feeble pulse, unrecordable BP, and skin retracting very slowly (>2-3s).",
+    "metadata": {
+      "type": "clinical_diagnosis",
+      "tags": [
+        "dehydration",
+        "skin_pinch",
+        "hypovolaemia",
+        "star_signs"
+      ]
+    }
+  },
+  {
+    "id": "rag_iv_fluid_compositions_001",
+    "text": "IV Fluid Composition (mEq/L): Normal Saline (NS) has 154 Na/Cl. Ringer Lactate (RL) has 131 Na, 111 Cl, 29 Bicarbonate, 5 K, and 4 Ca. 5% Dextrose contains 50g/L glucose but zero electrolytes.",
+    "metadata": {
+      "type": "pharmacology",
+      "tags": [
+        "NS",
+        "RL",
+        "Dextrose",
+        "IV_fluids",
+        "electrolytes"
+      ]
+    }
+  },
+  {
+    "id": "rag_hyperkalaemia_ecg_signs_001",
+    "text": "Hyperkalaemia ECG: Characterized by tall tented T waves (>10 divisions). Risk of cardiac arrest. Treatment involves Sodium Bicarbonate, Calcium Gluconate, and Insulin-Glucose drip to shift K+ intracellularly.",
+    "metadata": {
+      "type": "cardiology",
+      "tags": [
+        "hyperkalaemia",
+        "ECG",
+        "tented_T_waves",
+        "cardiac_arrest"
+      ]
+    }
+  },
+  {
+    "id": "rag_stress_energy_expenditure_001",
+    "text": "Stress and Energy: Starvation/PEM is like 'hibernation' (30% decrease in MEE), but Trauma/Infection increases energy expenditure significantly. Head injuries can raise MEE to 120-250%. Fever adds 10% per 1 degree C.",
+    "metadata": {
+      "type": "metabolism",
+      "tags": [
+        "MEE",
+        "stress_response",
+        "hypermetabolism",
+        "fever_adjustment"
+      ]
+    }
+  },
+  {
+    "id": "rag_bicarbonate_deficit_formula_001",
+    "text": "Bicarbonate Deficit Formula: Deficit (mEq) = (Desired Level [15] - Observed Level) x Weight (kg) x 0.6 + 0.251. Usually, only half-correction is aimed at initially.",
+    "metadata": {
+      "type": "clinical_calculation",
+      "tags": [
+        "bicarbonate",
+        "acidosis",
+        "metabolic_acidosis",
+        "formula"
+      ]
+    }
+  },
+  {
+    "id": "rag_en_vs_pn_economics_001",
+    "text": "Economics of Nutrition Support: Enteral Nutrition (EN) is 8 times less costly than Parenteral Nutrition (PN). EN is more physiological and has fewer complications, provided the gut is functional (Golden Rule).",
+    "metadata": {
+      "type": "health_economics",
+      "tags": [
+        "EN_vs_PN",
+        "cost_effectiveness",
+        "golden_rule"
+      ]
+    }
+  },
+  {
+    "id": "rag_glucose_infusion_rate_001",
+    "text": "Parenteral Glucose Infusion: Standard rate is 6-12 mg/kg/minute. To calculate mg/kg/min from 10% dextrose: (ml/kg/day x 0.07). Unutilized glucose can lead to fatty liver (Steatosis).",
+    "metadata": {
+      "type": "clinical_calculation",
+      "tags": [
+        "glucose_infusion_rate",
+        "GIR",
+        "PN_dosing",
+        "fatty_liver"
+      ]
+    }
+  },
+  {
+    "id": "rag_tpn_weaning_criteria_001",
+    "text": "TPN Weaning: Total Parenteral Nutrition should be weaned over 3-4 days and only stopped when at least 70% of total kilocalories are consumed via the oral or enteral route.",
+    "metadata": {
+      "type": "clinical_protocol",
+      "tags": [
+        "TPN_weaning",
+        "transition_to_enteral",
+        "calorie_target"
+      ]
+    }
+  },
+  {
+    "id": "rag_commercial_preparations_india_001",
+    "text": "Commercial Preparations (India): Pepti 2000 (Elemental), Lactodex (LBW/Follow-up), Zerolac (Lactose-free), Astymin 9% (Amino acids), Intralipid (10% Soyabean oil), Vamin-G (Amino acids + Glucose).",
+    "metadata": {
+      "type": "product_reference",
+      "tags": [
+        "commercial_formulas",
+        "Pepti_2000",
+        "Lactodex",
+        "Intralipid",
+        "Aminosyn"
+      ]
+    }
+  },
+  {
+    "id": "rag_isodense_formula_logic_001",
+    "text": "Isodense Enteral Formula: Provides 100 calories per 100 ml (1 kcal/ml). Calorie density can be increased by adding fat without increasing osmolarity, which is often well-tolerated.",
+    "metadata": {
+      "type": "nutrition_science",
+      "tags": [
+        "isodense",
+        "calorie_density",
+        "osmolarity",
+        "EN_preparations"
+      ]
+    }
+  },
+  {
+    "id": "rag_bioelectrical_impedance_bia_001",
+    "text": "Bio-electrical Impedance Analysis (BIA): A simple method for body composition assessment. Lean tissue offers less resistance to current as it contains more water and electrolytes than adipose tissue.",
+    "metadata": {
+      "type": "diagnostic_tool",
+      "tags": [
+        "BIA",
+        "body_composition",
+        "resistance",
+        "lean_tissue"
+      ]
+    }
+  },
+  {
+    "id": "rag_harris_benedict_equations_001",
+    "text": "Harris-Benedict Equations (PBMR): Males = 66.47 + (13.75 x Wt) + (5.00 x Ht) - (6.75 x age). Females = 66.51 + (9.56 x Wt) + (1.85 x Ht) - (4.67 x age). This calculates basal metabolism which is then adjusted for stress.",
+    "metadata": {
+      "type": "metabolic_calculation",
+      "tags": [
+        "Harris_Benedict",
+        "PBMR",
+        "energy_expenditure",
+        "equation"
+      ]
+    }
+  },
+  {
+    "id": "rag_hypo_osmolar_ors_benefits_001",
+    "text": "Hypo-osmolar ORS: Reduced sodium (75 mmol/L) and glucose (75 mmol/L) content. It is better accepted than standard ORS, reduces stool output by 25%, and is especially useful in non-cholera watery diarrhoea.",
+    "metadata": {
+      "type": "clinical_protocol",
+      "tags": [
+        "hypo_osmolar_ORS",
+        "stool_reduction",
+        "dehydration_treatment"
+      ]
+    }
+  },
+  {
+    "id": "rag_steatorrhoea_diagnostic_logic_001",
+    "text": "Steatorrhoea Indicators: Suggested by more than 6-8 fat droplets per low power field (LPF) using Sudan Red stain. Fat cells typically move towards the periphery of the slide under microscopy.",
+    "metadata": {
+      "type": "diagnostic_criteria",
+      "tags": [
+        "steatorrhoea",
+        "Sudan_Red",
+        "fat_malabsorption",
+        "stool_microscopy"
+      ]
+    }
+  },
+  {
+    "id": "rag_pn_catheter_placement_logic_001",
+    "text": "PN Catheter Placement: Fine silastic catheters (OD 0.64 mm) are used for babies up to 6 kg, allowing a flow rate of 40 ml/hour. X-ray confirmation of the catheter tip in the right atrium is required using 1 ml of 45% Hypaque.",
+    "metadata": {
+      "type": "surgical_procedure",
+      "tags": [
+        "silastic_catheter",
+        "right_atrium",
+        "X_ray_confirmation",
+        "PN_access"
+      ]
+    }
+  },
+  {
+    "id": "rag_indirect_calorimetry_logic_001",
+    "text": "Indirect Calorimetry (IC): Measures oxygen consumption and CO2 production to provide real-time Resting Energy Expenditure (REE) and substrate utilization. It is the most accurate method for determining caloric requirements in critical illness.",
+    "metadata": {
+      "type": "diagnostic_tool",
+      "tags": [
+        "indirect_calorimetry",
+        "REE",
+        "substrate_utilization",
+        "metabolic_rate"
+      ]
+    }
+  },
+  {
+    "id": "rag_diabetes_exchange_system_001",
+    "text": "Diabetes Exchange System: 1 exchange = 10 g carbohydrate. Examples: 1/2 slice bread, 1 medium apple, 1 small potato, 1 glass milk, 1 cup thin soup, or 1/2 banana.",
+    "metadata": {
+      "type": "dietary_management",
+      "tags": [
+        "exchange_system",
+        "carbohydrate_counting",
+        "diabetes"
+      ]
+    }
+  },
+  {
+    "id": "rag_glycaemic_index_list_001",
+    "text": "Glycaemic Index (GI): Measure of RBS increase following ingestion. Glucose = 100%, Potato = 90%, Rice = 72%, Wheat = 65%, Apple = 40%, Soyabean/Peanut = 20%.",
+    "metadata": {
+      "type": "nutrition_science",
+      "tags": [
+        "glycaemic_index",
+        "GI",
+        "diabetes_food"
+      ]
+    }
+  },
+  {
+    "id": "rag_dietary_fibre_benefits_001",
+    "text": "Fibre Benefits: Suggested intake 20-35 g/day. Fibre (pectin/gum) binds bile salts (derived from cholesterol), increasing excretion and reducing serum cholesterol. It also increases insulin receptors.",
+    "metadata": {
+      "type": "nutrition_science",
+      "tags": [
+        "fibre",
+        "cholesterol_reduction",
+        "insulin_sensitivity"
+      ]
+    }
+  },
+  {
+    "id": "rag_diabetes_honeymoon_phase_001",
+    "text": "Diabetes Honeymoon Phase: A temporary period after initial diagnosis where the pancreas recovers some insulin production, significantly reducing external insulin requirements.",
+    "metadata": {
+      "type": "clinical_state",
+      "tags": [
+        "honeymoon_phase",
+        "type_1_diabetes",
+        "insulin_recovery"
+      ]
+    }
+  },
+  {
+    "id": "rag_hyperlipidaemia_bad_cholesterol_001",
+    "text": "Bad vs Good Cholesterol: LDL and VLDL are 'bad' as they carry cholesterol to tissues; HDL is 'good' as it accepts and esterifies cholesterol for excretion. Fish oil (Omega-3) helps reduce VLDL and thromboxane A2.",
+    "metadata": {
+      "type": "lipidology",
+      "tags": [
+        "LDL",
+        "HDL",
+        "VLDL",
+        "bad_cholesterol",
+        "omega_3"
+      ]
+    }
+  },
+  {
+    "id": "rag_iem_odour_diagnostics_001",
+    "text": "IEM Diagnostic Odours: PKU = Musty/Mousy; MSUD = Maple Syrup/Burnt Sugar; Isovaleric Acidaemia = Sweaty Feet; Tyrosinaemia = Rancid/Rotten Cabbage; Multiple Carboxylase Deficiency = Tom Cat Urine.",
+    "metadata": {
+      "type": "diagnostic_criteria",
+      "tags": [
+        "IEM",
+        "odour_diagnosis",
+        "PKU",
+        "MSUD",
+        "isovaleric_acidaemia"
+      ]
+    }
+  },
+  {
+    "id": "rag_leptin_adipose_biology_001",
+    "text": "Leptin and Adipose Tissue: Adipose tissue is a metabolically active organ producing Leptin (Information Minister). It signals the brain about energy reserves, regulates food intake, and protects the immune/reproductive systems.",
+    "metadata": {
+      "type": "physiology",
+      "tags": [
+        "leptin",
+        "adipose_tissue",
+        "energy_homeostasis",
+        "hormonal_regulation"
+      ]
+    }
+  },
+  {
+    "id": "rag_ketogenic_diet_gaba_001",
+    "text": "Ketogenic Diet Mechanism: Used for refractory myoclonic seizures. It works by increasing the concentration of Gamma-Aminobutyric Acid (GABA), the brain's primary inhibitory neurotransmitter.",
+    "metadata": {
+      "type": "clinical_mechanism",
+      "tags": [
+        "ketogenic_diet",
+        "seizures",
+        "GABA",
+        "neurotransmission"
+      ]
+    }
+  },
+  {
+    "id": "rag_schwartz_gfr_variant_001",
+    "text": "GFR Estimation (Bedside): GFR = (K x Length) / Serum Creatinine. Constant 'K' values: Preterm = 0.35, Infant = 0.45, Child = 0.55. Standardized to 1.73 m2 surface area.",
+    "metadata": {
+      "type": "clinical_calculation",
+      "tags": [
+        "GFR",
+        "Schwartz_formula",
+        "creatinine_clearance",
+        "renal_function"
+      ]
+    }
+  },
+  {
+    "id": "rag_galactosaemia_soya_logic_001",
+    "text": "Galactosaemia Soya Selection: Soya isolate formulas (Nusobee, Zerolac) are safe. Whole soya flour must be avoided because it contains complex starches like stachyose and raffinose that release galactose.",
+    "metadata": {
+      "type": "dietary_management",
+      "tags": [
+        "galactosaemia",
+        "soya_isolate",
+        "stachyose",
+        "raffinose"
+      ]
+    }
+  },
+  {
+    "id": "rag_food_poisoning_6fs_001",
+    "text": "The 6 Fs of Food-borne Diseases: Flies, Food, Fluid, Fingers, Faeces, and Fomites. These are the primary vectors for bacterial transmission in food poisoning.",
+    "metadata": {
+      "type": "public_health",
+      "tags": [
+        "6Fs",
+        "food_poisoning_prevention",
+        "hygiene"
+      ]
+    }
+  },
+  {
+    "id": "rag_botulism_toxicology_001",
+    "text": "Botulism Mechanism: Blocks acetylcholine (ACh) release at the neuromuscular junction, causing descending paralysis. Toxin is heat-labile (destroyed at 80\u00b0C for 10 min), but spores are highly resistant.",
+    "metadata": {
+      "type": "toxicology",
+      "tags": [
+        "ACh_block",
+        "descending_paralysis",
+        "heat_labile",
+        "Clostridium_botulinum"
+      ]
+    }
+  },
+  {
+    "id": "rag_b_cereus_clinical_types_001",
+    "text": "Bacillus cereus Types: Emetic type (1-6h incubation, fried rice) vs Diarrhoeal type (6-14h incubation, beef/vanilla sauce). It is an aerobic spore-bearing bacillus.",
+    "metadata": {
+      "type": "clinical_profile",
+      "tags": [
+        "B_cereus",
+        "fried_rice",
+        "emetic_type",
+        "diarrhoeal_type"
+      ]
+    }
+  },
+  {
+    "id": "rag_food_allergy_cross_reactivity_001",
+    "text": "Soya-Milk Cross Reactivity: Soya protein allergy often develops as a cross-reacting response in infants with cow's milk allergy. Soya protein isolate is safer than whole soya flour.",
+    "metadata": {
+      "type": "allergy_immunology",
+      "tags": [
+        "soya_allergy",
+        "cow_milk_allergy",
+        "cross_reactivity"
+      ]
+    }
+  },
+  {
+    "id": "rag_saxitoxin_red_tide_001",
+    "text": "Saxitoxin and Red Tides: Produced by dinoflagellates and concentrated by shellfish. Inhibits sodium-potassium pump and nerve conduction, leading to diaphragm paralysis and oral paraesthesia.",
+    "metadata": {
+      "type": "toxicology",
+      "tags": [
+        "saxitoxin",
+        "red_tide",
+        "shellfish_poisoning",
+        "diaphragm_paralysis"
+      ]
+    }
+  },
+  {
+    "id": "rag_thrifty_phenotype_vs_genotype_001",
+    "text": "Thrifty Phenotype vs Genotype: The 'Thrifty Genotype' (Neel) suggests genes for rapid insulin triggering. The 'Thrifty Phenotype' (Barker) suggests foetal undernutrition leads to permanent 'economy' strategies (insulin resistance) to survive, which become detrimental in nutrient-plentiful environments.",
+    "metadata": {
+      "type": "evolutionary_medicine",
+      "tags": [
+        "thrifty_phenotype",
+        "thrifty_genotype",
+        "Barker_hypothesis",
+        "insulin_resistance"
+      ]
+    }
+  },
+  {
+    "id": "rag_brain_sparing_mechanism_001",
+    "text": "Brain-Sparing Adaptation: The foetus adapts to inadequate nutrient supply by prioritizing brain growth at the expense of abdominal viscera (low beta cell mass, low nephron numbers). This 'programming' leads to Type 2 diabetes and CHD in adulthood.",
+    "metadata": {
+      "type": "foetal_physiology",
+      "tags": [
+        "brain_sparing",
+        "foetal_programming",
+        "FOAD",
+        "organ_development"
+      ]
+    }
+  },
+  {
+    "id": "rag_adolescent_growth_spurt_data_001",
+    "text": "Adolescent Growth Spurt: Puberty height gain is 20-38 cm in boys and 16-25 cm in girls. Weight gain is 20 kg in boys and 16 kg in girls. Boys are generally taller at growth cessation.",
+    "metadata": {
+      "type": "growth_development",
+      "tags": [
+        "growth_spurt",
+        "puberty",
+        "height_velocity",
+        "adolescent_growth"
+      ]
+    }
+  },
+  {
+    "id": "rag_ponderal_index_vs_birthweight_001",
+    "text": "Ponderal Index (Wt/Length^3): A low Ponderal index at birth is a stronger predictor of coronary heart disease (CHD) in adulthood than birthweight alone. It reflects 'foetal malnutrition' even in normal weight babies.",
+    "metadata": {
+      "type": "clinical_indicator",
+      "tags": [
+        "ponderal_index",
+        "CHD_prediction",
+        "foetal_malnutrition"
+      ]
+    }
+  },
+  {
+    "id": "rag_hpl_metabolic_effect_001",
+    "text": "Human Placental Lactogen (HPL): An anti-insulin hormone that increases maternal insulin resistance and lipolysis, ensuring free fatty acids are used by the mother so glucose and ketones are available for the foetus.",
+    "metadata": {
+      "type": "maternal_metabolism",
+      "tags": [
+        "HPL",
+        "insulin_resistance",
+        "foetal_energy",
+        "pregnancy_metabolism"
+      ]
+    }
+  },
+  {
+    "id": "rag_tanner_smr_menarche_001",
+    "text": "Tanner Sexual Maturity Rating (SMR): Menarche (onset of menstruation) typically occurs at SMR stage 2-3 in girls. Puberty is a critical window for nutritional rehabilitation.",
+    "metadata": {
+      "type": "growth_development",
+      "tags": [
+        "Tanner_SMR",
+        "menarche",
+        "puberty_stages",
+        "sexual_maturation"
+      ]
+    }
+  },
+  {
+    "id": "rag_mid_parental_height_formula_001",
+    "text": "Mid Parental Height (MPH): Predicts final height. Boys = (Father + Mother) / 2 + 6.5 cm. Girls = (Father + Mother) / 2 - 6.5 cm.",
+    "metadata": {
+      "type": "clinical_calculation",
+      "tags": [
+        "MPH",
+        "height_prediction",
+        "genetics"
+      ]
+    }
+  },
+  {
+    "id": "rag_adolescent_ul_ratio_001",
+    "text": "Adolescent U/L Ratio: Upper segment to lower segment ratio is 0.9-1.0 in adolescents and reaches 1:1 in adults. Higher ratios indicate short limb dwarfism or rickets.",
+    "metadata": {
+      "type": "anthropometry",
+      "tags": [
+        "UL_ratio",
+        "adolescent_anthropometry",
+        "dwarfism_screening"
+      ]
+    }
+  },
+  {
+    "id": "rag_tanner_smr_stages_001",
+    "text": "Sexual Maturity Rating (SMR): Clinical staging for puberty. Stage 1 is preadolescent; Stage 5 is adult distribution. Menarche typically coincides with SMR 2-3.",
+    "metadata": {
+      "type": "clinical_staging",
+      "tags": [
+        "Tanner_SMR",
+        "puberty_staging",
+        "sexual_maturation"
+      ]
+    }
+  },
+  {
+    "id": "rag_fast_food_antinutrients_001",
+    "text": "Fast Food Risks: Deep frying and refrying oils liberate oxides, peroxides, and free radicals. Additives like Ajinomoto (MSG) and coloring dyes are antinutrients that suppress appetite and kill the hunger reflex.",
+    "metadata": {
+      "type": "nutritional_toxicology",
+      "tags": [
+        "fast_food",
+        "MSG",
+        "oxides",
+        "refried_oil",
+        "antinutrients"
+      ]
+    }
+  },
+  {
+    "id": "rag_prospective_mother_anthropometry_001",
+    "text": "Pre-pregnancy Anthropometry: 45 kg weight and 145 cm height are standard pre-pregnancy goals to reduce LBW risk. Minimum acceptable thresholds are 42 kg and 142 cm.",
+    "metadata": {
+      "type": "maternal_health",
+      "tags": [
+        "LBW_prevention",
+        "pre_pregnancy_weight",
+        "maternal_height"
+      ]
+    }
+  },
+  {
+    "id": "rag_breakfast_brain_food_001",
+    "text": "Breakfast is Brain Food: Missing breakfast significantly affects classroom performance and cognitive function in adolescents due to prolonged overnight fasting.",
+    "metadata": {
+      "type": "cognitive_nutrition",
+      "tags": [
+        "breakfast",
+        "cognitive_performance",
+        "missing_meals"
+      ]
+    }
+  },
+  {
+    "id": "rag_geriatric_age_classifications_001",
+    "text": "Geriatric Age Groups: Young Old (65-75), Old Old (75-85), and Oldest Old (85+). Healthy geriatric nutrition aims to delay chronic diseases like heart disease, cancer, and stroke.",
+    "metadata": {
+      "type": "geriatric_classification",
+      "tags": [
+        "aging",
+        "young_old",
+        "old_old",
+        "oldest_old"
+      ]
+    }
+  },
+  {
+    "id": "rag_geriatric_weight_loss_markers_001",
+    "text": "Significant Geriatric Weight Loss: 2% in 1 week, 5% in 1 month, or 10% in 6 months. Depression is the most common cause of unexplained weight loss in adults over 65.",
+    "metadata": {
+      "type": "clinical_assessment",
+      "tags": [
+        "weight_loss",
+        "geriatric_assessment",
+        "depression",
+        "unexplained_weight_loss"
+      ]
+    }
+  },
+  {
+    "id": "rag_sarcopenia_bmr_logic_001",
+    "text": "Sarcopenia and BMR: Muscle mass is replaced by fat with age, leading to a 5% decline in Basal Metabolic Rate (BMR) per decade. Resistance training (weight training) can slow this process.",
+    "metadata": {
+      "type": "geriatric_physiology",
+      "tags": [
+        "sarcopenia",
+        "BMR",
+        "muscle_loss",
+        "resistance_training"
+      ]
+    }
+  },
+  {
+    "id": "rag_geriatric_bmi_guideline_001",
+    "text": "Geriatric BMI Targets: Normal weight status for the elderly is recommended as BMI 21 to 27. Values below this may indicate protein-calorie malnutrition.",
+    "metadata": {
+      "type": "geriatric_anthropometry",
+      "tags": [
+        "BMI_elderly",
+        "geriatric_BMI",
+        "malnutrition_risk"
+      ]
+    }
+  },
+  {
+    "id": "rag_pernicious_anaemia_hypochlorhydria_001",
+    "text": "Pernicious Anaemia Mechanism: In the elderly, hypochlorhydria (low stomach acid) decreases Vitamin B12 absorption, affecting approximately one-third of the population.",
+    "metadata": {
+      "type": "nutritional_deficiency",
+      "tags": [
+        "B12_deficiency",
+        "pernicious_anaemia",
+        "hypochlorhydria",
+        "geriatric_GI"
+      ]
+    }
+  },
+  {
+    "id": "rag_intergenerational_malnutrition_cycle_001",
+    "text": "Intergenerational Malnutrition: Growth faltering in early life (foetus/child) leaves women at permanent risk of delivering LBW babies. Micronutrients like folic acid and iodine affect the foetus shortly after conception.",
+    "metadata": {
+      "type": "lifecycle_nutrition",
+      "tags": [
+        "intergenerational_cycle",
+        "maternal_malnutrition",
+        "folic_acid",
+        "iodine"
+      ]
+    }
+  },
+  {
+    "id": "rag_nfhs_nutrition_statistics_001",
+    "text": "NFHS-2 Nutrition Profile (India): 47% children < 3 years are underweight, 45.5% stunted, and 15.5% wasted. LBW prevalence remains stagnant at ~30% for three decades.",
+    "metadata": {
+      "type": "community_health_stats",
+      "tags": [
+        "NFHS-2",
+        "stunting",
+        "wasting",
+        "underweight",
+        "LBW"
+      ]
+    }
+  },
+  {
+    "id": "rag_the_development_paradox_001",
+    "text": "The Development Paradox: India accounts for 30% of the global child death burden despite a 7% economic growth rate. Economic growth is a necessary but insufficient condition for eliminating child undernutrition.",
+    "metadata": {
+      "type": "sociology_of_nutrition",
+      "tags": [
+        "development_paradox",
+        "economic_growth",
+        "undernutrition_gap"
+      ]
+    }
+  },
+  {
+    "id": "rag_icds_anganwadi_services_001",
+    "text": "ICDS Package of Services: Delivered through Anganwadis (1 per 1000 pop). Includes Health Check-up, Immunization, Referral, Supplementary Nutrition, Non-formal Pre-school Education, and Nutrition & Health Education (NHE).",
+    "metadata": {
+      "type": "government_programme",
+      "tags": [
+        "ICDS",
+        "Anganwadi",
+        "NHE",
+        "pre-school_education"
+      ]
+    }
+  },
+  {
+    "id": "rag_uip_six_killer_diseases_001",
+    "text": "Universal Immunization Programme (UIP): Aims to protect infants before age 1 against 6 killer diseases: Tuberculosis (BCG), Diphtheria, Pertussis, Tetanus (DPT), Poliomyelitis (OPV), and Measles.",
+    "metadata": {
+      "type": "preventative_medicine",
+      "tags": [
+        "UIP",
+        "vaccination",
+        "measles",
+        "polio",
+        "BCG",
+        "DPT"
+      ]
+    }
+  },
+  {
+    "id": "rag_micronutrient_five_prong_strategy_001",
+    "text": "Strategy for Micronutrient Deficiency: (1) Dietary Diversification, (2) Nutrient Supplementation, (3) Food Fortification, (4) Horticulture Intervention, and (5) Public Health Measures (Sanitation/Water).",
+    "metadata": {
+      "type": "policy_strategy",
+      "tags": [
+        "micronutrient_control",
+        "fortification",
+        "diversification",
+        "supplementation"
+      ]
+    }
+  },
+  {
+    "id": "rag_vitamin_a_prophylaxis_schedule_001",
+    "text": "Vitamin A Prophylaxis: Administration of 5 megadoses of Vitamin A concentrate to children (9-36 months) at intervals of six months to eliminate public health deficiency.",
+    "metadata": {
+      "type": "nutritional_intervention",
+      "tags": [
+        "Vitamin_A",
+        "prophylaxis",
+        "blindness_prevention"
+      ]
+    }
+  },
+  {
+    "id": "rag_rch_definition_001",
+    "text": "Reproductive and Child Health (RCH): A state where people can regulate fertility; women undergo safe pregnancy/childbirth; successful infant survival; and sexual relationships are free from fear of disease/pregnancy.",
+    "metadata": {
+      "type": "public_health_definition",
+      "tags": [
+        "RCH",
+        "maternal_health",
+        "fertility_regulation"
+      ]
+    }
+  },
+  {
+    "id": "rag_imnci_three_components_001",
+    "text": "IMNCI Strategy Components: (1) Improving case evaluation/management skills of health workers, (2) Providing essential drug supplies, (3) Optimizing family and community child health practices.",
+    "metadata": {
+      "type": "clinical_strategy",
+      "tags": [
+        "IMNCI",
+        "case_management",
+        "community_health",
+        "essential_drugs"
+      ]
+    }
+  },
+  {
+    "id": "rag_asha_usha_community_workers_001",
+    "text": "ASHA (Accredited Social Health Activist) and USHA (Urban): Village and urban-level workers under NRHM/NUHM responsible for promoting breastfeeding within one hour of birth and managing community nutrition IEC.",
+    "metadata": {
+      "type": "human_resource",
+      "tags": [
+        "ASHA",
+        "USHA",
+        "NRHM",
+        "NUHM",
+        "breastfeeding_promotion"
+      ]
+    }
+  },
+  {
+    "id": "rag_nnmb_survey_role_001",
+    "text": "National Nutrition Monitoring Bureau (NNMB): Established 1972 under ICMR. Undertakes periodic diet and nutrition surveys in 8-10 states to project regional scenarios and malnutrition trends.",
+    "metadata": {
+      "type": "monitoring_body",
+      "tags": [
+        "NNMB",
+        "nutrition_survey",
+        "ICMR",
+        "surveillance"
+      ]
+    }
+  },
+  {
+    "id": "rag_kudumbasree_ubsp_001",
+    "text": "Kudumbasree: A reorganized community-based poverty alleviation programme (formerly UBSP) in urban and rural areas, focused on family units and resident community volunteers (RCVs).",
+    "metadata": {
+      "type": "poverty_alleviation",
+      "tags": [
+        "Kudumbasree",
+        "UBSP",
+        "RCV",
+        "community_uplift"
+      ]
+    }
+  },
+  {
+    "id": "rag_bpni_breastfeeding_network_001",
+    "text": "Breastfeeding Promotion Network of India (BPNI): A specialized NGO and national network of pediatricians focused exclusively on promoting Infant and Young Child Nutrition (IYCN) and IYCF.",
+    "metadata": {
+      "type": "ngo_network",
+      "tags": [
+        "BPNI",
+        "IYCN",
+        "IYCF",
+        "breastfeeding_advocacy"
+      ]
+    }
+  },
+  {
+    "id": "rag_vvm_interpretation_001",
+    "text": "Vaccine Vial Monitor (VVM): A heat-sensitive label. If the inner square is lighter than the outer circle, the vaccine is usable. If the inner square matches or is darker than the outer circle, discard the vaccine.",
+    "metadata": {
+      "type": "cold_chain_monitoring",
+      "tags": [
+        "VVM",
+        "heat_exposure",
+        "vaccine_potency"
+      ]
+    }
+  },
+  {
+    "id": "rag_vaccine_shake_test_001",
+    "text": "The Shake Test: Used for T-series vaccines (DPT/TT) to check for freezing damage. Shake the vial; if sediments settle at the bottom or the mix is not uniform after 15 minutes, the vaccine was likely frozen and must be discarded.",
+    "metadata": {
+      "type": "quality_control",
+      "tags": [
+        "shake_test",
+        "freezing_damage",
+        "T-series_vaccines"
+      ]
+    }
+  },
+  {
+    "id": "rag_breastfeeding_attachment_signs_001",
+    "text": "IMNCI Good Attachment Signs: (1) Chin touching breast, (2) Mouth wide open, (3) Lower lip turned outward, (4) More areola visible above than below the mouth.",
+    "metadata": {
+      "type": "clinical_observation",
+      "tags": [
+        "breastfeeding_attachment",
+        "IMNCI_assessment",
+        "suckling"
+      ]
+    }
+  },
+  {
+    "id": "rag_skin_pinch_test_diarrhoea_001",
+    "text": "Diarrhoea Dehydration (Skin Pinch): Pinch abdominal skin. If it goes back 'Very Slowly' (> 2 seconds), it indicates severe dehydration. 'Slowly' indicates some dehydration.",
+    "metadata": {
+      "type": "clinical_assessment",
+      "tags": [
+        "skin_pinch",
+        "dehydration_severity",
+        "diarrhoea_IMNCI"
+      ]
+    }
+  },
+  {
+    "id": "rag_measles_clinical_criteria_001",
+    "text": "Measles Diagnosis (IMNCI): Generalized rash plus at least one of: cough, runny nose, or red eyes. Check for mouth ulcers and corneal clouding.",
+    "metadata": {
+      "type": "clinical_diagnosis",
+      "tags": [
+        "measles",
+        "IMNCI_criteria",
+        "rash_diagnosis"
+      ]
+    }
+  },
+  {
+    "id": "rag_hpv_vaccine_logic_001",
+    "text": "HPV Vaccine: Targeted at females (starting age 10) in 3 doses (0, 1, 6 months) for primary prevention of cervical carcinoma via HPV infection blockade.",
+    "metadata": {
+      "type": "preventative_oncology",
+      "tags": [
+        "HPV",
+        "cervical_cancer",
+        "adolescent_vaccination"
+      ]
+    }
+  },
+  {
+    "id": "rag_loeffler_syndrome_definition_001",
+    "text": "Loeffler Syndrome: A pulmonary phase of larval migration (Ascaris/Hookworm) characterized by cough, haemoptysis, eosinophilia, and shifting infiltrates on X-ray.",
+    "metadata": {
+      "type": "clinical_syndrome",
+      "tags": [
+        "Loeffler_syndrome",
+        "helminth_migration",
+        "pulmonary_eosinophilia"
+      ]
+    }
+  },
+  {
+    "id": "rag_hookworm_blood_loss_001",
+    "text": "Hookworm Impact: Ancylostoma duodenale sucks 0.2 ml blood per worm per day. Chronic infection leads to severe iron deficiency anaemia and hypoalbuminaemia.",
+    "metadata": {
+      "type": "nutritional_pathophysiology",
+      "tags": [
+        "hookworm",
+        "blood_loss",
+        "anaemia",
+        "Ancylostoma"
+      ]
+    }
+  },
+  {
+    "id": "rag_mdr_xdr_tb_definitions_001",
+    "text": "Drug Resistant TB: MDR-TB is resistance to INH and Rifampicin. XDR-TB is MDR-TB plus resistance to any fluoroquinolone and any second-line injectable (Kanamycin/Amikacin).",
+    "metadata": {
+      "type": "tb_resistance",
+      "tags": [
+        "MDR-TB",
+        "XDR-TB",
+        "DOTS-Plus",
+        "INH_resistance"
+      ]
+    }
+  },
+  {
+    "id": "rag_mdg_child_mortality_target_001",
+    "text": "MDG Goal 4: Reduce under-five mortality rate (U5MR) by two-thirds between 1990 and 2015. India's target includes reducing IMR to 28 per 1000 live births by 2012.",
+    "metadata": {
+      "type": "public_health_goal",
+      "tags": [
+        "MDG",
+        "child_mortality",
+        "IMR",
+        "U5MR"
+      ]
+    }
+  },
+  {
+    "id": "rag_scarabiasis_dung_beetle_001",
+    "text": "Scarabiasis: Also known as 'Dung Beetle Disease'. Beetles enter as mature adults via the anus, attracted by faecal smell and warmth in unclothed children; they do not lay eggs in the gut.",
+    "metadata": {
+      "type": "tropical_parasitology",
+      "tags": [
+        "scarabiasis",
+        "dung_beetle",
+        "faecal_smell"
+      ]
+    }
+  },
+  {
+    "id": "rag_neurocysticercosis_taenia_solium_001",
+    "text": "Neurocysticercosis: Encystment of Taenia solium (pig tapeworm) larvae in the brain due to ingestion of eggs (via contaminated water/veg). Can cause space-occupying lesions and seizures.",
+    "metadata": {
+      "type": "neuroparasitology",
+      "tags": [
+        "cysticercosis",
+        "Taenia_solium",
+        "seizures",
+        "brain_cysts"
+      ]
+    }
+  },
+  {
+    "id": "rag_epigenetics_definition_001",
+    "text": "Epigenetics: The science of heritable gene expression modifications that do not change the underlying DNA sequence. Acts as a control system of 'switches' (methylation/histone modification) triggered by nutrition and stress.",
+    "metadata": {
+      "type": "genetic_phenotype",
+      "tags": [
+        "epigenetics",
+        "methylation",
+        "histone_modification",
+        "gene_switches"
+      ]
+    }
+  },
+  {
+    "id": "rag_genomic_imprinting_logic_001",
+    "text": "Genomic Imprinting: Parent-of-origin-specific allele silencing. Epigenetic marks distinguish paternal and maternal gene copies, telling the cell which copy to express for protein synthesis.",
+    "metadata": {
+      "type": "epigenetics",
+      "tags": [
+        "imprinting",
+        "allele_silencing",
+        "parent_of_origin"
+      ]
+    }
+  },
+  {
+    "id": "rag_glycogen_depletion_logic_001",
+    "text": "Glycogen Depletion: Muscular energy source for intense bursts. Once stores are exhausted (often after 20 mins of intense exercise), energy levels drop, and the body shifts to fat-based metabolism.",
+    "metadata": {
+      "type": "exercise_physiology",
+      "tags": [
+        "glycogen",
+        "muscle_fuel",
+        "fat_metabolism",
+        "performance_drop"
+      ]
+    }
+  },
+  {
+    "id": "rag_soluble_vs_insoluble_fiber_001",
+    "text": "Fiber Classification: Soluble fiber (oat bran/nuts) turns to gel and lowers cholesterol. Insoluble fiber (wheat bran/veg) speeds gastric passage and adds bulk to stool to prevent constipation.",
+    "metadata": {
+      "type": "fiber_nutrition",
+      "tags": [
+        "soluble_fiber",
+        "insoluble_fiber",
+        "cholesterol_reduction",
+        "stool_bulk"
+      ]
+    }
+  },
+  {
+    "id": "rag_trans_fat_hydrogenation_risk_001",
+    "text": "Trans-Fatty Acids: Formed during oil hydrogenation. They raise LDL ('bad' cholesterol) and lower HDL ('good' cholesterol). Hydrogenated oils are strongly linked to heart disease risk.",
+    "metadata": {
+      "type": "lipid_nutrition",
+      "tags": [
+        "trans_fats",
+        "hydrogenation",
+        "LDL_elevation",
+        "heart_disease"
+      ]
+    }
+  },
+  {
+    "id": "rag_honey_infant_warning_001",
+    "text": "Honey Safety: Honey contains a small amount of vitamins/minerals but must NEVER be given to children younger than 1 year old due to the risk of infant botulism.",
+    "metadata": {
+      "type": "infant_safety",
+      "tags": [
+        "honey",
+        "infant_botulism",
+        "sugar_alternatives"
+      ]
+    }
+  },
+  {
+    "id": "rag_foot_strike_haemolysis_001",
+    "text": "Foot Strike Haemolysis: Mechanical destruction of RBCs in the feet during running on hard surfaces. Significant contributor to iron deficiency in endurance athletes.",
+    "metadata": {
+      "type": "athletic_pathology",
+      "tags": [
+        "iron_deficiency",
+        "haemolysis",
+        "endurance_sports",
+        "RBC_damage"
+      ]
+    }
+  },
+  {
+    "id": "rag_ephedra_stimulant_warning_001",
+    "text": "Ephedra Alert: Banned by FDA due to 80+ deaths. Causes high BP, palpitations, heart attack, and sudden death. Manufacturers may substitute 'Citrus Aurantium' (orange extract) with similar structure.",
+    "metadata": {
+      "type": "supplement_safety",
+      "tags": [
+        "ephedra",
+        "stimulant",
+        "FDA_ban",
+        "cardiovascular_risk"
+      ]
+    }
+  },
+  {
+    "id": "rag_iron_absorption_heme_001",
+    "text": "Iron Bioavailability: Heme iron (animal source) has 15% absorption; Non-heme (plant) has 5%. Absorption is enhanced by Vitamin C and inhibited by Caffeine, Calcium, and Zinc.",
+    "metadata": {
+      "type": "mineral_metabolism",
+      "tags": [
+        "iron_absorption",
+        "heme_iron",
+        "bioavailability",
+        "nutritional_inhibitors"
+      ]
+    }
+  },
+  {
+    "id": "rag_creatine_loading_protocol_001",
+    "text": "Creatine Monohydrate: Naturally found in meat/fish. Loading phase: 20-30 g/day (1 week). Maintenance: 10-15 g/day. Boosts high-intensity intermittent bursts of power.",
+    "metadata": {
+      "type": "ergogenic_aid",
+      "tags": [
+        "creatine",
+        "loading_phase",
+        "ATP_resynthesis",
+        "muscle_performance"
+      ]
+    }
+  },
+  {
+    "id": "rag_pre_exercise_fat_warning_001",
+    "text": "Pre-Exercise Digestion: High-fat foods (fries, donuts) pull blood to the stomach for digestion, causing cramps and discomfort during exercise. Allow 1-4 hours for solid meal digestion.",
+    "metadata": {
+      "type": "exercise_timing",
+      "tags": [
+        "digestion_time",
+        "pre_exercise_meal",
+        "cramping_prevention"
+      ]
+    }
+  },
+  {
+    "id": "rag_hmb_metabolite_logic_001",
+    "text": "HMB (Hydroxy-Methylbutyrate): A metabolite of leucine found in catfish/citrus. Helps suppress muscle protein breakdown. Typical dose: 1 g three times daily.",
+    "metadata": {
+      "type": "supplement",
+      "tags": [
+        "HMB",
+        "leucine_metabolite",
+        "muscle_preservation"
+      ]
+    }
+  },
+  {
+    "id": "rag_atp_cp_pathway_logic_001",
+    "text": "ATP-CP (Phosphate) System: Provides ~10 seconds of maximal energy. Uses stored ATP (2-3s) then Creatine Phosphate (6-8s) to resynthesize ATP without oxygen. Ideal for 100m sprints.",
+    "metadata": {
+      "type": "metabolic_pathway",
+      "tags": [
+        "ATP-CP",
+        "anaerobic_power",
+        "sprint_metabolism",
+        "creatine_phosphate"
+      ]
+    }
+  },
+  {
+    "id": "rag_atp_yield_aerobic_vs_anaerobic_001",
+    "text": "ATP Yield: Aerobic respiration (Krebs/Oxidative Phos) produces 36-38 ATP per glucose molecule. Anaerobic glycolysis produces only 2 ATP plus lactic acid, making it 20x less efficient.",
+    "metadata": {
+      "type": "cellular_respiration",
+      "tags": [
+        "ATP_yield",
+        "aerobic_efficiency",
+        "glycolysis_vs_respiration"
+      ]
+    }
+  },
+  {
+    "id": "rag_lactate_threshold_bonking_001",
+    "text": "Lactate Threshold & Bonking: The point where lactic acid build-up causes muscle burning/fatigue. 'Bonking' is glycogen exhaustion (~2 hrs in), forcing a shift to slower fat-based metabolism.",
+    "metadata": {
+      "type": "exercise_physiology",
+      "tags": [
+        "lactate_threshold",
+        "bonking",
+        "hitting_the_wall",
+        "glycogen_depletion"
+      ]
+    }
+  },
+  {
+    "id": "rag_dshea_1994_regulatory_logic_001",
+    "text": "DSHEA 1994: Dietary Supplement Health and Education Act. Deregulated supplements at the front-end; FDA must prove a product is dangerous *before* it can be prohibited from sale.",
+    "metadata": {
+      "type": "nutritional_regulation",
+      "tags": [
+        "DSHEA",
+        "FDA",
+        "supplement_regulation",
+        "consumer_safety"
+      ]
+    }
+  },
+  {
+    "id": "rag_ketosis_endurance_metabolism_001",
+    "text": "Fat-Based Metabolism: At low intensity (< 50% max heart rate), stored fat can fuel activity for days if oxygen is sufficient. Higher intensity requires the faster but limited carbohydrate pathway.",
+    "metadata": {
+      "type": "energy_metabolism",
+      "tags": [
+        "fat_metabolism",
+        "endurance_fuel",
+        "aerobic_power"
+      ]
+    }
+  },
+  {
+    "id": "rag_complex_carbohydrate_recommendation_001",
+    "text": "Carbohydrate Quality: 50-60% of calories should be complex carbohydrates (starches/fiber) and natural sugars, providing sustained energy, vitamins, and minerals unlike 'empty' refined sugars.",
+    "metadata": {
+      "type": "macronutrient_quality",
+      "tags": [
+        "complex_carbohydrates",
+        "sustained_energy",
+        "starch_vs_sugar"
+      ]
+    }
+  },
+  {
+    "id": "rag_small_but_healthy_hypothesis_001",
+    "text": "The 'Small But Healthy' Hypothesis (Seckler): Proposes that many individuals categorized as malnourished are actually healthy but small, having optimum size relative to their environment and genetics (normal proportions and fat).",
+    "metadata": {
+      "type": "nutritional_theory",
+      "tags": [
+        "small_but_healthy",
+        "Seckler",
+        "growth_adaptation",
+        "anthropometry"
+      ]
+    }
+  },
+  {
+    "id": "rag_anabolic_hormone_axis_growth_001",
+    "text": "Growth Anabolism: Driven by the Insulin/IGF/GH axis. Fat cells grow circumferentially (hypertrophy), while bones grow in length (tallness) prior to epiphyseal fusion.",
+    "metadata": {
+      "type": "endocrinology",
+      "tags": [
+        "insulin",
+        "IGF-1",
+        "growth_hormone",
+        "anabolic_axis",
+        "hypertrophy"
+      ]
+    }
+  },
+  {
+    "id": "rag_tall_stature_cell_count_risk_001",
+    "text": "Stature and Risk: Tall people have ~1 trillion additional cells per 10 cm increase in height. This increased cell count is associated with a higher risk of developing skin cancers.",
+    "metadata": {
+      "type": "clinical_oncology",
+      "tags": [
+        "height_risk",
+        "cell_count",
+        "skin_cancer",
+        "stature"
+      ]
+    }
+  },
+  {
+    "id": "rag_catch_up_insulin_resistance_link_001",
+    "text": "SGA Catch-up Risk: Small-for-gestational-age infants who undergo rapid catch-up growth frequently develop early insulin resistance, which adversely affects future body composition and puberty.",
+    "metadata": {
+      "type": "metabolic_programming",
+      "tags": [
+        "SGA",
+        "catch_up_growth",
+        "insulin_resistance",
+        "metabolic_programming"
+      ]
+    }
+  },
+  {
+    "id": "rag_adiposity_rebound_timing_001",
+    "text": "Adiposity Rebound: The second rise in BMI curve. Early rebound (before age 5-6) is a strong predictor of adult obesity and associated non-communicable diseases (NCDs).",
+    "metadata": {
+      "type": "growth_pattern",
+      "tags": [
+        "adiposity_rebound",
+        "obesity_prediction",
+        "BMI_nadir"
+      ]
+    }
+  },
+  {
+    "id": "rag_brain_growth_20_80_rule_001",
+    "text": "The 20/80 Rule of Development: By age 2, a child's body growth reaches 20% of adult size, but brain growth reaches 80%. This highlights the critical nature of nutrition in the first 24 months.",
+    "metadata": {
+      "type": "biological_metric",
+      "tags": [
+        "brain_growth",
+        "critical_period",
+        "20_80_rule"
+      ]
+    }
+  },
+  {
+    "id": "rag_composite_stimulation_package_001",
+    "text": "Composite Stimulation Package: Integrated strategy including (1) Nutritional supplementation, (2) Developmental stimulation, (3) Primary healthcare, and (4) Psychosocial support.",
+    "metadata": {
+      "type": "intervention_strategy",
+      "tags": [
+        "stimulation_package",
+        "holistic_development",
+        "intervention"
+      ]
+    }
+  },
+  {
+    "id": "rag_myelination_completion_timing_001",
+    "text": "Myelination: The process of coating nerve fibers with fatty insulation. It is almost complete by the age of 2 years, coinciding with the rapid brain growth phase.",
+    "metadata": {
+      "type": "neurodevelopment",
+      "tags": [
+        "myelination",
+        "brain_development",
+        "neurobiology"
+      ]
+    }
+  },
+  {
+    "id": "rag_hand_preference_timing_001",
+    "text": "Handedness: Hand preference (hand-skills) typically evolves by two years of age. Early hand preference in an infant may clinically indicate hemiparesis.",
+    "metadata": {
+      "type": "fine_motor_adaptive",
+      "tags": [
+        "handedness",
+        "hemiparesis_indicator",
+        "fine_motor"
+      ]
+    }
+  },
+  {
+    "id": "rag_cruising_gross_motor_001",
+    "text": "Cruising: A gross motor milestone (approx. 10 months) where the baby pulls to a standing position and walks while holding on to furniture.",
+    "metadata": {
+      "type": "gross_motor",
+      "tags": [
+        "cruising",
+        "walking_progression",
+        "milestones"
+      ]
+    }
+  },
+  {
+    "id": "rag_pincer_grasp_fine_motor_001",
+    "text": "Pincer Grasp: A fine motor milestone (approx. 9-10 months) involving the approximation of the thumb and index finger to pick up small objects.",
+    "metadata": {
+      "type": "fine_motor",
+      "tags": [
+        "pincer_grasp",
+        "eye_hand_coordination",
+        "milestones"
+      ]
+    }
+  },
+  {
+    "id": "rag_developmental_assessment_tools_001",
+    "text": "Developmental Assessment Tools: (1) DDST (Denver): Screening up to 6 yrs. (2) Gesell Schedule: Diagnosis of abnormalities. (3) BSID (Bayley): Motor/Mental/Behaviour scales. (4) TDSC (Trivandrum): Simple 17-item tool for Indian children up to 24 months. (5) NBAS (Brazelton): 20 primitive reflexes.",
+    "metadata": {
+      "type": "assessment_methodology",
+      "tags": [
+        "DDST",
+        "BSID",
+        "TDSC",
+        "assessment_tools",
+        "screening"
+      ]
+    }
+  },
+  {
+    "id": "rag_corrected_chronological_age_logic_001",
+    "text": "Corrected Chronological Age: For infants born prematurely, developmental level must be compared to corrected age (Chronological Age minus weeks of prematurity) during the first two years of life.",
+    "metadata": {
+      "type": "pediatric_calculation",
+      "tags": [
+        "corrected_age",
+        "prematurity",
+        "developmental_age"
+      ]
+    }
+  },
+  {
+    "id": "rag_developmental_quotient_formula_001",
+    "text": "Developmental Quotient (DQ): Computed as (Developmental Age / Chronological Age) x 100. It measures qualitative growth and maturation of function in relation to chronological norms.",
+    "metadata": {
+      "type": "pediatric_calculation",
+      "tags": [
+        "DQ",
+        "developmental_quotient",
+        "assessment"
+      ]
+    }
+  },
+  {
+    "id": "rag_developmental_interplay_factors_001",
+    "text": "Developmental Determinants: Interaction between Host (Genetics ~80%), Nutrition, and Environment. Malnutrition's impact on IQ is often synergistic with socioenvironmental deprivation.",
+    "metadata": {
+      "type": "developmental_theory",
+      "tags": [
+        "nature_vs_nurture",
+        "developmental_factors",
+        "synergy"
+      ]
+    }
+  },
+  {
+    "id": "rag_toilet_training_benchmarks_001",
+    "text": "Toilet Training Progression: Gastrocolic reflex (0-4mo); Sitting on toilet (10mo); Walking to toilet (18mo); Bowel control & Dry by night (3yrs).",
+    "metadata": {
+      "type": "personal_social_milestones",
+      "tags": [
+        "toilet_training",
+        "enuresis_prevention",
+        "milestones"
+      ]
+    }
+  },
+  {
+    "id": "rag_piaget_cognitive_development_stages_001",
+    "text": "Piaget's Cognitive Stages: (1) Sensorimotor (0-2y): Objective permanence. (2) Preoperational (2-7y): Symbolic thought. (3) Concrete Operational (7-11y): Logical thinking. (4) Formal Operational (>11y): Abstract reasoning.",
+    "metadata": {
+      "type": "psychology",
+      "tags": [
+        "Piaget",
+        "cognitive_stages",
+        "sensorimotor",
+        "abstract_reasoning"
+      ]
+    }
+  },
+  {
+    "id": "rag_draw_a_man_test_scoring_001",
+    "text": "Goodenough's Draw-A-Man Test: Used for children 3-13 years. Scoring: 4 points = 1 year added to basal age 3. Measures perceptual and motor maturity.",
+    "metadata": {
+      "type": "intelligence_test",
+      "tags": [
+        "Draw-A-Man",
+        "mental_age",
+        "intelligence_assessment"
+      ]
+    }
+  },
+  {
+    "id": "rag_coconut_oil_lipid_benefit_001",
+    "text": "Coconut Oil in Nutrition: Contains Medium Chain Triglycerides (MCTs) for better absorption. Maintains a healthy omega-6:3 ratio (< 5:1), preventing lipid-induced angiotoxicity.",
+    "metadata": {
+      "type": "lipid_nutrition",
+      "tags": [
+        "MCTs",
+        "coconut_oil",
+        "omega_ratios",
+        "angiotoxicity"
+      ]
+    }
+  },
+  {
+    "id": "rag_vitamin_a_prophylaxis_schedule_001_2",
+    "text": "Vitamin A Prophylaxis: Administration of 5 doses (2 lakh units each) every 6 months to prevent blindness and boost immunity. Deficiency increases risk of ARI and Diarrhoea.",
+    "metadata": {
+      "type": "micronutrient_intervention",
+      "tags": [
+        "vitamin_A",
+        "prophylaxis",
+        "immunity",
+        "xerophthalmia"
+      ]
+    }
+  },
+  {
+    "id": "rag_health_care_delivery_levels_001",
+    "text": "Health Care Hierarchy: (1) Primary: PHC/Grassroots. (2) Secondary: First Referral Units (FRUs), District Hospitals. (3) Tertiary: Medical Colleges, Specialized Institutes.",
+    "metadata": {
+      "type": "health_system",
+      "tags": [
+        "primary_healthcare",
+        "FRU",
+        "referral_system"
+      ]
+    }
+  },
+  {
+    "id": "rag_nutritional_therapy_weight_gain_logic_001",
+    "text": "Recovery Weight Gain: During nutritional therapy for PEM, a weight gain of 10-15 g/kg/day is expected. This is 10x faster than normal age-matched growth.",
+    "metadata": {
+      "type": "nutritional_recovery",
+      "tags": [
+        "weight_gain",
+        "PEM_recovery",
+        "catch_up_growth"
+      ]
+    }
+  },
+  {
+    "id": "rag_sat_mix_therapeutic_recipe_001",
+    "text": "SAT Mix (Trivandrum Mix): Prepared by mixing preroasted rice, wheat, black gram, and sugar in a 1:1:1:2 ratio. 100g supplies 380 kcal and 8g protein. Semisolid paste (30g) provides 125 kcal.",
+    "metadata": {
+      "type": "therapeutic_food",
+      "tags": [
+        "SAT_Mix",
+        "Trivandrum_Mix",
+        "PEM_food",
+        "supplementation"
+      ]
+    }
+  },
+  {
+    "id": "rag_specialized_sensory_stimulation_001",
+    "text": "Sensory Stimulation: (1) Vision: Mobile toys/bright colors. (2) Hearing: Singing/Music boxes. (3) Tactile: Handling/Stroking. (4) Vestibular: Rocking/Position change.",
+    "metadata": {
+      "type": "stimulation_method",
+      "tags": [
+        "sensory_stimulation",
+        "tactile",
+        "vestibular",
+        "auditory"
+      ]
+    }
+  },
+  {
+    "id": "rag_play_therapy_types_001",
+    "text": "Play Therapy: Use of natural activity to consolidate development. Directive (therapist guides) vs Non-directive (child leads). Uses symbolic play (dolls) and constructional play (cubes).",
+    "metadata": {
+      "type": "stimulation_method",
+      "tags": [
+        "play_therapy",
+        "symbolic_play",
+        "structured_play"
+      ]
+    }
+  },
+  {
+    "id": "rag_stim_superiority_logic_001",
+    "text": "STIM vs NUT Logic: Nutritional supplementation alone falls short in catch-up for malnourished children. The Composite Stimulation Package (STIM) is superior as it addresses 'Functional Isolation'.",
+    "metadata": {
+      "type": "intervention_logic",
+      "tags": [
+        "STIM_package",
+        "catch_up_growth",
+        "holistic_recovery"
+      ]
+    }
+  },
+  {
+    "id": "rag_child_to_child_programme_001",
+    "text": "Child to Child Programme (Morley): Strategy where elder siblings or other family members are trained to provide developmental stimulation when the mother is unavailable.",
+    "metadata": {
+      "type": "community_health",
+      "tags": [
+        "Child_to_Child",
+        "sibling_support",
+        "community_stimulation"
+      ]
+    }
+  },
+  {
+    "id": "rag_cdru_referral_units_001",
+    "text": "Child Development Referral Units (CDRUs): District-level centers meant for early detection and intervention of developmental delays, integrating with ICDS Anganwadis.",
+    "metadata": {
+      "type": "health_system",
+      "tags": [
+        "CDRU",
+        "referral_system",
+        "early_intervention"
+      ]
+    }
+  },
+  {
+    "id": "rag_adult_bmi_classification_001",
+    "text": "Adult BMI Classification: Underweight (<18.5); Normal (18.5-24.9); Overweight (>25); Obese Class I (30-34.9); Obese Class II (35-39.9); Obese Class III (>40).",
+    "metadata": {
+      "type": "nutritional_assessment",
+      "tags": [
+        "BMI",
+        "obesity_classification",
+        "adult_health"
+      ]
+    }
+  },
+  {
+    "id": "rag_resomal_rehydration_composition_001",
+    "text": "ReSoMal (Rehydration Solution for Malnourished): A specialized solution containing ORS (1 pkt), Water (2L), Sugar (50g), and Electrolyte Mineral Mixture (EMM). Designed for slow rehydration to avoid cardiac failure.",
+    "metadata": {
+      "type": "therapeutic_nutrition",
+      "tags": [
+        "ReSoMal",
+        "malnutrition_rehydration",
+        "EMM",
+        "electrolytes"
+      ]
+    }
+  },
+  {
+    "id": "rag_eliz_solution_supplementation_001",
+    "text": "ELIZ Solution: A K/Mg supplementation solution for malnutrition containing 15% KCl (20cc), 7.5% NaHCO3 (20cc), MgCl2 (30g), Glucose (50g), and NaCl (2g) in 1L water.",
+    "metadata": {
+      "type": "therapeutic_nutrition",
+      "tags": [
+        "ELIZ_solution",
+        "potassium_supplement",
+        "magnesium_supplement"
+      ]
+    }
+  },
+  {
+    "id": "rag_ims_act_key_provisions_001",
+    "text": "IMS Act (1992/1994): Prohibits promotion, advertising, and distribution of free samples of infant milk substitutes and feeding bottles. Mandates that labels emphasize 'Breast milk is best'.",
+    "metadata": {
+      "type": "statutory_compliance",
+      "tags": [
+        "IMS_Act",
+        "breastfeeding_protection",
+        "infant_food_regulation"
+      ]
+    }
+  },
+  {
+    "id": "rag_india_vital_statistics_2007_001",
+    "text": "India Vital Statistics (2007): Under-5 Mortality Rate (117 in 1990 to 72 in 2007); Infant Mortality Rate (83 to 54); Low Birth Weight prevalence (28%); Exclusive Breastfeeding (<6m) coverage (46%).",
+    "metadata": {
+      "type": "public_health_stats",
+      "tags": [
+        "vital_statistics",
+        "IMR",
+        "U5MR",
+        "LBW",
+        "breastfeeding_stats"
+      ]
+    }
+  },
+  {
+    "id": "rag_iotf_logic_child_bmi_001",
+    "text": "IOTF Cut-offs: Age-specific child BMI values (males/females) defined to converge at the adult benchmarks of 25 (overweight) and 30 (obese) at age 18.",
+    "metadata": {
+      "type": "nutritional_assessment",
+      "tags": [
+        "IOTF",
+        "child_BMI",
+        "obesity_screening"
+      ]
+    }
+  },
+  {
+    "id": "rag_arf_malting_logic_001",
+    "text": "Malting (ARF): Process of germinating grains (like ragi) to enhance digestibility and amylase content. ARF powder reduces the 'bulk' of porridges, allowing higher nutrient density in small volumes.",
+    "metadata": {
+      "type": "food_processing",
+      "tags": [
+        "malting",
+        "ARF",
+        "digestibility",
+        "complementary_feeding"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_general_001",
+    "text": "The ICMR-NIN 2020 nutrient requirements define the Estimated Average Requirement (EAR) as the median of the distribution and the Recommended Dietary Allowance (RDA) as the 97.5th percentile of the distribution.",
+    "metadata": {
+      "type": "general_knowledge",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "EAR",
+        "RDA",
+        "nutrient_distribution"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_general_002",
+    "text": "The ICMR-NIN 2020 guidelines introduced Tolerable Upper Limits (TUL) for nutrient intake, accounting for the increasing prevalence of fortified foods in the Indian diet.",
+    "metadata": {
+      "type": "general_knowledge",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "TUL",
+        "fortified_foods"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_energy_001",
+    "text": "The total energy requirement (TEE) is calculated as BMR x PAL. For Indians, the 2020 committee reduced the BMR estimate by 10% compared to international equations due to higher body fat composition.",
+    "metadata": {
+      "type": "nutritional_biochemistry",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "TEE",
+        "BMR",
+        "PAL",
+        "energy_expenditure"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_energy_002",
+    "text": "The Physical Activity Level (PAL) for a sedentary Indian population was reduced from 1.53 in 2010 to 1.40 in the 2020 recommendations.",
+    "metadata": {
+      "type": "growth_metric",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "PAL",
+        "sedentary_work"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_energy_men_001",
+    "text": "Recommended daily energy intake for adult men (65kg): Sedentary - 2110 kcal (32 kcal/kg), Moderate - 2710 kcal (42 kcal/kg), Heavy - 3470 kcal (53 kcal/kg).",
+    "metadata": {
+      "type": "growth_metric",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "energy_requirement",
+        "men",
+        "sedentary",
+        "moderate",
+        "heavy"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_energy_women_001",
+    "text": "Recommended daily energy intake for adult women (55kg): Sedentary - 1660 kcal (30 kcal/kg), Moderate - 2130 kcal (39 kcal/kg), Heavy - 2720 kcal (49 kcal/kg).",
+    "metadata": {
+      "type": "growth_metric",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "energy_requirement",
+        "women",
+        "sedentary",
+        "moderate",
+        "heavy"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_energy_infants_001",
+    "text": "Energy requirements for infants: 0-6 months - 530 kcal/day (90 kcal/kg); 6-12 months - 660 kcal/day (80 kcal/kg).",
+    "metadata": {
+      "type": "growth_metric",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "energy_requirement",
+        "infants"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_energy_children_001",
+    "text": "Daily energy requirements for children: 1-3y - 1110 kcal (83 kcal/kg); 4-6y - 1360 kcal (74 kcal/kg); 7-9y - 1700 kcal (67 kcal/kg).",
+    "metadata": {
+      "type": "growth_metric",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "energy_requirement",
+        "children"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_energy_adolescents_001",
+    "text": "Daily energy requirements for adolescents: Boys 10-12y (2220 kcal), 13-15y (2860 kcal), 16-18y (3320 kcal); Girls 10-12y (2060 kcal), 13-15y (2400 kcal), 16-18y (2500 kcal).",
+    "metadata": {
+      "type": "growth_metric",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "energy_requirement",
+        "adolescents"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_protein_001",
+    "text": "The RDA for protein in healthy Indian adults is 0.83 g/kg/day, with an EAR of 0.66 g/kg/day. For those on a cereal-based diet with low quality protein, the requirement is 1 g/kg/day.",
+    "metadata": {
+      "type": "nutritional_biochemistry",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "protein_requirement",
+        "RDA",
+        "EAR"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_protein_002",
+    "text": "ICMR 2020 recommends an improved cereal-legume-milk composition ratio of 3:1:2.5 for better protein quality (DIAAS score).",
+    "metadata": {
+      "type": "nutritional_biochemistry",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "protein_quality",
+        "DIAAS",
+        "cereal_legume_milk"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_protein_infants_001",
+    "text": "Protein requirements for infants: 0-6 months - RDA 1.40 g/kg/day (8.1 g/d); 6-12 months - RDA 1.23 g/kg/day (10.5 g/d).",
+    "metadata": {
+      "type": "growth_metric",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "protein_requirement",
+        "infants"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_protein_children_001",
+    "text": "Protein RDA for children: 1-3y (0.97 g/kg/d, 12.5 g/d); 4-6y (0.87 g/kg/d, 15.9 g/d); 7-9y (0.92 g/kg/d, 23.3 g/d).",
+    "metadata": {
+      "type": "growth_metric",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "protein_requirement",
+        "children"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_fats_001",
+    "text": "Daily requirement for essential fatty acids: 6.6g of n-6 PUFA (Linoleic acid) and 2.2g of n-3 PUFA (Alpha-linolenic acid).",
+    "metadata": {
+      "type": "nutritional_biochemistry",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "PUFA",
+        "essential_fatty_acids",
+        "n-6",
+        "n-3"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_fats_002",
+    "text": "Visible fat intake should be limited to 20-50g per day. For a 2000 kcal diet, visible fat should not exceed 27g.",
+    "metadata": {
+      "type": "nutritional_biochemistry",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "visible_fat",
+        "fat_intake_limit"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_minerals_001",
+    "text": "Recommended daily intake for minerals (Adult Men/Women): Calcium 1000/1000 mg, Magnesium 440/370 mg, Iron 19/29 mg, Zinc 17/13 mg, Iodine 150/150 \u00b5g.",
+    "metadata": {
+      "type": "nutritional_biochemistry",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "minerals",
+        "calcium",
+        "iron",
+        "zinc",
+        "magnesium",
+        "iodine"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_vitamins_001",
+    "text": "Recommended daily intake for B-Vitamins (Adult Men/Women): Thiamine 1.8/1.7 mg, Riboflavin 2.5/2.4 mg, Niacin 18/14 mg, B6 2.4/1.9 mg, Folate 300/220 \u00b5g, B12 2.2/2.2 \u00b5g.",
+    "metadata": {
+      "type": "nutritional_biochemistry",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "b_vitamins",
+        "thiamine",
+        "riboflavin",
+        "niacin",
+        "folate",
+        "b12"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_vitamins_002",
+    "text": "Recommended daily intake for other vitamins (Adult Men/Women): Vitamin C 80/65 mg, Vitamin A 1000/840 \u00b5g, Vitamin D 600/600 IU.",
+    "metadata": {
+      "type": "nutritional_biochemistry",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "vitamins",
+        "vitamin_c",
+        "vitamin_a",
+        "vitamin_d"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_v2_general_001",
+    "text": "The ICMR-NIN 2020 Nutrient requirements book defines nutrient distribution and requirements for normal individuals of all age groups, physiological groups, and physical activity groups of the Indian population.",
+    "metadata": {
+      "type": "general_knowledge",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "nutrient_requirements",
+        "indian_population"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_v2_general_002",
+    "text": "The 2020 recommendations use two key values: the Estimated Average Requirement (EAR), which is the median of the requirement distribution, and the Recommended Dietary Allowance (RDA), which is the 97.5th percentile.",
+    "metadata": {
+      "type": "general_knowledge",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "EAR",
+        "RDA",
+        "definitions"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_v2_history_001",
+    "text": "The first Nutrient Recommendations for Indians was developed in 1944, revised in 1958, 1968, 1978, and 2010. The 2010 revision derived only RDA values, while the 2020 revision introduced EAR values for population adequacy estimations.",
+    "metadata": {
+      "type": "general_knowledge",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "history",
+        "nutrient_recommendations"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_v2_general_003",
+    "text": "Tolerable Upper Limits (TUL) of intake are defined in the 2020 Nutrient Requirements book, which is critical as several foods are now fortified with nutrients.",
+    "metadata": {
+      "type": "general_knowledge",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "TUL",
+        "fortified_foods"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_v2_general_004",
+    "text": "The ICMR-NIN 2020 committee recommends using EAR for population requirement estimations and menu planning for individuals, aligning with global standards. EARs are typically 80% of the RDA.",
+    "metadata": {
+      "type": "general_knowledge",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "EAR",
+        "menu_planning",
+        "adequacy"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_v2_energy_002",
+    "text": "Total Energy Expenditure (TEE) is calculated as TEE = BMR X PAL. Physical Activity Level (PAL) for sedentary populations was reduced from 1.53 (RDA 2010) to 1.40 (RDA 2020) based on Indian studies.",
+    "metadata": {
+      "type": "nutritional_biochemistry",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "TEE",
+        "BMR",
+        "PAL",
+        "energy_calculation"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_v2_energy_003",
+    "text": "BMR in Indians is lower than Western populations due to relatively more body fat. The 2020 committee reduced BMR by an additional 5% for adults compared to the 2010 recommendation.",
+    "metadata": {
+      "type": "nutritional_biochemistry",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "BMR",
+        "body_composition",
+        "indian_specific"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_v2_energy_004",
+    "text": "Recommended energy requirement for adults is lower by 3 to 8 kcal/kg/day compared to 2010. However, for children, the BMR derived from FAO/WHO/UNU 2004 was retained as no recent contradictory evidence exists for Indian children.",
+    "metadata": {
+      "type": "nutritional_biochemistry",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "energy_requirement",
+        "children_vs_adults"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_v2_protein_002",
+    "text": "Protein requirements for healthy Indian adults: EAR is 0.66 g/kg/day and RDA is 0.83 g/kg/day. A newer quality index, DIAAS (Digestible Indispensable Amino Acid Score), based on true ileal digestibility, was introduced.",
+    "metadata": {
+      "type": "nutritional_biochemistry",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "protein",
+        "EAR",
+        "RDA",
+        "DIAAS"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_v2_protein_003",
+    "text": "The recommended cereal-legume-milk composition for good protein quality in the Indian diet is 3:1:2.5, significantly improved from the 2010 ratio of 11:1:3.",
+    "metadata": {
+      "type": "nutritional_biochemistry",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "protein_quality",
+        "dietary_composition",
+        "cereal_legume_milk"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_v2_fat_001",
+    "text": "Essential Fatty Acids (EFAs) n-6 (linoleic acid) and n-3 (alpha-linolenic acid) must be obtained from diet. Recommended intakes are 6.6g of n-6 PUFA and 2.2g of n-3 PUFA daily.",
+    "metadata": {
+      "type": "nutritional_biochemistry",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "EFA",
+        "PUFA",
+        "omega_3",
+        "omega_6"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_v2_energy_table_001",
+    "text": "Energy requirements (Kcal/d) for Men (65kg): Sedentary 2110 (32 kcal/kg), Moderate 2710 (42 kcal/kg), Heavy 3470 (53 kcal/kg). For Women (55kg): Sedentary 1660 (30 kcal/kg), Moderate 2130 (39 kcal/kg), Heavy 2720 (49 kcal/kg).",
+    "metadata": {
+      "type": "reference_table",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "energy_requirement",
+        "adults",
+        "table_1b"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_v2_energy_table_002",
+    "text": "Energy requirements for Pregnancy and Lactation: Pregnant +350 kcal/d; Lactating (0-6m) +600 kcal/d; Lactating (7-12m) +520 kcal/d.",
+    "metadata": {
+      "type": "reference_table",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "energy_requirement",
+        "pregnancy",
+        "lactation"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_v2_energy_table_003",
+    "text": "Energy requirements for Infants: 0-6 months 530 kcal/d (90 kcal/kg); 6-12 months 660 kcal/d (80 kcal/kg).",
+    "metadata": {
+      "type": "reference_table",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "energy_requirement",
+        "infants"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_v2_energy_table_004",
+    "text": "Energy requirements for Children: 1-3y 1110 kcal/d (83 kcal/kg); 4-6y 1360 kcal/d (74 kcal/kg); 7-9y 1700 kcal/d (67 kcal/kg).",
+    "metadata": {
+      "type": "reference_table",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "energy_requirement",
+        "children"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_v2_energy_table_005",
+    "text": "Energy requirements for Adolescents (Boys/Girls): 10-12y 2220/2060 kcal/d (64/57 kcal/kg); 13-15y 2860/2400 kcal/d (57/49 kcal/kg); 16-18y 3320/2500 kcal/d (52/45 kcal/kg).",
+    "metadata": {
+      "type": "reference_table",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "energy_requirement",
+        "adolescents"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_v2_protein_table_001",
+    "text": "Protein EAR/RDA (g/d) for Adults: Men (65kg) 42.9/54.0; Women (55kg) 36.3/45.7. For cereal-based diets with low quality protein, requirement is 1 g/kg/day.",
+    "metadata": {
+      "type": "reference_table",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "protein_requirement",
+        "adults",
+        "table_2a"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_v2_protein_table_002",
+    "text": "Protein EAR/RDA extra requirements (g/d): Pregnant (2nd Trimester) +7.6/9.5; (3rd Trimester) +17.6/22.0. Lactating (0-6m) +13.6/16.9; (7-12m) +10.6/13.2.",
+    "metadata": {
+      "type": "reference_table",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "protein_requirement",
+        "pregnancy",
+        "lactation"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_v2_protein_table_003",
+    "text": "Protein EAR/RDA (g/d) for Infants: 0-6m 6.7/8.1; 6-12m 8.8/10.5. Children: 1-3y 10.2/12.5; 4-6y 12.8/15.9; 7-9y 19.0/23.3.",
+    "metadata": {
+      "type": "reference_table",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "protein_requirement",
+        "infants",
+        "children"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_v2_protein_table_004",
+    "text": "Protein EAR/RDA (g/d) for Adolescents (Boys/Girls): 10-12y 26.2/31.8 vs 26.6/32.8; 13-15y 36.4/44.9 vs 34.7/43.2; 16-18y 45.1/55.4 vs 37.3/46.2.",
+    "metadata": {
+      "type": "reference_table",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "protein_requirement",
+        "adolescents"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_v2_minerals_002",
+    "text": "Comparison of Nutrient EAR 2020 (Males/Females): Calcium 800/800 mg, Magnesium 370/310 mg, Iron 11/15 mg, Zinc 14/11 mg, Iodine 95/95 \u00b5g.",
+    "metadata": {
+      "type": "nutritional_biochemistry",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "EAR",
+        "minerals",
+        "comparison"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_v2_vitamins_003",
+    "text": "Comparison of Vitamin EAR 2020 (Males/Females): Thiamine 1.5/1.4 mg, Riboflavin 2.1/2.0 mg, Niacin 15/12 mg, B6 2.1/1.6 mg, Folate 250/180 \u00b5g, B12 2/2 \u00b5g, Vit C 65/55 mg, Vit A 460/390 \u00b5g, Vit D 400/400 IU.",
+    "metadata": {
+      "type": "nutritional_biochemistry",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "EAR",
+        "vitamins",
+        "comparison"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_v2_comparison_001",
+    "text": "Nutrient RDA Comparison (2010 vs 2020) for Males: Calcium (600 to 1000 mg), Iron (17 to 19 mg), Zinc (12 to 17 mg), Thiamine (1.4 to 1.8 mg), Riboflavin (1.6 to 2.5 mg), Vit B12 (1 to 2.2 \u00b5g), Vit C (40 to 80 mg), Vit A (600 to 1000 \u00b5g).",
+    "metadata": {
+      "type": "comparison_table",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "RDA_comparison",
+        "males",
+        "table_3"
+      ]
+    }
+  },
+  {
+    "id": "icmr_2020_v2_comparison_002",
+    "text": "Nutrient RDA Comparison (2010 vs 2020) for Females: Calcium (600 to 1000 mg), Iron (21 to 29 mg), Zinc (10 to 13 mg), Thiamine (1.1 to 1.7 mg), Riboflavin (1.3 to 2.4 mg), Vit B12 (1 to 2.2 \u00b5g), Vit C (40 to 65 mg), Vit A (600 to 840 \u00b5g).",
+    "metadata": {
+      "type": "comparison_table",
+      "source": "ICMR-NIN 2020",
+      "tags": [
+        "RDA_comparison",
+        "females",
+        "table_4"
+      ]
+    }
+  },
+  {
+    "id": "fssai_safety_general_001",
+    "text": "Eating safe food is essential to protect health, prevent infections like diarrhoea and dysentery, and maintain high energy levels for studies and activities.",
+    "metadata": {
+      "type": "general_knowledge",
+      "source": "FSSAI",
+      "tags": [
+        "food_safety",
+        "health_protection"
+      ]
+    }
+  },
+  {
+    "id": "fssai_contamination_physical_001",
+    "text": "Physical contamination includes foreign materials like stones, hair, dust, or nails. Detection involves careful observation, feeling with hands, washing, or sieving.",
+    "metadata": {
+      "type": "general_knowledge",
+      "source": "FSSAI",
+      "tags": [
+        "contamination",
+        "physical_hazard"
+      ]
+    }
+  },
+  {
+    "id": "fssai_contamination_chemical_001",
+    "text": "Chemical contamination involves non-permitted additives, pesticide residues, insecticides, and reused oil. Look for unusual colour, odour, or taste for detection.",
+    "metadata": {
+      "type": "general_knowledge",
+      "source": "FSSAI",
+      "tags": [
+        "contamination",
+        "chemical_hazard"
+      ]
+    }
+  },
+  {
+    "id": "fssai_contamination_micro_001",
+    "text": "Microbiological contamination can be invisible (bacteria, viruses) or visible (flies, worms). Watch for changes in texture, odour, and colour to detect spoilage.",
+    "metadata": {
+      "type": "general_knowledge",
+      "source": "FSSAI",
+      "tags": [
+        "contamination",
+        "microbiological_hazard"
+      ]
+    }
+  },
+  {
+    "id": "fssai_hygiene_hands_001",
+    "text": "Wash hands vigorously with soap for 20 seconds before/after eating, after using the bathroom, touching animals, or handling raw meat to prevent pathogen transfer.",
+    "metadata": {
+      "type": "protocol",
+      "source": "FSSAI",
+      "tags": [
+        "handwashing",
+        "hygiene"
+      ]
+    }
+  },
+  {
+    "id": "fssai_hygiene_food_handling_001",
+    "text": "To keep food safe, keep raw and cooked foods physically separated, refrigerate food promptly, and wash all fruits under running water before use.",
+    "metadata": {
+      "type": "protocol",
+      "source": "FSSAI",
+      "tags": [
+        "food_handling",
+        "cross_contamination"
+      ]
+    }
+  },
+  {
+    "id": "fssai_hygiene_habits_001",
+    "text": "Avoid touching body parts, money, or mobiles while eating. Do not eat uncovered food or leftovers mixed with fresh food. Do not keep food directly on desks.",
+    "metadata": {
+      "type": "protocol",
+      "source": "FSSAI",
+      "tags": [
+        "hygiene_habits",
+        "safe_eating"
+      ]
+    }
+  },
+  {
+    "id": "fssai_handler_safety_001",
+    "text": "A safe food handler should look healthy, wear clean clothes, have trimmed nails, and use clean utensils. They must not smoke or chew tobacco while handling food.",
+    "metadata": {
+      "type": "general_knowledge",
+      "source": "FSSAI",
+      "tags": [
+        "food_handler",
+        "hygiene"
+      ]
+    }
+  },
+  {
+    "id": "fssai_water_ice_safety_001",
+    "text": "Only potable water should be used for drinking and preparing ice. Water containers should be covered and equipped with a side tap for drawing.",
+    "metadata": {
+      "type": "protocol",
+      "source": "FSSAI",
+      "tags": [
+        "water_safety",
+        "potable_water"
+      ]
+    }
+  },
+  {
+    "id": "fssai_utensils_environment_001",
+    "text": "Food service areas should be clean, airy, and away from drains or garbage. Use non-toxic packaging; never wrap food in printed paper as ink can be toxic.",
+    "metadata": {
+      "type": "protocol",
+      "source": "FSSAI",
+      "tags": [
+        "food_packaging",
+        "environment_hygiene"
+      ]
+    }
+  },
+  {
+    "id": "fssai_tiffin_safety_001",
+    "text": "A healthy child's tiffin should be balanced, low in sugar, and include fruits. Involving children in menu planning encourages them to finish their meal.",
+    "metadata": {
+      "type": "goal",
+      "source": "FSSAI",
+      "tags": [
+        "tiffin",
+        "balanced_diet",
+        "nutrition"
+      ]
+    }
+  }
+]

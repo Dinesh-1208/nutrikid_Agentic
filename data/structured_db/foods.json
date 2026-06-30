@@ -1,0 +1,3118 @@
+[
+  {
+    "food_id": "F200",
+    "food_name": "vegetables",
+    "category": "vegetable",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "400g per day",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "high",
+    "digestibility_fried": "low",
+    "fat_level_fried": "high",
+    "glycemic_index": "low",
+    "age_min": 1,
+    "allergy_tags": [],
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "tags": [
+      "fiber_rich",
+      "vitamin_rich",
+      "low_calorie"
+    ]
+  },
+  {
+    "food_id": "F201",
+    "food_name": "fruits",
+    "category": "fruit",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "100g per day",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "high",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "medium",
+    "age_min": 1,
+    "allergy_tags": [],
+    "meal_types": [
+      "snack",
+      "breakfast"
+    ],
+    "tags": [
+      "vitamin_rich",
+      "antioxidant"
+    ]
+  },
+  {
+    "food_id": "F202",
+    "food_name": "cereals",
+    "category": "carbohydrate",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "250g per day",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "high",
+    "digestibility_fried": "medium",
+    "fat_level_fried": "medium",
+    "glycemic_index": "high",
+    "age_min": 1,
+    "allergy_tags": [
+      "gluten_optional"
+    ],
+    "meal_types": [
+      "breakfast",
+      "lunch",
+      "dinner"
+    ],
+    "tags": [
+      "energy_source",
+      "staple_food"
+    ]
+  },
+  {
+    "food_id": "F203",
+    "food_name": "pulses_legumes",
+    "category": "protein",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "85g per day",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "medium",
+    "digestibility_fried": "low",
+    "fat_level_fried": "medium",
+    "glycemic_index": "low",
+    "age_min": 1,
+    "allergy_tags": [],
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "tags": [
+      "plant_protein",
+      "fiber_rich"
+    ]
+  },
+  {
+    "food_id": "F204",
+    "food_name": "milk_curd",
+    "category": "dairy",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "300ml per day",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "high",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "low",
+    "age_min": 1,
+    "allergy_tags": [
+      "lactose"
+    ],
+    "meal_types": [
+      "breakfast",
+      "snack"
+    ],
+    "tags": [
+      "calcium_rich",
+      "protein"
+    ]
+  },
+  {
+    "food_id": "F205",
+    "food_name": "nuts_seeds",
+    "category": "fat",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "35g per day",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "high",
+    "glycemic_index": "low",
+    "age_min": 2,
+    "allergy_tags": [
+      "nut_allergy"
+    ],
+    "meal_types": [
+      "snack"
+    ],
+    "tags": [
+      "healthy_fats",
+      "energy_dense"
+    ]
+  },
+  {
+    "food_id": "F300",
+    "food_name": "rice",
+    "category": "cereal",
+    "energy_kcal_per_100g": 130,
+    "protein_g": 2.7,
+    "fat_g": 0.3,
+    "carbs_g": 28,
+    "iron_mg": 0.2,
+    "portion_unit": "included in cereals 250g/day",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "high",
+    "digestibility_fried": "medium",
+    "fat_level_fried": "medium",
+    "glycemic_index": "high",
+    "age_min": 1,
+    "allergy_tags": [],
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "tags": [
+      "staple_food",
+      "energy_source"
+    ]
+  },
+  {
+    "food_id": "F301",
+    "food_name": "lentils",
+    "category": "pulse",
+    "energy_kcal_per_100g": 116,
+    "protein_g": 9,
+    "fat_g": 0.4,
+    "carbs_g": 20,
+    "iron_mg": 3.3,
+    "portion_unit": "part of pulses 85g/day",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "medium",
+    "digestibility_fried": "low",
+    "fat_level_fried": "medium",
+    "glycemic_index": "low",
+    "age_min": 1,
+    "allergy_tags": [],
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "tags": [
+      "plant_protein",
+      "iron_rich"
+    ]
+  },
+  {
+    "food_id": "F302",
+    "food_name": "milk",
+    "category": "dairy",
+    "energy_kcal_per_100g": 42,
+    "protein_g": 3.4,
+    "fat_g": 1,
+    "carbs_g": 5,
+    "iron_mg": 0,
+    "portion_unit": "300ml/day",
+    "portion_energy_kcal": 126,
+    "portion_protein_g": 10,
+    "digestibility_boiled": "high",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "low",
+    "age_min": 1,
+    "allergy_tags": [
+      "lactose"
+    ],
+    "meal_types": [
+      "breakfast",
+      "snack"
+    ],
+    "tags": [
+      "calcium_rich",
+      "protein"
+    ]
+  },
+  {
+    "food_id": "F303",
+    "food_name": "green_leafy_vegetables",
+    "category": "vegetable",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "included in vegetables 400g/day",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "high",
+    "digestibility_fried": "low",
+    "fat_level_fried": "medium",
+    "glycemic_index": "low",
+    "age_min": 1,
+    "allergy_tags": [],
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "tags": [
+      "vitamin_rich",
+      "fiber"
+    ]
+  },
+  {
+    "food_id": "F304",
+    "food_name": "nuts",
+    "category": "fat",
+    "energy_kcal_per_100g": 600,
+    "protein_g": 20,
+    "fat_g": 50,
+    "carbs_g": 20,
+    "iron_mg": "",
+    "portion_unit": "35g/day",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "high",
+    "glycemic_index": "low",
+    "age_min": 2,
+    "allergy_tags": [
+      "nut_allergy"
+    ],
+    "meal_types": [
+      "snack"
+    ],
+    "tags": [
+      "healthy_fat",
+      "energy_dense"
+    ]
+  },
+  {
+    "food_id": "F400",
+    "food_name": "cereals",
+    "category": "carbohydrate",
+    "energy_kcal_per_100g": 343,
+    "protein_g": 9.3,
+    "fat_g": 1.2,
+    "carbs_g": 72,
+    "iron_mg": "",
+    "portion_unit": "250g/day",
+    "portion_energy_kcal": 843,
+    "portion_protein_g": 25,
+    "digestibility_boiled": "high",
+    "digestibility_fried": "medium",
+    "fat_level_fried": "medium",
+    "glycemic_index": "high",
+    "age_min": 1,
+    "allergy_tags": [
+      "gluten_optional"
+    ],
+    "meal_types": [
+      "breakfast",
+      "lunch",
+      "dinner"
+    ],
+    "tags": [
+      "energy_source",
+      "staple"
+    ]
+  },
+  {
+    "food_id": "F401",
+    "food_name": "pulses",
+    "category": "protein",
+    "energy_kcal_per_100g": 323,
+    "protein_g": 22.8,
+    "fat_g": 3.0,
+    "carbs_g": 49,
+    "iron_mg": "",
+    "portion_unit": "85g/day",
+    "portion_energy_kcal": 274,
+    "portion_protein_g": 20,
+    "digestibility_boiled": "medium",
+    "digestibility_fried": "low",
+    "fat_level_fried": "medium",
+    "glycemic_index": "low",
+    "age_min": 1,
+    "allergy_tags": [],
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "tags": [
+      "plant_protein",
+      "fiber"
+    ]
+  },
+  {
+    "food_id": "F402",
+    "food_name": "milk",
+    "category": "dairy",
+    "energy_kcal_per_100g": 72,
+    "protein_g": 3.1,
+    "fat_g": 4.2,
+    "carbs_g": 5,
+    "iron_mg": 0,
+    "portion_unit": "300ml/day",
+    "portion_energy_kcal": 216,
+    "portion_protein_g": 10,
+    "digestibility_boiled": "high",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "low",
+    "age_min": 1,
+    "allergy_tags": [
+      "lactose"
+    ],
+    "meal_types": [
+      "breakfast",
+      "snack"
+    ],
+    "tags": [
+      "calcium_rich"
+    ]
+  },
+  {
+    "food_id": "F403",
+    "food_name": "vegetables",
+    "category": "vegetable",
+    "energy_kcal_per_100g": 35,
+    "protein_g": 1.8,
+    "fat_g": 0.4,
+    "carbs_g": 5,
+    "iron_mg": "",
+    "portion_unit": "400g/day",
+    "portion_energy_kcal": 174,
+    "portion_protein_g": 10,
+    "digestibility_boiled": "high",
+    "digestibility_fried": "low",
+    "fat_level_fried": "medium",
+    "glycemic_index": "low",
+    "age_min": 1,
+    "allergy_tags": [],
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "tags": [
+      "fiber",
+      "vitamins"
+    ]
+  },
+  {
+    "food_id": "F404",
+    "food_name": "fruits",
+    "category": "fruit",
+    "energy_kcal_per_100g": 59,
+    "protein_g": 1,
+    "fat_g": 0.6,
+    "carbs_g": 11,
+    "iron_mg": "",
+    "portion_unit": "100g/day",
+    "portion_energy_kcal": 56,
+    "portion_protein_g": 1,
+    "digestibility_boiled": "high",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "medium",
+    "age_min": 1,
+    "allergy_tags": [],
+    "meal_types": [
+      "snack"
+    ],
+    "tags": [
+      "vitamins",
+      "antioxidants"
+    ]
+  },
+  {
+    "food_id": "F405",
+    "food_name": "nuts",
+    "category": "fat",
+    "energy_kcal_per_100g": 516,
+    "protein_g": 17.5,
+    "fat_g": 41.3,
+    "carbs_g": 18,
+    "iron_mg": "",
+    "portion_unit": "35g/day",
+    "portion_energy_kcal": 181,
+    "portion_protein_g": 6,
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "high",
+    "glycemic_index": "low",
+    "age_min": 2,
+    "allergy_tags": [
+      "nut_allergy"
+    ],
+    "meal_types": [
+      "snack"
+    ],
+    "tags": [
+      "healthy_fat"
+    ]
+  },
+  {
+    "food_id": "F500",
+    "food_name": "millets",
+    "category": "cereal",
+    "energy_kcal_per_100g": 330,
+    "protein_g": 9.9,
+    "fat_g": 2.7,
+    "carbs_g": 65,
+    "iron_mg": 3.2,
+    "portion_unit": "included in cereals",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "high",
+    "digestibility_fried": "medium",
+    "fat_level_fried": "medium",
+    "glycemic_index": "medium",
+    "age_min": 1,
+    "allergy_tags": [],
+    "meal_types": [
+      "breakfast",
+      "lunch"
+    ],
+    "tags": [
+      "fiber_rich",
+      "micronutrient_rich"
+    ]
+  },
+  {
+    "food_id": "F501",
+    "food_name": "egg",
+    "category": "protein",
+    "energy_kcal_per_100g": 147,
+    "protein_g": 13.3,
+    "fat_g": 10,
+    "carbs_g": 1,
+    "iron_mg": 1.43,
+    "portion_unit": "1 egg (~50g)",
+    "portion_energy_kcal": 78,
+    "portion_protein_g": 6,
+    "digestibility_boiled": "high",
+    "digestibility_fried": "medium",
+    "fat_level_fried": "high",
+    "glycemic_index": "low",
+    "age_min": 1,
+    "allergy_tags": [
+      "egg_protein"
+    ],
+    "meal_types": [
+      "breakfast",
+      "snack"
+    ],
+    "tags": [
+      "complete_protein"
+    ]
+  },
+  {
+    "food_id": "F502",
+    "food_name": "fish",
+    "category": "protein",
+    "energy_kcal_per_100g": 110,
+    "protein_g": 18.4,
+    "fat_g": 3.1,
+    "carbs_g": 2,
+    "iron_mg": 2.16,
+    "portion_unit": "",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "high",
+    "digestibility_fried": "medium",
+    "fat_level_fried": "medium",
+    "glycemic_index": "low",
+    "age_min": 2,
+    "allergy_tags": [
+      "seafood_allergy"
+    ],
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "tags": [
+      "omega3",
+      "high_protein"
+    ]
+  },
+  {
+    "food_id": "F503",
+    "food_name": "dry_spices",
+    "category": "spice",
+    "energy_kcal_per_100g": 240,
+    "protein_g": 8.5,
+    "fat_g": 10,
+    "carbs_g": 31,
+    "iron_mg": 11.73,
+    "portion_unit": "small quantities",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": 2,
+    "allergy_tags": [],
+    "meal_types": [
+      "all"
+    ],
+    "tags": [
+      "micronutrient_dense"
+    ]
+  },
+  {
+    "food_id": "F600",
+    "food_name": "cereals_millets_pregnancy",
+    "category": "carbohydrate",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "240g/day",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "high",
+    "digestibility_fried": "medium",
+    "fat_level_fried": "medium",
+    "glycemic_index": "high",
+    "age_min": 1,
+    "allergy_tags": [],
+    "meal_types": [
+      "breakfast",
+      "lunch",
+      "dinner"
+    ],
+    "tags": [
+      "pregnancy_diet",
+      "energy_source"
+    ]
+  },
+  {
+    "food_id": "F601",
+    "food_name": "pulses_pregnancy",
+    "category": "protein",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "80g/day",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "medium",
+    "digestibility_fried": "low",
+    "fat_level_fried": "medium",
+    "glycemic_index": "low",
+    "age_min": 1,
+    "allergy_tags": [],
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "tags": [
+      "protein_rich",
+      "pregnancy_diet"
+    ]
+  },
+  {
+    "food_id": "F602",
+    "food_name": "vegetables_pregnancy",
+    "category": "vegetable",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "300g/day",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "high",
+    "digestibility_fried": "low",
+    "fat_level_fried": "medium",
+    "glycemic_index": "low",
+    "age_min": 1,
+    "allergy_tags": [],
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "tags": [
+      "vitamin_rich"
+    ]
+  },
+  {
+    "food_id": "F603",
+    "food_name": "green_leafy_vegetables_pregnancy",
+    "category": "vegetable",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "150g/day",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "high",
+    "digestibility_fried": "low",
+    "fat_level_fried": "medium",
+    "glycemic_index": "low",
+    "age_min": 1,
+    "allergy_tags": [],
+    "meal_types": [
+      "lunch"
+    ],
+    "tags": [
+      "iron_rich"
+    ]
+  },
+  {
+    "food_id": "F604",
+    "food_name": "milk_pregnancy",
+    "category": "dairy",
+    "portion_unit": "400ml/day",
+    "tags": [
+      "calcium_rich"
+    ]
+  },
+  {
+    "food_id": "F700",
+    "food_name": "iron_rich_foods",
+    "category": "micronutrient",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "varies",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": 1,
+    "allergy_tags": [],
+    "meal_types": [
+      "all"
+    ],
+    "tags": [
+      "iron_rich",
+      "anemia_prevention"
+    ]
+  },
+  {
+    "food_id": "F701",
+    "food_name": "folate_rich_foods",
+    "category": "micronutrient",
+    "portion_unit": "varies",
+    "tags": [
+      "folate_rich",
+      "pregnancy"
+    ]
+  },
+  {
+    "food_id": "F702",
+    "food_name": "omega3_rich_foods",
+    "category": "fat",
+    "portion_unit": "varies",
+    "tags": [
+      "omega3",
+      "brain_development"
+    ]
+  },
+  {
+    "food_id": "F800",
+    "food_name": "green_leafy_vegetables",
+    "category": "vegetable",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "varies",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "high",
+    "digestibility_fried": "low",
+    "fat_level_fried": "low",
+    "glycemic_index": "low",
+    "age_min": 1,
+    "allergy_tags": [],
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "tags": [
+      "iron_rich",
+      "folate_rich"
+    ]
+  },
+  {
+    "food_id": "F801",
+    "food_name": "fish",
+    "category": "protein",
+    "tags": [
+      "omega3",
+      "high_protein"
+    ]
+  },
+  {
+    "food_id": "F802",
+    "food_name": "citrus_fruits",
+    "category": "fruit",
+    "tags": [
+      "vitamin_c",
+      "iron_absorption"
+    ]
+  },
+  {
+    "food_id": "F900",
+    "food_name": "rice_dal_mix",
+    "category": "infant_food",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "10g rice + 5g dal",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "high",
+    "digestibility_fried": "low",
+    "fat_level_fried": "low",
+    "glycemic_index": "medium",
+    "age_min": 6,
+    "allergy_tags": [],
+    "meal_types": [
+      "mid_morning"
+    ],
+    "tags": [
+      "infant_food",
+      "protein_source",
+      "easy_digest"
+    ]
+  },
+  {
+    "food_id": "F901",
+    "food_name": "khichdi",
+    "category": "infant_food",
+    "portion_unit": "wheat 10g + rajma 5g + amaranth 20g",
+    "digestibility_boiled": "high",
+    "age_min": 6,
+    "tags": [
+      "balanced_meal",
+      "infant_food"
+    ]
+  },
+  {
+    "food_id": "F902",
+    "food_name": "fruit_mash",
+    "category": "fruit",
+    "portion_unit": "40g",
+    "digestibility_boiled": "high",
+    "age_min": 6,
+    "tags": [
+      "vitamin_rich",
+      "easy_digest"
+    ]
+  },
+  {
+    "food_id": "F903",
+    "food_name": "nutri_mix",
+    "category": "infant_food",
+    "portion_unit": "15g",
+    "age_min": 9,
+    "tags": [
+      "energy_dense",
+      "protein_rich"
+    ]
+  },
+  {
+    "food_id": "F950",
+    "food_name": "amylase_rich_foods",
+    "category": "infant_food",
+    "energy_kcal_per_100g": 380,
+    "protein_g": 10,
+    "fat_g": 2,
+    "carbs_g": 80,
+    "iron_mg": 2.5,
+    "portion_unit": "5g mixed in porridge",
+    "portion_energy_kcal": 19,
+    "portion_protein_g": 0.5,
+    "digestibility_boiled": "high",
+    "digestibility_fried": "low",
+    "fat_level_fried": "low",
+    "glycemic_index": "medium",
+    "age_min": 6,
+    "allergy_tags": [],
+    "meal_types": [
+      "breakfast",
+      "lunch"
+    ],
+    "tags": [
+      "enzyme_rich",
+      "digestion_support",
+      "energy_dense"
+    ]
+  },
+  {
+    "food_id": "F951",
+    "food_name": "infant_cereal_mix",
+    "category": "infant_food",
+    "energy_kcal_per_100g": 350,
+    "protein_g": 8,
+    "fat_g": 1.5,
+    "carbs_g": 75,
+    "iron_mg": 2,
+    "portion_unit": "15g",
+    "portion_energy_kcal": 52,
+    "portion_protein_g": 1.2,
+    "digestibility_boiled": "high",
+    "digestibility_fried": "low",
+    "fat_level_fried": "low",
+    "glycemic_index": "medium",
+    "age_min": 6,
+    "allergy_tags": [],
+    "meal_types": [
+      "morning",
+      "evening"
+    ],
+    "tags": [
+      "energy_source",
+      "easy_digest"
+    ]
+  },
+  {
+    "food_id": "F952",
+    "food_name": "semi_solid_family_food",
+    "category": "infant_food",
+    "energy_kcal_per_100g": 250,
+    "protein_g": 7,
+    "fat_g": 5,
+    "carbs_g": 40,
+    "iron_mg": 1.5,
+    "portion_unit": "100g",
+    "portion_energy_kcal": 250,
+    "portion_protein_g": 7,
+    "digestibility_boiled": "medium",
+    "digestibility_fried": "low",
+    "fat_level_fried": "medium",
+    "glycemic_index": "medium",
+    "age_min": 12,
+    "allergy_tags": [],
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "tags": [
+      "family_food_transition",
+      "balanced_meal"
+    ]
+  },
+  {
+    "food_id": "F1001",
+    "food_name": "carrot_puree",
+    "category": "infant_food",
+    "energy_kcal_per_100g": 110,
+    "protein_g": 4.85,
+    "fat_g": 1,
+    "carbs_g": 22,
+    "iron_mg": 1.01,
+    "portion_unit": "55g",
+    "portion_energy_kcal": 60,
+    "portion_protein_g": 2.6,
+    "digestibility_boiled": "high",
+    "digestibility_fried": "low",
+    "fat_level_fried": "low",
+    "glycemic_index": "medium",
+    "age_min": 6,
+    "allergy_tags": [],
+    "meal_types": [
+      "mid_morning",
+      "afternoon"
+    ],
+    "tags": [
+      "easy_digest",
+      "vitamin_rich",
+      "infant_safe"
+    ]
+  },
+  {
+    "food_id": "F1002",
+    "food_name": "pumpkin_puree",
+    "category": "infant_food",
+    "energy_kcal_per_100g": 108,
+    "protein_g": 4.89,
+    "fat_g": 1,
+    "carbs_g": 21,
+    "iron_mg": 0.95,
+    "portion_unit": "55g",
+    "portion_energy_kcal": 59,
+    "portion_protein_g": 2.6,
+    "digestibility_boiled": "high",
+    "digestibility_fried": "low",
+    "fat_level_fried": "low",
+    "glycemic_index": "medium",
+    "age_min": 6,
+    "allergy_tags": [],
+    "meal_types": [
+      "mid_morning"
+    ],
+    "tags": [
+      "easy_digest",
+      "fiber_rich"
+    ]
+  },
+  {
+    "food_id": "F1003",
+    "food_name": "spinach_puree",
+    "category": "infant_food",
+    "energy_kcal_per_100g": 108,
+    "protein_g": 5.22,
+    "fat_g": 1,
+    "carbs_g": 18,
+    "iron_mg": 1.6,
+    "portion_unit": "55g",
+    "portion_energy_kcal": 59,
+    "portion_protein_g": 2.8,
+    "digestibility_boiled": "high",
+    "digestibility_fried": "low",
+    "fat_level_fried": "low",
+    "glycemic_index": "low",
+    "age_min": 6,
+    "allergy_tags": [],
+    "meal_types": [
+      "mid_morning"
+    ],
+    "tags": [
+      "iron_rich",
+      "micronutrient_dense"
+    ]
+  },
+  {
+    "food_id": "F1004",
+    "food_name": "potato_puree",
+    "category": "infant_food",
+    "energy_kcal_per_100g": 117,
+    "protein_g": 5.0,
+    "fat_g": 1,
+    "carbs_g": 25,
+    "iron_mg": 1.0,
+    "portion_unit": "55g",
+    "portion_energy_kcal": 64,
+    "portion_protein_g": 2.7,
+    "digestibility_boiled": "high",
+    "digestibility_fried": "medium",
+    "fat_level_fried": "medium",
+    "glycemic_index": "high",
+    "age_min": 6,
+    "allergy_tags": [],
+    "meal_types": [
+      "evening"
+    ],
+    "tags": [
+      "energy_dense",
+      "easy_digest"
+    ]
+  },
+  {
+    "food_id": "F1005",
+    "food_name": "apple_puree",
+    "category": "infant_food",
+    "energy_kcal_per_100g": 118,
+    "protein_g": 4.75,
+    "fat_g": 0.5,
+    "carbs_g": 28,
+    "iron_mg": 0.93,
+    "portion_unit": "55g",
+    "portion_energy_kcal": 65,
+    "portion_protein_g": 2.6,
+    "digestibility_boiled": "high",
+    "digestibility_fried": "low",
+    "fat_level_fried": "low",
+    "glycemic_index": "medium",
+    "age_min": 6,
+    "allergy_tags": [],
+    "meal_types": [
+      "afternoon"
+    ],
+    "tags": [
+      "fiber_rich",
+      "easy_digest"
+    ]
+  },
+  {
+    "food_id": "F1006",
+    "food_name": "grated_boiled_egg",
+    "category": "protein",
+    "energy_kcal_per_100g": 122,
+    "protein_g": 6.6,
+    "fat_g": 8,
+    "carbs_g": 1,
+    "iron_mg": 1.32,
+    "portion_unit": "45g",
+    "portion_energy_kcal": 55,
+    "portion_protein_g": 3,
+    "digestibility_boiled": "high",
+    "digestibility_fried": "medium",
+    "fat_level_fried": "high",
+    "glycemic_index": "low",
+    "age_min": 8,
+    "allergy_tags": [
+      "egg_protein"
+    ],
+    "meal_types": [
+      "lunch"
+    ],
+    "tags": [
+      "high_protein",
+      "growth_support"
+    ]
+  },
+  {
+    "food_id": "F1007",
+    "food_name": "mashed_fish",
+    "category": "protein",
+    "energy_kcal_per_100g": 133,
+    "protein_g": 9.43,
+    "fat_g": 5,
+    "carbs_g": 0,
+    "iron_mg": 0.94,
+    "portion_unit": "55g",
+    "portion_energy_kcal": 73,
+    "portion_protein_g": 5,
+    "digestibility_boiled": "high",
+    "digestibility_fried": "medium",
+    "fat_level_fried": "medium",
+    "glycemic_index": "low",
+    "age_min": 8,
+    "allergy_tags": [
+      "fish"
+    ],
+    "meal_types": [
+      "lunch"
+    ],
+    "tags": [
+      "high_protein",
+      "omega_rich"
+    ]
+  },
+  {
+    "food_id": "F1008",
+    "food_name": "egg_pudding",
+    "category": "protein",
+    "energy_kcal_per_100g": 126,
+    "protein_g": 9.25,
+    "fat_g": 6,
+    "carbs_g": 10,
+    "iron_mg": 1.66,
+    "portion_unit": "130g",
+    "portion_energy_kcal": 164,
+    "portion_protein_g": 12,
+    "digestibility_boiled": "high",
+    "digestibility_fried": "low",
+    "fat_level_fried": "low",
+    "glycemic_index": "medium",
+    "age_min": 9,
+    "allergy_tags": [
+      "egg_protein"
+    ],
+    "meal_types": [
+      "evening"
+    ],
+    "tags": [
+      "soft_food",
+      "nutrient_dense"
+    ]
+  },
+  {
+    "food_id": "F1009",
+    "food_name": "eggnog",
+    "category": "protein",
+    "energy_kcal_per_100g": 133,
+    "protein_g": 9.58,
+    "fat_g": 7,
+    "carbs_g": 10,
+    "iron_mg": 1.68,
+    "portion_unit": "140g",
+    "portion_energy_kcal": 186,
+    "portion_protein_g": 13,
+    "digestibility_boiled": "high",
+    "digestibility_fried": "low",
+    "fat_level_fried": "low",
+    "glycemic_index": "medium",
+    "age_min": 9,
+    "allergy_tags": [
+      "egg_protein",
+      "milk"
+    ],
+    "meal_types": [
+      "evening"
+    ],
+    "tags": [
+      "energy_dense",
+      "protein_rich"
+    ]
+  },
+  {
+    "food_id": "F1101",
+    "food_name": "amylase_rich_flour",
+    "category": "infant_food",
+    "energy_kcal_per_100g": 380,
+    "protein_g": 10,
+    "fat_g": 2,
+    "carbs_g": 80,
+    "iron_mg": 2.5,
+    "portion_unit": "5g",
+    "portion_energy_kcal": 19,
+    "portion_protein_g": 0.5,
+    "digestibility_boiled": "high",
+    "digestibility_fried": "low",
+    "fat_level_fried": "low",
+    "glycemic_index": "medium",
+    "age_min": 6,
+    "allergy_tags": [],
+    "meal_types": [
+      "all"
+    ],
+    "tags": [
+      "enzyme_rich",
+      "digestion_support",
+      "energy_dense"
+    ]
+  },
+  {
+    "food_id": "F1102",
+    "food_name": "egg_pudding",
+    "category": "protein",
+    "energy_kcal_per_100g": 126,
+    "protein_g": 9.25,
+    "fat_g": 6,
+    "carbs_g": 10,
+    "iron_mg": 1.66,
+    "portion_unit": "130g",
+    "portion_energy_kcal": 164,
+    "portion_protein_g": 12,
+    "digestibility_boiled": "high",
+    "digestibility_fried": "low",
+    "fat_level_fried": "low",
+    "glycemic_index": "medium",
+    "age_min": 9,
+    "allergy_tags": [
+      "egg_protein",
+      "milk"
+    ],
+    "meal_types": [
+      "evening"
+    ],
+    "tags": [
+      "soft_food",
+      "protein_rich",
+      "nutrient_dense"
+    ]
+  },
+  {
+    "food_id": "F1103",
+    "food_name": "eggnog",
+    "category": "protein",
+    "energy_kcal_per_100g": 133,
+    "protein_g": 9.58,
+    "fat_g": 7,
+    "carbs_g": 10,
+    "iron_mg": 1.68,
+    "portion_unit": "140g",
+    "portion_energy_kcal": 186,
+    "portion_protein_g": 13,
+    "digestibility_boiled": "high",
+    "digestibility_fried": "low",
+    "fat_level_fried": "low",
+    "glycemic_index": "medium",
+    "age_min": 9,
+    "allergy_tags": [
+      "egg_protein",
+      "milk"
+    ],
+    "meal_types": [
+      "evening"
+    ],
+    "tags": [
+      "energy_dense",
+      "high_protein"
+    ]
+  },
+  {
+    "food_id": "F1104",
+    "food_name": "grated_mixed_vegetables",
+    "category": "vegetable",
+    "energy_kcal_per_100g": 114,
+    "protein_g": 4.98,
+    "fat_g": 1,
+    "carbs_g": 20,
+    "iron_mg": 1.02,
+    "portion_unit": "60g",
+    "portion_energy_kcal": 68,
+    "portion_protein_g": 3,
+    "digestibility_boiled": "high",
+    "digestibility_fried": "low",
+    "fat_level_fried": "low",
+    "glycemic_index": "low",
+    "age_min": 9,
+    "allergy_tags": [],
+    "meal_types": [
+      "lunch"
+    ],
+    "tags": [
+      "fiber_rich",
+      "micronutrient_dense"
+    ]
+  },
+  {
+    "food_id": "F1105",
+    "food_name": "plain_dalia_boiled_egg",
+    "category": "balanced_meal",
+    "energy_kcal_per_100g": 102,
+    "protein_g": 4.68,
+    "fat_g": 3,
+    "carbs_g": 18,
+    "iron_mg": 0.86,
+    "portion_unit": "30g",
+    "portion_energy_kcal": 31,
+    "portion_protein_g": 1.4,
+    "digestibility_boiled": "high",
+    "digestibility_fried": "low",
+    "fat_level_fried": "low",
+    "glycemic_index": "medium",
+    "age_min": 12,
+    "allergy_tags": [
+      "egg_protein"
+    ],
+    "meal_types": [
+      "breakfast"
+    ],
+    "tags": [
+      "balanced_meal",
+      "protein_source"
+    ]
+  },
+  {
+    "food_id": "F1106",
+    "food_name": "vegetable_khichdi",
+    "category": "balanced_meal",
+    "energy_kcal_per_100g": 150,
+    "protein_g": 7.24,
+    "fat_g": 4,
+    "carbs_g": 25,
+    "iron_mg": 1.18,
+    "portion_unit": "70g",
+    "portion_energy_kcal": 105,
+    "portion_protein_g": 5,
+    "digestibility_boiled": "high",
+    "digestibility_fried": "low",
+    "fat_level_fried": "low",
+    "glycemic_index": "medium",
+    "age_min": 12,
+    "allergy_tags": [],
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "tags": [
+      "balanced",
+      "easy_digest"
+    ]
+  },
+  {
+    "food_id": "F1201",
+    "food_name": "cowpea_puree",
+    "category": "pulse",
+    "energy_kcal_per_100g": 32,
+    "protein_g": 2.15,
+    "fat_g": 0.2,
+    "carbs_g": 6,
+    "iron_mg": 0.51,
+    "portion_unit": "50g",
+    "portion_energy_kcal": 16,
+    "portion_protein_g": 1.1,
+    "digestibility_boiled": "high",
+    "digestibility_fried": "low",
+    "fat_level_fried": "low",
+    "glycemic_index": "low",
+    "age_min": 6,
+    "allergy_tags": [],
+    "meal_types": [
+      "snack",
+      "lunch"
+    ],
+    "tags": [
+      "protein_source",
+      "easy_digest",
+      "plant_protein"
+    ]
+  },
+  {
+    "food_id": "F1202",
+    "food_name": "green_peas_puree",
+    "category": "vegetable",
+    "energy_kcal_per_100g": 8,
+    "protein_g": 0.75,
+    "fat_g": 0.1,
+    "carbs_g": 1.5,
+    "iron_mg": 0.16,
+    "portion_unit": "50g",
+    "portion_energy_kcal": 4,
+    "portion_protein_g": 0.4,
+    "digestibility_boiled": "high",
+    "digestibility_fried": "low",
+    "fat_level_fried": "low",
+    "glycemic_index": "low",
+    "age_min": 6,
+    "allergy_tags": [],
+    "meal_types": [
+      "snack"
+    ],
+    "tags": [
+      "fiber_rich",
+      "micronutrient_dense"
+    ]
+  },
+  {
+    "food_id": "F1203",
+    "food_name": "papaya_ripe",
+    "category": "fruit",
+    "energy_kcal_per_100g": 6,
+    "protein_g": 0.1,
+    "fat_g": 0.05,
+    "carbs_g": 1.5,
+    "iron_mg": 0.05,
+    "portion_unit": "50g",
+    "portion_energy_kcal": 3,
+    "portion_protein_g": 0.05,
+    "digestibility_boiled": "high",
+    "digestibility_fried": "low",
+    "fat_level_fried": "low",
+    "glycemic_index": "low",
+    "age_min": 6,
+    "allergy_tags": [],
+    "meal_types": [
+      "snack"
+    ],
+    "tags": [
+      "easy_digest",
+      "vitamin_rich"
+    ]
+  },
+  {
+    "food_id": "F1204",
+    "food_name": "banana_ripe",
+    "category": "fruit",
+    "energy_kcal_per_100g": 27,
+    "protein_g": 0.33,
+    "fat_g": 0.2,
+    "carbs_g": 6,
+    "iron_mg": 0.08,
+    "portion_unit": "50g",
+    "portion_energy_kcal": 14,
+    "portion_protein_g": 0.16,
+    "digestibility_boiled": "high",
+    "digestibility_fried": "low",
+    "fat_level_fried": "low",
+    "glycemic_index": "medium",
+    "age_min": 6,
+    "allergy_tags": [],
+    "meal_types": [
+      "snack"
+    ],
+    "tags": [
+      "energy_dense",
+      "easy_digest"
+    ]
+  },
+  {
+    "food_id": "F1205",
+    "food_name": "curd",
+    "category": "dairy",
+    "energy_kcal_per_100g": 15,
+    "protein_g": 0.78,
+    "fat_g": 1,
+    "carbs_g": 1.5,
+    "iron_mg": 0.05,
+    "portion_unit": "50g",
+    "portion_energy_kcal": 8,
+    "portion_protein_g": 0.4,
+    "digestibility_boiled": "high",
+    "digestibility_fried": "low",
+    "fat_level_fried": "low",
+    "glycemic_index": "low",
+    "age_min": 6,
+    "allergy_tags": [
+      "milk"
+    ],
+    "meal_types": [
+      "snack",
+      "lunch"
+    ],
+    "tags": [
+      "probiotic",
+      "easy_digest"
+    ]
+  },
+  {
+    "food_id": "F1206",
+    "food_name": "boiled_egg",
+    "category": "protein",
+    "energy_kcal_per_100g": 34,
+    "protein_g": 3.32,
+    "fat_g": 3,
+    "carbs_g": 0,
+    "iron_mg": 0.77,
+    "portion_unit": "1 egg (~50g)",
+    "portion_energy_kcal": 68,
+    "portion_protein_g": 6.5,
+    "digestibility_boiled": "high",
+    "digestibility_fried": "medium",
+    "fat_level_fried": "high",
+    "glycemic_index": "low",
+    "age_min": 6,
+    "allergy_tags": [
+      "egg_protein"
+    ],
+    "meal_types": [
+      "snack",
+      "lunch"
+    ],
+    "tags": [
+      "high_protein",
+      "growth_support"
+    ]
+  },
+  {
+    "food_id": "F1207",
+    "food_name": "pomfret_fish_mashed",
+    "category": "protein",
+    "energy_kcal_per_100g": 30,
+    "protein_g": 4.75,
+    "fat_g": 1,
+    "carbs_g": 0,
+    "iron_mg": 0.08,
+    "portion_unit": "50g",
+    "portion_energy_kcal": 15,
+    "portion_protein_g": 2.3,
+    "digestibility_boiled": "high",
+    "digestibility_fried": "medium",
+    "fat_level_fried": "medium",
+    "glycemic_index": "low",
+    "age_min": 8,
+    "allergy_tags": [
+      "fish"
+    ],
+    "meal_types": [
+      "lunch"
+    ],
+    "tags": [
+      "protein_rich",
+      "omega_source"
+    ]
+  },
+  {
+    "food_id": "F1208",
+    "food_name": "murrel_fish_mashed",
+    "category": "protein",
+    "energy_kcal_per_100g": 21,
+    "protein_g": 4.76,
+    "fat_g": 1,
+    "carbs_g": 0,
+    "iron_mg": 0.06,
+    "portion_unit": "50g",
+    "portion_energy_kcal": 10,
+    "portion_protein_g": 2.3,
+    "digestibility_boiled": "high",
+    "digestibility_fried": "medium",
+    "fat_level_fried": "medium",
+    "glycemic_index": "low",
+    "age_min": 8,
+    "allergy_tags": [
+      "fish"
+    ],
+    "meal_types": [
+      "lunch"
+    ],
+    "tags": [
+      "lean_protein"
+    ]
+  },
+  {
+    "food_id": "F1253",
+    "food_name": "amylase_rich_foods",
+    "category": "infant_food",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "small_quantity",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "high",
+    "digestibility_fried": "low",
+    "fat_level_fried": "low",
+    "glycemic_index": "medium",
+    "age_min": 6,
+    "allergy_tags": [],
+    "meal_types": [
+      "all"
+    ],
+    "tags": [
+      "enzyme_rich",
+      "digestion_support",
+      "energy_dense"
+    ]
+  },
+  {
+    "food_id": "F1254",
+    "food_name": "infant_cereal_mix",
+    "category": "infant_food",
+    "portion_unit": "varies",
+    "digestibility_boiled": "high",
+    "age_min": 6,
+    "tags": [
+      "energy_source",
+      "easy_digest"
+    ]
+  },
+  {
+    "food_id": "F1255",
+    "food_name": "semi_solid_family_food",
+    "category": "infant_food",
+    "portion_unit": "varies",
+    "digestibility_boiled": "high",
+    "age_min": 12,
+    "tags": [
+      "family_food_transition"
+    ]
+  },
+  {
+    "food_id": "F1209",
+    "food_name": "rice_raw_milled",
+    "category": "cereal",
+    "energy_kcal_per_100g": 345,
+    "protein_g": 6.8,
+    "fat_g": 0.5,
+    "carbs_g": 78.2,
+    "iron_mg": 0.7,
+    "portion_unit": "100g",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "gluten_free",
+      "high_carb",
+      "weaning_base"
+    ],
+    "categories": [
+      "cereal",
+      "staple"
+    ],
+    "nutrients_per_100g": {
+      "energy_kcal": 345,
+      "protein_g": 6.8,
+      "fat_g": 0.5,
+      "carbs_g": 78.2,
+      "fiber_g": 0.2,
+      "iron_mg": 0.7
+    },
+    "swelling_ratio": 3
+  },
+  {
+    "food_id": "F1210",
+    "food_name": "wheat_whole",
+    "category": "cereal",
+    "energy_kcal_per_100g": 341,
+    "protein_g": 11.8,
+    "fat_g": 1.5,
+    "carbs_g": 71.2,
+    "iron_mg": 5.3,
+    "portion_unit": "100g",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "high_protein_cereal",
+      "iron_rich"
+    ],
+    "categories": [
+      "cereal",
+      "staple"
+    ],
+    "nutrients_per_100g": {
+      "energy_kcal": 341,
+      "protein_g": 11.8,
+      "fat_g": 1.5,
+      "carbs_g": 71.2,
+      "fiber_g": 1.2,
+      "iron_mg": 5.3
+    },
+    "swelling_ratio": 4
+  },
+  {
+    "food_id": "F1211",
+    "food_name": "ragi_finger_millet",
+    "category": "cereal",
+    "energy_kcal_per_100g": 328,
+    "protein_g": 7.3,
+    "fat_g": 1.3,
+    "carbs_g": 72.0,
+    "iron_mg": 3.9,
+    "portion_unit": "100g",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "high_calcium",
+      "high_fiber",
+      "weaning_food"
+    ],
+    "categories": [
+      "cereal",
+      "millets",
+      "staple"
+    ],
+    "nutrients_per_100g": {
+      "energy_kcal": 328,
+      "protein_g": 7.3,
+      "fat_g": 1.3,
+      "carbs_g": 72.0,
+      "fiber_g": 3.6,
+      "calcium_mg": 344,
+      "iron_mg": 3.9
+    },
+    "swelling_ratio": 3
+  },
+  {
+    "food_id": "F1212",
+    "food_name": "maize_dry",
+    "category": "cereal",
+    "energy_kcal_per_100g": 342,
+    "protein_g": 11.1,
+    "fat_g": 3.6,
+    "carbs_g": 66.2,
+    "iron_mg": 2.3,
+    "portion_unit": "100g",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "high_fat_cereal",
+      "energy_dense"
+    ],
+    "categories": [
+      "cereal",
+      "staple"
+    ],
+    "nutrients_per_100g": {
+      "energy_kcal": 342,
+      "protein_g": 11.1,
+      "fat_g": 3.6,
+      "carbs_g": 66.2,
+      "fiber_g": 2.7,
+      "iron_mg": 2.3
+    }
+  },
+  {
+    "food_id": "F1213",
+    "food_name": "soya_bean",
+    "category": "legume",
+    "energy_kcal_per_100g": 432,
+    "protein_g": 43.2,
+    "fat_g": 19.5,
+    "carbs_g": 20.9,
+    "iron_mg": 10.4,
+    "portion_unit": "100g",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "highest_protein",
+      "isoflavones",
+      "meat_substitute"
+    ],
+    "categories": [
+      "legume",
+      "pulses",
+      "high_protein"
+    ],
+    "nutrients_per_100g": {
+      "energy_kcal": 432,
+      "protein_g": 43.2,
+      "fat_g": 19.5,
+      "carbs_g": 20.9,
+      "fiber_g": 3.7,
+      "calcium_mg": 240,
+      "iron_mg": 10.4
+    }
+  },
+  {
+    "food_id": "F1214",
+    "food_name": "bengal_gram_whole",
+    "category": "legume",
+    "energy_kcal_per_100g": 360,
+    "protein_g": 17.1,
+    "fat_g": 5.3,
+    "carbs_g": 60.9,
+    "iron_mg": 10.2,
+    "portion_unit": "100g",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "iron_rich",
+      "high_protein",
+      "lysine_source"
+    ],
+    "categories": [
+      "legume",
+      "pulses"
+    ],
+    "nutrients_per_100g": {
+      "energy_kcal": 360,
+      "protein_g": 17.1,
+      "fat_g": 5.3,
+      "carbs_g": 60.9,
+      "fiber_g": 3.9,
+      "iron_mg": 10.2
+    },
+    "swelling_ratio": 2
+  },
+  {
+    "food_id": "F1215",
+    "food_name": "tapioca_cassava_dried",
+    "category": "tuber",
+    "energy_kcal_per_100g": 338,
+    "protein_g": 0.7,
+    "fat_g": 0.2,
+    "carbs_g": 82.6,
+    "iron_mg": 0.9,
+    "portion_unit": "100g",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "high_carb",
+      "cyanogenic_glucosides",
+      "double_cooking_required"
+    ],
+    "categories": [
+      "tuber",
+      "staple"
+    ],
+    "nutrients_per_100g": {
+      "energy_kcal": 338,
+      "protein_g": 0.7,
+      "fat_g": 0.2,
+      "carbs_g": 82.6,
+      "fiber_g": 0.6,
+      "iron_mg": 0.9
+    }
+  },
+  {
+    "food_id": "F1216",
+    "food_name": "spirulina",
+    "category": "superfood",
+    "energy_kcal_per_100g": 300,
+    "protein_g": 70,
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": 100,
+    "portion_unit": "100g",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "antioxidant",
+      "high_protein",
+      "beta_carotene",
+      "galactogogue"
+    ],
+    "categories": [
+      "superfood",
+      "algae",
+      "high_protein"
+    ],
+    "nutrients_per_100g": {
+      "protein_g": 70,
+      "calories_kcal": 300,
+      "beta_carotene_mg": 200,
+      "vitamin_b12_mcg": 150,
+      "iron_mg": 100
+    },
+    "clinical_benefits": [
+      "anaemia_prevention",
+      "immune_support",
+      "appetite_control"
+    ]
+  },
+  {
+    "food_id": "F1217",
+    "food_name": "chlorella",
+    "category": "superfood",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "chlorophyll",
+      "detox",
+      "heavy_metal_chelator"
+    ],
+    "categories": [
+      "superfood",
+      "algae"
+    ],
+    "clinical_benefits": [
+      "detoxification",
+      "immune_enhancement"
+    ]
+  },
+  {
+    "food_id": "F1218",
+    "food_name": "wheatgrass",
+    "category": "superfood",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "chlorophyll",
+      "enzymes",
+      "antioxidant"
+    ],
+    "categories": [
+      "superfood",
+      "glv"
+    ],
+    "clinical_benefits": [
+      "blood_purification",
+      "anaemia_management"
+    ]
+  },
+  {
+    "food_id": "F1219",
+    "food_name": "broccoli_sprouts",
+    "category": "superfood",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "phytochemical",
+      "sulforaphane",
+      "antioxidant"
+    ],
+    "categories": [
+      "superfood",
+      "vegetable"
+    ],
+    "active_compound": "sulforaphane",
+    "clinical_benefits": [
+      "anticancer",
+      "detoxification"
+    ]
+  },
+  {
+    "food_id": "F1220",
+    "food_name": "blueberries",
+    "category": "fruit",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "antioxidant",
+      "flavonoids",
+      "brain_health"
+    ],
+    "categories": [
+      "fruit",
+      "superfood"
+    ],
+    "active_compound": "anthocyanidins",
+    "clinical_benefits": [
+      "cognitive_health",
+      "anti_inflammatory"
+    ]
+  },
+  {
+    "food_id": "F1221",
+    "food_name": "curd_yogurt",
+    "category": "dairy",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "probiotic",
+      "calcium",
+      "easy_digestion"
+    ],
+    "categories": [
+      "dairy",
+      "probiotic"
+    ],
+    "clinical_benefits": [
+      "rotavirus_recovery",
+      "lactose_intolerance_safe",
+      "immune_modulation"
+    ],
+    "probiotic_strains": [
+      "Lactobacillus_bulgaricus",
+      "Streptococcus_thermophilus"
+    ]
+  },
+  {
+    "food_id": "F1222",
+    "food_name": "amla_indian_gooseberry",
+    "category": "fruit",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "100g",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "antioxidant",
+      "vitamin_c",
+      "immune_booster"
+    ],
+    "categories": [
+      "fruit",
+      "antioxidant"
+    ],
+    "nutrients_per_100g": {
+      "vitamin_c_mg": 600
+    }
+  },
+  {
+    "food_id": "F1223",
+    "food_name": "turmeric",
+    "category": "spice",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "phytochemical",
+      "anti_inflammatory"
+    ],
+    "categories": [
+      "spice",
+      "functional_food"
+    ],
+    "active_compound": "curcumin",
+    "clinical_benefits": [
+      "anti_inflammatory",
+      "antioxidant"
+    ]
+  },
+  {
+    "food_id": "F1224",
+    "food_name": "soya_milk",
+    "category": "plant_milk",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "vegan",
+      "protein",
+      "lactose_free"
+    ],
+    "categories": [
+      "plant_milk",
+      "dairy_alternative"
+    ],
+    "clinical_benefits": [
+      "lactose_intolerance_management",
+      "high_protein_source"
+    ]
+  },
+  {
+    "food_id": "F1225",
+    "food_name": "moringa_leaf_powder",
+    "category": "superfood",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "iron",
+      "calcium",
+      "vitamin_a"
+    ],
+    "categories": [
+      "superfood",
+      "glv"
+    ],
+    "clinical_benefits": [
+      "multivitamin_supplementation",
+      "anaemia_prevention"
+    ]
+  },
+  {
+    "food_id": "F1226",
+    "food_name": "breast_milk",
+    "category": "infant_nutrition",
+    "energy_kcal_per_100g": 67,
+    "protein_g": 1.1,
+    "fat_g": 3.5,
+    "carbs_g": 7.0,
+    "iron_mg": "",
+    "portion_unit": "100ml",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "gold_standard",
+      "immunity",
+      "LCPUFA"
+    ],
+    "categories": [
+      "infant_nutrition"
+    ],
+    "nutrients_per_100ml": {
+      "calories_kcal": 67,
+      "protein_g": 1.1,
+      "fat_g": 3.5,
+      "carbohydrate_g": 7.0
+    }
+  },
+  {
+    "food_id": "F1227",
+    "food_name": "preterm_milk",
+    "category": "infant_nutrition",
+    "energy_kcal_per_100g": 67,
+    "protein_g": 1.5,
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "100ml",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "nutrient_dense",
+      "preterm_support"
+    ],
+    "categories": [
+      "infant_nutrition"
+    ],
+    "nutrients_per_100ml": {
+      "calories_kcal": 67,
+      "protein_g": 1.5,
+      "sodium_mEq": 1.2
+    }
+  },
+  {
+    "food_id": "F1228",
+    "food_name": "cows_milk",
+    "category": "dairy",
+    "energy_kcal_per_100g": 67,
+    "protein_g": 3.2,
+    "fat_g": 3.5,
+    "carbs_g": 4.5,
+    "iron_mg": "",
+    "portion_unit": "100ml",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "high_solute_load",
+      "allergen_risk"
+    ],
+    "categories": [
+      "dairy"
+    ],
+    "nutrients_per_100ml": {
+      "calories_kcal": 67,
+      "protein_g": 3.2,
+      "fat_g": 3.5,
+      "carbohydrate_g": 4.5
+    }
+  },
+  {
+    "food_id": "F1229",
+    "food_name": "sat_mix",
+    "category": "therapeutic_food",
+    "energy_kcal_per_100g": 380,
+    "protein_g": 8,
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "100g",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "high_calorie",
+      "catch_up_growth",
+      "local_ingredients"
+    ],
+    "description": "Ready-to-mix cereal-pulse combination (Rice:Wheat:Blackgram:Sugar 1:1:1:2)",
+    "categories": [
+      "therapeutic_food",
+      "weaning_food"
+    ],
+    "nutrients_per_100g": {
+      "calories_kcal": 380,
+      "protein_g": 8
+    },
+    "preparation": "Roasted and powdered components mixed in specific ratio."
+  },
+  {
+    "food_id": "F1230",
+    "food_name": "f_75_starter",
+    "category": "therapeutic_food",
+    "energy_kcal_per_100g": 75,
+    "protein_g": 0.9,
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "100ml",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "low_protein",
+      "stabilization",
+      "sam_protocol"
+    ],
+    "description": "WHO starter formula for stabilization phase of SAM management.",
+    "categories": [
+      "therapeutic_food",
+      "medical_diet"
+    ],
+    "nutrients_per_100ml": {
+      "calories_kcal": 75,
+      "protein_g": 0.9
+    },
+    "clinical_use": "Stabilization phase (Step 7)"
+  },
+  {
+    "food_id": "F1231",
+    "food_name": "f_100_catch_up",
+    "category": "therapeutic_food",
+    "energy_kcal_per_100g": 100,
+    "protein_g": 2.9,
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "100ml",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "high_protein",
+      "catch_up_growth",
+      "rehabilitation"
+    ],
+    "description": "WHO catch-up formula for rehabilitation phase of SAM management.",
+    "categories": [
+      "therapeutic_food",
+      "medical_diet"
+    ],
+    "nutrients_per_100ml": {
+      "calories_kcal": 100,
+      "protein_g": 2.9
+    },
+    "clinical_use": "Rehabilitation phase (Step 8)"
+  },
+  {
+    "food_id": "F1232",
+    "food_name": "resomal",
+    "category": "rehydration",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "electrolyte_balance",
+      "sam_dehydration"
+    ],
+    "description": "Rehydration Solution for Malnutrition; specifically modified ORS for children with SAM.",
+    "categories": [
+      "rehydration",
+      "medical_diet"
+    ],
+    "clinical_benefits": [
+      "reduced_sodium_load",
+      "potassium_supplementation"
+    ]
+  },
+  {
+    "food_id": "F1233",
+    "food_name": "isodense_high_energy_milk",
+    "category": "fortified_food",
+    "energy_kcal_per_100g": 100,
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "100ml",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "isodense",
+      "energy_booster"
+    ],
+    "description": "Milk fortified with sugar and oil (1/2 glass milk + 1 tsp sugar + 1/2 tsp oil).",
+    "categories": [
+      "fortified_food",
+      "therapeutic_food"
+    ],
+    "nutrients_per_100ml": {
+      "calories_kcal": 100
+    }
+  },
+  {
+    "food_id": "F1234",
+    "food_name": "multivitamin_infant_drops",
+    "category": "supplement",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "prophylaxis",
+      "multivitamin"
+    ],
+    "description": "Commercial multivitamin preparation for infants.",
+    "categories": [
+      "supplement",
+      "medical_care"
+    ],
+    "nutrients_per_ml": {
+      "vit_a_iu": 2500,
+      "vit_d_iu": 400,
+      "vit_e_iu": 5,
+      "vit_c_mg": 40,
+      "vit_b1_mg": 1,
+      "vit_b2_mg": 1,
+      "vit_b6_mg": 1,
+      "vit_b12_mcg": 3,
+      "niacin_mg": 10,
+      "pantothenate_mg": 3,
+      "zinc_mg": 5
+    }
+  },
+  {
+    "food_id": "F1235",
+    "food_name": "egg_whole",
+    "category": "poultry",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "high_protein",
+      "reference_protein",
+      "heat_labile_inhibitors"
+    ],
+    "categories": [
+      "poultry",
+      "animal_protein"
+    ],
+    "clinical_note": "Reference protein with highest biological value (BV=100)."
+  },
+  {
+    "food_id": "F1236",
+    "food_name": "potato",
+    "category": "tuber",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "easy_digestion",
+      "starch_rich",
+      "weaning_food"
+    ],
+    "categories": [
+      "tuber",
+      "vegetable"
+    ]
+  },
+  {
+    "food_id": "F1237",
+    "food_name": "isolyte_p_paediatric",
+    "category": "medical_fluid",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "paediatric_maintenance",
+      "electrolyte_balanced"
+    ],
+    "description": "Paediatric maintenance solution with 5% dextrose.",
+    "categories": [
+      "medical_fluid",
+      "iv_therapy"
+    ],
+    "electrolytes_mEq_L": {
+      "sodium": 27,
+      "potassium": 19,
+      "chloride": 19,
+      "bicarbonate": 27,
+      "magnesium": 3
+    },
+    "glucose_g_L": 50
+  },
+  {
+    "food_id": "F1238",
+    "food_name": "isolyte_e_enteric",
+    "category": "medical_fluid",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "enteric_loss",
+      "high_sodium"
+    ],
+    "description": "IV fluid for enteric loss with 5% dextrose.",
+    "categories": [
+      "medical_fluid",
+      "iv_therapy"
+    ],
+    "electrolytes_mEq_L": {
+      "sodium": 141,
+      "potassium": 10,
+      "chloride": 103,
+      "citrate": 8,
+      "magnesium": 3
+    },
+    "glucose_g_L": 50
+  },
+  {
+    "food_id": "F1239",
+    "food_name": "isolyte_g_gastric",
+    "category": "medical_fluid",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "gastric_loss",
+      "high_chloride"
+    ],
+    "description": "IV fluid for gastric loss with 5% dextrose.",
+    "categories": [
+      "medical_fluid",
+      "iv_therapy"
+    ],
+    "electrolytes_mEq_L": {
+      "sodium": 65,
+      "potassium": 17,
+      "chloride": 149,
+      "ammonium": 70
+    },
+    "glucose_g_L": 50
+  },
+  {
+    "food_id": "F1240",
+    "food_name": "pepti_2000_elemental",
+    "category": "medical_formula",
+    "energy_kcal_per_100g": 100,
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "100ml",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "elemental_diet",
+      "iso_osmolar",
+      "short_gut_syndrome"
+    ],
+    "description": "Elemental enteral diet; iso-osmolar (275-295 mOsm/L).",
+    "categories": [
+      "medical_formula",
+      "enteral_nutrition"
+    ],
+    "energy_kcal_100ml": 100
+  },
+  {
+    "food_id": "F1241",
+    "food_name": "lactodex_lbw",
+    "category": "infant_formula",
+    "energy_kcal_per_100g": 80,
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "100ml",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "preterm",
+      "LBW",
+      "high_calorie_infant"
+    ],
+    "description": "Special formula for preterm and low birth weight infants.",
+    "categories": [
+      "infant_formula",
+      "medical_nutrition"
+    ],
+    "energy_kcal_100ml": 80
+  },
+  {
+    "food_id": "F1242",
+    "food_name": "aminoplasmal_5_10",
+    "category": "parenteral_nutrition",
+    "energy_kcal_per_100g": "",
+    "protein_g": [
+      5,
+      10
+    ],
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "100ml",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "PN_amino_acids",
+      "intravenous_nutrition"
+    ],
+    "description": "Amino acid infusion for parenteral nutrition.",
+    "categories": [
+      "parenteral_nutrition",
+      "amino_acids"
+    ],
+    "protein_g_100ml": [
+      5,
+      10
+    ]
+  },
+  {
+    "food_id": "F1243",
+    "food_name": "intralipid_10_20",
+    "category": "parenteral_nutrition",
+    "energy_kcal_per_100g": 110,
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "100ml",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "PN_lipids",
+      "EFA_source",
+      "iso_osmolar"
+    ],
+    "description": "Intravenous fat emulsion (10% or 20% soyabean oil).",
+    "categories": [
+      "parenteral_nutrition",
+      "lipids"
+    ],
+    "energy_kcal_100ml": 110
+  },
+  {
+    "food_id": "F1244",
+    "food_name": "chicken_glucose_puree",
+    "category": "medical_diet",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "lactose_free",
+      "sucrose_free",
+      "persistent_diarrhoea",
+      "malabsorption"
+    ],
+    "description": "Therapeutic Level 3 diet for infants with severe persistent diarrhoea and disaccharide malabsorption.",
+    "categories": [
+      "medical_diet",
+      "therapeutic_formula"
+    ],
+    "ingredients": [
+      "Chicken (100-200g)",
+      "Glucose (50g)",
+      "Coconut oil (50g)",
+      "KCl",
+      "NaHCO3"
+    ],
+    "energy_kcal_1000ml": 750
+  },
+  {
+    "food_id": "F1245",
+    "food_name": "isomil_soya_formula",
+    "category": "infant_formula",
+    "energy_kcal_per_100g": 503,
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "lactose_free",
+      "soya_protein",
+      "isomil"
+    ],
+    "description": "Lactose-free soya protein isolate formula.",
+    "categories": [
+      "infant_formula",
+      "soya_based"
+    ],
+    "energy_kcal_100g": 503
+  },
+  {
+    "food_id": "F1246",
+    "food_name": "simyl_mct_formula",
+    "category": "infant_formula",
+    "energy_kcal_per_100g": 412,
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "mct",
+      "lactose_free",
+      "sucrose_free",
+      "malabsorption"
+    ],
+    "description": "Lactose-free, sucrose-free casein formula with Medium Chain Triglycerides (MCT).",
+    "categories": [
+      "infant_formula",
+      "mct_based"
+    ],
+    "energy_kcal_100g": 412
+  },
+  {
+    "food_id": "F1247",
+    "food_name": "nusobee_soya",
+    "category": "infant_formula",
+    "energy_kcal_per_100g": 480,
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "lactose_free",
+      "soya",
+      "maltodextrin"
+    ],
+    "description": "Lactose-free soya protein formula (Casein + Maltodextrin).",
+    "categories": [
+      "infant_formula",
+      "soya_based"
+    ],
+    "energy_kcal_100g": 480
+  },
+  {
+    "food_id": "F1248",
+    "food_name": "sat_mix_therapeutic",
+    "category": "",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "therapeutic_food",
+      "PEM_recovery",
+      "SAT_Mix",
+      "high_calorie_mix"
+    ],
+    "description": "Ready-to-mix protein-energy therapeutic food used in Trivandrum CDC models.",
+    "composition": "Rice:Wheat:Black Gram:Sugar in 1:1:1:2 ratio (Preroasted and powdered).",
+    "nutrient_density": "100g = 380 kcal, 8g protein.",
+    "preparation": "30g (6 rounded teaspoons) made into semisolid paste with hot water provides 125 Cal and 2.5g protein."
+  },
+  {
+    "food_id": "F1249",
+    "food_name": "ragi_malt_arf",
+    "category": "",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "ARF",
+      "supplementary_food",
+      "traditional_recipe",
+      "amylase_rich"
+    ],
+    "description": "Amylase Rich Food (ARF) made by germinating, drying, and roasting ragi (Finger Millet).",
+    "benefits": [
+      "Enhanced digestibility",
+      "Increased vitamin content",
+      "Reduced bulk on cooking",
+      "Rich in amylase"
+    ],
+    "usage": "Can be added to other recipes towards the end of cooking to liquefy thick porridges."
+  },
+  {
+    "food_id": "F1250",
+    "food_name": "panjiri_supplement",
+    "category": "",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "supplementary_food",
+      "high_energy",
+      "traditional_recipe"
+    ],
+    "description": "Traditional supplementary food made of roasted wheat atta, jaggery, and ghee/oil.",
+    "composition": "Wheat atta (50g), Jaggery (25g), Ghee (2 tsp).",
+    "preparation": "Roast wheat in ghee until light brown, then add jaggery solution."
+  },
+  {
+    "food_id": "F1251",
+    "food_name": "banana_groundnut_mix",
+    "category": "",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "complementary_feeding",
+      "high_calorie",
+      "potassium_rich"
+    ],
+    "description": "High-energy complementary food mix.",
+    "composition": "Ripe banana (1), Jaggery (100g), Groundnuts (10g), Milk.",
+    "preparation": "Mash banana, add roasted/ground nuts and jaggery into a smooth paste."
+  },
+  {
+    "food_id": "F1252",
+    "food_name": "wheat_green_gram_laddoos",
+    "category": "",
+    "energy_kcal_per_100g": "",
+    "protein_g": "",
+    "fat_g": "",
+    "carbs_g": "",
+    "iron_mg": "",
+    "portion_unit": "",
+    "portion_energy_kcal": "",
+    "portion_protein_g": "",
+    "digestibility_boiled": "",
+    "digestibility_fried": "",
+    "fat_level_fried": "",
+    "glycemic_index": "",
+    "age_min": "",
+    "allergy_tags": [],
+    "meal_types": [],
+    "tags": [
+      "protein_rich",
+      "laddoos",
+      "traditional_recipe"
+    ],
+    "description": "Cereal-pulse combination supplementary food.",
+    "composition": "Wheat flour (50g), Green gram dal (50g), Sugar (100g), Oil (2 tbsp).",
+    "benefits": [
+      "Balanced protein (cereal + pulse)",
+      "High energy density"
+    ]
+  }
+]

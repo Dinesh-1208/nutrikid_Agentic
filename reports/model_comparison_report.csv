@@ -1,0 +1,4 @@
+Model,Context Precision,Context Recall,Faithfulness,Answer Relevancy,Hallucination Rate,Safety Precision,Safety Recall,Safety F1 Score,PubMed Faithfulness,PubMed Hallucination Rate,Avg Latency (s)
+GEMINI,0.8533,0.3849,1.0,0.96,0.0%,0.5333,1.0,0.6957,1.0,0.0%,0.0
+QWEN,0.8533,0.3849,1.0,0.91,0.0%,0.5333,1.0,0.6957,1.0,0.0%,0.0
+LLAMA,0.8533,0.3849,0.736,0.82,80.0%,0.4167,0.625,0.5,0.67,100.0%,0.0

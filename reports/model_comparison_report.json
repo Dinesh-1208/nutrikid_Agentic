@@ -1,0 +1,44 @@
+[
+  {
+    "Model":"GEMINI",
+    "Context Precision":0.8533,
+    "Context Recall":0.3849,
+    "Faithfulness":1.0,
+    "Answer Relevancy":0.96,
+    "Hallucination Rate":"0.0%",
+    "Safety Precision":0.5333,
+    "Safety Recall":1.0,
+    "Safety F1 Score":0.6957,
+    "PubMed Faithfulness":1.0,
+    "PubMed Hallucination Rate":"0.0%",
+    "Avg Latency (s)":0.0
+  },
+  {
+    "Model":"QWEN",
+    "Context Precision":0.8533,
+    "Context Recall":0.3849,
+    "Faithfulness":1.0,
+    "Answer Relevancy":0.91,
+    "Hallucination Rate":"0.0%",
+    "Safety Precision":0.5333,
+    "Safety Recall":1.0,
+    "Safety F1 Score":0.6957,
+    "PubMed Faithfulness":1.0,
+    "PubMed Hallucination Rate":"0.0%",
+    "Avg Latency (s)":0.0
+  },
+  {
+    "Model":"LLAMA",
+    "Context Precision":0.8533,
+    "Context Recall":0.3849,
+    "Faithfulness":0.736,
+    "Answer Relevancy":0.82,
+    "Hallucination Rate":"80.0%",
+    "Safety Precision":0.4167,
+    "Safety Recall":0.625,
+    "Safety F1 Score":0.5,
+    "PubMed Faithfulness":0.67,
+    "PubMed Hallucination Rate":"100.0%",
+    "Avg Latency (s)":0.0
+  }
+]

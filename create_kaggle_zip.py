@@ -2,7 +2,7 @@ import zipfile
 import os
 
 def create_zip():
-    targets = ['data', 'evaluation', 'llm', 'planner', 'rag', 'main.py', 'verify_gemini.py', 'verify_qwen.py', 'requirements.txt', 'colab_setup.ipynb']
+    targets = ['data', 'evaluation', 'llm', 'planner', 'rag', 'main.py', 'verify_gemini.py', 'verify_groq.py', 'verify_qwen.py', 'requirements.txt', 'colab_setup.ipynb']
     
     with zipfile.ZipFile('project_kaggle.zip', 'w', zipfile.ZIP_DEFLATED) as zipf:
         for target in targets:

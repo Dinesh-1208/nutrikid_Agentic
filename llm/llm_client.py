@@ -80,7 +80,7 @@ class KidsNutriLLMClient:
             response_text = self._call_groq("llama-3.1-8b-instant", system_prompt, user_prompt)
             
         elif model_name == "groq_qwen":
-            response_text = self._call_groq("qwen/qwen3-32b", system_prompt, user_prompt)
+            response_text = self._call_groq("qwen/qwen3.6-27b", system_prompt, user_prompt)
             
         else:
             raise ValueError(f"Unknown model name: {model_name}")

@@ -23,7 +23,7 @@ def verify_groq():
     system_prompt = "You are a helpful pediatric assistant."
     user_prompt = "What is the capital of France? Answer in one word."
 
-    models_to_test = ["groq_llama8b", "groq_llama70b", "groq_qwen"]
+    models_to_test = ["groq_llama8b", "groq_llama70b"]
     
     for model_name in models_to_test:
         print(f"\n--- Testing Model: {model_name} ---")

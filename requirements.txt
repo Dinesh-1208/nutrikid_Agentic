@@ -13,3 +13,5 @@ numpy
 scikit-learn
 huggingface_hub
 tabulate
+rank-bm25
+

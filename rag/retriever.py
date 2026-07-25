@@ -1,59 +1,54 @@
 import os
-import pickle
-import faiss
-import numpy as np
-from sentence_transformers import SentenceTransformer
+from typing import List, Dict, Any, Optional
+
+from rag.services.config_service import ConfigurationService, RAGConfig
+from rag.services.retrieval_service import RetrievalService
 
 class KidsNutriRetriever:
-    def __init__(self, index_dir=None, model_name="BAAI/bge-small-en-v1.5"):
-        if index_dir is None:
-            base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-            index_dir = os.path.join(base_dir, "data", "rag")
-            
-        self.index_path = os.path.join(index_dir, "faiss.index")
-        self.metadata_path = os.path.join(index_dir, "metadata.pkl")
-        self.model_name = model_name
-        
-        print(f"Loading retriever model: {self.model_name}...")
-        self.model = SentenceTransformer(self.model_name)
-        
-        if not os.path.exists(self.index_path) or not os.path.exists(self.metadata_path):
-            raise FileNotFoundError(f"FAISS index or metadata not found at {index_dir}. Please run the indexing script first.")
-            
-        print("Loading FAISS index...")
-        self.index = faiss.read_index(self.index_path)
-        
-        print("Loading metadata...")
-        with open(self.metadata_path, 'rb') as f:
-            self.metadata = pickle.load(f)
-            
-        print("Retriever initialized successfully!")
+    """
+    Facade class wrapping RetrievalService for 100% backward compatibility.
+    Guarantees seamless integration with CLI main.py, Evaluator, Comparator, and Notebooks.
+    """
+    def __init__(self, index_dir: Optional[str] = None, model_name: str = "BAAI/bge-small-en-v1.5", config: Optional[RAGConfig] = None):
+        if config is None:
+            config = RAGConfig(embedding_model=model_name)
+        if index_dir is not None:
+            config.index_dir = index_dir
 
-    def retrieve(self, query, top_k=5):
-        # Encode the query
-        query_vector = self.model.encode([query], convert_to_numpy=True)
-        # Normalize for cosine similarity
-        faiss.normalize_L2(query_vector)
-        
-        # Search index
-        scores, indices = self.index.search(query_vector, top_k)
-        
-        results = []
-        for score, idx in zip(scores[0], indices[0]):
-            if idx < 0 or idx >= len(self.metadata):
-                continue
-            item = self.metadata[idx]
-            results.append({
-                "id": item.get("id"),
-                "text": item.get("text"),
-                "metadata": item.get("metadata", {}),
-                "score": float(score)
-            })
-        return results
+        config_service = ConfigurationService(config=config)
+        self.service = RetrievalService(config_service=config_service)
+        self.config = config
 
-    def debug_retrieve(self, query, top_k=5):
-        results = self.retrieve(query, top_k)
+    @property
+    def model(self):
+        """Exposes embedding model instance for backward compatibility (e.g. evaluator.py)."""
+        self.service.embedding_service._lazy_load()
+        return self.service.embedding_service.model
+
+    @property
+    def metadata(self):
+        """Exposes metadata items list for backward compatibility."""
+        return self.service.child_chunks
+
+    @property
+    def cache(self):
+        """Exposes cache service for stats and debugging."""
+        return self.service.cache_service
+
+    def retrieve(
+        self,
+        query: str,
+        top_k: Optional[int] = None,
+        metadata_filters: Optional[Dict[str, Any]] = None,
+        mode: Optional[str] = None
+    ) -> List[Dict[str, Any]]:
+        return self.service.retrieve(query=query, top_k=top_k, metadata_filters=metadata_filters, mode=mode)
+
+    def debug_retrieve(self, query: str, top_k: int = 5) -> List[Dict[str, Any]]:
+        results = self.retrieve(query, top_k=top_k)
         print(f"\n--- RAG Retrieval Debug for Query: '{query}' ---")
+        stats = self.cache.get_stats()
+        print(f"Cache Stats: Hits={stats['hits']} | Misses={stats['misses']} | Hit Ratio={stats['hit_ratio']}")
         for i, res in enumerate(results, 1):
             print(f"\n[{i}] Score: {res['score']:.4f} | ID: {res['id']}")
             print(f"Text: {res['text']}")
@@ -61,9 +56,8 @@ class KidsNutriRetriever:
         return results
 
 if __name__ == '__main__':
-    # Test retrieval
     try:
         retriever = KidsNutriRetriever()
         retriever.debug_retrieve("Can my child eat egg during fever?", top_k=3)
     except Exception as e:
-        print(f"Retriever test error (likely index not built yet): {e}")
+        print(f"Retriever test error: {e}")

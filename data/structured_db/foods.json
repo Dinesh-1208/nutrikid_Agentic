@@ -687,15 +687,6 @@
     ]
   },
   {
-    "food_id": "F604",
-    "food_name": "milk_pregnancy",
-    "category": "dairy",
-    "portion_unit": "400ml/day",
-    "tags": [
-      "calcium_rich"
-    ]
-  },
-  {
     "food_id": "F700",
     "food_name": "iron_rich_foods",
     "category": "micronutrient",
@@ -719,26 +710,6 @@
     "tags": [
       "iron_rich",
       "anemia_prevention"
-    ]
-  },
-  {
-    "food_id": "F701",
-    "food_name": "folate_rich_foods",
-    "category": "micronutrient",
-    "portion_unit": "varies",
-    "tags": [
-      "folate_rich",
-      "pregnancy"
-    ]
-  },
-  {
-    "food_id": "F702",
-    "food_name": "omega3_rich_foods",
-    "category": "fat",
-    "portion_unit": "varies",
-    "tags": [
-      "omega3",
-      "brain_development"
     ]
   },
   {
@@ -769,24 +740,6 @@
     ]
   },
   {
-    "food_id": "F801",
-    "food_name": "fish",
-    "category": "protein",
-    "tags": [
-      "omega3",
-      "high_protein"
-    ]
-  },
-  {
-    "food_id": "F802",
-    "food_name": "citrus_fruits",
-    "category": "fruit",
-    "tags": [
-      "vitamin_c",
-      "iron_absorption"
-    ]
-  },
-  {
     "food_id": "F900",
     "food_name": "rice_dal_mix",
     "category": "infant_food",
@@ -811,41 +764,6 @@
       "infant_food",
       "protein_source",
       "easy_digest"
-    ]
-  },
-  {
-    "food_id": "F901",
-    "food_name": "khichdi",
-    "category": "infant_food",
-    "portion_unit": "wheat 10g + rajma 5g + amaranth 20g",
-    "digestibility_boiled": "high",
-    "age_min": 6,
-    "tags": [
-      "balanced_meal",
-      "infant_food"
-    ]
-  },
-  {
-    "food_id": "F902",
-    "food_name": "fruit_mash",
-    "category": "fruit",
-    "portion_unit": "40g",
-    "digestibility_boiled": "high",
-    "age_min": 6,
-    "tags": [
-      "vitamin_rich",
-      "easy_digest"
-    ]
-  },
-  {
-    "food_id": "F903",
-    "food_name": "nutri_mix",
-    "category": "infant_food",
-    "portion_unit": "15g",
-    "age_min": 9,
-    "tags": [
-      "energy_dense",
-      "protein_rich"
     ]
   },
   {
@@ -1586,29 +1504,6 @@
       "enzyme_rich",
       "digestion_support",
       "energy_dense"
-    ]
-  },
-  {
-    "food_id": "F1254",
-    "food_name": "infant_cereal_mix",
-    "category": "infant_food",
-    "portion_unit": "varies",
-    "digestibility_boiled": "high",
-    "age_min": 6,
-    "tags": [
-      "energy_source",
-      "easy_digest"
-    ]
-  },
-  {
-    "food_id": "F1255",
-    "food_name": "semi_solid_family_food",
-    "category": "infant_food",
-    "portion_unit": "varies",
-    "digestibility_boiled": "high",
-    "age_min": 12,
-    "tags": [
-      "family_food_transition"
     ]
   },
   {

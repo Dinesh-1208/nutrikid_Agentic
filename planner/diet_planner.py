@@ -47,6 +47,7 @@ class KidsNutriDatabase:
             food['fat_g'] = to_float(food.get('fat_g'))
             food['carbs_g'] = to_float(food.get('carbs_g'))
             food['iron_mg'] = to_float(food.get('iron_mg'))
+            food['fiber_g'] = to_float(food.get('fiber_g'))
             
             food['portion_energy_kcal'] = to_float(food.get('portion_energy_kcal'))
             food['portion_protein_g'] = to_float(food.get('portion_protein_g'))
@@ -96,7 +97,8 @@ class KidsNutriDatabase:
                 "protein_g": food["protein_g"],
                 "fat_g": food["fat_g"],
                 "carbs_g": food["carbs_g"],
-                "iron_mg": food["iron_mg"]
+                "iron_mg": food["iron_mg"],
+                "fiber_g": food.get("fiber_g", 0.0)
             }
         return None
 
@@ -422,6 +424,286 @@ class DietPlanner:
             "meal_plan": meals
         }
         return plan
+
+    def generate_weekly_meal_plan(self, profile):
+        age = profile.get("age", 5)
+        weight = profile.get("weight")
+        goal = profile.get("goal")
+        condition = profile.get("condition")
+        allergies = profile.get("allergies", [])
+        
+        # 1. Calorie and Macro targets
+        target_calories, calculated_weight = self.calculate_calories(age, weight, condition, goal)
+        target_protein = round((target_calories * 0.15) / 4.0, 1)
+        target_carbs = round((target_calories * 0.55) / 4.0, 1)
+        target_fat = round((target_calories * 0.30) / 9.0, 1)
+        target_fiber = round((target_calories / 1000.0) * 14.0, 1)
+        
+        daily_target = {
+            "calories": target_calories,
+            "protein": target_protein,
+            "carbs": target_carbs,
+            "fat": target_fat,
+            "fiber": target_fiber
+        }
+        
+        # 2. Gather required and avoid tags
+        required_tags = set()
+        avoid_tags = set()
+        avoid_food_names = set()
+        
+        cond_check = "No condition"
+        if condition:
+            cond_rec = self.db.get_condition(condition)
+            if cond_rec:
+                required_tags.update(cond_rec.get("required_tags", []))
+                avoid_tags.update(cond_rec.get("avoid_tags", []))
+                cond_check = f"Applied rules for {condition}"
+            else:
+                cond_check = f"Condition {condition} not found in DB"
+                
+        if goal:
+            goal_rec = self.db.get_goal(goal)
+            if goal_rec:
+                required_tags.update(goal_rec.get("required_tags", []))
+                avoid_tags.update(goal_rec.get("avoid_tags", []))
+                
+        # 3. Gather allergy exclusions
+        allergy_check = "No allergies"
+        if allergies:
+            allergy_check = f"Avoid tags for {', '.join(allergies)}"
+        for allergy in allergies:
+            alg_rec = self.db.get_allergy(allergy)
+            if alg_rec:
+                avoid_food_names.update([f.strip().lower().replace(" ", "_") for f in alg_rec.get("avoid_foods", [])])
+                
+        # 4. Filter candidate foods
+        candidate_foods = []
+        for food in self.db.foods:
+            if food.get("age_min") and age < food["age_min"]:
+                continue
+                
+            f_name_clean = food["food_name"].strip().lower().replace(" ", "_")
+            f_cat_clean = food["category"].strip().lower().replace(" ", "_")
+            
+            is_allergic = False
+            if f_name_clean in avoid_food_names or f_cat_clean in avoid_food_names:
+                is_allergic = True
+                
+            f_all_tags = [t.strip().lower() for t in food.get("allergy_tags", [])]
+            for alg in allergies:
+                alg_clean = alg.strip().lower()
+                if alg_clean in f_all_tags:
+                    is_allergic = True
+                if "nut" in alg_clean and "nut" in f_name_clean:
+                    is_allergic = True
+                if "milk" in alg_clean and ("milk" in f_name_clean or "dairy" in f_cat_clean):
+                    is_allergic = True
+                    
+            if is_allergic:
+                continue
+                
+            f_tags = [t.strip().lower() for t in food.get("tags", [])]
+            if any(tag in avoid_tags for tag in f_tags):
+                continue
+                
+            candidate_foods.append(food)
+            
+        # 5. Define weekly structure
+        days_of_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+        slots = ["breakfast", "morning_snack", "lunch", "afternoon_snack", "evening_snack", "dinner"]
+        
+        slot_targets = {
+            "breakfast": target_calories * 0.20,
+            "morning_snack": target_calories * 0.10,
+            "lunch": target_calories * 0.25,
+            "afternoon_snack": target_calories * 0.10,
+            "evening_snack": target_calories * 0.10,
+            "dinner": target_calories * 0.25
+        }
+        
+        slot_categories_fallback = {
+            "breakfast": ["cereal", "dairy", "fruit"],
+            "morning_snack": ["fruit", "dairy"],
+            "lunch": ["cereal", "protein", "vegetable"],
+            "afternoon_snack": ["fruit", "fat", "dairy"],
+            "evening_snack": ["dairy", "fruit", "beverage"],
+            "dinner": ["cereal", "protein", "vegetable"]
+        }
+        
+        def score_food(food_item):
+            score = 0
+            f_tags = [t.strip().lower() for t in food_item.get("tags", [])]
+            score += sum(5 for tag in f_tags if tag in required_tags)
+            if food_item.get("digestibility_boiled") == "high":
+                score += 2
+            if food_item.get("digestibility_fried") == "low":
+                score -= 2
+            return score
+
+        weekly_plan = {}
+        previous_day_meals = {s: [] for s in slots}
+        
+        for day in days_of_week:
+            daily_meals = {s: [] for s in slots}
+            day_cals = day_pro = day_carbs = day_fat = day_fiber = 0.0
+            
+            for m_type in slots:
+                m_target = slot_targets[m_type]
+                
+                meal_candidates = []
+                for f in candidate_foods:
+                    meal_types = [mt.strip().lower() for mt in f.get("meal_types", [])]
+                    # map slot to meal type if possible
+                    generic_type = m_type.replace("morning_", "").replace("afternoon_", "").replace("evening_", "")
+                    if generic_type in meal_types or m_type in meal_types or "all" in meal_types:
+                        meal_candidates.append(f)
+                        
+                if not meal_candidates:
+                    meal_candidates = [f for f in candidate_foods if f["category"] in slot_categories_fallback[m_type]]
+                if not meal_candidates:
+                    meal_candidates = candidate_foods
+                    
+                # Rotation logic: penalize foods used yesterday in the same slot
+                prev_foods = [item["food_name"] for item in previous_day_meals[m_type]]
+                
+                def rotation_score(food_item):
+                    base = score_food(food_item)
+                    if food_item["food_name"] in prev_foods:
+                        return base - 100 # heavily penalize recent use
+                        
+                    # Boost score if this food is rich in whatever macro we are lacking today
+                    pro_ratio = day_pro / target_protein if target_protein > 0 else 1.0
+                    fat_ratio = day_fat / target_fat if target_fat > 0 else 1.0
+                    carb_ratio = day_carbs / target_carbs if target_carbs > 0 else 1.0
+                    
+                    if pro_ratio < fat_ratio and pro_ratio < carb_ratio:
+                        if "protein" in food_item["category"].lower() or "protein" in [t.lower() for t in food_item.get("tags",[])] or food_item.get("protein_g", 0) > 10:
+                            base += 10
+                    elif fat_ratio < pro_ratio and fat_ratio < carb_ratio:
+                        if "fat" in food_item["category"].lower() or "fat" in [t.lower() for t in food_item.get("tags",[])] or food_item.get("fat_g", 0) > 10:
+                            base += 10
+                    elif carb_ratio < pro_ratio and carb_ratio < fat_ratio:
+                        if "cereal" in food_item["category"].lower() or "carbohydrate" in [t.lower() for t in food_item.get("tags",[])] or food_item.get("carbs_g", 0) > 20:
+                            base += 10
+                            
+                    return base
+                    
+                meal_candidates = sorted(meal_candidates, key=rotation_score, reverse=True)
+                
+                selected = []
+                accumulated_cal = 0.0
+                
+                for food in meal_candidates:
+                    if accumulated_cal >= m_target * 0.95:
+                        break
+                        
+                    if len(selected) >= 3:
+                        break
+                        
+                    energy_per_100 = food["energy_kcal_per_100g"]
+                    if energy_per_100 <= 0.0:
+                        energy_per_100 = 100.0
+                        
+                    rem_cal = m_target - accumulated_cal
+                    
+                    remaining_slots = max(1, 3 - len(selected))
+                    if remaining_slots == 1 or rem_cal < 50:
+                        target_cal = rem_cal
+                    else:
+                        target_cal = rem_cal / remaining_slots
+                        
+                    portion_g = 100.0
+                    
+                    if food["portion_energy_kcal"] > 0.0:
+                        default_portion_cal = food["portion_energy_kcal"]
+                        scale = min(2.0, max(0.5, target_cal / default_portion_cal))
+                        portion_g = scale * 100.0
+                        cal_added = scale * default_portion_cal
+                    else:
+                        portion_g = min(200.0, max(30.0, (target_cal / energy_per_100) * 100.0))
+                        cal_added = (portion_g / 100.0) * energy_per_100
+                        
+                    portion_g = round(portion_g, 1)
+                    cal_added = round(cal_added, 1)
+                    pro_added = round((portion_g / 100.0) * food.get("protein_g", 0.0), 2)
+                    fat_added = round((portion_g / 100.0) * food.get("fat_g", 0.0), 2)
+                    carbs_added = round((portion_g / 100.0) * food.get("carbs_g", 0.0), 2)
+                    fiber_added = round((portion_g / 100.0) * food.get("fiber_g", 0.0), 2)
+                    
+                    selected.append({
+                        "food_name": food["food_name"],
+                        "category": food["category"],
+                        "portion_size_g": portion_g,
+                        "portion_unit": food.get("portion_unit", "g"),
+                        "calories_kcal": cal_added,
+                        "protein_g": pro_added,
+                        "fat_g": fat_added,
+                        "carbs_g": carbs_added,
+                        "fiber_g": fiber_added
+                    })
+                    accumulated_cal += cal_added
+                    
+                daily_meals[m_type] = selected
+                previous_day_meals[m_type] = selected
+                
+                for it in selected:
+                    day_cals += it["calories_kcal"]
+                    day_pro += it["protein_g"]
+                    day_fat += it["fat_g"]
+                    day_carbs += it["carbs_g"]
+                    day_fiber += it["fiber_g"]
+            
+            day_cals = round(day_cals, 1)
+            day_pro = round(day_pro, 1)
+            day_carbs = round(day_carbs, 1)
+            day_fat = round(day_fat, 1)
+            day_fiber = round(day_fiber, 1)
+            
+            # Daily Validation
+            valid_cals = abs(day_cals - target_calories) / target_calories <= 0.15
+            valid_pro = target_protein == 0 or abs(day_pro - target_protein) / target_protein <= 0.20
+            
+            weekly_plan[day] = {
+                "meals": daily_meals,
+                "daily_totals": {
+                    "calories": day_cals,
+                    "protein": day_pro,
+                    "carbs": day_carbs,
+                    "fat": day_fat,
+                    "fiber": day_fiber
+                },
+                "target_deviation": {
+                    "calories_diff": round(day_cals - target_calories, 1),
+                    "protein_diff": round(day_pro - target_protein, 1),
+                    "carbs_diff": round(day_carbs - target_carbs, 1),
+                    "fat_diff": round(day_fat - target_fat, 1)
+                },
+                "allergy_check": allergy_check,
+                "condition_check": cond_check,
+                "validation": {
+                    "calories_met": valid_cals,
+                    "protein_met": valid_pro,
+                    "is_safe": True if len(candidate_foods) > 0 else False
+                }
+            }
+
+        result = {
+            "profile_summary": {
+                "age": age,
+                "weight_kg": calculated_weight,
+                "goal": goal,
+                "condition": condition,
+                "allergies": allergies
+            },
+            "daily_target": daily_target,
+            "weekly_plan": weekly_plan,
+            "validation": {
+                "days_generated": len(weekly_plan),
+                "all_slots_present": all(len(d["meals"]) == 6 for d in weekly_plan.values())
+            }
+        }
+        return result
 
 if __name__ == '__main__':
     # Test Planner

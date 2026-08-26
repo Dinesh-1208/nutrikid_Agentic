@@ -1,6 +1,5 @@
 import unittest
 
-from evaluation.dataset import EVALUATION_DATA
 from evaluation.metrics.retrieval_metrics import (
     MAP_STATUS_EMPTY_RETRIEVAL,
     MAP_STATUS_MISSING_GROUND_TRUTH,
@@ -124,15 +123,24 @@ class TestMapAtK(unittest.TestCase):
         )
 
     def test_unannotated_dataset_does_not_become_zero_map(self):
+        # A self-contained synthetic batch of entirely unannotated cases (no
+        # relevant_chunk_ids at all) - this test proves the status-handling
+        # invariant itself (an unannotated dataset must report
+        # MISSING_GROUND_TRUTH, never a fabricated 0.0 score), independent of
+        # whichever real dataset evaluation/dataset.py happens to load. It
+        # previously imported the real EVALUATION_DATA and relied on that
+        # dataset being 100% unannotated, which stopped being true once the
+        # finalized, gold-annotated 49-case dataset (with real
+        # relevant_chunk_ids on 38 of 49 cases) became the active dataset.
+        unannotated_cases = [{"relevant_chunk_ids": None} for _ in range(7)]
         ap_results = [
             calculate_ap_at_k_details(["A", "B", "C", "D", "E"], case.get("relevant_chunk_ids"), k=5)
-            for case in EVALUATION_DATA
+            for case in unannotated_cases
         ]
         result = calculate_map_at_k_details(ap_results)
 
-        self.assertEqual(len(EVALUATION_DATA), 100)
         self.assertEqual(result["valid_cases"], 0)
-        self.assertEqual(result["missing_ground_truth"], 100)
+        self.assertEqual(result["missing_ground_truth"], len(unannotated_cases))
         self.assertIsNone(result["score"])
 
 

@@ -8,7 +8,7 @@ class KidsNutriEvaluator:
     Strictly coordinates the execution sequence.
     Contains no business logic, LLM prompts, or mathematical computations.
     """
-    def __init__(self, llm_client, retriever, planner, judge_model="gemini", judges=None, metrics=None):
+    def __init__(self, llm_client, retriever, planner, judge_model="groq_llama70b", judges=None, metrics=None):
         self.llm_client = llm_client
         self.retriever = retriever
         self.planner = planner
@@ -50,8 +50,31 @@ class KidsNutriEvaluator:
         """
         q_id = test_case.get("id", "N/A")
         question = test_case["question"]
-        profile = test_case["profile"]
-        expected_context = test_case.get("expected_context", [])
+        # profile is CONDITIONAL in the finalized dataset schema (docs/evaluation/
+        # final_evaluation_dataset_schema.md) - knowledge-only cases legitimately
+        # carry profile=None. Every downstream consumer (planner.generate_meal_plan,
+        # SafetyJudge.evaluate_safety) already reads profile fields via .get(...,
+        # default) internally, so an empty dict is a safe, non-fabricated stand-in
+        # that lets those defaults apply, rather than crashing on None.get(...).
+        profile = test_case.get("profile") or {}
+        # Context Recall's gold reference material is authored as `gold_facts`
+        # (a list of {"fact_id", "fact_text", ...} dicts - see
+        # docs/evaluation/final_evaluation_dataset_schema.md section 6) in the
+        # finalized dataset, not the older flat `expected_context` string list
+        # ContextJudge.evaluate_recall's interface still expects. Extract only
+        # the plain fact_text strings the judge actually consumes - never pass
+        # the raw gold_facts objects (with their provenance/source_reference
+        # metadata) into the prompt. A missing/empty gold_facts list (not
+        # currently true for any of the 49 finalized cases, but preserved as
+        # a safe default for any future case) still correctly yields an empty
+        # list here, matching evaluate_recall's own pre-existing "nothing
+        # expected" short-circuit - no new status enum is introduced, since
+        # no case in the current finalized dataset exercises that path.
+        expected_context = [
+            fact.get("fact_text")
+            for fact in (test_case.get("gold_facts") or [])
+            if fact.get("fact_text")
+        ]
         
         # --- Step 1: System Execution ---
         retrieved_contexts = self.retriever.retrieve(question, top_k=5)

@@ -78,7 +78,7 @@ class KidsNutriComparator:
             "missing_ground_truth_cases": missing_ground_truth_count
         }
 
-    def run_comparison(self, models=["gemini", "qwen_local"], sample_limit=None):
+    def run_comparison(self, models=["qwen_local"], sample_limit=None):
         dataset = EVALUATION_DATA
         if sample_limit:
             # Take a balanced subset across categories

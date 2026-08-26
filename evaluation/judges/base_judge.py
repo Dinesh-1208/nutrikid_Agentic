@@ -147,7 +147,3 @@ class BaseJudge:
             "response_snippet": response[:200] + "..." if len(response) > 200 else response
         }
         self.log_intermediate_output("llm_call_metadata", log_entry)
-
-    def _call_judge(self, prompt, q_id="N/A", question="N/A", model_response="N/A"):
-        """Deprecated: Use call_llm_with_retry instead. Kept for short-term compatibility if needed."""
-        return self.call_llm_with_retry(prompt, 1, q_id, question, model_response)

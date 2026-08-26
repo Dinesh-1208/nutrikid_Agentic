@@ -301,13 +301,25 @@ class TestGoldDataLeakageInJudgeAndPromptConstruction(unittest.TestCase):
     def test_evaluator_never_passes_gold_fields_into_any_judge_call(self):
         from evaluation.evaluator import KidsNutriEvaluator
 
+        # Note on gold_facts specifically: unlike relevant_chunk_ids,
+        # reference_answer, and safety_ground_truth (which no judge or metric
+        # ever needs to see), gold_facts' fact_text is BY DESIGN passed to
+        # ContextJudge.evaluate_recall as the reference material Context
+        # Recall is computed against (see evaluator.py's gold_facts ->
+        # expected_context mapping, Phase 4B). That is the metric doing its
+        # job, not a leak - only the CONTEXT judge may see it, and only the
+        # plain fact_text string, never the raw fact dict's
+        # fact_id/source_reference/chunk_reference/importance metadata. This
+        # test asserts that precise boundary rather than a blanket "never
+        # anywhere" rule.
+        gold_fact_marker = "GOLD_FACT_TEXT_EXPECTED_ONLY_IN_CONTEXT_JUDGE_RECALL_CALL"
         test_case = {
             "id": "EVAL_TEST",
             "category": "Allergies & Intolerances",
             "question": "What foods should I avoid for a nut allergy?",
             "profile": {"age": 4, "allergies": ["nut_allergy"]},
             "relevant_chunk_ids": ["GOLD_FACT_SHOULD_NEVER_LEAK"],
-            "gold_facts": [{"fact_id": "GF_1", "fact_text": "REFERENCE_ANSWER_SHOULD_NEVER_LEAK"}],
+            "gold_facts": [{"fact_id": "GF_1", "fact_text": gold_fact_marker}],
             "reference_answer": "RAG_MARKER_SHOULD_NEVER_LEAK",
             "safety_ground_truth": {"overall": "Compliant", "diagnosis": False, "prescription": False, "allergy_violation": False, "age_violation": False},
         }
@@ -338,19 +350,31 @@ class TestGoldDataLeakageInJudgeAndPromptConstruction(unittest.TestCase):
         evaluator = KidsNutriEvaluator(mock_llm_client, mock_retriever, mock_planner, judges=mock_judges)
         evaluator.run_single_evaluation(test_case, "qwen_local")
 
-        # The production answer call must never see any forbidden marker.
+        # The production answer call must never see any forbidden marker,
+        # including the gold_facts marker - only ContextJudge may see that.
         prod_call_args = mock_llm_client.generate_response.call_args
-        for marker in self.FORBIDDEN_MARKERS:
+        for marker in self.FORBIDDEN_MARKERS + [gold_fact_marker]:
             self.assertNotIn(marker, str(prod_call_args))
 
-        # No judge call anywhere may have been invoked with a forbidden marker
-        # as an argument - this checks every argument of every call made to
-        # every mocked judge method.
+        # The always-forbidden markers (relevant_chunk_ids, reference_answer)
+        # must never appear in ANY judge call.
         for name, judge_mock in mock_judges.items():
             for call in judge_mock.mock_calls:
                 call_str = str(call)
                 for marker in self.FORBIDDEN_MARKERS:
                     self.assertNotIn(marker, call_str, f"Leakage found in {name} judge call: {call}")
+
+        # The gold_facts marker must appear ONLY in the context judge's
+        # evaluate_recall call, as a plain string within the expected_context
+        # list, and nowhere else.
+        context_calls = str(mock_judges["context"].mock_calls)
+        self.assertIn(gold_fact_marker, context_calls)
+        self.assertIn("evaluate_recall", context_calls)
+        for name in ("grounding", "relevancy", "safety"):
+            self.assertNotIn(gold_fact_marker, str(mock_judges[name].mock_calls))
+        # And never the raw fact dict shape (fact_id/etc.) - only fact_text.
+        self.assertNotIn("fact_id", context_calls)
+        self.assertNotIn("GF_1", context_calls)
 
 
 class TestEvaluatorFailureStatusPropagation(unittest.TestCase):

@@ -9,7 +9,7 @@ This repository also contains a custom **4-Layer Deterministic Evaluation Subsys
 1. **Hybrid RAG Generator**: 
     - A deterministic rules-engine calculates BMR, caloric limits, and macronutrient targets based on age/weight/allergies.
     - `BAAI/bge-small-en-v1.5` dense retriever searches a vector database of pediatric protocols.
-    - An LLM (e.g., Gemini) synthesizes the math and text into a friendly output.
+    - The **production default answer-generation backend is a local Qwen model (`Qwen/Qwen2.5-7B-Instruct`) run via Hugging Face Transformers** (requires a CUDA GPU), which synthesizes the math and text into a friendly output. Gemini, OpenRouter (Qwen/Llama), and Groq-hosted models remain available as optional alternative backends via `--model`/`--models`.
 2. **Layer 1 - Semantic Judges (LLM)**: LLMs extract pure structural arrays from outputs (binary relevance labels, isolated claims, hypothetical questions, and CoT safety boolean flags).
 3. **Layer 2 - Deterministic Metrics**: Pure Python module computes exact RAGAS mathematics, F-Scores, MRR, MAP, and hallucination percentages without LLM subjectivity.
 4. **Master Orchestrator & Comparator**: Automates batch pipeline execution and generates detailed CSV and Markdown reports.
@@ -39,14 +39,16 @@ python main.py --index
 ```bash
 python main.py --query "What is the feeding protocol for infant diarrhea?"
 ```
-3. **Run Full QA Pipeline:**
+3. **Run Full QA Pipeline** (uses the local Qwen production default; requires a CUDA GPU):
 ```bash
-python main.py --ask "Can my child eat eggs during a fever?" --age 5 --condition "healthy_growth" --model gemini
+python main.py --ask "Can my child eat eggs during a fever?" --age 5 --condition "healthy_growth"
 ```
-4. **Run Full Safety Benchmark Evaluation:**
+Pass `--model gemini` (or `qwen`, `llama`, `groq_llama70b`, `groq_llama8b`, `groq_qwen`) to use an optional alternative backend instead.
+4. **Run Full Safety Benchmark Evaluation** (defaults to the local Qwen production backend):
 ```bash
-python main.py --evaluate --num-samples 50 --models gemini,qwen_local
+python main.py --evaluate --num-samples 50
 ```
+Pass `--models qwen_local,gemini` to also compare against optional alternative backends.
 
 ## Running on Kaggle / Colab
 
@@ -55,8 +57,9 @@ Upload or run `KidsNutriBite_Evaluation.ipynb` in any Jupyter environment. It is
 ## Reports Generation
 
 Running the `--evaluate` pipeline automatically produces:
-- `reports/final_model_comparison.csv`: Top-level benchmarking data.
+- `reports/final_model_comparison.csv`: Top-level benchmarking data, including the **official** gold-grounded Precision@5, Recall@5, MAP@5, and MRR@5.
 - `reports/ragas_report.csv`: Layer 2 MAP, MRR, Faithfulness metrics.
 - `reports/hallucination_analysis.md`: Detailed Intrinsic vs Extrinsic hallucination rates.
 - `reports/safety_analysis.md`: Deterministic F-Scores and confusion matrices.
 - `reports/detailed_evaluation_records.csv`: Full trace logs.
+- `reports/retrieval_experiment.csv`: **Unofficial retrieval-depth diagnostic** (`LLM-Judged Relevance Score@K` for K=3, 5, 10), produced by `KidsNutriComparator.run_llm_judged_relevance_experiment`. This is ground-truth-free and LLM-judged — it is **not** Average Precision, **not** MAP, and not part of the official gold-grounded retrieval metrics above. Do not compare its K=5 row against the official MAP@5 in `final_model_comparison.csv`; they measure different things from different data sources. It currently runs unconditionally on every `--evaluate` call and may be gated behind an explicit diagnostic flag in a future change.

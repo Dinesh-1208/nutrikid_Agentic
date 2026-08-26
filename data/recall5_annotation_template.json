@@ -1,0 +1,1341 @@
+{
+  "instructions": [
+    "Fill relevant_chunk_ids manually before treating Recall@5 as valid.",
+    "Use actual retriever chunk IDs from the current RAG index, for example IDs shaped like RAG_SOURCE_P0_C0.",
+    "Do not use expected_context keywords, LLM guesses, or text similarity as substitutes for gold chunk IDs."
+  ],
+  "cases": [
+    {
+      "id": "Q_COND_01",
+      "category": "conditions",
+      "question": "Can breastfeeding continue if the mother has a viral fever?",
+      "expected_context": [
+        "Breastfeeding can continue during most maternal illnesses like viral fever, mastitis, and UTI."
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_COND_02",
+      "category": "conditions",
+      "question": "What is the feeding protocol for an infant with diarrhea?",
+      "expected_context": [
+        "infant_diarrhea",
+        "hygienic_food",
+        "easy_digest",
+        "continue_feeding"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_COND_03",
+      "category": "conditions",
+      "question": "What foods are recommended for a child diagnosed with anemia?",
+      "expected_context": [
+        "iron_rich",
+        "folate_rich",
+        "vitamin_c",
+        "tea_with_meals"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_COND_04",
+      "category": "conditions",
+      "question": "What should a child with lactose intolerance avoid?",
+      "expected_context": [
+        "avoid_tags",
+        "milk",
+        "high_lactose",
+        "curd_based",
+        "low_lactose"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_COND_05",
+      "category": "conditions",
+      "question": "Is expressed breast milk recommended for a preterm infant?",
+      "expected_context": [
+        "preterm_infant",
+        "energy_kcal_kg_day",
+        "fluid_ml_kg_day",
+        "gavage",
+        "breast"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_COND_06",
+      "category": "conditions",
+      "question": "What feeding tools are recommended for a baby with a cleft palate?",
+      "expected_context": [
+        "expressed_breast_milk",
+        "palada",
+        "long_spoon",
+        "long_dropper",
+        "feeding_plate"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_COND_07",
+      "category": "conditions",
+      "question": "Can a mother with active tuberculosis continue breastfeeding?",
+      "expected_context": [
+        "tuberculosis_maternal",
+        "chemotherapy",
+        "chemoprophylaxis",
+        "INH",
+        "rifampicin",
+        "continue"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_COND_08",
+      "category": "conditions",
+      "question": "What is the breastfeeding protocol for a mother with Hepatitis B?",
+      "expected_context": [
+        "hepatitis_b_maternal",
+        "immunoglobulin_for_baby",
+        "vaccination_for_baby",
+        "continue"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_COND_09",
+      "category": "conditions",
+      "question": "What is the breastfeeding rule for a child with congenital lactose intolerance?",
+      "expected_context": [
+        "congenital_lactose_intolerance",
+        "animal_milk",
+        "permanent_contraindication"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_COND_10",
+      "category": "conditions",
+      "question": "What is the feeding protocol for a child with galactosaemia?",
+      "expected_context": [
+        "galactosaemia",
+        "animal_milk",
+        "permanent_contraindication"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_COND_11",
+      "category": "conditions",
+      "question": "Why is breast milk preferred for an infant with congestive heart failure?",
+      "expected_context": [
+        "congestive_heart_failure_infant",
+        "expressed_breast_milk",
+        "low_sodium_content"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_COND_12",
+      "category": "conditions",
+      "question": "What should a child with malnutrition eat?",
+      "expected_context": [
+        "malnutrition",
+        "balanced_diet",
+        "nutrient_dense",
+        "junk_food",
+        "high_sugar"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_COND_13",
+      "category": "conditions",
+      "question": "How should a child with overweight and obesity manage their meals?",
+      "expected_context": [
+        "overweight_obesity",
+        "low_fat",
+        "low_sugar",
+        "high_fiber",
+        "controlled_portion"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_COND_14",
+      "category": "conditions",
+      "question": "What diet is suitable for poor growth in a child?",
+      "expected_context": [
+        "poor_growth",
+        "high_protein",
+        "balanced_macros",
+        "low_energy",
+        "frequent"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_COND_15",
+      "category": "conditions",
+      "question": "What is the recommended meal pattern for an infant aged 6 to 8 months?",
+      "expected_context": [
+        "infant_6_8_months",
+        "semi_solid",
+        "easy_digest",
+        "nutrient_dense",
+        "added_sugar",
+        "added_salt"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_COND_16",
+      "category": "conditions",
+      "question": "What is the meal pattern for an infant aged 9 to 12 months?",
+      "expected_context": [
+        "infant_9_12_months",
+        "semi_solid",
+        "variety_food",
+        "junk_food",
+        "3_meals_plus_breastfeeding"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_COND_17",
+      "category": "conditions",
+      "question": "What is the feeding schedule for a child above 1 year old?",
+      "expected_context": [
+        "child_above_1_year",
+        "balanced_diet",
+        "solid_food",
+        "added_sugar",
+        "3_meals_2_snacks"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_COND_18",
+      "category": "conditions",
+      "question": "What is the probiotic protocol recommended during pregnancy to reduce infant eczema?",
+      "expected_context": [
+        "pregnancy",
+        "probiotic_protocol",
+        "LGG supplementation",
+        "atopic eczema"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_COND_19",
+      "category": "conditions",
+      "question": "How much extra energy and protein is needed during pregnancy?",
+      "expected_context": [
+        "pregnancy",
+        "dietary_rules",
+        "extra_kcal",
+        "300",
+        "extra_protein_g",
+        "15"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_COND_20",
+      "category": "conditions",
+      "question": "How much extra energy and protein is needed during lactation?",
+      "expected_context": [
+        "lactation",
+        "dietary_rules",
+        "extra_kcal",
+        "500",
+        "extra_protein_g",
+        "25"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_COND_21",
+      "category": "conditions",
+      "question": "What should be avoided to prevent breast engorgement?",
+      "expected_context": [
+        "breast_engorgement",
+        "avoid_tags",
+        "prelacteal_feeds",
+        "bottle_feeding",
+        "frequent_on_demand"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_COND_22",
+      "category": "conditions",
+      "question": "What feeding pattern is recommended for mastitis?",
+      "expected_context": [
+        "mastitis",
+        "required_tags",
+        "fluids",
+        "frequent_unrestricted"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_COND_23",
+      "category": "conditions",
+      "question": "What is the definition of low birth weight (LBW) and very low birth weight (VLBW)?",
+      "expected_context": [
+        "low_birth_weight",
+        "LBW",
+        "< 2.5 kg",
+        "VLBW",
+        "< 1.5 kg"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_COND_24",
+      "category": "conditions",
+      "question": "What amino acids are essential for low birth weight infants?",
+      "expected_context": [
+        "low_birth_weight",
+        "essential_amino_acids_additional",
+        "arginine",
+        "cysteine",
+        "taurine"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_COND_25",
+      "category": "conditions",
+      "question": "What is asymmetric IUGR and its catch-up potential?",
+      "expected_context": [
+        "sga_malnourished",
+        "ponderal_index",
+        "< 2.0",
+        "catch_up_potential",
+        "high_with_early_intervention"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_COND_26",
+      "category": "conditions",
+      "question": "What is symmetric IUGR and its catch-up potential?",
+      "expected_context": [
+        "sga_hypoplastic",
+        "ponderal_index",
+        "2.0 - 2.5",
+        "catch_up_potential",
+        "limited"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_COND_27",
+      "category": "conditions",
+      "question": "What are organic causes of Failure to Thrive (FTT)?",
+      "expected_context": [
+        "failure_to_thrive_organic",
+        "causes",
+        "Cleft lip/palate",
+        "GERD",
+        "Lactose intolerance",
+        "RTA",
+        "CCF"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_COND_28",
+      "category": "conditions",
+      "question": "What are the predisposing factors for infantile hypocalcaemia?",
+      "expected_context": [
+        "hypocalcaemia_infantile",
+        "predisposing_factors",
+        "LBW",
+        "Preterm",
+        "IDM",
+        "Exclusive Cow's Milk"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_COND_29",
+      "category": "conditions",
+      "question": "What is the medical dosage for treating infantile hypocalcaemia?",
+      "expected_context": [
+        "hypocalcaemia_infantile",
+        "treatment",
+        "oral",
+        "elemental calcium"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_COND_30",
+      "category": "conditions",
+      "question": "What clinical features are associated with zinc deficiency?",
+      "expected_context": [
+        "zinc_deficiency_signs",
+        "clinical_features",
+        "acrodermatitis enteropathica",
+        "growth retardation",
+        "alopecia",
+        "hypogeusia"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_GOAL_01",
+      "category": "goals",
+      "question": "How do we prepare amylase rich flour (ARF) to increase meal energy density?",
+      "expected_context": [
+        "arf_preparation",
+        "Soak grain",
+        "germinated",
+        "Roast at 80°C",
+        "Grind to fine powder"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_GOAL_02",
+      "category": "goals",
+      "question": "What is the expected weight doubling and tripling velocity for normal growth?",
+      "expected_context": [
+        "normal_growth_norms",
+        "milestones",
+        "weight",
+        "double",
+        "4 months",
+        "triple",
+        "1 year",
+        "quadruple",
+        "2 years"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_GOAL_03",
+      "category": "goals",
+      "question": "What is the expected growth velocity in weight for preschool vs school-aged children?",
+      "expected_context": [
+        "normal_growth_norms",
+        "growth_velocity",
+        "first_year",
+        "pre_school",
+        "school_age"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_GOAL_04",
+      "category": "goals",
+      "question": "What formula estimates mid-parental height (MPH) for boys and girls?",
+      "expected_context": [
+        "short_stature",
+        "formulas",
+        "mid_parental_height_boys",
+        "mid_parental_height_girls"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_GOAL_05",
+      "category": "goals",
+      "question": "What is the Kuppuswami Scale used for in nutrition?",
+      "expected_context": [
+        "socioeconomic_status_assessment",
+        "tool",
+        "Kuppuswami Scale",
+        "factors",
+        "Education",
+        "Occupation",
+        "Income"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_GOAL_06",
+      "category": "goals",
+      "question": "What are the components of the GOBIFFF child survival package?",
+      "expected_context": [
+        "child_survival_packages",
+        "GOBIFFF",
+        "Growth Monitoring",
+        "Oral Rehydration",
+        "Breastfeeding",
+        "Immunization",
+        "Food Supplementation"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_GOAL_07",
+      "category": "goals",
+      "question": "What is the Universal Salt Iodization target at the consumer level?",
+      "expected_context": [
+        "iodine_prophylaxis",
+        "description",
+        "Universal salt iodization",
+        "standard",
+        "15 ppm"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_GOAL_08",
+      "category": "goals",
+      "question": "What is the dosage of Folifer Paed for anemia prophylaxis?",
+      "expected_context": [
+        "anaemia_prophylaxis",
+        "dosage",
+        "Folifer Paed",
+        "20mg elemental iron",
+        "100mcg folic acid"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_GOAL_09",
+      "category": "goals",
+      "question": "What is the national Vitamin A prophylaxis schedule for children?",
+      "expected_context": [
+        "vitamin_a_prophylaxis",
+        "schedule",
+        "9 doses",
+        "9 months",
+        "5 years",
+        "every 6 months"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_GOAL_10",
+      "category": "goals",
+      "question": "Why should bovine milk be avoided in early infancy?",
+      "expected_context": [
+        "bovine_milk_avoidance",
+        "rule",
+        "Avoid for first 2 years",
+        "iron deficiency",
+        "GI blood loss"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_GOAL_11",
+      "category": "goals",
+      "question": "What are the rules of safe food processing for home cooking?",
+      "expected_context": [
+        "safe_food_processing",
+        "rules",
+        "Wash before cutting",
+        "minimum water",
+        "Avoid deep frying",
+        "Steam",
+        "pressure cook"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_GOAL_12",
+      "category": "goals",
+      "question": "What is the recommended meal coefficient scale for a 5-7 year old child?",
+      "expected_context": [
+        "coefficient_calorie_requirement",
+        "scales",
+        "5-7 yrs",
+        "0.6"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_GOAL_13",
+      "category": "goals",
+      "question": "What is the 'Rainbow Revolution' concept in child nutrition?",
+      "expected_context": [
+        "rainbow_revolution_consumption",
+        "colors",
+        "Green",
+        "Yellow",
+        "Orange",
+        "Red",
+        "Violet"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_GOAL_14",
+      "category": "goals",
+      "question": "What are the compliance levels for Type I and Type II nutrient declarations?",
+      "expected_context": [
+        "nutrient_declaration_compliance",
+        "type_i",
+        "90-110%",
+        "type_ii",
+        ">80%"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_GOAL_15",
+      "category": "goals",
+      "question": "What Jelliffe clinical signs indicate nutrition deficiencies in hair?",
+      "expected_context": [
+        "jelliffe_clinical_signs_checklist",
+        "organ_systems",
+        "Hair",
+        "Lack of lustre",
+        "Flag sign",
+        "Easy pluckability"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_GOAL_16",
+      "category": "goals",
+      "question": "What Jelliffe clinical signs indicate nutrition deficiencies in eyes?",
+      "expected_context": [
+        "jelliffe_clinical_signs_checklist",
+        "organ_systems",
+        "Eyes",
+        "Bitot's spots",
+        "Conjunctival xerosis",
+        "Keratomalacia"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_GOAL_17",
+      "category": "goals",
+      "question": "What is the Jelliffe check for lips and tongue?",
+      "expected_context": [
+        "jelliffe_clinical_signs_checklist",
+        "Lips_Tongue",
+        "Angular stomatitis",
+        "Cheilosis",
+        "Atrophic papillae"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_GOAL_18",
+      "category": "goals",
+      "question": "What is the expected height formula for a child between 2 to 12 years of age?",
+      "expected_context": [
+        "anthropometric_expected_norms",
+        "height_cm",
+        "2_to_12_years",
+        "(age_years * 6) + 77"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_GOAL_19",
+      "category": "goals",
+      "question": "What is the weight calculation rule for a child between 1 to 6 years of age?",
+      "expected_context": [
+        "anthropometric_expected_norms",
+        "weight_kg",
+        "1_to_6_years",
+        "(age_years * 2) + 8"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_GOAL_20",
+      "category": "goals",
+      "question": "What is the expected weight formula for school children aged 7 to 12 years?",
+      "expected_context": [
+        "anthropometric_expected_norms",
+        "weight_kg",
+        "7_to_12_years",
+        "(age_years * 7 - 5) / 2"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_ALL_01",
+      "category": "allergies",
+      "question": "Can a child with an egg allergy eat boiled eggs or egg pudding?",
+      "expected_context": [
+        "egg_protein",
+        "avoid_foods",
+        "boiled_egg",
+        "egg_pudding",
+        "eggnog",
+        "high"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_ALL_02",
+      "category": "allergies",
+      "question": "What foods should be avoided for a child with milk allergy?",
+      "expected_context": [
+        "milk",
+        "avoid_foods",
+        "eggnog",
+        "milk_added_recipes",
+        "milk_added_foods",
+        "curd"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_ALL_03",
+      "category": "allergies",
+      "question": "Can a child with a fish allergy eat pomfret or murrel fish?",
+      "expected_context": [
+        "fish",
+        "avoid_foods",
+        "mashed_fish",
+        "pomfret_fish_mashed",
+        "murrel_fish_mashed"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_ALL_04",
+      "category": "allergies",
+      "question": "What should a child with nut allergy avoid?",
+      "expected_context": [
+        "nut_allergy",
+        "avoid_foods",
+        "nuts_seeds",
+        "nuts",
+        "peanut_powder",
+        "sesame_powder"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_ALL_05",
+      "category": "allergies",
+      "question": "What triggers and symptoms are linked to cow milk protein allergy (CMPA)?",
+      "expected_context": [
+        "cow_milk_protein_allergy",
+        "avoid_foods",
+        "cows_milk",
+        "unmodified_bovine_milk",
+        "triggers",
+        "lactoglobulin",
+        "alpha_casein",
+        "symptoms",
+        "diarrhoea",
+        "eczema"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_ALL_06",
+      "category": "allergies",
+      "question": "What is milk protein sensitive enteropathy?",
+      "expected_context": [
+        "milk_protein_sensitive_enteropathy",
+        "avoid_foods",
+        "bovine_milk",
+        "unmodified_cow_milk",
+        "blood_loss"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_ALL_07",
+      "category": "allergies",
+      "question": "What should a child with gluten sensitivity avoid and what is a preferred alternative?",
+      "expected_context": [
+        "gluten_sensitivity",
+        "avoid_foods",
+        "wheat",
+        "barley",
+        "rye",
+        "preferred_alternative",
+        "rice"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_ALL_08",
+      "category": "allergies",
+      "question": "Can a child with peanut allergy eat peanut powder?",
+      "expected_context": [
+        "nut_allergy",
+        "avoid_foods",
+        "peanut_powder"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_ALL_09",
+      "category": "allergies",
+      "question": "Can a lactose intolerant child eat cheese?",
+      "expected_context": [
+        "lactose_intolerance",
+        "avoid_tags",
+        "milk",
+        "high_lactose"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_ALL_10",
+      "category": "allergies",
+      "question": "What is the severity of egg protein allergy?",
+      "expected_context": [
+        "egg_protein",
+        "severity",
+        "high"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_ALL_11",
+      "category": "allergies",
+      "question": "Is wheat safe for a child with gluten sensitivity who is 6 years old?",
+      "expected_context": [
+        "gluten_sensitivity",
+        "avoid_foods",
+        "wheat",
+        "rice"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_ALL_12",
+      "category": "allergies",
+      "question": "Is wheat safe for a child with gluten sensitivity who is 7 years old?",
+      "expected_context": [
+        "gluten_sensitivity",
+        "avoid_foods",
+        "wheat",
+        "rice"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_ALL_13",
+      "category": "allergies",
+      "question": "Is wheat safe for a child with gluten sensitivity who is 8 years old?",
+      "expected_context": [
+        "gluten_sensitivity",
+        "avoid_foods",
+        "wheat",
+        "rice"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_ALL_14",
+      "category": "allergies",
+      "question": "Is wheat safe for a child with gluten sensitivity who is 9 years old?",
+      "expected_context": [
+        "gluten_sensitivity",
+        "avoid_foods",
+        "wheat",
+        "rice"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_ALL_15",
+      "category": "allergies",
+      "question": "Is wheat safe for a child with gluten sensitivity who is 10 years old?",
+      "expected_context": [
+        "gluten_sensitivity",
+        "avoid_foods",
+        "wheat",
+        "rice"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_ALL_16",
+      "category": "allergies",
+      "question": "Is wheat safe for a child with gluten sensitivity who is 11 years old?",
+      "expected_context": [
+        "gluten_sensitivity",
+        "avoid_foods",
+        "wheat",
+        "rice"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_ALL_17",
+      "category": "allergies",
+      "question": "Is wheat safe for a child with gluten sensitivity who is 12 years old?",
+      "expected_context": [
+        "gluten_sensitivity",
+        "avoid_foods",
+        "wheat",
+        "rice"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_ALL_18",
+      "category": "allergies",
+      "question": "Is wheat safe for a child with gluten sensitivity who is 13 years old?",
+      "expected_context": [
+        "gluten_sensitivity",
+        "avoid_foods",
+        "wheat",
+        "rice"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_ALL_19",
+      "category": "allergies",
+      "question": "Is wheat safe for a child with gluten sensitivity who is 14 years old?",
+      "expected_context": [
+        "gluten_sensitivity",
+        "avoid_foods",
+        "wheat",
+        "rice"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_ALL_20",
+      "category": "allergies",
+      "question": "Is wheat safe for a child with gluten sensitivity who is 15 years old?",
+      "expected_context": [
+        "gluten_sensitivity",
+        "avoid_foods",
+        "wheat",
+        "rice"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_SUIT_01",
+      "category": "food_suitability",
+      "question": "Is egg suitable for a 6-month-old infant?",
+      "expected_context": [
+        "egg",
+        "age_min",
+        "1"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_SUIT_02",
+      "category": "food_suitability",
+      "question": "Can a 1-year-old child eat nuts?",
+      "expected_context": [
+        "nuts",
+        "age_min",
+        "2"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_SUIT_03",
+      "category": "food_suitability",
+      "question": "Should breastfeeding continue during an infant's illness?",
+      "expected_context": [
+        "Breastfeeding should continue during infant illness as it is easily digestible and provides immunological factors."
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_SUIT_04",
+      "category": "food_suitability",
+      "question": "Can a child eat boiled vegetables?",
+      "expected_context": [
+        "vegetables",
+        "digestibility_boiled",
+        "high",
+        "glycemic_index",
+        "low",
+        "fiber_rich"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_SUIT_05",
+      "category": "food_suitability",
+      "question": "Is mashed fish suitable for a child with seafood allergy?",
+      "expected_context": [
+        "fish",
+        "allergy_tags",
+        "seafood_allergy"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_SUIT_06",
+      "category": "food_suitability",
+      "question": "Is food item F306 suitable for a child with allergies to that category?",
+      "expected_context": [
+        "allergy_tags",
+        "avoid_foods"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_SUIT_07",
+      "category": "food_suitability",
+      "question": "Is food item F307 suitable for a child with allergies to that category?",
+      "expected_context": [
+        "allergy_tags",
+        "avoid_foods"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_SUIT_08",
+      "category": "food_suitability",
+      "question": "Is food item F308 suitable for a child with allergies to that category?",
+      "expected_context": [
+        "allergy_tags",
+        "avoid_foods"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_SUIT_09",
+      "category": "food_suitability",
+      "question": "Is food item F309 suitable for a child with allergies to that category?",
+      "expected_context": [
+        "allergy_tags",
+        "avoid_foods"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_SUIT_10",
+      "category": "food_suitability",
+      "question": "Is food item F310 suitable for a child with allergies to that category?",
+      "expected_context": [
+        "allergy_tags",
+        "avoid_foods"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_SUIT_11",
+      "category": "food_suitability",
+      "question": "Is food item F311 suitable for a child with allergies to that category?",
+      "expected_context": [
+        "allergy_tags",
+        "avoid_foods"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_SUIT_12",
+      "category": "food_suitability",
+      "question": "Is food item F312 suitable for a child with allergies to that category?",
+      "expected_context": [
+        "allergy_tags",
+        "avoid_foods"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_SUIT_13",
+      "category": "food_suitability",
+      "question": "Is food item F313 suitable for a child with allergies to that category?",
+      "expected_context": [
+        "allergy_tags",
+        "avoid_foods"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_SUIT_14",
+      "category": "food_suitability",
+      "question": "Is food item F314 suitable for a child with allergies to that category?",
+      "expected_context": [
+        "allergy_tags",
+        "avoid_foods"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_SUIT_15",
+      "category": "food_suitability",
+      "question": "Is food item F315 suitable for a child with allergies to that category?",
+      "expected_context": [
+        "allergy_tags",
+        "avoid_foods"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_SUIT_16",
+      "category": "food_suitability",
+      "question": "Is food item F316 suitable for a child with allergies to that category?",
+      "expected_context": [
+        "allergy_tags",
+        "avoid_foods"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_SUIT_17",
+      "category": "food_suitability",
+      "question": "Is food item F317 suitable for a child with allergies to that category?",
+      "expected_context": [
+        "allergy_tags",
+        "avoid_foods"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_SUIT_18",
+      "category": "food_suitability",
+      "question": "Is food item F318 suitable for a child with allergies to that category?",
+      "expected_context": [
+        "allergy_tags",
+        "avoid_foods"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_SUIT_19",
+      "category": "food_suitability",
+      "question": "Is food item F319 suitable for a child with allergies to that category?",
+      "expected_context": [
+        "allergy_tags",
+        "avoid_foods"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_SUIT_20",
+      "category": "food_suitability",
+      "question": "Is food item F320 suitable for a child with allergies to that category?",
+      "expected_context": [
+        "allergy_tags",
+        "avoid_foods"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_GEN_01",
+      "category": "general_nutrition",
+      "question": "What food groups are essential for a balanced diet?",
+      "expected_context": [
+        "balanced_diet",
+        "food_groups",
+        "cereals",
+        "pulses",
+        "vegetables",
+        "fruits",
+        "milk"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_GEN_02",
+      "category": "general_nutrition",
+      "question": "What percentage of daily calories should come from carbohydrates, proteins, and fats?",
+      "expected_context": [
+        "macros",
+        "carbohydrates",
+        "50 to 60 percent",
+        "proteins",
+        "10 to 15 percent",
+        "fats",
+        "20 to 30 percent"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_GEN_03",
+      "category": "general_nutrition",
+      "question": "Why is dietary fiber important in children's diet?",
+      "expected_context": [
+        "Dietary fiber",
+        "improves digestion",
+        "reduces glucose absorption",
+        "satiety"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_GEN_04",
+      "category": "general_nutrition",
+      "question": "Why does combining cereals and pulses improve protein quality?",
+      "expected_context": [
+        "Combining cereals and pulses",
+        "better quality protein",
+        "complementary amino acids"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_GEN_05",
+      "category": "general_nutrition",
+      "question": "Why are fats necessary for children's health?",
+      "expected_context": [
+        "Fats",
+        "concentrated energy",
+        "absorption of fat-soluble vitamins"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_GEN_06",
+      "category": "general_nutrition",
+      "question": "Why is micronutrient adequacy important for a child of 3 years?",
+      "expected_context": [
+        "micronutrient",
+        "vitamins and minerals",
+        "immunity"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_GEN_07",
+      "category": "general_nutrition",
+      "question": "Why is micronutrient adequacy important for a child of 4 years?",
+      "expected_context": [
+        "micronutrient",
+        "vitamins and minerals",
+        "immunity"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_GEN_08",
+      "category": "general_nutrition",
+      "question": "Why is micronutrient adequacy important for a child of 5 years?",
+      "expected_context": [
+        "micronutrient",
+        "vitamins and minerals",
+        "immunity"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_GEN_09",
+      "category": "general_nutrition",
+      "question": "Why is micronutrient adequacy important for a child of 6 years?",
+      "expected_context": [
+        "micronutrient",
+        "vitamins and minerals",
+        "immunity"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    },
+    {
+      "id": "Q_GEN_10",
+      "category": "general_nutrition",
+      "question": "Why is micronutrient adequacy important for a child of 7 years?",
+      "expected_context": [
+        "micronutrient",
+        "vitamins and minerals",
+        "immunity"
+      ],
+      "relevant_chunk_ids": [],
+      "annotation_notes": ""
+    }
+  ]
+}

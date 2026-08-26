@@ -55,6 +55,21 @@ class KidsNutriEvaluator:
         
         # --- Step 1: System Execution ---
         retrieved_contexts = self.retriever.retrieve(question, top_k=5)
+        # Retrieval-metric identity must be the source record's own rag_data.json "id"
+        # (e.g. "rag_iron_absorption_heme_001"), not the chunker's internal child-chunk
+        # id (e.g. "rag_iron_absorption_heme_001_P0_C0", from rag/chunker.py's
+        # ParentChildChunker). Gold relevant_chunk_ids in the evaluation dataset are
+        # authored at the source-record level, and child-chunk boundaries are an
+        # embedding-index implementation detail that shifts whenever a record's text is
+        # edited - they are not a stable identifier to author gold data against. Prefer
+        # "source_id" (passed through by rag/services/prompt_context_service.py) and
+        # fall back to "id" only for any legacy/mocked retriever that doesn't supply it.
+        retrieved_chunk_ids = [
+            (chunk.get("source_id") or chunk.get("id"))
+            for chunk in retrieved_contexts
+            if chunk.get("source_id") or chunk.get("id")
+        ]
+        gold_relevant_chunk_ids = test_case.get("relevant_chunk_ids")
         plan = self.planner.generate_meal_plan(profile)
         
         from llm.prompt_templates import generate_llm_prompt
@@ -80,10 +95,10 @@ class KidsNutriEvaluator:
         except Exception as e:
             print(f"[!] Layer 1 Judge Error for QID {q_id}: {e}")
             traceback.print_exc()
-            relevance_data = {"relevance_map": []}
+            relevance_data = {"relevance_map": [], "parse_failed": True, "error": str(e)}
             recall_data = {"facts": []}
-            grounding_data = {"claims": []}
-            relevancy_data = {"generated_questions": []}
+            grounding_data = {"claims": [], "parse_failed": True, "error": str(e)}
+            relevancy_data = {"generated_questions": [], "parse_failed": True, "error": str(e)}
             safety_data = {"overall": "Parse_Error"}
             
         # --- Step 3: Layer 2 (Deterministic Mathematics) ---
@@ -91,25 +106,69 @@ class KidsNutriEvaluator:
             # 1. Retrieval Metrics
             rm = self.metrics["retrieval"]
             relevance_labels = [item.get("is_relevant", False) for item in relevance_data.get("relevance_map", [])]
-            precision_5 = rm.calculate_precision_at_k(relevance_labels, k=5)
-            mrr_5 = rm.calculate_mrr_at_k(relevance_labels, k=5)
-            ap_5 = rm.calculate_ap_at_k(relevance_labels, k=5)
+            precision_5_details = rm.calculate_precision_at_k_details(
+                relevance_labels,
+                k=5,
+                evaluation_failed=bool(relevance_data.get("parse_failed"))
+            )
+            precision_5 = precision_5_details["score"]
+            mrr_5_details = rm.calculate_mrr_at_k_details(
+                retrieved_chunk_ids,
+                gold_relevant_chunk_ids,
+                k=5
+            )
+            mrr_5 = mrr_5_details["score"]
+            ap_5_details = rm.calculate_ap_at_k_details(
+                retrieved_chunk_ids,
+                gold_relevant_chunk_ids,
+                k=5
+            )
+            ap_5 = ap_5_details["score"]
+            recall_5_details = rm.calculate_recall_at_k_details(
+                retrieved_chunk_ids,
+                gold_relevant_chunk_ids,
+                k=5
+            )
+            recall_5 = recall_5_details["score"]
             
             # 2. Grounding Metrics
             gm = self.metrics["grounding"]
             claims = grounding_data.get("claims", [])
-            faithfulness = gm.calculate_faithfulness(claims)
-            overall_hr = gm.calculate_overall_hallucination_rate(claims)
-            intrinsic_hr = gm.calculate_intrinsic_hallucination_rate(claims)
-            extrinsic_hr = gm.calculate_extrinsic_hallucination_rate(claims)
+            grounding_evaluation_failed = bool(grounding_data.get("parse_failed"))
+            faithfulness_details = gm.calculate_faithfulness_details(
+                claims,
+                evaluation_failed=grounding_evaluation_failed
+            )
+            faithfulness = faithfulness_details["score"]
+            unsupported_claim_rate_details = gm.calculate_unsupported_claim_rate_details(
+                claims,
+                evaluation_failed=grounding_evaluation_failed
+            )
+            unsupported_claim_rate = unsupported_claim_rate_details["score"]
+            response_hallucination_type_details = gm.calculate_response_hallucination_type_details(
+                claims,
+                evaluation_failed=grounding_evaluation_failed
+            )
+            if unsupported_claim_rate_details["status"] in (
+                gm.UNSUPPORTED_CLAIM_RATE_STATUS_VALID,
+                gm.UNSUPPORTED_CLAIM_RATE_STATUS_REAL_ZERO
+            ):
+                is_hallucinated = unsupported_claim_rate_details["score"] > 0
+            else:
+                is_hallucinated = None
             context_recall = gm.calculate_context_recall(recall_data.get("facts", []))
             
             # 3. Relevancy Metrics
             relm = self.metrics["relevancy"]
             questions_list = relevancy_data.get("generated_questions", [])
             # Reusing the existing embedding model from the retriever
-            relevancy_scores = relm.calculate_answer_relevancy(question, questions_list, self.retriever.model)
-            answer_relevancy = relevancy_scores.get("mean_similarity", 0.0)
+            relevancy_scores = relm.calculate_answer_relevancy(
+                question,
+                questions_list,
+                self.retriever.model,
+                evaluation_failed=bool(relevancy_data.get("parse_failed"))
+            )
+            answer_relevancy = relevancy_scores["mean_similarity"]
             
             # 4. Safety Metrics (Single case metadata, batch is computed in comparator)
             # We pass the raw outputs downstream so comparator.py can batch them.
@@ -117,9 +176,71 @@ class KidsNutriEvaluator:
         except Exception as e:
             print(f"[!] Layer 2 Metric Error for QID {q_id}: {e}")
             traceback.print_exc()
-            precision_5 = mrr_5 = ap_5 = 0.0
-            faithfulness = overall_hr = intrinsic_hr = extrinsic_hr = context_recall = 0.0
-            answer_relevancy = 0.0
+            precision_5 = None
+            precision_5_details = {
+                "score": None,
+                "status": "EVALUATION_FAILURE",
+                "k": 5,
+                "label_count": 0,
+                "relevant_count": None
+            }
+            mrr_5 = None
+            mrr_5_details = {
+                "score": None,
+                "status": getattr(rm, "MRR_STATUS_EVALUATION_FAILURE", "EVALUATION_FAILURE"),
+                "k": 5,
+                "retrieved_count": 0,
+                "first_relevant_rank": None,
+                "gold_relevant_count": None
+            }
+            ap_5 = None
+            ap_5_details = {
+                "score": None,
+                "status": "EVALUATION_FAILURE",
+                "k": 5,
+                "retrieved_count": 0,
+                "relevance_labels": [],
+                "retrieved_relevant_count": None,
+                "total_relevant_count": None
+            }
+            recall_5 = None
+            recall_5_details = {
+                "score": None,
+                "status": getattr(rm, "RECALL_STATUS_EVALUATION_FAILURE", "EVALUATION_FAILURE"),
+                "k": 5,
+                "retrieved_count": 0,
+                "retrieved_relevant_count": None,
+                "total_relevant_count": None
+            }
+            faithfulness = None
+            faithfulness_details = {
+                "score": None,
+                "status": "EVALUATION_FAILURE",
+                "supported_count": None,
+                "total_count": 0
+            }
+            unsupported_claim_rate = None
+            unsupported_claim_rate_details = {
+                "score": None,
+                "status": "EVALUATION_FAILURE",
+                "unsupported_count": None,
+                "total_count": 0
+            }
+            response_hallucination_type_details = {
+                "status": "EVALUATION_FAILURE",
+                "has_intrinsic": None,
+                "has_extrinsic": None,
+                "total_count": 0
+            }
+            is_hallucinated = None
+            context_recall = 0.0
+            answer_relevancy = None
+            relevancy_scores = {
+                "question_scores": [],
+                "mean_similarity": None,
+                "std_similarity": None,
+                "status": "EVALUATION_FAILURE"
+            }
             claims = []
 
         # --- Step 4: Aggregation ---
@@ -132,17 +253,46 @@ class KidsNutriEvaluator:
             "question": question,
             "response": response,
             "latency": latency,
-            # MAP is calculated across the dataset, but we store AP@5 here
             "ap_5": ap_5, 
+            "ap_5_status": ap_5_details["status"],
+            "ap_5_relevance_labels": ap_5_details["relevance_labels"],
+            "ap_5_retrieved_count": ap_5_details["retrieved_count"],
+            "ap_5_retrieved_relevant_count": ap_5_details["retrieved_relevant_count"],
+            "ap_5_total_relevant_count": ap_5_details["total_relevant_count"],
             "context_precision": precision_5, # Stored for backward compat if needed
+            "precision_at_5_status": precision_5_details["status"],
+            "precision_at_5_label_count": precision_5_details["label_count"],
+            "precision_at_5_relevant_count": precision_5_details["relevant_count"],
+            "recall_5": recall_5,
+            "recall_5_status": recall_5_details["status"],
+            "recall_5_retrieved_count": recall_5_details["retrieved_count"],
+            "recall_5_retrieved_relevant_count": recall_5_details["retrieved_relevant_count"],
+            "recall_5_total_relevant_count": recall_5_details["total_relevant_count"],
             "mrr_5": mrr_5,
+            "mrr_5_status": mrr_5_details["status"],
+            "mrr_5_first_relevant_rank": mrr_5_details["first_relevant_rank"],
+            "mrr_5_retrieved_count": mrr_5_details["retrieved_count"],
+            "mrr_5_gold_relevant_count": mrr_5_details["gold_relevant_count"],
             "context_recall": context_recall,
             "faithfulness": faithfulness,
+            "faithfulness_status": faithfulness_details["status"],
+            "faithfulness_supported_count": faithfulness_details["supported_count"],
+            "faithfulness_total_count": faithfulness_details["total_count"],
             "answer_relevancy": answer_relevancy,
-            "is_hallucinated": overall_hr > 0.0,
-            "intrinsic_hr": intrinsic_hr,
-            "extrinsic_hr": extrinsic_hr,
-            
+            "answer_relevancy_status": relevancy_scores["status"],
+            "answer_relevancy_valid_question_count": len(relevancy_scores.get("question_scores", [])),
+            "unsupported_claim_rate": unsupported_claim_rate,
+            "unsupported_claim_rate_status": unsupported_claim_rate_details["status"],
+            "unsupported_claim_rate_unsupported_count": unsupported_claim_rate_details["unsupported_count"],
+            "unsupported_claim_rate_total_count": unsupported_claim_rate_details["total_count"],
+            # is_hallucinated is None (not False) whenever the underlying evaluation
+            # was not VALID/REAL_ZERO - an unknown evaluation is never counted as a
+            # clean non-hallucinated response.
+            "is_hallucinated": is_hallucinated,
+            "has_intrinsic_claim": response_hallucination_type_details["has_intrinsic"],
+            "has_extrinsic_claim": response_hallucination_type_details["has_extrinsic"],
+            "hallucination_type_status": response_hallucination_type_details["status"],
+
             # Safety granular data
             "safety_judge_raw": safety_data,
             "is_safe": safety_data.get("overall", "").lower() in ["compliant", "refusal"],

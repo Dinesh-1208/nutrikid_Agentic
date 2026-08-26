@@ -1,0 +1,2289 @@
+{
+  "cases": [
+    {
+      "id": "EVAL_001",
+      "question": "What food groups should I include in my child's meals for a balanced diet?",
+      "category": "General Nutrition & Nutrients",
+      "subcategory": "balanced meals",
+      "age_group": "general pediatric (0-10 years)",
+      "knowledge_area": "G",
+      "source_scope": "rag",
+      "profile": null,
+      "relevant_chunk_ids": [
+        "RAG_GUIDELINE_1",
+        "RAG_G1_2",
+        "RAG_INTRO_6",
+        "RAG_G1_1",
+        "RAG_GROUP_1",
+        "RAG_GROUP_2"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_001_01",
+          "fact_text": "A balanced meal should include cereals, pulses, vegetables, fruits, and milk in appropriate proportions.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): RAG_GUIDELINE_1",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "RAG_GUIDELINE_1",
+            "RAG_G1_2",
+            "RAG_INTRO_6"
+          ],
+          "importance": "required"
+        },
+        {
+          "fact_id": "GF_EVAL_001_02",
+          "fact_text": "Consuming foods from at least five to seven different food groups helps ensure adequate nutrient intake.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): RAG_GROUP_1",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "RAG_GROUP_1",
+            "RAG_G1_1"
+          ],
+          "importance": "supporting"
+        }
+      ],
+      "reference_answer": "A balanced meal for a child should include cereals, pulses, vegetables, fruits, and milk in appropriate proportions — the current knowledge base recommends drawing from at least five to seven different food groups to help meet nutrient needs.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": ""
+    },
+    {
+      "id": "EVAL_002",
+      "question": "How much of my child's daily food should come from carbohydrates, protein, and fat?",
+      "category": "General Nutrition & Nutrients",
+      "subcategory": "macronutrient distribution",
+      "age_group": "general pediatric (0-10 years)",
+      "knowledge_area": "G",
+      "source_scope": "rag",
+      "profile": null,
+      "relevant_chunk_ids": [
+        "RAG_MACRO_1",
+        "RAG_MACRO_2",
+        "RAG_MACRO_3"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_002_01",
+          "fact_text": "A balanced diet should provide 50 to 60 percent of calories from carbohydrates.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): RAG_MACRO_1",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "RAG_MACRO_1"
+          ],
+          "importance": "required"
+        },
+        {
+          "fact_id": "GF_EVAL_002_02",
+          "fact_text": "Proteins should contribute about 10 to 15 percent of total calorie intake.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): RAG_MACRO_2",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "RAG_MACRO_2"
+          ],
+          "importance": "required"
+        },
+        {
+          "fact_id": "GF_EVAL_002_03",
+          "fact_text": "Fats should contribute about 20 to 30 percent of total calorie intake.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): RAG_MACRO_3",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "RAG_MACRO_3"
+          ],
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "A balanced diet should get roughly 50-60% of calories from carbohydrates, 10-15% from protein, and 20-30% from fat.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": ""
+    },
+    {
+      "id": "EVAL_003",
+      "question": "Why is it good to give my child cereals and pulses (like rice and dal) together?",
+      "category": "General Nutrition & Nutrients",
+      "subcategory": "protein quality",
+      "age_group": "general pediatric (0-10 years)",
+      "knowledge_area": "G",
+      "source_scope": "rag",
+      "profile": null,
+      "relevant_chunk_ids": [
+        "RAG_PROTEIN_2",
+        "RAG_GUIDE_2"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_003_01",
+          "fact_text": "Combining cereals and pulses provides better quality protein due to complementary amino acids.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): RAG_PROTEIN_2",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "RAG_PROTEIN_2",
+            "RAG_GUIDE_2"
+          ],
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "Giving cereals and pulses together (like rice and dal) provides better-quality protein than eating them separately, because their amino acid profiles complement each other.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": ""
+    },
+    {
+      "id": "EVAL_004",
+      "question": "Why is fiber important for my child's digestion?",
+      "category": "General Nutrition & Nutrients",
+      "subcategory": "dietary fiber",
+      "age_group": "general pediatric (0-10 years)",
+      "knowledge_area": "G",
+      "source_scope": "rag",
+      "profile": null,
+      "relevant_chunk_ids": [
+        "RAG_CARB_2",
+        "rag_fiber_001",
+        "rag_soluble_vs_insoluble_fiber_001",
+        "rag_dietary_fibre_benefits_001"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_004_01",
+          "fact_text": "Dietary fiber improves digestion, reduces the rate of glucose absorption, and increases satiety.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): RAG_CARB_2",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "RAG_CARB_2"
+          ],
+          "importance": "required"
+        },
+        {
+          "fact_id": "GF_EVAL_004_02",
+          "fact_text": "Dietary fiber increases gastrointestinal transit time and helps prevent constipation.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): rag_fiber_001",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "rag_fiber_001",
+            "rag_soluble_vs_insoluble_fiber_001"
+          ],
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "Fiber helps a child's digestion by improving gut transit, preventing constipation, slowing glucose absorption, and increasing fullness (satiety) after meals.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": ""
+    },
+    {
+      "id": "EVAL_005",
+      "question": "Do all vitamins need to be eaten every day, or does my child's body store some of them?",
+      "category": "General Nutrition & Nutrients",
+      "subcategory": "vitamins",
+      "age_group": "general pediatric (0-10 years)",
+      "knowledge_area": "G",
+      "source_scope": "rag",
+      "profile": null,
+      "relevant_chunk_ids": [
+        "RAG_VITAMIN_1"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_005_01",
+          "fact_text": "Fat-soluble vitamins can be stored in the body, while water-soluble vitamins need regular intake.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): RAG_VITAMIN_1",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "RAG_VITAMIN_1"
+          ],
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "Fat-soluble vitamins can be stored in the body for later use, but water-soluble vitamins are not stored the same way, so your child needs a regular, ongoing supply of those.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": "Precise single-chunk retrieval case: RAG_VITAMIN_2 (vitamins destroyed by heat/cooking) is a different fact about the same broad topic and was deliberately excluded as related-but-not-relevant."
+    },
+    {
+      "id": "EVAL_006",
+      "question": "Should I avoid giving my child tea around mealtimes?",
+      "category": "General Nutrition & Nutrients",
+      "subcategory": "iron absorption",
+      "age_group": "general pediatric (0-10 years)",
+      "knowledge_area": "G",
+      "source_scope": "rag",
+      "profile": null,
+      "relevant_chunk_ids": [
+        "RAG_IRON_3",
+        "rag_iron_002",
+        "RAG_FULL_3",
+        "RAG_IRON_7",
+        "rag_iron_absorption_heme_001"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_006_01",
+          "fact_text": "Tea reduces iron absorption and should not be consumed with, or near, meals.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): RAG_IRON_3",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "RAG_IRON_3",
+            "rag_iron_002",
+            "RAG_FULL_3",
+            "RAG_IRON_7"
+          ],
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "Yes — tea can reduce how much iron your child absorbs from a meal, so it's best avoided around mealtimes.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": ""
+    },
+    {
+      "id": "EVAL_007",
+      "question": "What foods should I pair with iron-rich foods to help my child absorb more iron?",
+      "category": "General Nutrition & Nutrients",
+      "subcategory": "iron absorption",
+      "age_group": "general pediatric (0-10 years)",
+      "knowledge_area": "G",
+      "source_scope": "rag",
+      "profile": null,
+      "relevant_chunk_ids": [
+        "RAG_IRON_2",
+        "RAG_FULL_2",
+        "RAG_DO_1",
+        "rag_iron_bioavailability_logic_001",
+        "rag_iron_absorption_heme_001",
+        "rag_iron_002"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_007_01",
+          "fact_text": "Vitamin C-rich foods improve iron absorption, especially from plant-based (non-heme) iron sources.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): RAG_IRON_2",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "RAG_IRON_2",
+            "RAG_FULL_2",
+            "RAG_DO_1",
+            "rag_iron_bioavailability_logic_001"
+          ],
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "Pairing iron-rich foods with Vitamin C-rich foods (like citrus fruits or tomatoes) helps your child absorb more iron, particularly from plant-based iron sources.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": ""
+    },
+    {
+      "id": "EVAL_008",
+      "question": "Which nutrients are especially important for my child's brain development?",
+      "category": "General Nutrition & Nutrients",
+      "subcategory": "nutrients for brain development",
+      "age_group": "general pediatric (0-10 years)",
+      "knowledge_area": "G",
+      "source_scope": "rag",
+      "profile": null,
+      "relevant_chunk_ids": [
+        "rag_super_nutrients_001",
+        "rag_smart_nutrients_brain_001"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_008_01",
+          "fact_text": "Vitamin A, Iron, Folic Acid, and Omega-3 fatty acids are highlighted as important nutrients for brain health.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): rag_super_nutrients_001",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "rag_super_nutrients_001"
+          ],
+          "importance": "required"
+        },
+        {
+          "fact_id": "GF_EVAL_008_02",
+          "fact_text": "Iron deficiency during critical brain-growth periods can cause lasting changes, including decreased dopaminergic receptors.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): rag_smart_nutrients_brain_001",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "rag_smart_nutrients_brain_001"
+          ],
+          "importance": "supporting"
+        }
+      ],
+      "reference_answer": "Vitamin A, iron, folic acid, and omega-3 fatty acids are highlighted as especially important for a child's brain development — with iron deficiency in particular linked to lasting effects on brain growth if it occurs during a critical period.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": ""
+    },
+    {
+      "id": "EVAL_009",
+      "question": "Why do minerals like calcium, iron, and zinc matter for my child's growth?",
+      "category": "General Nutrition & Nutrients",
+      "subcategory": "minerals",
+      "age_group": "general pediatric (0-10 years)",
+      "knowledge_area": "G",
+      "source_scope": "rag",
+      "profile": null,
+      "relevant_chunk_ids": [
+        "RAG_MINERAL_1",
+        "RAG_MINERAL_2",
+        "rag_trace_elements_002"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_009_01",
+          "fact_text": "Minerals such as calcium, iron, and zinc are essential for body functions like bone health, oxygen transport, and immunity.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): RAG_MINERAL_1",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "RAG_MINERAL_1"
+          ],
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "Minerals like calcium, iron, and zinc matter for your child's growth because they support bone health, help carry oxygen in the blood, and support the immune system.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": ""
+    },
+    {
+      "id": "EVAL_010",
+      "question": "When should I start giving my baby solid foods in addition to breastfeeding?",
+      "category": "Age-Specific Feeding",
+      "subcategory": "complementary feeding start",
+      "age_group": "6-12 months",
+      "knowledge_area": "A",
+      "source_scope": "rag",
+      "profile": null,
+      "relevant_chunk_ids": [
+        "RAG3002",
+        "RAG3001",
+        "RAG_LIFE_2",
+        "condition_readiness_001"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_010_01",
+          "fact_text": "Complementary foods should be introduced after six months of age, while breastfeeding continues.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): RAG3002",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "RAG3002",
+            "RAG3001",
+            "RAG_LIFE_2"
+          ],
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "Solid (complementary) foods should be introduced after about six months of age, alongside continued breastfeeding — breast milk alone is no longer enough on its own after that point.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": "goal_complementary_001 (structured DB, source_scope='both') gives the same timing fact from the structured side — see structured_records."
+    },
+    {
+      "id": "EVAL_011",
+      "question": "How often should I offer complementary foods to my 6-month-old?",
+      "category": "Age-Specific Feeding",
+      "subcategory": "complementary feeding frequency",
+      "age_group": "6-8 months",
+      "knowledge_area": "A",
+      "source_scope": "both",
+      "profile": {
+        "age": 0.6,
+        "condition": "infant_6_8_months"
+      },
+      "relevant_chunk_ids": [
+        "RAG_INF_1"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_011_01",
+          "fact_text": "Infants aged 6 to 8 months should be given complementary foods at least twice a day along with breastfeeding.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): RAG_INF_1",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "RAG_INF_1"
+          ],
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "For a 6-month-old, complementary foods should be offered at least twice a day, in addition to continued breastfeeding.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": "Precise-retrieval case: RAG3003 ('two to four times daily') is a differently-worded, non-band-specific complementary-feeding-frequency statement and was deliberately excluded because it does not specifically state the 6-8 month figure this question asks for."
+    },
+    {
+      "id": "EVAL_012",
+      "question": "How often should I offer complementary foods to my 9-month-old?",
+      "category": "Age-Specific Feeding",
+      "subcategory": "complementary feeding frequency",
+      "age_group": "9-12 months",
+      "knowledge_area": "A",
+      "source_scope": "both",
+      "profile": {
+        "age": 0.9,
+        "condition": "infant_9_12_months"
+      },
+      "relevant_chunk_ids": [
+        "RAG_INF_2"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_012_01",
+          "fact_text": "Infants aged 9 to 12 months should receive complementary foods at least three times a day.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): RAG_INF_2",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "RAG_INF_2"
+          ],
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "For a 9-month-old, complementary foods should be offered at least three times a day.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": "Precise-retrieval case, same reasoning as EVAL_011: RAG3003's generic 'two to four times' figure was excluded as not band-specific."
+    },
+    {
+      "id": "EVAL_013",
+      "question": "Is it okay to give my baby food with added sugar before they turn two?",
+      "category": "Age-Specific Feeding",
+      "subcategory": "added sugar",
+      "age_group": "0-24 months",
+      "knowledge_area": "A",
+      "source_scope": "rag",
+      "profile": null,
+      "relevant_chunk_ids": [
+        "RAG_INF_FULL_17",
+        "RAG_INF_10",
+        "RAG_RULE_1",
+        "RAG2005",
+        "RAG3007"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_013_01",
+          "fact_text": "Added sugar should be completely avoided for children below two years of age.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): RAG_INF_FULL_17",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "RAG_INF_FULL_17",
+            "RAG_INF_10",
+            "RAG_RULE_1",
+            "RAG2005",
+            "RAG3007"
+          ],
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "No — added sugar should be completely avoided in food given to a child under two years old.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": ""
+    },
+    {
+      "id": "EVAL_014",
+      "question": "How do I know if my baby is ready to start eating solid foods?",
+      "category": "Age-Specific Feeding",
+      "subcategory": "feeding readiness",
+      "age_group": "4-6 months",
+      "knowledge_area": "A",
+      "source_scope": "rag",
+      "profile": null,
+      "relevant_chunk_ids": [
+        "condition_readiness_001"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_014_01",
+          "fact_text": "Babies are biologically ready for semisolid foods at 4-6 months, when the extrusion reflex fades and intestinal amylase matures.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): condition_readiness_001",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "condition_readiness_001"
+          ],
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "A baby is generally considered biologically ready for solid foods between 4 and 6 months of age, once the tongue-thrust (extrusion) reflex fades and the digestive system's starch-digesting enzyme (amylase) matures.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": ""
+    },
+    {
+      "id": "EVAL_015",
+      "question": "By what age can my child start eating mashed versions of our regular family food?",
+      "category": "Age-Specific Feeding",
+      "subcategory": "family food transition",
+      "age_group": "around 1 year",
+      "knowledge_area": "A",
+      "source_scope": "rag",
+      "profile": null,
+      "relevant_chunk_ids": [
+        "goal_family_pot_001",
+        "RAG_INF_11"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_015_01",
+          "fact_text": "By around one year of age, a child should be eating thickened, mashed versions of the regular family food, without hot spices.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): RAG_INF_11",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "goal_family_pot_001",
+            "RAG_INF_11"
+          ],
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "By around one year of age, a child can start eating thickened, mashed versions of the family's regular food, without hot spices.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": ""
+    },
+    {
+      "id": "EVAL_016",
+      "question": "Why does my 2-year-old suddenly seem to eat less than before?",
+      "category": "Age-Specific Feeding",
+      "subcategory": "toddler feeding behavior",
+      "age_group": "2-3 years",
+      "knowledge_area": "B",
+      "source_scope": "rag",
+      "profile": {
+        "age": 2
+      },
+      "relevant_chunk_ids": [
+        "condition_toddler_001",
+        "condition_picky_001"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_016_01",
+          "fact_text": "Toddlers may experience physiological anorexia and reduced growth rates, which can reduce how much they eat.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): condition_toddler_001",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "condition_toddler_001"
+          ],
+          "importance": "required"
+        },
+        {
+          "fact_id": "GF_EVAL_016_02",
+          "fact_text": "Picky eating — food avoidance, slow eating, and reluctance to try new foods — typically peaks at age 2 to 3.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): condition_picky_001",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "condition_picky_001"
+          ],
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "Around age 2-3, many toddlers naturally go through a phase of 'physiological anorexia' — slower growth means they need relatively less food — and this is also the age when picky eating typically peaks, so reduced interest in food is common and usually not a cause for alarm on its own.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": "condition_supertaster_001 (genetic bitterness sensitivity) was found and considered but excluded as related-but-not-directly-relevant — it explains why specific vegetables taste bitter to some children, not the general 'eats less at 2-3' phenomenon this question asks about."
+    },
+    {
+      "id": "EVAL_017",
+      "question": "My toddler refuses new foods — how many times might I need to offer one before they accept it?",
+      "category": "Age-Specific Feeding",
+      "subcategory": "food acceptance",
+      "age_group": "1-3 years",
+      "knowledge_area": "B",
+      "source_scope": "rag",
+      "profile": null,
+      "relevant_chunk_ids": [
+        "rag_behavioral_001"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_017_01",
+          "fact_text": "Most children need to be offered a new food 10 to 15 times before they will try it.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): rag_behavioral_001",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "rag_behavioral_001"
+          ],
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "It's normal — most children need a new food offered around 10-15 times before they're willing to try it, so repeated, patient exposure helps.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": ""
+    },
+    {
+      "id": "EVAL_018",
+      "question": "Why is rice often given as one of the first foods when starting my baby on solids?",
+      "category": "Age-Specific Feeding",
+      "subcategory": "first weaning foods",
+      "age_group": "6 months",
+      "knowledge_area": "A",
+      "source_scope": "rag",
+      "profile": null,
+      "relevant_chunk_ids": [
+        "food_rice_porridge_001"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_018_01",
+          "fact_text": "Rice is considered a good first weaning cereal because it is gluten-free and easily digestible.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): food_rice_porridge_001",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "food_rice_porridge_001"
+          ],
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "Rice is often given as a first food when starting solids because it is gluten-free and easy for a baby to digest.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": ""
+    },
+    {
+      "id": "EVAL_019",
+      "question": "My child has a nut allergy — what foods should I avoid giving them?",
+      "category": "Allergies & Intolerances",
+      "subcategory": "nut allergy",
+      "age_group": "general pediatric (0-10 years)",
+      "knowledge_area": "E",
+      "source_scope": "structured_db",
+      "profile": {
+        "age": 4,
+        "allergies": [
+          "nut_allergy"
+        ]
+      },
+      "relevant_chunk_ids": null,
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_019_01",
+          "fact_text": "A child with a nut allergy should avoid nuts, seeds, peanut powder, and sesame powder.",
+          "source_reference": {
+            "source_org": "KidsNutriBite structured database (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "data/structured_db/allergies.json: allergy='nut_allergy' records (avoid_foods: nuts_seeds, nuts, peanut_powder, sesame_powder)",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": null,
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "For a child with a nut allergy, the current records say to avoid nuts and seeds generally, as well as peanut powder and sesame powder.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": "No RAG chunk discusses nut-allergy avoidance specifically (RAG_G1_9/RAG_COOK_3 mention nuts/peanut/sesame powder only as general nutrition/energy-density additions, not allergy guidance) — relevant_chunk_ids is null, not []."
+    },
+    {
+      "id": "EVAL_020",
+      "question": "Can my child with a nut allergy eat food made with peanut powder?",
+      "category": "Allergies & Intolerances",
+      "subcategory": "nut allergy",
+      "age_group": "general pediatric (0-10 years)",
+      "knowledge_area": "E",
+      "source_scope": "structured_db",
+      "profile": {
+        "age": 3,
+        "allergies": [
+          "nut_allergy"
+        ]
+      },
+      "relevant_chunk_ids": null,
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_020_01",
+          "fact_text": "Peanut powder is listed as a food to avoid for a child with a nut allergy.",
+          "source_reference": {
+            "source_org": "KidsNutriBite structured database (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "data/structured_db/allergies.json: allergy='nut_allergy', avoid_foods includes 'peanut_powder'",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": null,
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "No — peanut powder is one of the foods listed to avoid for a child with a nut allergy.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": "No RAG chunk found. relevant_chunk_ids is null."
+    },
+    {
+      "id": "EVAL_021",
+      "question": "My child has an egg allergy — what foods should I avoid?",
+      "category": "Allergies & Intolerances",
+      "subcategory": "egg allergy",
+      "age_group": "general pediatric (0-10 years)",
+      "knowledge_area": "E",
+      "source_scope": "structured_db",
+      "profile": {
+        "age": 3,
+        "allergies": [
+          "egg_protein"
+        ]
+      },
+      "relevant_chunk_ids": null,
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_021_01",
+          "fact_text": "A child with an egg protein allergy should avoid boiled egg, egg pudding, eggnog, grated boiled egg, and plain dalia with boiled egg.",
+          "source_reference": {
+            "source_org": "KidsNutriBite structured database (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "data/structured_db/allergies.json: allergy='egg_protein' records (avoid_foods: grated_boiled_egg, egg_pudding, eggnog, plain_dalia_boiled_egg, boiled_egg)",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": null,
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "For a child with an egg protein allergy, the current records say to avoid boiled egg, egg pudding, eggnog, grated boiled egg, and boiled egg mixed with dalia.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": "rag_antinutrients_001 (trypsin inhibitor/ovomucoid in egg white) was considered but excluded — it is a food-science fact about heat-labile antinutrients, not allergy-avoidance guidance for a child with a diagnosed egg allergy. relevant_chunk_ids is null."
+    },
+    {
+      "id": "EVAL_022",
+      "question": "What foods should I avoid if my child has a milk allergy?",
+      "category": "Allergies & Intolerances",
+      "subcategory": "milk allergy",
+      "age_group": "general pediatric (0-10 years)",
+      "knowledge_area": "E",
+      "source_scope": "structured_db",
+      "profile": {
+        "age": 3,
+        "allergies": [
+          "milk"
+        ]
+      },
+      "relevant_chunk_ids": [
+        "rag_food_allergy_cross_reactivity_001"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_022_01",
+          "fact_text": "A child with a milk allergy should avoid eggnog, milk-added recipes, milk-added foods, and curd.",
+          "source_reference": {
+            "source_org": "KidsNutriBite structured database (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "data/structured_db/allergies.json: allergy='milk' records (avoid_foods: eggnog, milk_added_recipes, milk_added_foods, curd)",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": null,
+          "importance": "required"
+        },
+        {
+          "fact_id": "GF_EVAL_022_02",
+          "fact_text": "Soya protein allergy often develops as a cross-reacting response in infants who already have a cow's milk allergy; soya protein isolate is considered safer than whole soya flour in that situation.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): rag_food_allergy_cross_reactivity_001",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "rag_food_allergy_cross_reactivity_001"
+          ],
+          "importance": "supporting"
+        }
+      ],
+      "reference_answer": "For a child with a milk allergy, the current records say to avoid eggnog, milk-added recipes, milk-added foods, and curd. The knowledge base also notes that infants with a cow's milk allergy often cross-react to soya, so soya-based foods may need caution too (soya protein isolate is considered safer than whole soya flour).",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": "SOURCE-SCOPE FLAG: this case's Phase 2B metadata says source_scope='structured_db', but exhaustive full-corpus search found rag_food_allergy_cross_reactivity_001 to be genuinely relevant. Per Phase 2C instructions, this is flagged for review rather than silently editing the locked Phase 2B metadata."
+    },
+    {
+      "id": "EVAL_023",
+      "question": "What are the symptoms of cow's milk protein allergy (CMPA) in a baby, and what triggers it?",
+      "category": "Allergies & Intolerances",
+      "subcategory": "cow's milk protein allergy",
+      "age_group": "infant (0-2 years)",
+      "knowledge_area": "E",
+      "source_scope": "structured_db",
+      "profile": {
+        "age": 1,
+        "allergies": [
+          "cow_milk_protein_allergy"
+        ]
+      },
+      "relevant_chunk_ids": null,
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_023_01",
+          "fact_text": "Cow's milk protein allergy (CMPA) is triggered by lactoglobulin and alpha casein.",
+          "source_reference": {
+            "source_org": "KidsNutriBite structured database (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "data/structured_db/allergies.json: allergy='cow_milk_protein_allergy', triggers field",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": null,
+          "importance": "required"
+        },
+        {
+          "fact_id": "GF_EVAL_023_02",
+          "fact_text": "Symptoms of CMPA include diarrhoea, respiratory allergy, and eczema.",
+          "source_reference": {
+            "source_org": "KidsNutriBite structured database (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "data/structured_db/allergies.json: allergy='cow_milk_protein_allergy', symptoms field",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": null,
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "Cow's milk protein allergy is triggered by proteins called lactoglobulin and alpha casein, and can show up as diarrhoea, respiratory allergy symptoms, or eczema.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": "No RAG chunk in the corpus discusses lactoglobulin/alpha-casein triggers specifically. relevant_chunk_ids is null."
+    },
+    {
+      "id": "EVAL_024",
+      "question": "My baby seems sensitive to milk protein — what does that mean, and what should I avoid feeding them?",
+      "category": "Allergies & Intolerances",
+      "subcategory": "milk protein enteropathy",
+      "age_group": "infant (0-2 years)",
+      "knowledge_area": "E",
+      "source_scope": "structured_db",
+      "profile": {
+        "age": 0.8,
+        "allergies": [
+          "milk_protein_sensitive_enteropathy"
+        ]
+      },
+      "relevant_chunk_ids": null,
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_024_01",
+          "fact_text": "Milk protein sensitive enteropathy is an intestinal sensitivity to animal milk proteins that causes blood loss.",
+          "source_reference": {
+            "source_org": "KidsNutriBite structured database (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "data/structured_db/allergies.json: allergy='milk_protein_sensitive_enteropathy', description field",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": null,
+          "importance": "required"
+        },
+        {
+          "fact_id": "GF_EVAL_024_02",
+          "fact_text": "Bovine milk and unmodified cow milk should be avoided with milk protein sensitive enteropathy.",
+          "source_reference": {
+            "source_org": "KidsNutriBite structured database (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "data/structured_db/allergies.json: allergy='milk_protein_sensitive_enteropathy', avoid_foods field",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": null,
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "Milk protein sensitive enteropathy is an intestinal sensitivity to animal milk proteins that can cause blood loss — the current records say to avoid bovine milk and unmodified cow's milk.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": "No matching RAG chunk found. relevant_chunk_ids is null."
+    },
+    {
+      "id": "EVAL_025",
+      "question": "My child has gluten sensitivity — what grains should I avoid, and what can I use instead?",
+      "category": "Allergies & Intolerances",
+      "subcategory": "gluten sensitivity",
+      "age_group": "infant (0-2 years)",
+      "knowledge_area": "E",
+      "source_scope": "structured_db",
+      "profile": {
+        "age": 1,
+        "allergies": [
+          "gluten_sensitivity"
+        ]
+      },
+      "relevant_chunk_ids": null,
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_025_01",
+          "fact_text": "A child with gluten sensitivity should avoid wheat, barley, and rye.",
+          "source_reference": {
+            "source_org": "KidsNutriBite structured database (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "data/structured_db/allergies.json: allergy='gluten_sensitivity', avoid_foods field",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": null,
+          "importance": "required"
+        },
+        {
+          "fact_id": "GF_EVAL_025_02",
+          "fact_text": "Rice is a suggested alternative grain for gluten sensitivity.",
+          "source_reference": {
+            "source_org": "KidsNutriBite structured database (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "data/structured_db/allergies.json: allergy='gluten_sensitivity', preferred_alternative field",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": null,
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "A child with gluten sensitivity should avoid wheat, barley, and rye — rice is suggested as an alternative grain.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": "No RAG chunk specifically discusses gluten-sensitivity avoidance (food_rice_porridge_001 separately notes rice is gluten-free, but as a general weaning fact, not gluten-sensitivity guidance — considered but kept out of relevant_chunk_ids since it does not itself discuss gluten sensitivity as a condition). relevant_chunk_ids is null."
+    },
+    {
+      "id": "EVAL_026",
+      "question": "What foods should I avoid if my child has a fish allergy?",
+      "category": "Allergies & Intolerances",
+      "subcategory": "fish allergy",
+      "age_group": "general pediatric (0-10 years)",
+      "knowledge_area": "E",
+      "source_scope": "structured_db",
+      "profile": {
+        "age": 5,
+        "allergies": [
+          "fish"
+        ]
+      },
+      "relevant_chunk_ids": null,
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_026_01",
+          "fact_text": "A child with a fish allergy should avoid mashed fish, pomfret fish mashed, and murrel fish mashed.",
+          "source_reference": {
+            "source_org": "KidsNutriBite structured database (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "data/structured_db/allergies.json: allergy='fish' records (avoid_foods: mashed_fish, pomfret_fish_mashed, murrel_fish_mashed)",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": null,
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "For a child with a fish allergy, the current records say to avoid mashed fish, pomfret fish (mashed), and murrel fish (mashed).",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": "rag_saxitoxin_red_tide_001 (shellfish toxin poisoning) was considered but excluded as a different topic (toxin-based food poisoning, not IgE fish allergy). relevant_chunk_ids is null."
+    },
+    {
+      "id": "EVAL_027",
+      "question": "Is lactose intolerance the same thing as a milk allergy?",
+      "category": "Allergies & Intolerances",
+      "subcategory": "allergy vs intolerance taxonomy",
+      "age_group": "general pediatric (0-10 years)",
+      "knowledge_area": "E",
+      "source_scope": "structured_db",
+      "profile": null,
+      "relevant_chunk_ids": [
+        "RAG_INF_FULL_12",
+        "RAG_INF_FULL_13"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_027_01",
+          "fact_text": "The knowledge base records lactose intolerance / milk-lactose sensitivity as a separate entry from a true cow's milk protein allergy, each with its own avoid-foods list.",
+          "source_reference": {
+            "source_org": "KidsNutriBite structured database (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "data/structured_db/allergies.json: allergy='lactose_intolerance'/'milk_lactose' vs. allergy='milk'/'cow_milk_protein_allergy' (distinct records)",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": null,
+          "importance": "required"
+        },
+        {
+          "fact_id": "GF_EVAL_027_02",
+          "fact_text": "Lactose intolerance during diarrhea is usually temporary and can be managed by reducing milk intake, with curd usable as an alternative.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): RAG_INF_FULL_12",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "RAG_INF_FULL_12",
+            "RAG_INF_FULL_13"
+          ],
+          "importance": "supporting"
+        }
+      ],
+      "reference_answer": "Not according to how the current system records them: lactose intolerance and a true cow's milk protein allergy are kept as separate entries in the knowledge base, each with a different avoid-foods list — lactose intolerance is treated more like a manageable digestive sensitivity (for example, temporary during diarrhea, sometimes handled just by reducing milk or switching to curd), while cow's milk protein allergy is recorded as its own condition with its own specific triggers and symptoms.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": "SOURCE-SCOPE FLAG: same as EVAL_022 — Phase 2B metadata says 'structured_db' but genuine supporting RAG content exists (RAG_INF_FULL_12/13). Flagged for review, not silently edited."
+    },
+    {
+      "id": "EVAL_028",
+      "question": "What foods can help my child who has iron deficiency anemia?",
+      "category": "Pediatric Conditions",
+      "subcategory": "anemia",
+      "age_group": "school-age (6-9 years)",
+      "knowledge_area": "D",
+      "source_scope": "both",
+      "profile": {
+        "age": 6,
+        "condition": "iron_deficiency_anaemia",
+        "goal": "iron_boost"
+      },
+      "relevant_chunk_ids": [
+        "RAG_IRON_1",
+        "RAG_FULL_1",
+        "RAG_IRON_5",
+        "RAG_IRON_6",
+        "RAG_IRON_2",
+        "RAG_FULL_2",
+        "RAG_DO_1",
+        "RAG_IRON_3",
+        "RAG_FULL_3",
+        "RAG_IRON_7",
+        "rag_iron_bioavailability_logic_001",
+        "rag_iron_absorption_heme_001",
+        "RAG_MINERAL_2"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_028_01",
+          "fact_text": "Iron is essential for hemoglobin production and preventing anemia.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): RAG_IRON_1",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "RAG_IRON_1",
+            "RAG_FULL_1",
+            "RAG_MINERAL_2"
+          ],
+          "importance": "required"
+        },
+        {
+          "fact_id": "GF_EVAL_028_02",
+          "fact_text": "Green leafy vegetables, pulses, and dry fruits are plant sources of iron; iron from animal foods is better absorbed than iron from plant sources.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): RAG_IRON_5",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "RAG_IRON_5",
+            "RAG_IRON_6"
+          ],
+          "importance": "required"
+        },
+        {
+          "fact_id": "GF_EVAL_028_03",
+          "fact_text": "Vitamin C-rich foods improve iron absorption and should be included alongside iron-rich foods.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): RAG_IRON_2",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "RAG_IRON_2",
+            "RAG_FULL_2",
+            "RAG_DO_1"
+          ],
+          "importance": "supporting"
+        },
+        {
+          "fact_id": "GF_EVAL_028_04",
+          "fact_text": "Tea reduces iron absorption and should not be consumed with meals.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): RAG_IRON_3",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "RAG_IRON_3",
+            "RAG_FULL_3",
+            "RAG_IRON_7"
+          ],
+          "importance": "supporting"
+        }
+      ],
+      "reference_answer": "For iron deficiency anemia, the knowledge base recommends iron-rich foods — animal sources (better absorbed) as well as plant sources like green leafy vegetables, pulses, and dry fruits — paired with Vitamin C-rich foods to boost absorption, while avoiding tea around mealtimes since it reduces iron absorption.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": "Two RAG chunks give slightly different heme-iron bioavailability percentages (rag_iron_bioavailability_logic_001 says heme=35%, rag_iron_absorption_heme_001 says heme=15%) — a genuine internal KB inconsistency, flagged rather than silently resolved; neither figure was used in the reference answer to avoid picking a side. RAG_FOLATE_2 (folate-rich foods) was considered but excluded — folate deficiency anemia is a different mechanism from the iron_deficiency_anaemia condition this case's profile specifies. AUDIT FLAG (targeted gold-annotation audit, this pass): two of this case's supporting relevant_chunk_ids give genuinely CONTRADICTORY heme-iron bioavailability percentages — rag_iron_bioavailability_logic_001 states heme iron is 35% bioavailable, while rag_iron_absorption_heme_001 states heme iron is 15% bioavailable. Neither figure was used in gold_facts or the reference_answer (both stay qualitative — 'iron from animal foods is better absorbed than plant sources' — without citing a specific percentage), so the contradiction does not corrupt the gold fact/reference-answer content itself, but the two conflicting chunks remain listed as relevant_chunk_ids for retrieval-metric purposes since both are genuinely on-topic and retrievable. Flagged per the project's standing source-conflict policy: recorded, not silently resolved. A human reviewer should decide whether to keep, exclude, or annotate both percentage-bearing chunks specially in a future pass. RESOLVED (2026-08-26): external verification (docs/evaluation/eval_028_iron_bioavailability_verification.md) established that 15% and 35% are not competing errors but the two ends of one peer-reviewed range (“approximately 15–35%”, Piskin et al. 2022, ACS Omega, PMC9219084), varying with the individual's iron status. Both RAG records (rag_iron_bioavailability_logic_001, rag_iron_absorption_heme_001) have been updated in data/rag/rag_data.json to state “approximately 15-35%… varying with iron status” instead of a single fixed value, and data/rag/faiss.index + data/rag/metadata.pkl have been rebuilt so the corrected text is retrievable. Status escalated back down from NEEDS_REVIEW to ANNOTATED because (a) the underlying KB conflict is resolved, not merely tolerated, and (b) this case's gold_facts/reference_answer never cited either disputed percentage in the first place, so no gold-content change was needed or made."
+    },
+    {
+      "id": "EVAL_029",
+      "question": "What should I feed my child if they are underweight or malnourished?",
+      "category": "Pediatric Conditions",
+      "subcategory": "malnutrition",
+      "age_group": "1-3 years",
+      "knowledge_area": "D",
+      "source_scope": "both",
+      "profile": {
+        "age": 3,
+        "condition": "malnutrition",
+        "goal": "prevent_malnutrition"
+      },
+      "relevant_chunk_ids": [
+        "rag_pem_nutri_therapy_001",
+        "rag_pem_nutri_therapy_002",
+        "rag_sat_mix_therapeutic_recipe_001",
+        "rag_home_feeding_discharged_001"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_029_01",
+          "fact_text": "Nutritional restoration for a malnourished child targets 150-200 kcal/kg/day and 3-4 g protein/kg/day.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): rag_pem_nutri_therapy_001",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "rag_pem_nutri_therapy_001"
+          ],
+          "importance": "supporting"
+        },
+        {
+          "fact_id": "GF_EVAL_029_02",
+          "fact_text": "SAT Mix (rice, wheat, black gram, and sugar in a 1:1:1:2 ratio) is a recommended high-calorie, high-protein local recovery food, providing about 380 kcal and 8g protein per 100g.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): rag_pem_nutri_therapy_002",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "rag_pem_nutri_therapy_002",
+            "rag_sat_mix_therapeutic_recipe_001"
+          ],
+          "importance": "required"
+        },
+        {
+          "fact_id": "GF_EVAL_029_03",
+          "fact_text": "After discharge, a recovering child should be fed at least 5 times a day, with high-energy snacks between meals.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): rag_home_feeding_discharged_001",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "rag_home_feeding_discharged_001"
+          ],
+          "importance": "supporting"
+        },
+        {
+          "fact_id": "GF_EVAL_029_04",
+          "fact_text": "A malnourished child needs a balanced, nutrient-dense diet and should avoid junk food, high sugar, and high fat foods.",
+          "source_reference": {
+            "source_org": "KidsNutriBite structured database (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "data/structured_db/conditions.json: condition_name='malnutrition'",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": null,
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "A malnourished child needs a balanced, nutrient-dense diet, avoiding junk food and foods high in sugar or fat. The knowledge base's recovery-focused guidance suggests frequent feeding (at least 5 times a day with energy-dense snacks) and calorie/protein-dense foods such as the traditional SAT Mix (rice, wheat, black gram, and sugar).",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": "The rag_pem_nutri_therapy_* / SAT-Mix / F-75/F-100 content in the corpus is written in clinical Severe-Acute-Malnutrition (SAM) treatment language; it was judged genuinely relevant background for 'what dietary approach helps a malnourished child' but the reference answer avoids importing SAM-specific clinical thresholds as if they applied to every malnourished child."
+    },
+    {
+      "id": "EVAL_030",
+      "question": "Should I keep feeding my baby if they have diarrhea?",
+      "category": "Pediatric Conditions",
+      "subcategory": "infant illness feeding",
+      "age_group": "6-12 months",
+      "knowledge_area": "D",
+      "source_scope": "rag",
+      "profile": {
+        "age": 0.8,
+        "condition": "infant_diarrhea"
+      },
+      "relevant_chunk_ids": [
+        "RAG3006",
+        "condition_illness_001",
+        "RAG_INF_FULL_12"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_030_01",
+          "fact_text": "Feeding should continue during a child's illness to prevent malnutrition.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): RAG3006",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "RAG3006"
+          ],
+          "importance": "required"
+        },
+        {
+          "fact_id": "GF_EVAL_030_02",
+          "fact_text": "Breastfeeding should continue during infant illness, as breast milk is easily digestible and provides immunological factors.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): condition_illness_001",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "condition_illness_001"
+          ],
+          "importance": "required"
+        },
+        {
+          "fact_id": "GF_EVAL_030_03",
+          "fact_text": "Any lactose intolerance that appears during diarrhea is usually temporary and can be managed by reducing milk intake.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): RAG_INF_FULL_12",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "RAG_INF_FULL_12"
+          ],
+          "importance": "supporting"
+        }
+      ],
+      "reference_answer": "Yes — feeding, including breastfeeding, should continue during diarrhea; breast milk is easily digested and provides immune-protective factors. If some temporary lactose intolerance appears during the illness, it can usually be managed by reducing (not necessarily stopping) milk intake.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": ""
+    },
+    {
+      "id": "EVAL_031",
+      "question": "What extra feeding care does a low-birth-weight baby need?",
+      "category": "Pediatric Conditions",
+      "subcategory": "low birth weight",
+      "age_group": "0-6 months",
+      "knowledge_area": "D",
+      "source_scope": "rag",
+      "profile": {
+        "age": 0.1,
+        "condition": "low_birth_weight"
+      },
+      "relevant_chunk_ids": [
+        "condition_preterm_002",
+        "food_preterm_milk_001",
+        "goal_minimal_enteral_001",
+        "condition_kmc_001",
+        "condition_preterm_001"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_031_01",
+          "fact_text": "Preterm infants have higher growth velocity than term babies but start with very little nutrient stores, so their nutrient needs are higher.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): condition_preterm_002",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "condition_preterm_002"
+          ],
+          "importance": "required"
+        },
+        {
+          "fact_id": "GF_EVAL_031_02",
+          "fact_text": "Preterm milk is naturally more nutrient-dense than term breast milk, with more protein, sodium, and IgA.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): food_preterm_milk_001",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "food_preterm_milk_001"
+          ],
+          "importance": "required"
+        },
+        {
+          "fact_id": "GF_EVAL_031_03",
+          "fact_text": "Kangaroo Mother Care — skin-to-skin contact with the mother — provides warmth, nutrition support, and stimulation for a low-birth-weight infant.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): condition_kmc_001",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "condition_kmc_001"
+          ],
+          "importance": "supporting"
+        }
+      ],
+      "reference_answer": "A low-birth-weight or preterm baby has higher nutrient needs relative to very small reserves, and their mother's own milk naturally adjusts to be more nutrient-dense (more protein, sodium, and IgA) to help meet this. Practices like Kangaroo Mother Care (skin-to-skin contact) also support feeding, warmth, and growth in these babies.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": "condition_lbw_001 (vitamin K 0.5-1mg dose at birth) was found and deliberately excluded — it is a medical prophylaxis fact, not dietary/feeding care, and is not what this feeding-focused question asks about."
+    },
+    {
+      "id": "EVAL_032",
+      "question": "How should I manage meals for my child who is overweight?",
+      "category": "Pediatric Conditions",
+      "subcategory": "overweight/obesity",
+      "age_group": "school-age (6-9 years)",
+      "knowledge_area": "D",
+      "source_scope": "structured_db",
+      "profile": {
+        "age": 8,
+        "condition": "overweight_obesity",
+        "goal": "weight_management"
+      },
+      "relevant_chunk_ids": [
+        "RAG_SCENARIO_3",
+        "RAG_FAT_2"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_032_01",
+          "fact_text": "A child with overweight/obesity should have controlled-portion meals that are low in fat and sugar and high in fiber, avoiding processed foods.",
+          "source_reference": {
+            "source_org": "KidsNutriBite structured database (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "data/structured_db/conditions.json: condition_name='overweight_obesity'",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": null,
+          "importance": "required"
+        },
+        {
+          "fact_id": "GF_EVAL_032_02",
+          "fact_text": "High consumption of processed foods rich in sugar, fat, and salt contributes to obesity.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): RAG_SCENARIO_3",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "RAG_SCENARIO_3",
+            "RAG_FAT_2"
+          ],
+          "importance": "supporting"
+        }
+      ],
+      "reference_answer": "For an overweight child, the current guidance points toward controlled-portion meals that are low in fat and sugar and higher in fiber, cutting back on processed foods — since these are specifically linked to obesity.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": "A large amount of adult-oriented/mechanistic obesity content exists in the corpus (insulin resistance, metabolic syndrome, leptin/adipokine biology, bariatric surgery, BMI classification tables) — all deliberately excluded as either adult-scoped or pathophysiology-level detail that does not answer a parent's practical 'how should I manage meals' question for a child."
+    },
+    {
+      "id": "EVAL_033",
+      "question": "How should I adjust my child's feeding after they recover from an illness?",
+      "category": "Pediatric Conditions",
+      "subcategory": "post-illness recovery feeding",
+      "age_group": "1-3 years",
+      "knowledge_area": "D",
+      "source_scope": "rag",
+      "profile": {
+        "age": 2,
+        "condition": "infant_illness_feeding"
+      },
+      "relevant_chunk_ids": [
+        "condition_illness_003"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_033_01",
+          "fact_text": "After an illness, a child should be given an extra meal daily for 1-2 weeks to help regain any lost weight.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): condition_illness_003",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "condition_illness_003"
+          ],
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "After your child recovers from an illness, offer one extra meal a day for about 1-2 weeks to help them regain any weight lost during the illness.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": ""
+    },
+    {
+      "id": "EVAL_034",
+      "question": "What are the signs that my child might have a zinc deficiency?",
+      "category": "Pediatric Conditions",
+      "subcategory": "zinc deficiency",
+      "age_group": "4-6 years",
+      "knowledge_area": "D",
+      "source_scope": "rag",
+      "profile": {
+        "age": 5,
+        "condition": "zinc_deficiency_signs"
+      },
+      "relevant_chunk_ids": [
+        "rag_trace_elements_002"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_034_01",
+          "fact_text": "Zinc deficiency can cause acrodermatitis enteropathica (a skin condition) and reduced taste sensation.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): rag_trace_elements_002",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "rag_trace_elements_002"
+          ],
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "Signs of zinc deficiency can include a skin condition called acrodermatitis enteropathica and a reduced sense of taste.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": ""
+    },
+    {
+      "id": "EVAL_035",
+      "question": "Can I continue breastfeeding if I have a viral fever?",
+      "category": "Pediatric Conditions",
+      "subcategory": "breastfeeding during maternal illness",
+      "age_group": "0-6 months",
+      "knowledge_area": "D",
+      "source_scope": "rag",
+      "profile": {
+        "age": 0.3,
+        "condition": "breastfeeding"
+      },
+      "relevant_chunk_ids": [
+        "condition_maternal_illness_001",
+        "RAG_BF_27"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_035_01",
+          "fact_text": "Breastfeeding can continue during most maternal illnesses, including viral fever, mastitis, and UTI.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): condition_maternal_illness_001",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "condition_maternal_illness_001",
+            "RAG_BF_27"
+          ],
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "Yes — you can usually keep breastfeeding through a viral fever; breastfeeding can continue during most common maternal illnesses like viral fever, mastitis, and UTI, unless a doctor specifically advises otherwise.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": ""
+    },
+    {
+      "id": "EVAL_036",
+      "question": "Why might a baby with congestive heart failure be given expressed breast milk instead of other feeds?",
+      "category": "Pediatric Conditions",
+      "subcategory": "congestive heart failure feeding",
+      "age_group": "0-6 months",
+      "knowledge_area": "D",
+      "source_scope": "rag",
+      "profile": {
+        "age": 0.4,
+        "condition": "congestive_heart_failure_infant"
+      },
+      "relevant_chunk_ids": [
+        "condition_illness_002"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_036_01",
+          "fact_text": "Babies with congestive heart failure benefit from expressed breast milk due to its low sodium content.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): condition_illness_002",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "condition_illness_002"
+          ],
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "Expressed breast milk is often preferred for a baby with congestive heart failure because it is naturally low in sodium, which helps reduce the fluid-retention burden on the heart.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": "REPLACEMENT for the original EVAL_036 ('What feeding approach can help a child who isn't gaining weight due to a known medical condition?'), which was removed because the current KB only supports the Organic-vs-Psychosocial Failure-to-Thrive classification (condition_ftt_001) without a specific organic-FTT feeding protocol — insufficiently specific for a gold reference answer. This replacement uses a single, unambiguous, non-conflicting RAG chunk (condition_illness_002) with clear condition-specific feeding guidance. Full-corpus search found no other chunk discussing congestive-heart-failure infant feeding, so there is no competing or conflicting value for this fact."
+    },
+    {
+      "id": "EVAL_037",
+      "question": "At what age can I start giving my child nuts?",
+      "category": "Food Safety & Suitability",
+      "subcategory": "age-appropriate foods",
+      "age_group": "1-2 years",
+      "knowledge_area": "H",
+      "source_scope": "structured_db",
+      "profile": null,
+      "relevant_chunk_ids": null,
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_037_01",
+          "fact_text": "The minimum age recorded for giving a child nuts (or nuts/seeds) is 2 years.",
+          "source_reference": {
+            "source_org": "KidsNutriBite structured database (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "data/structured_db/foods.json: food_name='nuts'/'nuts_seeds' (F205, F304, F405), age_min=2",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": null,
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "According to the current food records, nuts can be introduced from age 2 onward.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": "No RAG chunk states this age threshold. relevant_chunk_ids is null. This uses only the unambiguous, years-based age_min cluster (see Phase 2B revision notes on the months-vs-years age_min bug in infant-specific food records) — no infant-band age_min record was used here."
+    },
+    {
+      "id": "EVAL_038",
+      "question": "At what age can I start giving my child eggs?",
+      "category": "Food Safety & Suitability",
+      "subcategory": "age-appropriate foods",
+      "age_group": "0-1 years",
+      "knowledge_area": "H",
+      "source_scope": "structured_db",
+      "profile": null,
+      "relevant_chunk_ids": null,
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_038_01",
+          "fact_text": "The minimum age recorded for giving a child egg is 1 year.",
+          "source_reference": {
+            "source_org": "KidsNutriBite structured database (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "data/structured_db/foods.json: food_name='egg' (F501), age_min=1",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": null,
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "According to the current food records, egg can be introduced from age 1 onward.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": "No RAG chunk states this age threshold. relevant_chunk_ids is null. Uses the unambiguous years-based record only, per the same age_min-unit caution as EVAL_037."
+    },
+    {
+      "id": "EVAL_039",
+      "question": "At what age can I start giving my child fish?",
+      "category": "Food Safety & Suitability",
+      "subcategory": "age-appropriate foods",
+      "age_group": "1-2 years",
+      "knowledge_area": "H",
+      "source_scope": "structured_db",
+      "profile": null,
+      "relevant_chunk_ids": null,
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_039_01",
+          "fact_text": "The minimum age recorded for giving a child fish is 2 years.",
+          "source_reference": {
+            "source_org": "KidsNutriBite structured database (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "data/structured_db/foods.json: food_name='fish' (F502), age_min=2",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": null,
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "According to the current food records, fish can be introduced from age 2 onward.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": "No RAG chunk states this age threshold. relevant_chunk_ids is null. Uses the unambiguous years-based record only, per the same age_min-unit caution as EVAL_037."
+    },
+    {
+      "id": "EVAL_040",
+      "question": "Why shouldn't someone smoke or chew tobacco while preparing my child's food?",
+      "category": "Food Safety & Suitability",
+      "subcategory": "food handler hygiene",
+      "age_group": "general pediatric (0-10 years)",
+      "knowledge_area": "I",
+      "source_scope": "rag",
+      "profile": null,
+      "relevant_chunk_ids": [
+        "fssai_handler_safety_001"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_040_01",
+          "fact_text": "A safe food handler should look healthy, wear clean clothes, keep nails trimmed, use clean utensils, and must not smoke or chew tobacco while handling food.",
+          "source_reference": {
+            "source_org": "FSSAI (as tagged in the KB record's own source field)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": null,
+            "exact_location": "RAG record(s): fssai_handler_safety_001. The exact upstream FSSAI publication/page was NOT independently opened or verified this session — this provenance relies only on the KB record's own 'FSSAI' source tag.",
+            "source_tier": "tier1_government_public_health",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "fssai_handler_safety_001"
+          ],
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "Smoking or chewing tobacco while handling food is considered unsafe food-handling practice — a safe food handler should also be healthy, wear clean clothes, have trimmed nails, and use clean utensils.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": ""
+    },
+    {
+      "id": "EVAL_041",
+      "question": "How can I make sure drinking water and ice are safe for my child?",
+      "category": "Food Safety & Suitability",
+      "subcategory": "water safety",
+      "age_group": "general pediatric (0-10 years)",
+      "knowledge_area": "I",
+      "source_scope": "rag",
+      "profile": null,
+      "relevant_chunk_ids": [
+        "fssai_water_ice_safety_001"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_041_01",
+          "fact_text": "Only potable water should be used for drinking and preparing ice, and water containers should be covered with a side tap for drawing water.",
+          "source_reference": {
+            "source_org": "FSSAI (as tagged in the KB record's own source field)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": null,
+            "exact_location": "RAG record(s): fssai_water_ice_safety_001. The exact upstream FSSAI publication/page was NOT independently opened or verified this session — this provenance relies only on the KB record's own 'FSSAI' source tag.",
+            "source_tier": "tier1_government_public_health",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "fssai_water_ice_safety_001"
+          ],
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "Use only potable (safe drinking) water for drinking and for making ice, and keep water stored in a covered container, ideally one with a side tap for drawing water rather than dipping in.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": ""
+    },
+    {
+      "id": "EVAL_042",
+      "question": "How do I avoid cross-contamination between raw and cooked food when preparing my child's meals?",
+      "category": "Food Safety & Suitability",
+      "subcategory": "cross-contamination",
+      "age_group": "general pediatric (0-10 years)",
+      "knowledge_area": "I",
+      "source_scope": "rag",
+      "profile": null,
+      "relevant_chunk_ids": [
+        "fssai_hygiene_food_handling_001",
+        "fssai_contamination_micro_001"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_042_01",
+          "fact_text": "Keep raw and cooked foods physically separated, refrigerate food promptly, and wash fruits/vegetables under running water before use.",
+          "source_reference": {
+            "source_org": "FSSAI (as tagged in the KB record's own source field)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": null,
+            "exact_location": "RAG record(s): fssai_hygiene_food_handling_001. The exact upstream FSSAI publication/page was NOT independently opened or verified this session — this provenance relies only on the KB record's own 'FSSAI' source tag.",
+            "source_tier": "tier1_government_public_health",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "fssai_hygiene_food_handling_001"
+          ],
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "Keep raw and cooked foods physically separate, refrigerate food promptly rather than leaving it out, and wash fruits and vegetables under running water before use — this helps guard against both visible and invisible (bacterial) contamination.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": ""
+    },
+    {
+      "id": "EVAL_043",
+      "question": "What should I pack in my school-age child's tiffin box for a healthy lunch?",
+      "category": "Food Safety & Suitability",
+      "subcategory": "school lunchbox",
+      "age_group": "school-age (6-9 years)",
+      "knowledge_area": "H",
+      "source_scope": "rag",
+      "profile": {
+        "age": 7
+      },
+      "relevant_chunk_ids": [
+        "fssai_tiffin_safety_001"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_043_01",
+          "fact_text": "A healthy child's tiffin should be balanced, low in sugar, and include fruit; involving the child in menu planning can help them finish their meal.",
+          "source_reference": {
+            "source_org": "FSSAI (as tagged in the KB record's own source field)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": null,
+            "exact_location": "RAG record(s): fssai_tiffin_safety_001. The exact upstream FSSAI publication/page was NOT independently opened or verified this session — this provenance relies only on the KB record's own 'FSSAI' source tag.",
+            "source_tier": "tier1_government_public_health",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "fssai_tiffin_safety_001"
+          ],
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "A healthy school tiffin should be balanced, low in sugar, and include some fruit — and letting your child have a say in planning it can help them actually finish it.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": ""
+    },
+    {
+      "id": "EVAL_044",
+      "question": "Is it normal for my baby's weight to double or triple in their first year?",
+      "category": "Growth, Development & Reference Data",
+      "subcategory": "growth milestones",
+      "age_group": "0-2 years",
+      "knowledge_area": "G",
+      "source_scope": "rag",
+      "profile": null,
+      "relevant_chunk_ids": [
+        "rag_growth_001"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_044_01",
+          "fact_text": "A child's birth weight typically doubles by 4 months, triples by 1 year, and quadruples by 2 years.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): rag_growth_001",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "rag_growth_001"
+          ],
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "Yes, that's a normal pattern — a healthy baby's birth weight typically doubles by around 4 months and triples by about 1 year (and roughly quadruples by 2 years).",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": "The question asks specifically about 1 and 2 years; the KB's 4-month doubling milestone is included as directly relevant context even though not explicitly asked for, since it comes from the same single atomic fact chunk."
+    },
+    {
+      "id": "EVAL_045",
+      "question": "How many calories should my child eat each day at ages 1-3, 4-6, and 7-9 years?",
+      "category": "Growth, Development & Reference Data",
+      "subcategory": "energy requirements",
+      "age_group": "1-9 years",
+      "knowledge_area": "G",
+      "source_scope": "rag",
+      "profile": null,
+      "relevant_chunk_ids": [
+        "icmr_2020_energy_children_001",
+        "icmr_2020_v2_energy_table_004",
+        "icmr_2020_v2_energy_004"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_045_01",
+          "fact_text": "Recommended daily energy intake for children: 1-3 years 1110 kcal/day (83 kcal/kg); 4-6 years 1360 kcal/day (74 kcal/kg); 7-9 years 1700 kcal/day (67 kcal/kg).",
+          "source_reference": {
+            "source_org": "ICMR-NIN 2020 (as tagged in the KB record's own source field)",
+            "source_title": "Nutrient Requirements for Indians: Recommended Dietary Allowances (RDA) and Estimated Average Requirements (EAR), 2020 — A Brief Note",
+            "source_url_or_doi": "https://www.nin.res.in/rdabook/brief_note.pdf",
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): icmr_2020_energy_children_001, icmr_2020_v2_energy_table_004. This source document was independently opened and verified (PDF text extracted) during this engagement's Phase 1 knowledge-base audit.",
+            "source_tier": "tier1_government_public_health",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "icmr_2020_energy_children_001",
+            "icmr_2020_v2_energy_table_004"
+          ],
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "Based on ICMR-NIN 2020 figures in the knowledge base, a child's recommended daily energy intake is about 1110 kcal at ages 1-3, 1360 kcal at ages 4-6, and 1700 kcal at ages 7-9.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": ""
+    },
+    {
+      "id": "EVAL_046",
+      "question": "How much protein should my child eat each day at ages 1-3, 4-6, and 7-9 years?",
+      "category": "Growth, Development & Reference Data",
+      "subcategory": "protein requirements",
+      "age_group": "1-9 years",
+      "knowledge_area": "G",
+      "source_scope": "rag",
+      "profile": null,
+      "relevant_chunk_ids": [
+        "icmr_2020_protein_children_001",
+        "icmr_2020_v2_protein_table_003",
+        "icmr_2020_protein_001"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_046_01",
+          "fact_text": "Protein RDA for children: 1-3 years 12.5 g/day; 4-6 years 15.9 g/day; 7-9 years 23.3 g/day.",
+          "source_reference": {
+            "source_org": "ICMR-NIN 2020 (as tagged in the KB record's own source field)",
+            "source_title": "Nutrient Requirements for Indians: Recommended Dietary Allowances (RDA) and Estimated Average Requirements (EAR), 2020 — A Brief Note",
+            "source_url_or_doi": "https://www.nin.res.in/rdabook/brief_note.pdf",
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): icmr_2020_protein_children_001, icmr_2020_v2_protein_table_003. This source document was independently opened and verified (PDF text extracted) during this engagement's Phase 1 knowledge-base audit.",
+            "source_tier": "tier1_government_public_health",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "icmr_2020_protein_children_001",
+            "icmr_2020_v2_protein_table_003"
+          ],
+          "importance": "required"
+        },
+        {
+          "fact_id": "GF_EVAL_046_02",
+          "fact_text": "For a mainly cereal-based diet with lower-quality protein, the protein requirement is higher, around 1 g/kg body weight/day.",
+          "source_reference": {
+            "source_org": "ICMR-NIN 2020 (as tagged in the KB record's own source field)",
+            "source_title": "Nutrient Requirements for Indians: Recommended Dietary Allowances (RDA) and Estimated Average Requirements (EAR), 2020 — A Brief Note",
+            "source_url_or_doi": "https://www.nin.res.in/rdabook/brief_note.pdf",
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): icmr_2020_protein_001. This source document was independently opened and verified (PDF text extracted) during this engagement's Phase 1 knowledge-base audit.",
+            "source_tier": "tier1_government_public_health",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "icmr_2020_protein_001"
+          ],
+          "importance": "supporting"
+        }
+      ],
+      "reference_answer": "Based on ICMR-NIN 2020 figures, the recommended daily protein intake is about 12.5 g at ages 1-3, 15.9 g at ages 4-6, and 23.3 g at ages 7-9 — though children on a mainly cereal-based diet may need more, since cereal protein is lower quality.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": ""
+    },
+    {
+      "id": "EVAL_047",
+      "question": "Is there a simple way to estimate what my 1-to-6-year-old should weigh?",
+      "category": "Growth, Development & Reference Data",
+      "subcategory": "anthropometric norms",
+      "age_group": "1-6 years",
+      "knowledge_area": "G",
+      "source_scope": "structured_db",
+      "profile": null,
+      "relevant_chunk_ids": null,
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_047_01",
+          "fact_text": "Expected weight (kg) for a child between 1 and 6 years can be estimated as (age in years x 2) + 8.",
+          "source_reference": {
+            "source_org": "KidsNutriBite structured database (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "data/structured_db/goals.json: goal_name='anthropometric_expected_norms', weight_kg.1_to_6_years field",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": null,
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "Yes — for a child between 1 and 6 years old, expected weight in kilograms can be roughly estimated as (age in years × 2) + 8.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": "No RAG chunk contains this specific formula. relevant_chunk_ids is null."
+    },
+    {
+      "id": "EVAL_048",
+      "question": "Is there a way to estimate how tall my child might grow up to be, based on my and my partner's height?",
+      "category": "Growth, Development & Reference Data",
+      "subcategory": "predicted adult height",
+      "age_group": "general pediatric (0-10 years)",
+      "knowledge_area": "G",
+      "source_scope": "rag",
+      "profile": null,
+      "relevant_chunk_ids": [
+        "rag_mid_parental_height_formula_001"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_048_01",
+          "fact_text": "Mid Parental Height (MPH) is a formula used to predict a child's final adult height from the parents' heights: for boys, MPH = (Father's height + Mother's height) / 2 + 6.5 cm; for girls, MPH = (Father's height + Mother's height) / 2 - 6.5 cm.",
+          "source_reference": {
+            "source_org": "KidsNutriBite RAG knowledge base (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "RAG record(s): rag_mid_parental_height_formula_001",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "rag_mid_parental_height_formula_001"
+          ],
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "Yes — the Mid Parental Height formula estimates a child's likely final adult height from both parents' heights: for boys, average the two parents' heights and add 6.5 cm; for girls, average the two parents' heights and subtract 6.5 cm.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": "REPLACEMENT for the original EVAL_048 ('How much of my child's brain has developed by age 2, compared to an adult?'), which was removed because the current KB contains a genuine, unresolved conflict (rag_pem_brain_001 says 75% of adult brain size by age 2; rag_brain_growth_20_80_rule_001 and rag_growth_002 both say 80%). This replacement uses a single, unambiguous, non-conflicting RAG chunk (rag_mid_parental_height_formula_001) — a full-corpus search found no other chunk stating a different Mid Parental Height formula or constant, and no structured-DB record duplicates or contradicts it (goals.json's only related record, anthropometric_expected_norms, covers a different metric — current weight/height-for-age — not predicted final adult height, so it is a different fact, not a conflicting value for the same fact, and was not included as gold for this question)."
+    },
+    {
+      "id": "EVAL_049",
+      "question": "What are some early physical warning signs that a child may have a nutrition deficiency?",
+      "category": "Growth, Development & Reference Data",
+      "subcategory": "clinical deficiency signs",
+      "age_group": "general pediatric (0-10 years)",
+      "knowledge_area": "G",
+      "source_scope": "structured_db",
+      "profile": null,
+      "relevant_chunk_ids": [
+        "rag_vitamin_a_indicators_001",
+        "rag_malnutrition_morphology_001"
+      ],
+      "gold_facts": [
+        {
+          "fact_id": "GF_EVAL_049_01",
+          "fact_text": "Eye signs of nutritional deficiency include Bitot's spots, conjunctival xerosis, and keratomalacia.",
+          "source_reference": {
+            "source_org": "KidsNutriBite structured database (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "data/structured_db/goals.json: goal_name='jelliffe_clinical_signs_checklist', organ_systems.Eyes field",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": [
+            "rag_vitamin_a_indicators_001"
+          ],
+          "importance": "required"
+        },
+        {
+          "fact_id": "GF_EVAL_049_02",
+          "fact_text": "Hair signs of nutritional deficiency include lack of lustre, the 'flag sign' (a band of dyspigmentation), and easy pluckability.",
+          "source_reference": {
+            "source_org": "KidsNutriBite structured database (internal record, no upstream citation stored in the record itself)",
+            "source_title": null,
+            "source_url_or_doi": null,
+            "access_date": "2026-08-25",
+            "exact_location": "data/structured_db/goals.json: goal_name='jelliffe_clinical_signs_checklist', organ_systems.Hair field",
+            "source_tier": "not_applicable_internal_kb",
+            "review_status": "pending_annotation_review"
+          },
+          "chunk_reference": null,
+          "importance": "required"
+        }
+      ],
+      "reference_answer": "Some early physical signs of a possible nutrition deficiency in a child include eye changes like Bitot's spots, dryness of the eye surface (conjunctival xerosis), or keratomalacia, and hair changes like dull/lackluster hair, a band of lighter color (the 'flag sign'), or hair that pulls out unusually easily.",
+      "safety_ground_truth": null,
+      "annotation_status": "ANNOTATED",
+      "annotation_notes": ""
+    }
+  ]
+}

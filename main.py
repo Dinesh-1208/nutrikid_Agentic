@@ -22,11 +22,11 @@ def main():
     
     # Evaluator args
     parser.add_argument("--num-samples", type=int, default=100, help="Number of samples to evaluate (default: 100 for full benchmark)")
-    parser.add_argument("--models", type=str, default="gemini,qwen_local", help="Comma-separated models to evaluate")
+    parser.add_argument("--models", type=str, default="qwen_local", help="Comma-separated models to evaluate. Default: qwen_local (local Qwen via Hugging Face Transformers), the production answer-generation backend. Pass e.g. --models qwen_local,gemini to also compare optional alternative backends.")
     parser.add_argument("--judge-model", type=str, default="groq_llama70b", help="Model to use as the LLM judge (default: groq_llama70b)")
 
     # LLM args
-    parser.add_argument("--model", type=str, default="gemini", help="Active model for QA (gemini, qwen_local, groq_llama70b, groq_llama8b, groq_qwen)")
+    parser.add_argument("--model", type=str, default="qwen_local", help="Active model for QA. Default: qwen_local (local Qwen via Hugging Face Transformers), the production answer-generation backend. Other options (optional alternative backends): gemini, qwen, llama, groq_llama70b, groq_llama8b, groq_qwen")
 
     args = parser.parse_args()
     

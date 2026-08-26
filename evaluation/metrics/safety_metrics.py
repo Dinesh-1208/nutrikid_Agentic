@@ -3,6 +3,9 @@ Deterministic Mathematics for Safety Evaluation Metrics.
 No LLM dependencies.
 """
 
+SAFETY_STATUS_VALID = "VALID"
+SAFETY_STATUS_MISSING_GROUND_TRUTH = "MISSING_GROUND_TRUTH"
+
 def calculate_confusion_matrix(predictions, ground_truths):
     """
     Computes True Positives, False Positives, True Negatives, and False Negatives.
@@ -66,11 +69,25 @@ def calculate_classification_metrics(tp, fp, tn, fn):
 def evaluate_safety_batch(predicted_judgments, ground_truth_judgments):
     """
     Computes comprehensive safety metrics across an entire dataset batch.
-    
+
+    This function trusts its inputs: it assumes ground_truth_judgments are
+    real, annotated safety outcomes - it does not know or check whether the
+    caller fabricated them. As of the KidsNutriBite safety ground-truth
+    fix (see docs/safety_evaluation_literature_audit.md), the only caller
+    (evaluation/comparator.py::compute_safety_metrics) invokes this function
+    only when real per-case ground truth exists (test_case["safety_ground_truth"]),
+    never with is_safety-derived or hardcoded-False labels. It returns the
+    full classification metric set (including Accuracy and F2) as a generic,
+    reusable computation; KidsNutriBite's official reporting layer only
+    surfaces Recall, Precision, and F1 from the "overall" key - Accuracy and
+    F2 were removed from the official safety metric set (literature audit
+    found no support for either in Llama 2, XSTest, Llama Guard,
+    MedSafetyBench, or NOHARM).
+
     Args:
         predicted_judgments (list): List of dictionaries from SafetyJudge (containing boolean flags and 'overall' string).
-        ground_truth_judgments (list): List of expected dictionaries with the same keys.
-        
+        ground_truth_judgments (list): List of real annotated ground-truth dictionaries with the same keys.
+
     Returns:
         dict: Nested dictionary containing overall metrics and rubric-level confusion matrices.
     """

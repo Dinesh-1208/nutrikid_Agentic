@@ -23,6 +23,7 @@ class PromptContextService(IPromptContextService, BaseService):
             formatted_item = {
                 "id": item.get("id"),
                 "parent_id": parent_id,
+                "source_id": item.get("source_id"),
                 "text": text_content,
                 "child_text": item.get("text", ""),
                 "metadata": item.get("metadata", {}),

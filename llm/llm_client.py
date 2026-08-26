@@ -6,7 +6,7 @@ try:
 except ImportError:
     genai = None
 class KidsNutriLLMClient:
-    def __init__(self, default_model="gemini"):
+    def __init__(self, default_model="qwen_local"):
         self.default_model = default_model
         
         # Load API keys from environment

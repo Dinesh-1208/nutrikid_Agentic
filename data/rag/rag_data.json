@@ -3746,14 +3746,16 @@
   },
   {
     "id": "rag_hypo_osmolar_ors_benefits_001",
-    "text": "Hypo-osmolar ORS: Reduced sodium (75 mmol/L) and glucose (75 mmol/L) content. It is better accepted than standard ORS, reduces stool output by 25%, and is especially useful in non-cholera watery diarrhoea.",
+    "text": "Reduced (low) osmolarity ORS composition, as recommended by WHO/UNICEF: Sodium 75 mmol/L, Potassium 20 mmol/L, Chloride 65 mmol/L, Citrate 10 mmol/L, Glucose (anhydrous) 75 mmol/L, total osmolarity 245 mOsm/L. It is better accepted than standard ORS, reduces stool output by 25%, and is especially useful in non-cholera watery diarrhoea.",
     "metadata": {
       "type": "clinical_protocol",
       "tags": [
         "hypo_osmolar_ORS",
         "stool_reduction",
-        "dehydration_treatment"
-      ]
+        "dehydration_treatment",
+        "ORS_composition"
+      ],
+      "source": "WHO/UNICEF Joint Statement, Clinical Management of Acute Diarrhoea (reduced-osmolarity ORS formulation, adopted 2003); independently corroborated by Global Health Supply Chain Program MNCH Commodities ORS technical reference. Accessed 2026-08-31."
     }
   },
   {
@@ -5860,6 +5862,99 @@
         "balanced_diet",
         "nutrition"
       ]
+    }
+  },
+  {
+    "id": "rag_choking_hazard_foods_001",
+    "text": "Choking-hazard foods for children under 4 years: whole grapes, hot dogs (the single highest cause of food-related choking death in young children), hard or sticky candy, raw carrots, popcorn, thick spoonfuls of nut butter, and large chunks of meat or cheese. Reduce risk by cutting round or firm foods into small pieces, cutting grapes into quarters and hot dogs lengthwise, spreading nut butter thinly rather than serving it by the spoonful, and always having a child sit down and be supervised while eating rather than running, playing, or lying down.",
+    "metadata": {
+      "type": "infant_safety",
+      "tags": [
+        "choking_hazard",
+        "food_safety",
+        "under_4_years",
+        "food_preparation"
+      ],
+      "source": "American Academy of Pediatrics (via HealthyChildren.org), Choking Prevention for Babies & Children; USDA WIC Works Resource System, Reducing the Risk of Choking in Young Children at Mealtimes. Accessed 2026-08-31."
+    }
+  },
+  {
+    "id": "rag_hidden_milk_protein_sources_001",
+    "text": "Cow's milk protein can appear on food labels under names parents may not recognize as dairy, including casein, whey (beta-lactoglobulin, alpha-lactalbumin), lactalbumin, and ghee. For a child with a diagnosed cow's milk protein allergy, checking ingredient labels for these hidden sources is as important as avoiding milk itself, since even small amounts of milk protein can trigger a reaction.",
+    "metadata": {
+      "type": "infant_safety",
+      "tags": [
+        "milk_allergy",
+        "hidden_allergen",
+        "food_safety",
+        "label_reading"
+      ],
+      "source": "BSACI (British Society for Allergy & Clinical Immunology), Guideline for the diagnosis and management of cow's milk allergy (Luyt et al., Clin Exp Allergy 2014;44:642-672). Accessed 2026-08-31."
+    }
+  },
+  {
+    "id": "rag_sesame_major_allergen_001",
+    "text": "Sesame is a major food allergen in its own right, not simply a variant of nut allergy, even though it is often prepared alongside nuts. It is recognized as the 9th major food allergen under the U.S. FASTER Act (effective 2023) and is one of the 14 allergens requiring mandatory food-label declaration in the EU. A child confirmed allergic to sesame should have it evaluated and avoided independently of any separate tree-nut or peanut allergy.",
+    "metadata": {
+      "type": "infant_safety",
+      "tags": [
+        "sesame_allergy",
+        "major_allergen",
+        "food_safety"
+      ],
+      "source": "FoodSafety.gov, The Food Allergy Safety, Treatment, Education, and Research (FASTER) Act of 2021; Eufic, List of the 14 most common food allergens (EU). Accessed 2026-08-31."
+    }
+  },
+  {
+    "id": "rag_lactose_intolerance_vs_cmpa_001",
+    "text": "Lactose intolerance and cow's milk protein allergy (CMPA) are different conditions and are often confused. Lactose intolerance is a digestive issue caused by a shortage of the lactase enzyme; it is dose-dependent, and small or trace amounts of dairy are often tolerated without a reaction. CMPA is an immune reaction to the proteins in milk (not the sugar lactose); it is not dose-dependent, and strict avoidance of milk protein, including hidden sources, is required regardless of the amount consumed.",
+    "metadata": {
+      "type": "infant_safety",
+      "tags": [
+        "lactose_intolerance",
+        "milk_allergy",
+        "differential_diagnosis"
+      ],
+      "source": "NIH/NIDDK, Lactose Intolerance (definition and mechanism); BSACI Guideline for the diagnosis and management of cow's milk allergy (Luyt et al., Clin Exp Allergy 2014;44:642-672). Accessed 2026-08-31."
+    }
+  },
+  {
+    "id": "rag_gluten_introduction_window_001",
+    "text": "Gluten may be introduced to an infant's diet any time between 4 and 12 completed months of age. The specific timing of introduction within this window does not affect a child's cumulative lifetime risk of developing coeliac disease. This updates older advice that recommended delaying gluten until after 6-7 months. Coeliac disease itself is a distinct, autoimmune condition and should not be confused with general, non-coeliac gluten sensitivity.",
+    "metadata": {
+      "type": "infant_safety",
+      "tags": [
+        "gluten_introduction",
+        "coeliac_disease",
+        "weaning"
+      ],
+      "source": "ESPGHAN 2024 Position Paper on early diet and coeliac disease risk (updating the 2016 recommendation). Accessed 2026-08-31."
+    }
+  },
+  {
+    "id": "rag_nut_allergy_specific_avoidance_001",
+    "text": "Current allergy guidance recommends allergen-specific avoidance rather than blanket avoidance of an entire food category. A child confirmed allergic to one tree nut is not automatically allergic to all tree nuts, and continued consumption of other, already-tolerated nuts is encouraged rather than avoiding every nut. Avoidance should be limited to the specific confirmed allergen(s), as advised by a doctor, not extended to a whole food category by default.",
+    "metadata": {
+      "type": "infant_safety",
+      "tags": [
+        "nut_allergy",
+        "allergen_specific_avoidance",
+        "food_safety"
+      ],
+      "source": "EAACI 2024 Guidelines on the management of IgE-mediated food allergy. Accessed 2026-08-31."
+    }
+  },
+  {
+    "id": "rag_ige_vs_non_ige_food_allergy_001",
+    "text": "Food allergy reactions fall into two broad types. IgE-mediated (immediate) reactions occur within about an hour of eating the trigger food and can include hives, swelling, wheezing, or anaphylaxis. Non-IgE-mediated (delayed) reactions appear hours to days later and typically show up as vomiting, diarrhoea, or eczema flares rather than sudden anaphylactic symptoms. Both types require identifying and avoiding the trigger food, but the urgency and emergency-response needs differ, so the specific pattern of symptoms and timing matters for how a reaction is managed.",
+    "metadata": {
+      "type": "infant_safety",
+      "tags": [
+        "IgE",
+        "non_IgE",
+        "food_allergy_classification"
+      ],
+      "source": "BSACI Guideline for the diagnosis and management of cow's milk allergy (Luyt et al., Clin Exp Allergy 2014;44:642-672), IgE/non-IgE diagnostic framework. Accessed 2026-08-31."
     }
   }
 ]

@@ -2,37 +2,37 @@
   {
     "allergy": "nut_allergy",
     "avoid_foods": [
-      "nuts_seeds"
+      "nuts_seeds",
+      "nuts",
+      "peanut_powder"
     ],
-    "severity": "high"
+    "severity": "high",
+    "description": "Avoidance should be specific to the confirmed allergen(s) identified by a doctor. A child confirmed allergic to one tree nut is not automatically allergic to all tree nuts, and continued consumption of already-tolerated nuts is encouraged rather than blanket avoidance (EAACI 2024 guideline on the management of IgE-mediated food allergy)."
+  },
+  {
+    "allergy": "sesame_allergy",
+    "avoid_foods": [
+      "sesame_powder"
+    ],
+    "severity": "high",
+    "description": "Sesame is a major food allergen in its own right, not a subtype of tree-nut or peanut allergy, and should be evaluated and avoided independently even though it is sometimes prepared alongside nuts. It is the 9th major food allergen recognized under the U.S. FASTER Act (2021, effective 2023) and is one of the 14 allergens requiring mandatory labelling in the EU."
   },
   {
     "allergy": "lactose_intolerance",
     "avoid_foods": [
-      "milk_curd"
-    ],
-    "severity": "medium"
-  },
-  {
-    "allergy": "lactose_intolerance",
-    "avoid_foods": [
+      "milk_curd",
       "milk"
     ],
-    "severity": "medium"
-  },
-  {
-    "allergy": "nut_allergy",
-    "avoid_foods": [
-      "nuts"
-    ],
-    "severity": "high"
+    "severity": "medium",
+    "description": "Lactose intolerance is an enzymatic (lactase) deficiency, not an immune reaction. It is dose-dependent, and small/trace amounts of dairy are often tolerated. It is a distinct condition from cow's milk protein allergy (CMPA), which is immune-mediated and requires strict avoidance regardless of dose (NIH/NIDDK; BSACI cow's milk allergy guideline)."
   },
   {
     "allergy": "milk_lactose",
     "avoid_foods": [
       "milk"
     ],
-    "severity": "moderate"
+    "severity": "moderate",
+    "description": "Describes the same lactase-enzyme-deficiency mechanism as lactose intolerance: a digestive, dose-dependent issue, not an immune reaction. See the lactose_intolerance entry for the full distinction from cow's milk protein allergy."
   },
   {
     "allergy": "egg_protein",
@@ -82,14 +82,6 @@
     "severity": "moderate"
   },
   {
-    "allergy": "nut_allergy",
-    "avoid_foods": [
-      "peanut_powder",
-      "sesame_powder"
-    ],
-    "severity": "high"
-  },
-  {
     "allergy": "egg_protein",
     "avoid_foods": [
       "boiled_egg"
@@ -118,6 +110,7 @@
       "unmodified_bovine_milk"
     ],
     "severity": "",
+    "description": "Cow's milk protein allergy (CMPA) is an immune-mediated reaction to milk proteins (e.g. lactoglobulin, alpha casein), distinct from lactose intolerance's enzymatic mechanism. It requires strict avoidance regardless of dose, including hidden sources on food labels (see the KB's narrative guidance on hidden cow's-milk-protein sources).",
     "triggers": [
       "lactoglobulin",
       "alpha_casein"
@@ -145,7 +138,7 @@
       "rye"
     ],
     "severity": "",
-    "description": "Avoidance in early infancy (before 4-6 months).",
+    "description": "Gluten may be introduced any time between 4 and 12 completed months of age; the timing of introduction within this window does not affect a child's cumulative risk of developing coeliac disease (ESPGHAN 2024 position paper, updating the 2016 recommendation). Coeliac disease itself is a distinct, autoimmune diagnosis, not the same concept as general gluten sensitivity.",
     "preferred_alternative": "rice"
   }
 ]

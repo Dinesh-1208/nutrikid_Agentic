@@ -23,10 +23,11 @@ def main():
     # Evaluator args
     parser.add_argument("--num-samples", type=int, default=100, help="Number of samples to evaluate (default: 100 for full benchmark)")
     parser.add_argument("--models", type=str, default="qwen_local", help="Comma-separated models to evaluate. Default: qwen_local (local Qwen via Hugging Face Transformers), the production answer-generation backend. Pass e.g. --models qwen_local,gemini to also compare optional alternative backends.")
-    parser.add_argument("--judge-model", type=str, default="groq_llama70b", help="Model to use as the LLM judge (default: groq_llama70b)")
+    parser.add_argument("--judge-model", type=str, default="groq_judge", help="Model to use as the LLM judge (default: groq_judge, currently mapped to a verified-available Groq model; groq_llama70b is kept as a deprecated backward-compatible alias to the same model)")
+    parser.add_argument("--run-retrieval-diagnostic", action="store_true", help="Also run the unofficial, non-gold-grounded LLM-judged retrieval-depth diagnostic (K=3/5/10). OFF by default because it costs ~294 extra judge calls on the 49-case dataset and is not one of the official metrics.")
 
     # LLM args
-    parser.add_argument("--model", type=str, default="qwen_local", help="Active model for QA. Default: qwen_local (local Qwen via Hugging Face Transformers), the production answer-generation backend. Other options (optional alternative backends): gemini, qwen, llama, groq_llama70b, groq_llama8b, groq_qwen")
+    parser.add_argument("--model", type=str, default="qwen_local", help="Active model for QA. Default: qwen_local (local Qwen via Hugging Face Transformers), the production answer-generation backend. Other options (optional alternative backends): gemini, qwen, llama, groq_judge, groq_llama8b, groq_qwen (groq_llama70b is a deprecated alias for groq_judge)")
 
     args = parser.parse_args()
     
@@ -139,7 +140,7 @@ def main():
         comparator = KidsNutriComparator(evaluator)
         
         models_list = [m.strip() for m in args.models.split(",")]
-        comparator.run_comparison(models_list, args.num_samples)
+        comparator.run_comparison(models_list, args.num_samples, run_diagnostic_experiment=args.run_retrieval_diagnostic)
 
 if __name__ == '__main__':
     main()

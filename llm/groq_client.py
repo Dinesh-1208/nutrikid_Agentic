@@ -17,6 +17,16 @@ class KidsNutriGroqClient:
             if Groq is None:
                 print("WARNING: 'groq' module not found. Groq calls will fail unless installed.")
 
+        # Phase 4F: running total of tokens Groq reports as actually consumed by
+        # this client instance's calls, purely for quota-visibility/debugging
+        # (e.g. comparing the pre-run estimate in docs/phase4f_groq_judge_configuration.md
+        # against real usage during a run). Never used to gate/throttle calls -
+        # Groq's own 429s remain the sole source of truth for quota state, and
+        # this is best-effort (stays None per-call if the SDK response has no
+        # usage block, which never changes call behavior).
+        self.last_call_tokens = None
+        self.total_tokens_used = 0
+
     def generate_response(self, model_id, system_prompt, user_prompt, temperature=0.1, top_p=0.9, max_tokens=1024):
         if self.client is None:
             if Groq is None:
@@ -36,5 +46,17 @@ class KidsNutriGroqClient:
             top_p=top_p,
             max_tokens=max_tokens
         )
-        
+
+        # Phase 4F: capture real token usage for quota visibility, best-effort
+        # only - never let a missing/unexpected usage shape break a call that
+        # otherwise succeeded.
+        try:
+            usage = getattr(response, "usage", None)
+            call_tokens = getattr(usage, "total_tokens", None) if usage is not None else None
+            if call_tokens is not None:
+                self.last_call_tokens = call_tokens
+                self.total_tokens_used += call_tokens
+        except Exception:
+            pass
+
         return response.choices[0].message.content

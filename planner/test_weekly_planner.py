@@ -1,100 +1,158 @@
-import unittest
-import json
-from planner.diet_planner import KidsNutriDatabase, DietPlanner
+"""
+Unit tests for KidsNutriBite Deterministic Diet Planner.
+Run: python -m pytest planner/test_weekly_planner.py -v
+or simply: python planner/test_weekly_planner.py
+"""
 
-class TestWeeklyPlanner(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        cls.db = KidsNutriDatabase()
-        cls.planner = DietPlanner(cls.db)
+from __future__ import annotations
 
-    def test_generate_weekly_plan(self):
-        profile = {
-            "age": 7,
-            "weight": 22.0,
-            "condition": "child_above_1_year",
-            "goal": "balanced_nutrition",
-            "allergies": ["egg_protein"]
-        }
-        
-        plan = self.planner.generate_weekly_meal_plan(profile)
-        
-        # 1. Seven days are generated
-        self.assertEqual(len(plan["weekly_plan"]), 7)
-        days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-        for day in days:
-            self.assertIn(day, plan["weekly_plan"])
-            
-            day_plan = plan["weekly_plan"][day]
-            meals = day_plan["meals"]
-            
-            # 2. Every day contains all six meal slots
-            self.assertEqual(len(meals), 6)
-            self.assertIn("breakfast", meals)
-            self.assertIn("morning_snack", meals)
-            self.assertIn("lunch", meals)
-            self.assertIn("afternoon_snack", meals)
-            self.assertIn("evening_snack", meals)
-            self.assertIn("dinner", meals)
-            
-            # 3. Every selected food exists in the database
-            for slot, items in meals.items():
-                for item in items:
-                    self.assertIsNotNone(self.db.get_food(item["food_name"]))
-                    
-                    # 4. No allergy violation occurs
-                    f_name = item["food_name"].lower()
-                    self.assertNotIn("egg", f_name)
-                    
-            # 5 & 6. Daily totals are calculated correctly and targets compared
-            totals = day_plan["daily_totals"]
-            self.assertTrue(totals["calories"] > 0)
-            self.assertTrue(totals["protein"] >= 0)
-            self.assertTrue(totals["carbs"] >= 0)
-            self.assertTrue(totals["fat"] >= 0)
-            
-            # 7. Existing condition rules are respected (check cond text)
-            self.assertIn("Applied rules for child_above_1_year", day_plan["condition_check"])
+import sys
+from pathlib import Path
 
-    def test_deterministic_rotation(self):
-        profile = {
-            "age": 5,
-            "weight": 18.0,
-            "goal": "balanced_nutrition",
-            "allergies": []
-        }
-        plan = self.planner.generate_weekly_meal_plan(profile)
-        
-        # 8. Consecutive meal-slot duplication is prevented
-        weekly = plan["weekly_plan"]
-        days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-        
-        for i in range(1, len(days)):
-            prev_day = days[i-1]
-            curr_day = days[i]
-            for slot in ["breakfast", "lunch", "dinner"]:
-                prev_foods = [f["food_name"] for f in weekly[prev_day]["meals"][slot]]
-                curr_foods = [f["food_name"] for f in weekly[curr_day]["meals"][slot]]
-                
-                # Check for overlap
-                overlap = set(prev_foods).intersection(set(curr_foods))
-                # Note: some categories have very few items in the sample DB, so overlap might happen.
-                # We'll assert that it runs successfully and does rotation where possible.
-                self.assertTrue(isinstance(overlap, set))
-                     
-    def test_backward_compatibility(self):
-        # 9. Existing planner methods still pass
-        profile = {
-            "age": 7,
-            "weight": 22.0
-        }
-        # generate_meal_plan (daily) still works
-        plan = self.planner.generate_meal_plan(profile)
-        self.assertIn("meal_plan", plan)
-        self.assertEqual(len(plan["meal_plan"]), 4) # Old one used 4 slots
+# Allow running from repo root or planner/
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-def candidate_foods_for_slot(db, slot):
-    return [f for f in db.foods if slot in [mt.strip().lower() for mt in f.get("meal_types", [])]]
+from planner.diet_planner import (
+    DietPlanner,
+    KidsNutriDatabase,
+    generate_diet_plan,
+    CONDITION_ADJUSTMENTS,
+    MEAL_SLOTS,
+)
 
-if __name__ == '__main__':
-    unittest.main()
+
+def test_basic_plan_generation():
+    plan = generate_diet_plan(
+        age=6,
+        weight_kg=20,
+        sex="girl",
+        condition="healthy_growth",
+        region="south",
+        diet_type="vegetarian",
+        days=3,
+    )
+    assert plan.targets.energy_kcal > 1000
+    assert plan.targets.protein_g > 10
+    assert len(plan.weekly_plan) == 3
+    for day in plan.weekly_plan:
+        assert set(day.meals.keys()) == set(MEAL_SLOTS)
+        assert day.day_totals["kcal"] > 500
+    print("✓ test_basic_plan_generation passed")
+
+
+def test_allergy_exclusion():
+    plan = generate_diet_plan(
+        age=5,
+        weight_kg=18,
+        diet_type="vegetarian",
+        allergies=["milk", "wheat"],
+        region="north",
+        days=2,
+    )
+    for day in plan.weekly_plan:
+        for slot_items in day.meals.values():
+            for item in slot_items:
+                name_l = item.name.lower()
+                assert "milk" not in name_l or "buttermilk" in name_l  # buttermilk still dairy but filtered by allergen tag
+                # Stronger: check food allergens via database
+    # Re-check via internal DB
+    db = KidsNutriDatabase()
+    for day in plan.weekly_plan:
+        for slot_items in day.meals.values():
+            for item in slot_items:
+                food = db.get_food(item.food_id)
+                if food:
+                    assert "milk" not in food.allergens
+                    assert "wheat" not in food.allergens
+    print("✓ test_allergy_exclusion passed")
+
+
+def test_region_preference():
+    for region in ("north", "south", "east", "west", "pan"):
+        plan = generate_diet_plan(
+            age=8,
+            weight_kg=25,
+            region=region,
+            diet_type="eggetarian",
+            days=1,
+        )
+        assert plan.region in ("north", "south", "east", "west", "pan")
+        assert len(plan.weekly_plan[0].meals["lunch"]) >= 1
+    print("✓ test_region_preference passed")
+
+
+def test_condition_adjustments():
+    base = generate_diet_plan(age=7, weight_kg=22, condition="healthy_growth", days=1)
+    under = generate_diet_plan(age=7, weight_kg=22, condition="underweight", days=1)
+    over = generate_diet_plan(age=7, weight_kg=22, condition="obesity", days=1)
+
+    assert under.targets.energy_kcal > base.targets.energy_kcal
+    assert over.targets.energy_kcal < base.targets.energy_kcal
+    assert under.targets.protein_g >= base.targets.protein_g
+    print("✓ test_condition_adjustments passed")
+
+
+def test_likes_dislikes():
+    plan = generate_diet_plan(
+        age=9,
+        weight_kg=28,
+        likes=["paneer", "banana", "roti"],
+        dislikes=["fish", "mutton"],
+        diet_type="vegetarian",
+        days=2,
+    )
+    # Dislikes should not appear
+    for day in plan.weekly_plan:
+        for slot_items in day.meals.values():
+            for item in slot_items:
+                assert "fish" not in item.name.lower()
+                assert "mutton" not in item.name.lower()
+    print("✓ test_likes_dislikes passed")
+
+
+def test_non_vegetarian():
+    plan = generate_diet_plan(
+        age=10,
+        weight_kg=30,
+        sex="boy",
+        diet_type="non_vegetarian",
+        region="east",
+        days=2,
+    )
+    has_flesh_or_egg = False
+    for day in plan.weekly_plan:
+        for slot_items in day.meals.values():
+            for item in slot_items:
+                if any(k in item.name.lower() for k in ("chicken", "fish", "egg", "mutton")):
+                    has_flesh_or_egg = True
+    assert has_flesh_or_egg, "Non-veg plan should include at least one flesh/egg item"
+    print("✓ test_non_vegetarian passed")
+
+
+def test_targets_only():
+    planner = DietPlanner()
+    t = planner.calculate_targets_only(age=4, weight_kg=15, sex="any")
+    assert t.energy_kcal > 1000
+    assert t.protein_g > 10
+    print("✓ test_targets_only passed")
+
+
+def test_summary_and_dict():
+    plan = generate_diet_plan(age=5, weight_kg=17, days=1)
+    text = plan.summary_text()
+    assert "7-Day" in text or "Day 1" in text
+    d = plan.to_dict()
+    assert "targets" in d and "weekly_plan" in d
+    print("✓ test_summary_and_dict passed")
+
+
+if __name__ == "__main__":
+    test_basic_plan_generation()
+    test_allergy_exclusion()
+    test_region_preference()
+    test_condition_adjustments()
+    test_likes_dislikes()
+    test_non_vegetarian()
+    test_targets_only()
+    test_summary_and_dict()
+    print("\n✅ All diet planner tests passed.")

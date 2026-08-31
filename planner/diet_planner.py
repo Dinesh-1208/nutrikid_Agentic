@@ -1,720 +1,675 @@
-import os
+"""
+KidsNutriBite — Deterministic Indian Pediatric Diet Planner
+===========================================================
+Uses ONLY the trusted data from:
+    data/structured_db/foods.json
+
+No hard-coded food list.
+"""
+
+from __future__ import annotations
+
 import json
-import re
+import random
+from dataclasses import dataclass, field, asdict
+from pathlib import Path
+from typing import Any, Dict, List, Optional, Set
+
+
+# Default location of foods.json relative to project root
+DEFAULT_FOODS_PATH = Path(__file__).resolve().parents[1] / "data" / "structured_db" / "foods.json"
+
+
+# ICMR-NIN reference values (official numbers, not food data)
+ICMR_ENERGY = {
+    (1, 3):  {"any": 1110},
+    (4, 6):  {"any": 1360},
+    (7, 9):  {"any": 1700},
+    (10, 12): {"boy": 2220, "girl": 2060},
+    (13, 15): {"boy": 2860, "girl": 2400},
+    (16, 18): {"boy": 3320, "girl": 2500},
+}
+
+ICMR_PROTEIN = {
+    (1, 3):  {"any": 12.5},
+    (4, 6):  {"any": 16.0},
+    (7, 9):  {"any": 23.0},
+    (10, 12): {"boy": 32.0, "girl": 33.0},
+    (13, 15): {"boy": 45.0, "girl": 43.0},
+    (16, 18): {"boy": 55.0, "girl": 46.0},
+}
+
+CONDITION_ADJUSTMENTS = {
+    "healthy_growth":    {"energy_mult": 1.00, "protein_mult": 1.00},
+    "underweight":       {"energy_mult": 1.20, "protein_mult": 1.30},
+    "overweight":        {"energy_mult": 0.85, "protein_mult": 1.10},
+    "obesity":           {"energy_mult": 0.80, "protein_mult": 1.15},
+    "anemia":            {"energy_mult": 1.05, "protein_mult": 1.10},
+    "constipation":      {"energy_mult": 1.00, "protein_mult": 1.00},
+    "diarrhea_recovery": {"energy_mult": 1.10, "protein_mult": 1.20},
+    "diabetes":          {"energy_mult": 0.95, "protein_mult": 1.10},
+    "catch_up_growth":   {"energy_mult": 1.25, "protein_mult": 1.40},
+    "fever_recovery":    {"energy_mult": 1.15, "protein_mult": 1.25},
+    "picky_eater":       {"energy_mult": 1.00, "protein_mult": 1.00},
+}
+
+MEAL_SLOTS = ["breakfast", "mid_morning", "lunch", "evening_snack", "dinner"]
+
+MEAL_CALORIE_SHARE = {
+    "breakfast": 0.25,
+    "mid_morning": 0.10,
+    "lunch": 0.30,
+    "evening_snack": 0.10,
+    "dinner": 0.25,
+}
+
+REGION_ALIASES = {
+    "north": ["north", "north_india", "punjab", "delhi", "up", "haryana", "rajasthan"],
+    "south": ["south", "south_india", "tamil", "kerala", "karnataka", "andhra", "telangana"],
+    "east":  ["east", "east_india", "bengal", "odisha", "bihar", "jharkhand"],
+    "west":  ["west", "west_india", "gujarat", "maharashtra", "goa"],
+    "pan":   ["pan", "india", "all", "any"],
+}
+
+
+@dataclass
+class FoodItem:
+    food_id: str
+    food_name: str
+    category: str
+    energy_kcal_per_100g: float
+    protein_g: float
+    fat_g: float
+    carbs_g: float
+    iron_mg: float
+    portion_unit: str
+    age_min: float
+    allergy_tags: List[str]
+    meal_types: List[str]
+    tags: List[str]
+    region: List[str]
+    vegetarian: bool
+    eggetarian: bool = False
+
+    @classmethod
+    def from_dict(cls, d: Dict[str, Any]) -> "FoodItem":
+        def safe_float(val, default=0.0):
+            try:
+                return float(val) if val not in (None, "", []) else default
+            except (TypeError, ValueError):
+                return default
+
+        def safe_list(val):
+            if isinstance(val, list):
+                return [str(x).lower() for x in val]
+            return []
+
+        cat = str(d.get("category", "")).lower()
+        vegetarian = d.get("vegetarian")
+        if vegetarian is None:
+            vegetarian = cat not in ("flesh", "egg", "poultry")
+        eggetarian = bool(d.get("eggetarian", False))
+        if cat == "egg":
+            eggetarian = True
+            vegetarian = False
+
+        return cls(
+            food_id=str(d.get("food_id", "")),
+            food_name=str(d.get("food_name", "unknown")),
+            category=cat,
+            energy_kcal_per_100g=safe_float(d.get("energy_kcal_per_100g")),
+            protein_g=safe_float(d.get("protein_g")),
+            fat_g=safe_float(d.get("fat_g")),
+            carbs_g=safe_float(d.get("carbs_g")),
+            iron_mg=safe_float(d.get("iron_mg")),
+            portion_unit=str(d.get("portion_unit", "1 serving")),
+            age_min=safe_float(d.get("age_min"), 1),
+            allergy_tags=safe_list(d.get("allergy_tags")),
+            meal_types=safe_list(d.get("meal_types")),
+            tags=safe_list(d.get("tags")),
+            region=safe_list(d.get("region")) or ["pan"],
+            vegetarian=bool(vegetarian),
+            eggetarian=eggetarian,
+        )
+
+
+@dataclass
+class NutrientTargets:
+    energy_kcal: float
+    protein_g: float
+    fat_g: float
+    carb_g: float
+    notes: List[str] = field(default_factory=list)
+
+
+@dataclass
+class MealItem:
+    food_id: str
+    name: str
+    portion_desc: str
+    kcal: float
+    protein_g: float
+    fat_g: float
+    carb_g: float
+
+
+@dataclass
+class DayMeal:
+    day: int
+    meals: Dict[str, List[MealItem]]
+    day_totals: Dict[str, float]
+    notes: List[str] = field(default_factory=list)
+
+
+@dataclass
+class DietPlan:
+    child_profile: Dict[str, Any]
+    targets: NutrientTargets
+    weekly_plan: List[DayMeal]
+    general_advice: List[str]
+    warnings: List[str] = field(default_factory=list)
+    region: str = "pan"
+    diet_type: str = "vegetarian"
+
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "child_profile": self.child_profile,
+            "targets": asdict(self.targets),
+            "region": self.region,
+            "diet_type": self.diet_type,
+            "weekly_plan": [
+                {
+                    "day": d.day,
+                    "meals": {
+                        slot: [asdict(item) for item in items]
+                        for slot, items in d.meals.items()
+                    },
+                    "day_totals": d.day_totals,
+                    "notes": d.notes,
+                }
+                for d in self.weekly_plan
+            ],
+            "general_advice": self.general_advice,
+            "warnings": self.warnings,
+        }
+
+    def summary_text(self) -> str:
+        lines = []
+        p = self.child_profile
+        lines.append("### Indian Diet Plan (from your foods.json)")
+        lines.append(
+            f"**Child:** Age {p.get('age')} yrs | Weight {p.get('weight_kg')} kg | "
+            f"Sex: {p.get('sex', 'any')} | Condition: {p.get('condition', 'healthy_growth')}"
+        )
+        lines.append(f"**Region:** {self.region.title()} | **Diet type:** {self.diet_type}")
+        lines.append(
+            f"**Daily Targets:** {self.targets.energy_kcal:.0f} kcal | "
+            f"Protein {self.targets.protein_g:.0f} g | "
+            f"Fat {self.targets.fat_g:.0f} g | Carb {self.targets.carb_g:.0f} g"
+        )
+        if self.targets.notes:
+            lines.append("**Adjustments:** " + "; ".join(self.targets.notes))
+        lines.append("")
+
+        for day in self.weekly_plan:
+            lines.append(f"#### Day {day.day}")
+            for slot in MEAL_SLOTS:
+                items = day.meals.get(slot, [])
+                if not items:
+                    continue
+                names = ", ".join(f"{it.name} ({it.portion_desc})" for it in items)
+                slot_kcal = sum(it.kcal for it in items)
+                lines.append(
+                    f"- **{slot.replace('_', ' ').title()}** (~{slot_kcal:.0f} kcal): {names}"
+                )
+            tot = day.day_totals
+            lines.append(
+                f"  → Day total: {tot['kcal']:.0f} kcal | "
+                f"P {tot['protein_g']:.0f} g | F {tot['fat_g']:.0f} g | C {tot['carb_g']:.0f} g"
+            )
+            if day.notes:
+                lines.append("  Notes: " + "; ".join(day.notes))
+            lines.append("")
+
+        if self.general_advice:
+            lines.append("### General Advice")
+            for a in self.general_advice:
+                lines.append(f"- {a}")
+        if self.warnings:
+            lines.append("\n### Warnings")
+            for w in self.warnings:
+                lines.append(f"- ⚠️ {w}")
+        return "\n".join(lines)
+
 
 class KidsNutriDatabase:
-    def __init__(self, data_dir=None):
-        if data_dir is None:
-            base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-            data_dir = os.path.join(base_dir, "data", "structured_db")
-            
-        self.foods_path = os.path.join(data_dir, "foods.json")
-        self.conditions_path = os.path.join(data_dir, "conditions.json")
-        self.goals_path = os.path.join(data_dir, "goals.json")
-        self.allergies_path = os.path.join(data_dir, "allergies.json")
-        
-        self.foods = self._load_json(self.foods_path)
-        self.conditions = self._load_json(self.conditions_path)
-        self.goals = self._load_json(self.goals_path)
-        self.allergies = self._load_json(self.allergies_path)
-        
-        # Clean numerical fields in foods
-        self._clean_foods()
+    """Loads foods ONLY from data/structured_db/foods.json"""
 
-    def _load_json(self, path):
-        if not os.path.exists(path):
-            raise FileNotFoundError(f"Database file not found at {path}")
-        with open(path, 'r', encoding='utf-8') as f:
-            return json.load(f)
+    def __init__(self, foods_path: Optional[str | Path] = None):
+        self.foods_path = Path(foods_path) if foods_path else DEFAULT_FOODS_PATH
+        self.foods: Dict[str, FoodItem] = {}
+        self._load()
 
-    def _clean_foods(self):
-        for food in self.foods:
-            # Helper to parse float or return default
-            def to_float(val, default=0.0):
-                if val is None or str(val).strip() == "":
-                    return default
-                if isinstance(val, list):
-                    if not val:
-                        return default
-                    val = val[0]
-                try:
-                    return float(val)
-                except (ValueError, TypeError):
-                    return default
-            
-            food['energy_kcal_per_100g'] = to_float(food.get('energy_kcal_per_100g'))
-            food['protein_g'] = to_float(food.get('protein_g'))
-            food['fat_g'] = to_float(food.get('fat_g'))
-            food['carbs_g'] = to_float(food.get('carbs_g'))
-            food['iron_mg'] = to_float(food.get('iron_mg'))
-            food['fiber_g'] = to_float(food.get('fiber_g'))
-            
-            food['portion_energy_kcal'] = to_float(food.get('portion_energy_kcal'))
-            food['portion_protein_g'] = to_float(food.get('portion_protein_g'))
-            
-            # If energy_per_100g is 0 but portion_energy is available, estimate energy_per_100g
-            # Standard portion weights can be estimated from unit
-            portion_unit = str(food.get('portion_unit', '')).lower()
-            weight_g = 100.0
-            match = re.search(r'~(\d+)\s*g', portion_unit)
-            if match:
-                weight_g = float(match.group(1))
-            elif "ml" in portion_unit:
-                match_ml = re.search(r'(\d+)\s*ml', portion_unit)
-                if match_ml:
-                    weight_g = float(match_ml.group(1))
-            
-            if food['energy_kcal_per_100g'] == 0.0 and food['portion_energy_kcal'] > 0.0:
-                food['energy_kcal_per_100g'] = (food['portion_energy_kcal'] / weight_g) * 100.0
-            
-            if food['protein_g'] == 0.0 and food['portion_protein_g'] > 0.0:
-                food['protein_g'] = (food['portion_protein_g'] / weight_g) * 100.0
+    def _load(self) -> None:
+        if not self.foods_path.exists():
+            raise FileNotFoundError(
+                f"foods.json not found at: {self.foods_path}\n"
+                "Please make sure data/structured_db/foods.json exists."
+            )
+        with open(self.foods_path, "r", encoding="utf-8") as f:
+            raw = json.load(f)
 
-            # Set age_min default to 1 if not present
-            if 'age_min' not in food or food['age_min'] == "" or food['age_min'] is None:
-                food['age_min'] = 1
-            else:
-                try:
-                    food['age_min'] = int(food['age_min'])
-                except ValueError:
-                    food['age_min'] = 1
+        for item in raw:
+            energy = item.get("energy_kcal_per_100g")
+            if energy in (None, "", []):
+                continue
+            try:
+                food = FoodItem.from_dict(item)
+                if food.energy_kcal_per_100g > 0:
+                    self.foods[food.food_id] = food
+            except Exception:
+                continue
 
-    # Data layer functions
-    def get_food(self, food_name):
-        name_clean = str(food_name).strip().lower().replace(" ", "_")
-        for food in self.foods:
-            if food['food_name'].strip().lower().replace(" ", "_") == name_clean:
-                return food
-        return None
+        if not self.foods:
+            raise ValueError("No usable foods loaded from foods.json")
 
-    def get_food_nutrition(self, food_name):
-        food = self.get_food(food_name)
-        if food:
-            return {
-                "food_name": food["food_name"],
-                "category": food["category"],
-                "energy_kcal_per_100g": food["energy_kcal_per_100g"],
-                "protein_g": food["protein_g"],
-                "fat_g": food["fat_g"],
-                "carbs_g": food["carbs_g"],
-                "iron_mg": food["iron_mg"],
-                "fiber_g": food.get("fiber_g", 0.0)
-            }
-        return None
-
-    def get_foods_by_category(self, category):
-        cat_clean = str(category).strip().lower()
-        return [f for f in self.foods if f['category'].strip().lower() == cat_clean]
-
-    def get_foods_by_tags(self, tags):
-        if isinstance(tags, str):
-            tags = [tags]
-        tags_clean = [t.strip().lower() for t in tags]
+    def list_foods(
+        self,
+        region: str = "pan",
+        diet_type: str = "vegetarian",
+        exclude_allergens: Optional[Set[str]] = None,
+        age: float = 1,
+        meal_type: Optional[str] = None,
+        required_tags: Optional[List[str]] = None,
+    ) -> List[FoodItem]:
+        region = self._normalize_region(region)
+        exclude_allergens = {a.lower() for a in (exclude_allergens or [])}
         results = []
-        for food in self.foods:
-            food_tags = [t.strip().lower() for t in food.get('tags', [])]
-            if any(t in food_tags for t in tags_clean):
-                results.append(food)
+
+        for f in self.foods.values():
+            if f.age_min > age:
+                continue
+            if region != "pan" and region not in f.region and "pan" not in f.region:
+                continue
+            if diet_type == "vegetarian" and not f.vegetarian:
+                continue
+            if diet_type == "eggetarian" and not (f.vegetarian or f.eggetarian):
+                continue
+            if any(a in f.allergy_tags for a in exclude_allergens):
+                continue
+            if meal_type and f.meal_types and meal_type not in f.meal_types:
+                continue
+            if required_tags and not any(t in f.tags for t in required_tags):
+                continue
+            results.append(f)
         return results
 
-    def get_condition(self, condition_name):
-        cond_clean = str(condition_name).strip().lower()
-        matched = None
-        # Merge if multiple exist
-        for cond in self.conditions:
-            if cond['condition_name'].strip().lower() == cond_clean:
-                if matched is None:
-                    matched = {
-                        "condition_name": cond["condition_name"],
-                        "required_tags": list(cond.get("required_tags", [])),
-                        "avoid_tags": list(cond.get("avoid_tags", [])),
-                        "meal_pattern": cond.get("meal_pattern", "")
-                    }
-                else:
-                    # Merge tags
-                    matched["required_tags"] = list(set(matched["required_tags"] + list(cond.get("required_tags", []))))
-                    matched["avoid_tags"] = list(set(matched["avoid_tags"] + list(cond.get("avoid_tags", []))))
-                    if not matched["meal_pattern"] and cond.get("meal_pattern"):
-                        matched["meal_pattern"] = cond.get("meal_pattern")
-        return matched
-
-    def get_goal(self, goal_name):
-        goal_clean = str(goal_name).strip().lower()
-        matched = None
-        # Merge if multiple exist
-        for goal in self.goals:
-            if goal['goal_name'].strip().lower() == goal_clean:
-                if matched is None:
-                    matched = {
-                        "goal_name": goal["goal_name"],
-                        "required_tags": list(goal.get("required_tags", [])),
-                        "avoid_tags": list(goal.get("avoid_tags", [])),
-                        "meal_frequency": goal.get("meal_frequency", 3)
-                    }
-                else:
-                    matched["required_tags"] = list(set(matched["required_tags"] + list(goal.get("required_tags", []))))
-                    matched["avoid_tags"] = list(set(matched["avoid_tags"] + list(goal.get("avoid_tags", []))))
-        return matched
-
-    def get_allergy(self, allergy_name):
-        all_clean = str(allergy_name).strip().lower()
-        matched = None
-        for alg in self.allergies:
-            if alg['allergy'].strip().lower() == all_clean:
-                if matched is None:
-                    matched = {
-                        "allergy": alg["allergy"],
-                        "avoid_foods": list(alg.get("avoid_foods", [])),
-                        "severity": alg.get("severity", "moderate")
-                    }
-                else:
-                    matched["avoid_foods"] = list(set(matched["avoid_foods"] + list(alg.get("avoid_foods", []))))
-        return matched
+    @staticmethod
+    def _normalize_region(region: str) -> str:
+        r = region.lower().strip().replace(" ", "_").replace("-", "_")
+        for canon, aliases in REGION_ALIASES.items():
+            if r in aliases or r == canon:
+                return canon
+        return "pan"
 
 
 class DietPlanner:
-    def __init__(self, db: KidsNutriDatabase):
-        self.db = db
-
-    def calculate_calories(self, age, weight=None, condition=None, goal=None):
-        # 1. Estimate weight if not provided using anthropometric expected norms
-        if weight is None or weight <= 0:
-            if age < 1:
-                # Under 1 year (age in months, let's assume age is years, so age * 12 is months)
-                months = max(1.0, age * 12.0)
-                weight = (months + 9.0) / 2.0
-            elif 1 <= age <= 6:
-                weight = (age * 2.0) + 8.0
-            elif 7 <= age <= 12:
-                weight = (age * 7.0 - 5.0) / 2.0
-            else:
-                # Standard school age/adolescence weight projection
-                weight = age * 3.0
-                
-        # 2. Calculate base calories using Holliday-Segar formula
-        if weight <= 10:
-            base_calories = weight * 100.0
-        elif weight <= 20:
-            base_calories = 1000.0 + (weight - 10.0) * 50.0
+    def __init__(self, db_or_path=None, seed: int = 42):
+        """
+        Accepts either:
+        - KidsNutriDatabase instance  (what main.py does: DietPlanner(db))
+        - path to foods.json
+        - None (uses default path)
+        """
+        if isinstance(db_or_path, KidsNutriDatabase):
+            self.db = db_or_path
         else:
-            base_calories = 1500.0 + (weight - 20.0) * 20.0
-            
-        # 3. Adjust calories based on goal
-        goal_record = self.db.get_goal(goal) if goal else None
-        goal_surplus = 0.0
-        if goal:
-            g_lower = goal.lower()
-            if "gain" in g_lower or "growth" in g_lower or "boost" in g_lower:
-                goal_surplus = 300.0  # Weight gain surplus
-            elif "loss" in g_lower or "management" in g_lower or "obesity" in g_lower:
-                goal_surplus = -200.0 # Calorie restriction
-                
-        # 4. Adjust calories based on condition
-        condition_record = self.db.get_condition(condition) if condition else None
-        cond_multiplier = 1.0
-        if condition:
-            c_lower = condition.lower()
-            if "fever" in c_lower or "infection" in c_lower or "diarrhea" in c_lower:
-                cond_multiplier = 1.12 # +12% increase for hypermetabolism in illness
+            self.db = KidsNutriDatabase(db_or_path)
+        self.rng = random.Random(seed)
 
-        final_calories = (base_calories * cond_multiplier) + goal_surplus
-        return round(final_calories, 1), round(weight, 1)
+    def generate_meal_plan(self, profile: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        This method is required by main.py
+        """
+        age = float(profile.get("age") or profile.get("age_years") or 7)
+        weight = float(profile.get("weight") or profile.get("weight_kg") or 20)
+        condition = str(profile.get("condition") or "healthy_growth")
+        allergies = profile.get("allergies") or []
+        if isinstance(allergies, str):
+            allergies = [a.strip() for a in allergies.split(",") if a.strip()]
 
-    def generate_meal_plan(self, profile):
-        age = profile.get("age", 5)
-        weight = profile.get("weight")
-        goal = profile.get("goal")
-        condition = profile.get("condition")
-        allergies = profile.get("allergies", [])
-        
-        # 1. Calorie calculations
-        target_calories, calculated_weight = self.calculate_calories(age, weight, condition, goal)
-        
-        # 2. Gather required and avoid tags
-        required_tags = set()
-        avoid_tags = set()
-        avoid_food_names = set()
-        
-        if condition:
-            cond_rec = self.db.get_condition(condition)
-            if cond_rec:
-                required_tags.update(cond_rec.get("required_tags", []))
-                avoid_tags.update(cond_rec.get("avoid_tags", []))
-                
-        if goal:
-            goal_rec = self.db.get_goal(goal)
-            if goal_rec:
-                required_tags.update(goal_rec.get("required_tags", []))
-                avoid_tags.update(goal_rec.get("avoid_tags", []))
-                
-        # 3. Gather allergy exclusions
-        for allergy in allergies:
-            alg_rec = self.db.get_allergy(allergy)
-            if alg_rec:
-                avoid_food_names.update([f.strip().lower().replace(" ", "_") for f in alg_rec.get("avoid_foods", [])])
-                
-        # 4. Filter foods
-        candidate_foods = []
-        for food in self.db.foods:
-            # Age filter
-            if food.get("age_min") and age < food["age_min"]:
-                continue
-                
-            # Allergy filter (check direct names, category, or allergy tags)
-            f_name_clean = food["food_name"].strip().lower().replace(" ", "_")
-            f_cat_clean = food["category"].strip().lower().replace(" ", "_")
-            
-            is_allergic = False
-            if f_name_clean in avoid_food_names or f_cat_clean in avoid_food_names:
-                is_allergic = True
-                
-            # Check allergy tags
-            f_all_tags = [t.strip().lower() for t in food.get("allergy_tags", [])]
-            for alg in allergies:
-                alg_clean = alg.strip().lower()
-                if alg_clean in f_all_tags:
-                    is_allergic = True
-                # Match partials like nut/lactose
-                if "nut" in alg_clean and "nut" in f_name_clean:
-                    is_allergic = True
-                if "milk" in alg_clean and ("milk" in f_name_clean or "dairy" in f_cat_clean):
-                    is_allergic = True
-                    
-            if is_allergic:
-                continue
-                
-            # Condition / Goal avoid tags filter
-            f_tags = [t.strip().lower() for t in food.get("tags", [])]
-            if any(tag in avoid_tags for tag in f_tags):
-                continue
-                
-            candidate_foods.append(food)
-            
-        # 5. Segment foods into meal types
-        meals = {"breakfast": [], "lunch": [], "dinner": [], "snack": []}
-        
-        # Split target calories
-        meal_targets = {
-            "breakfast": target_calories * 0.25,
-            "snack": target_calories * 0.10,
-            "lunch": target_calories * 0.35,
-            "dinner": target_calories * 0.30
+        region = str(profile.get("region") or "pan")
+        diet_type = str(profile.get("diet_type") or profile.get("diet") or "vegetarian")
+        sex = str(profile.get("sex") or "any")
+        likes = profile.get("likes") or []
+        dislikes = profile.get("dislikes") or []
+        days = int(profile.get("days") or 3)
+
+        plan = self.create_plan(
+            age=age,
+            weight_kg=weight,
+            sex=sex,
+            condition=condition,
+            region=region,
+            diet_type=diet_type,
+            allergies=allergies,
+            likes=likes,
+            dislikes=dislikes,
+            days=days,
+        )
+        return plan.to_dict()
+
+    def create_plan(
+        self,
+        age: float,
+        weight_kg: float,
+        sex: str = "any",
+        condition: str = "healthy_growth",
+        region: str = "pan",
+        diet_type: str = "vegetarian",
+        allergies: Optional[List[str]] = None,
+        likes: Optional[List[str]] = None,
+        dislikes: Optional[List[str]] = None,
+        activity: str = "moderate",
+        days: int = 7,
+    ) -> DietPlan:
+        allergies = [a.lower().strip() for a in (allergies or [])]
+        likes = [l.lower().strip() for l in (likes or [])]
+        dislikes = [d.lower().strip() for d in (dislikes or [])]
+        sex = (sex or "any").lower().strip()
+        condition = condition.lower().strip().replace(" ", "_")
+        region = self.db._normalize_region(region)
+        diet_type = diet_type.lower().strip()
+
+        profile = {
+            "age": age,
+            "weight_kg": weight_kg,
+            "sex": sex,
+            "condition": condition,
+            "region": region,
+            "diet_type": diet_type,
+            "allergies": allergies,
+            "likes": likes,
+            "dislikes": dislikes,
+            "activity": activity,
         }
-        
-        # Build diet plan
-        for m_type in meals.keys():
-            m_target = meal_targets[m_type]
-            # Filter candidates for this meal type
-            meal_candidates = []
-            for f in candidate_foods:
-                meal_types = [mt.strip().lower() for mt in f.get("meal_types", [])]
-                if m_type in meal_types or "all" in meal_types:
-                    meal_candidates.append(f)
-                    
-            if not meal_candidates:
-                # Fallback to category based
-                if m_type == "breakfast":
-                    meal_candidates = [f for f in candidate_foods if f["category"] in ["cereal", "dairy", "fruit"]]
-                elif m_type == "snack":
-                    meal_candidates = [f for f in candidate_foods if f["category"] in ["fruit", "fat", "dairy"]]
-                else:
-                    meal_candidates = [f for f in candidate_foods if f["category"] in ["cereal", "protein", "vegetable"]]
-                    
-            if not meal_candidates:
-                meal_candidates = candidate_foods # Last resort fallback
-                
-            # Sort candidates: prioritize those with required tags, high digestibility, low fat if overweight
-            def score_food(food_item):
-                score = 0
-                f_tags = [t.strip().lower() for t in food_item.get("tags", [])]
-                # Prioritize required tags
-                score += sum(5 for tag in f_tags if tag in required_tags)
-                # Digestibility
-                if food_item.get("digestibility_boiled") == "high":
-                    score += 2
-                if food_item.get("digestibility_fried") == "low":
-                    score -= 2
-                return score
-                
-            meal_candidates = sorted(meal_candidates, key=score_food, reverse=True)
-            
-            # Select 2-3 foods to meet target
-            selected = []
-            accumulated_cal = 0.0
-            
-            for food in meal_candidates:
-                if accumulated_cal >= m_target * 0.95:
+
+        targets = self._compute_targets(age, weight_kg, sex, condition, activity)
+        warnings: List[str] = []
+        advice: List[str] = []
+
+        if age < 1:
+            warnings.append(
+                "This planner is for children ≥ 1 year. "
+                "Infants need pediatrician guidance."
+            )
+
+        advice.extend(self._condition_advice(condition))
+        advice.extend(self._region_advice(region))
+        advice.append(
+            "This plan uses only foods from your data/structured_db/foods.json. "
+            "It does not replace medical advice."
+        )
+
+        pool = self.db.list_foods(
+            region=region,
+            diet_type=diet_type,
+            exclude_allergens=set(allergies),
+            age=age,
+        )
+
+        if dislikes:
+            pool = [f for f in pool if not any(d in f.food_name.lower() for d in dislikes)]
+
+        if not pool:
+            warnings.append("No foods left after filters. Using pan-India vegetarian.")
+            pool = self.db.list_foods(region="pan", diet_type="vegetarian", age=age)
+
+        scored = self._score_foods(pool, likes)
+
+        weekly: List[DayMeal] = []
+        for day_idx in range(1, days + 1):
+            day_meal = self._build_day(day_idx, targets, scored, condition)
+            weekly.append(day_meal)
+
+        return DietPlan(
+            child_profile=profile,
+            targets=targets,
+            weekly_plan=weekly,
+            general_advice=advice,
+            warnings=warnings,
+            region=region,
+            diet_type=diet_type,
+        )
+
+    def _compute_targets(self, age, weight_kg, sex, condition, activity) -> NutrientTargets:
+        notes = []
+        base_energy = self._lookup(ICMR_ENERGY, age, sex) or (weight_kg * 70)
+        act_mult = {"sedentary": 0.90, "moderate": 1.00, "active": 1.15}.get(activity, 1.0)
+        energy = base_energy * act_mult
+
+        adj = CONDITION_ADJUSTMENTS.get(condition, CONDITION_ADJUSTMENTS["healthy_growth"])
+        energy *= adj["energy_mult"]
+        if adj["energy_mult"] != 1.0:
+            notes.append(f"Condition '{condition}' energy ×{adj['energy_mult']}")
+
+        base_protein = self._lookup(ICMR_PROTEIN, age, sex) or max(12.0, weight_kg * 1.0)
+        protein = max(base_protein * adj["protein_mult"], weight_kg * 0.9)
+
+        fat_g = (energy * 0.30) / 9.0
+        protein_kcal = protein * 4.0
+        carb_g = max((energy - protein_kcal - fat_g * 9.0) / 4.0, 80.0)
+
+        return NutrientTargets(
+            energy_kcal=round(energy, 0),
+            protein_g=round(protein, 1),
+            fat_g=round(fat_g, 1),
+            carb_g=round(carb_g, 1),
+            notes=notes,
+        )
+
+    @staticmethod
+    def _lookup(table, age, sex):
+        for (lo, hi), vals in table.items():
+            if lo <= age <= hi:
+                if sex in vals:
+                    return float(vals[sex])
+                return float(vals.get("any", list(vals.values())[0]))
+        return None
+
+    def _score_foods(self, pool, likes):
+        scored = []
+        for f in pool:
+            score = 1.0
+            name = f.food_name.lower()
+            for like in likes:
+                if like in name or like in f.category or like in f.tags:
+                    score += 2.5
+            if "easy_digest" in f.tags or "soft" in f.tags:
+                score += 0.5
+            if "iron_rich" in f.tags:
+                score += 0.4
+            scored.append((score, f))
+        scored.sort(key=lambda x: (-x[0], x[1].food_id))
+        return scored
+
+    def _build_day(self, day, targets, scored_pool, condition):
+        meals = {s: [] for s in MEAL_SLOTS}
+        used = set()
+        notes = []
+
+        def pick(categories, prefer_tags=None, n=1, meal_type=None):
+            candidates = []
+            for score, f in scored_pool:
+                if f.food_id in used:
+                    continue
+                if categories and f.category not in categories:
+                    continue
+                if meal_type and f.meal_types and meal_type not in f.meal_types:
+                    continue
+                s = score
+                if prefer_tags and any(t in f.tags for t in prefer_tags):
+                    s += 1.0
+                candidates.append((s, f))
+            candidates.sort(key=lambda x: -x[0])
+            chosen = []
+            for _, f in candidates:
+                if len(chosen) >= n:
                     break
-                    
-                energy_per_100 = food["energy_kcal_per_100g"]
-                if energy_per_100 <= 0.0:
-                    energy_per_100 = 100.0 # Default fallback
-                    
-                # Calculate portion size to meet remaining calories
-                rem_cal = m_target - accumulated_cal
-                portion_g = 100.0
-                
-                # Check default portion
-                if food["portion_energy_kcal"] > 0.0:
-                    default_portion_cal = food["portion_energy_kcal"]
-                    # If default portion fits, use it or scale it
-                    scale = min(2.0, max(0.5, rem_cal / default_portion_cal))
-                    portion_g = scale * 100.0 # Estimate default portion weight around 100g scaled
-                    cal_added = scale * default_portion_cal
-                else:
-                    portion_g = min(200.0, max(30.0, (rem_cal / energy_per_100) * 100.0))
-                    cal_added = (portion_g / 100.0) * energy_per_100
-                    
-                portion_g = round(portion_g, 1)
-                cal_added = round(cal_added, 1)
-                
-                pro_added = round((portion_g / 100.0) * food["protein_g"], 2)
-                fat_added = round((portion_g / 100.0) * food["fat_g"], 2)
-                carbs_added = round((portion_g / 100.0) * food["carbs_g"], 2)
-                iron_added = round((portion_g / 100.0) * food["iron_mg"], 2)
-                
-                selected.append({
-                    "food_name": food["food_name"],
-                    "category": food["category"],
-                    "portion_size_g": portion_g,
-                    "portion_unit": food.get("portion_unit", "g"),
-                    "calories_kcal": cal_added,
-                    "protein_g": pro_added,
-                    "fat_g": fat_added,
-                    "carbs_g": carbs_added,
-                    "iron_mg": iron_added
-                })
-                accumulated_cal += cal_added
-                
-            meals[m_type] = selected
-            
-        # 6. Calculate total nutrients of the plan
-        total_calories = 0.0
-        total_protein = 0.0
-        total_fat = 0.0
-        total_carbs = 0.0
-        total_iron = 0.0
-        
-        for m_type, items in meals.items():
+                chosen.append(f)
+                used.add(f.food_id)
+            return chosen
+
+        iron_focus = condition in ("anemia", "underweight", "catch_up_growth")
+        soft_focus = condition in ("diarrhea_recovery", "fever_recovery")
+
+        # Breakfast
+        b_items = pick(["cereal", "balanced_meal"], ["soft", "easy_digest"], 1, "breakfast")
+        b_items += pick(["dairy", "egg"], None, 1)
+        b_items += pick(["fruit"], None, 1)
+        share = targets.energy_kcal * MEAL_CALORIE_SHARE["breakfast"] / max(len(b_items), 1)
+        for f in b_items:
+            meals["breakfast"].append(self._to_item(f, share))
+
+        # Mid-morning
+        s_items = pick(["fruit", "snack", "dairy"], ["iron_rich"] if iron_focus else None, 1)
+        share = targets.energy_kcal * MEAL_CALORIE_SHARE["mid_morning"] / max(len(s_items), 1)
+        for f in s_items:
+            meals["mid_morning"].append(self._to_item(f, share))
+
+        # Lunch
+        l_items = pick(["cereal", "balanced_meal"], ["soft"] if soft_focus else None, 1, "lunch")
+        l_items += pick(["pulse"], ["iron_rich"] if iron_focus else None, 1)
+        l_items += pick(["vegetable"], None, 1)
+        l_items += pick(["dairy", "egg", "flesh"], ["protein_rich"], 1)
+        share = targets.energy_kcal * MEAL_CALORIE_SHARE["lunch"] / max(len(l_items), 1)
+        for f in l_items:
+            meals["lunch"].append(self._to_item(f, share))
+
+        # Evening snack
+        e_items = pick(["snack", "fruit", "dairy"], None, 1)
+        share = targets.energy_kcal * MEAL_CALORIE_SHARE["evening_snack"] / max(len(e_items), 1)
+        for f in e_items:
+            meals["evening_snack"].append(self._to_item(f, share))
+
+        # Dinner
+        d_items = pick(["cereal", "balanced_meal"], ["easy_digest", "soft"], 1, "dinner")
+        d_items += pick(["pulse"], None, 1)
+        d_items += pick(["vegetable"], None, 1)
+        d_items += pick(["dairy", "egg", "flesh"], None, 1)
+        share = targets.energy_kcal * MEAL_CALORIE_SHARE["dinner"] / max(len(d_items), 1)
+        for f in d_items:
+            meals["dinner"].append(self._to_item(f, share))
+
+        totals = {"kcal": 0.0, "protein_g": 0.0, "fat_g": 0.0, "carb_g": 0.0}
+        for items in meals.values():
             for it in items:
-                total_calories += it["calories_kcal"]
-                total_protein += it["protein_g"]
-                total_fat += it["fat_g"]
-                total_carbs += it["carbs_g"]
-                total_iron += it["iron_mg"]
-                
-        plan = {
-            "profile": {
-                "age": age,
-                "weight_kg": calculated_weight,
-                "goal": goal,
-                "condition": condition,
-                "allergies": allergies
-            },
-            "targets": {
-                "calories_kcal": target_calories
-            },
-            "totals": {
-                "calories_kcal": round(total_calories, 1),
-                "protein_g": round(total_protein, 2),
-                "fat_g": round(total_fat, 2),
-                "carbs_g": round(total_carbs, 2),
-                "iron_mg": round(total_iron, 2)
-            },
-            "meal_plan": meals
-        }
-        return plan
+                totals["kcal"] += it.kcal
+                totals["protein_g"] += it.protein_g
+                totals["fat_g"] += it.fat_g
+                totals["carb_g"] += it.carb_g
+        for k in totals:
+            totals[k] = round(totals[k], 1)
 
-    def generate_weekly_meal_plan(self, profile):
-        age = profile.get("age", 5)
-        weight = profile.get("weight")
-        goal = profile.get("goal")
-        condition = profile.get("condition")
-        allergies = profile.get("allergies", [])
-        
-        # 1. Calorie and Macro targets
-        target_calories, calculated_weight = self.calculate_calories(age, weight, condition, goal)
-        target_protein = round((target_calories * 0.15) / 4.0, 1)
-        target_carbs = round((target_calories * 0.55) / 4.0, 1)
-        target_fat = round((target_calories * 0.30) / 9.0, 1)
-        target_fiber = round((target_calories / 1000.0) * 14.0, 1)
-        
-        daily_target = {
-            "calories": target_calories,
-            "protein": target_protein,
-            "carbs": target_carbs,
-            "fat": target_fat,
-            "fiber": target_fiber
-        }
-        
-        # 2. Gather required and avoid tags
-        required_tags = set()
-        avoid_tags = set()
-        avoid_food_names = set()
-        
-        cond_check = "No condition"
-        if condition:
-            cond_rec = self.db.get_condition(condition)
-            if cond_rec:
-                required_tags.update(cond_rec.get("required_tags", []))
-                avoid_tags.update(cond_rec.get("avoid_tags", []))
-                cond_check = f"Applied rules for {condition}"
-            else:
-                cond_check = f"Condition {condition} not found in DB"
-                
-        if goal:
-            goal_rec = self.db.get_goal(goal)
-            if goal_rec:
-                required_tags.update(goal_rec.get("required_tags", []))
-                avoid_tags.update(goal_rec.get("avoid_tags", []))
-                
-        # 3. Gather allergy exclusions
-        allergy_check = "No allergies"
-        if allergies:
-            allergy_check = f"Avoid tags for {', '.join(allergies)}"
-        for allergy in allergies:
-            alg_rec = self.db.get_allergy(allergy)
-            if alg_rec:
-                avoid_food_names.update([f.strip().lower().replace(" ", "_") for f in alg_rec.get("avoid_foods", [])])
-                
-        # 4. Filter candidate foods
-        candidate_foods = []
-        for food in self.db.foods:
-            if food.get("age_min") and age < food["age_min"]:
-                continue
-                
-            f_name_clean = food["food_name"].strip().lower().replace(" ", "_")
-            f_cat_clean = food["category"].strip().lower().replace(" ", "_")
-            
-            is_allergic = False
-            if f_name_clean in avoid_food_names or f_cat_clean in avoid_food_names:
-                is_allergic = True
-                
-            f_all_tags = [t.strip().lower() for t in food.get("allergy_tags", [])]
-            for alg in allergies:
-                alg_clean = alg.strip().lower()
-                if alg_clean in f_all_tags:
-                    is_allergic = True
-                if "nut" in alg_clean and "nut" in f_name_clean:
-                    is_allergic = True
-                if "milk" in alg_clean and ("milk" in f_name_clean or "dairy" in f_cat_clean):
-                    is_allergic = True
-                    
-            if is_allergic:
-                continue
-                
-            f_tags = [t.strip().lower() for t in food.get("tags", [])]
-            if any(tag in avoid_tags for tag in f_tags):
-                continue
-                
-            candidate_foods.append(food)
-            
-        # 5. Define weekly structure
-        days_of_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-        slots = ["breakfast", "morning_snack", "lunch", "afternoon_snack", "evening_snack", "dinner"]
-        
-        slot_targets = {
-            "breakfast": target_calories * 0.20,
-            "morning_snack": target_calories * 0.10,
-            "lunch": target_calories * 0.25,
-            "afternoon_snack": target_calories * 0.10,
-            "evening_snack": target_calories * 0.10,
-            "dinner": target_calories * 0.25
-        }
-        
-        slot_categories_fallback = {
-            "breakfast": ["cereal", "dairy", "fruit"],
-            "morning_snack": ["fruit", "dairy"],
-            "lunch": ["cereal", "protein", "vegetable"],
-            "afternoon_snack": ["fruit", "fat", "dairy"],
-            "evening_snack": ["dairy", "fruit", "beverage"],
-            "dinner": ["cereal", "protein", "vegetable"]
-        }
-        
-        def score_food(food_item):
-            score = 0
-            f_tags = [t.strip().lower() for t in food_item.get("tags", [])]
-            score += sum(5 for tag in f_tags if tag in required_tags)
-            if food_item.get("digestibility_boiled") == "high":
-                score += 2
-            if food_item.get("digestibility_fried") == "low":
-                score -= 2
-            return score
+        if iron_focus:
+            notes.append("Iron-rich foods prioritised.")
+        if soft_focus:
+            notes.append("Soft / easy-to-digest foods preferred.")
 
-        weekly_plan = {}
-        previous_day_meals = {s: [] for s in slots}
-        
-        for day in days_of_week:
-            daily_meals = {s: [] for s in slots}
-            day_cals = day_pro = day_carbs = day_fat = day_fiber = 0.0
-            
-            for m_type in slots:
-                m_target = slot_targets[m_type]
-                
-                meal_candidates = []
-                for f in candidate_foods:
-                    meal_types = [mt.strip().lower() for mt in f.get("meal_types", [])]
-                    # map slot to meal type if possible
-                    generic_type = m_type.replace("morning_", "").replace("afternoon_", "").replace("evening_", "")
-                    if generic_type in meal_types or m_type in meal_types or "all" in meal_types:
-                        meal_candidates.append(f)
-                        
-                if not meal_candidates:
-                    meal_candidates = [f for f in candidate_foods if f["category"] in slot_categories_fallback[m_type]]
-                if not meal_candidates:
-                    meal_candidates = candidate_foods
-                    
-                # Rotation logic: penalize foods used yesterday in the same slot
-                prev_foods = [item["food_name"] for item in previous_day_meals[m_type]]
-                
-                def rotation_score(food_item):
-                    base = score_food(food_item)
-                    if food_item["food_name"] in prev_foods:
-                        return base - 100 # heavily penalize recent use
-                        
-                    # Boost score if this food is rich in whatever macro we are lacking today
-                    pro_ratio = day_pro / target_protein if target_protein > 0 else 1.0
-                    fat_ratio = day_fat / target_fat if target_fat > 0 else 1.0
-                    carb_ratio = day_carbs / target_carbs if target_carbs > 0 else 1.0
-                    
-                    if pro_ratio < fat_ratio and pro_ratio < carb_ratio:
-                        if "protein" in food_item["category"].lower() or "protein" in [t.lower() for t in food_item.get("tags",[])] or food_item.get("protein_g", 0) > 10:
-                            base += 10
-                    elif fat_ratio < pro_ratio and fat_ratio < carb_ratio:
-                        if "fat" in food_item["category"].lower() or "fat" in [t.lower() for t in food_item.get("tags",[])] or food_item.get("fat_g", 0) > 10:
-                            base += 10
-                    elif carb_ratio < pro_ratio and carb_ratio < fat_ratio:
-                        if "cereal" in food_item["category"].lower() or "carbohydrate" in [t.lower() for t in food_item.get("tags",[])] or food_item.get("carbs_g", 0) > 20:
-                            base += 10
-                            
-                    return base
-                    
-                meal_candidates = sorted(meal_candidates, key=rotation_score, reverse=True)
-                
-                selected = []
-                accumulated_cal = 0.0
-                
-                for food in meal_candidates:
-                    if accumulated_cal >= m_target * 0.95:
-                        break
-                        
-                    if len(selected) >= 3:
-                        break
-                        
-                    energy_per_100 = food["energy_kcal_per_100g"]
-                    if energy_per_100 <= 0.0:
-                        energy_per_100 = 100.0
-                        
-                    rem_cal = m_target - accumulated_cal
-                    
-                    remaining_slots = max(1, 3 - len(selected))
-                    if remaining_slots == 1 or rem_cal < 50:
-                        target_cal = rem_cal
-                    else:
-                        target_cal = rem_cal / remaining_slots
-                        
-                    portion_g = 100.0
-                    
-                    if food["portion_energy_kcal"] > 0.0:
-                        default_portion_cal = food["portion_energy_kcal"]
-                        scale = min(2.0, max(0.5, target_cal / default_portion_cal))
-                        portion_g = scale * 100.0
-                        cal_added = scale * default_portion_cal
-                    else:
-                        portion_g = min(200.0, max(30.0, (target_cal / energy_per_100) * 100.0))
-                        cal_added = (portion_g / 100.0) * energy_per_100
-                        
-                    portion_g = round(portion_g, 1)
-                    cal_added = round(cal_added, 1)
-                    pro_added = round((portion_g / 100.0) * food.get("protein_g", 0.0), 2)
-                    fat_added = round((portion_g / 100.0) * food.get("fat_g", 0.0), 2)
-                    carbs_added = round((portion_g / 100.0) * food.get("carbs_g", 0.0), 2)
-                    fiber_added = round((portion_g / 100.0) * food.get("fiber_g", 0.0), 2)
-                    
-                    selected.append({
-                        "food_name": food["food_name"],
-                        "category": food["category"],
-                        "portion_size_g": portion_g,
-                        "portion_unit": food.get("portion_unit", "g"),
-                        "calories_kcal": cal_added,
-                        "protein_g": pro_added,
-                        "fat_g": fat_added,
-                        "carbs_g": carbs_added,
-                        "fiber_g": fiber_added
-                    })
-                    accumulated_cal += cal_added
-                    
-                daily_meals[m_type] = selected
-                previous_day_meals[m_type] = selected
-                
-                for it in selected:
-                    day_cals += it["calories_kcal"]
-                    day_pro += it["protein_g"]
-                    day_fat += it["fat_g"]
-                    day_carbs += it["carbs_g"]
-                    day_fiber += it["fiber_g"]
-            
-            day_cals = round(day_cals, 1)
-            day_pro = round(day_pro, 1)
-            day_carbs = round(day_carbs, 1)
-            day_fat = round(day_fat, 1)
-            day_fiber = round(day_fiber, 1)
-            
-            # Daily Validation
-            valid_cals = abs(day_cals - target_calories) / target_calories <= 0.15
-            valid_pro = target_protein == 0 or abs(day_pro - target_protein) / target_protein <= 0.20
-            
-            weekly_plan[day] = {
-                "meals": daily_meals,
-                "daily_totals": {
-                    "calories": day_cals,
-                    "protein": day_pro,
-                    "carbs": day_carbs,
-                    "fat": day_fat,
-                    "fiber": day_fiber
-                },
-                "target_deviation": {
-                    "calories_diff": round(day_cals - target_calories, 1),
-                    "protein_diff": round(day_pro - target_protein, 1),
-                    "carbs_diff": round(day_carbs - target_carbs, 1),
-                    "fat_diff": round(day_fat - target_fat, 1)
-                },
-                "allergy_check": allergy_check,
-                "condition_check": cond_check,
-                "validation": {
-                    "calories_met": valid_cals,
-                    "protein_met": valid_pro,
-                    "is_safe": True if len(candidate_foods) > 0 else False
-                }
-            }
+        return DayMeal(day=day, meals=meals, day_totals=totals, notes=notes)
 
-        result = {
-            "profile_summary": {
-                "age": age,
-                "weight_kg": calculated_weight,
-                "goal": goal,
-                "condition": condition,
-                "allergies": allergies
-            },
-            "daily_target": daily_target,
-            "weekly_plan": weekly_plan,
-            "validation": {
-                "days_generated": len(weekly_plan),
-                "all_slots_present": all(len(d["meals"]) == 6 for d in weekly_plan.values())
-            }
+    def _to_item(self, food: FoodItem, target_kcal: float) -> MealItem:
+        if food.energy_kcal_per_100g <= 0:
+            scale = 1.0
+        else:
+            desired_g = (target_kcal / food.energy_kcal_per_100g) * 100
+            scale = max(0.3, min(2.0, desired_g / 100))
+        return MealItem(
+            food_id=food.food_id,
+            name=food.food_name.replace("_", " ").title(),
+            portion_desc=food.portion_unit,
+            kcal=round(food.energy_kcal_per_100g * scale, 1),
+            protein_g=round(food.protein_g * scale, 1),
+            fat_g=round(food.fat_g * scale, 1),
+            carb_g=round(food.carbs_g * scale, 1),
+        )
+
+    def _condition_advice(self, condition):
+        advice = {
+            "anemia": [
+                "Include iron-rich foods (ragi, lentils, green leafy vegetables, egg).",
+                "Pair with vitamin-C foods (amla, papaya) to improve iron absorption.",
+                "Avoid tea/coffee with meals.",
+            ],
+            "underweight": [
+                "Offer energy-dense foods in small frequent meals.",
+                "Include full-fat dairy, banana, nuts (if age-appropriate).",
+            ],
+            "diarrhea_recovery": [
+                "Prefer soft foods: khichdi, curd, banana, rice.",
+                "Avoid spicy and oily foods until recovery.",
+            ],
+            "constipation": [
+                "Increase fibre (fruits, vegetables, millets) and water.",
+            ],
+            "diabetes": [
+                "Prefer millets, pulses, vegetables. Keep meal timings regular.",
+            ],
         }
-        return result
+        return advice.get(condition, [
+            "Maintain regular meal timings and include variety from all food groups."
+        ])
 
-if __name__ == '__main__':
-    # Test Planner
-    db = KidsNutriDatabase()
-    planner = DietPlanner(db)
-    profile = {
-        "age": 7,
-        "weight": 22.0,
-        "condition": "fever",
-        "goal": "healthy_growth",
-        "allergies": ["egg_protein"]
-    }
-    plan = planner.generate_meal_plan(profile)
-    print(json.dumps(plan, indent=2))
+    def _region_advice(self, region):
+        tips = {
+            "south": ["South Indian template: idli/dosa/rice + sambar + vegetable + curd."],
+            "north": ["North Indian template: roti + dal + sabzi + curd."],
+            "west":  ["Include poha, millets, and buttermilk."],
+            "east":  ["Rice + dal + fish (if non-veg) + green vegetables."],
+        }
+        return tips.get(region, ["Rotate cereals and pulses across the week."])
+
+
+def generate_diet_plan(
+    age: float,
+    weight_kg: float,
+    sex: str = "any",
+    condition: str = "healthy_growth",
+    region: str = "pan",
+    diet_type: str = "vegetarian",
+    allergies: Optional[List[str]] = None,
+    likes: Optional[List[str]] = None,
+    dislikes: Optional[List[str]] = None,
+    activity: str = "moderate",
+    days: int = 7,
+    foods_path: Optional[str] = None,
+) -> DietPlan:
+    planner = DietPlanner(foods_path=foods_path)
+    return planner.create_plan(
+        age=age,
+        weight_kg=weight_kg,
+        sex=sex,
+        condition=condition,
+        region=region,
+        diet_type=diet_type,
+        allergies=allergies,
+        likes=likes,
+        dislikes=dislikes,
+        activity=activity,
+        days=days,
+    )
+
+
+if __name__ == "__main__":
+    plan = generate_diet_plan(
+        age=7,
+        weight_kg=22,
+        sex="boy",
+        condition="anemia",
+        region="south",
+        diet_type="eggetarian",
+        allergies=["peanut"],
+        likes=["idli", "egg", "banana"],
+        days=2,
+    )
+    print(plan.summary_text())

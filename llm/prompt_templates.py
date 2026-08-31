@@ -42,12 +42,19 @@ RESPONSE STRUCTURE:
 """
 
 def generate_llm_prompt(plan, rag_context, query=None):
-    profile = plan["profile"]
-    targets = plan["targets"]
-    totals = plan["totals"]
-    meal_plan = plan["meal_plan"]
+    # Support both old and new planner formats
+    profile = plan.get("child_profile") or plan.get("profile") or {}
+    targets = plan.get("targets") or {}
+    weekly_plan = plan.get("weekly_plan") or []
+    general_advice = plan.get("general_advice") or []
 
     allergies_str = ", ".join(profile.get("allergies", [])) if profile.get("allergies") else "None"
+
+    # Target calories (new key: energy_kcal, old key: calories_kcal)
+    target_kcal = targets.get("energy_kcal") or targets.get("calories_kcal") or "N/A"
+    target_protein = targets.get("protein_g") or "N/A"
+    target_fat = targets.get("fat_g") or "N/A"
+    target_carb = targets.get("carb_g") or targets.get("carbs_g") or "N/A"
 
     user_content = ""
     if query:
@@ -55,36 +62,52 @@ def generate_llm_prompt(plan, rag_context, query=None):
 
     user_content += f"""### Child Profile:
 - Age: {profile.get('age', 'N/A')} years old
-- Current/Estimated Weight: {profile.get('weight_kg', 'N/A')} kg
-- Primary Goal: {profile.get('goal', 'N/A')}
+- Current/Estimated Weight: {profile.get('weight_kg') or profile.get('weight', 'N/A')} kg
 - Clinical Condition: {profile.get('condition', 'N/A')}
+- Region: {plan.get('region', profile.get('region', 'N/A'))}
+- Diet Type: {plan.get('diet_type', profile.get('diet_type', 'N/A'))}
 - Allergies: {allergies_str}
 
 ### Diet Planner Output (Use these exact values, do not recalculate):
-- Target Calories: {targets.get('calories_kcal', 'N/A')} kcal
-- Planned Calories: {totals.get('calories_kcal', 'N/A')} kcal
-- Planned Protein: {totals.get('protein_g', 'N/A')} g
-- Planned Fat: {totals.get('fat_g', 'N/A')} g
-- Planned Carbohydrates: {totals.get('carbs_g', 'N/A')} g
-- Planned Iron: {totals.get('iron_mg', 'N/A')} mg
+- Target Calories: {target_kcal} kcal
+- Target Protein: {target_protein} g
+- Target Fat: {target_fat} g
+- Target Carbohydrates: {target_carb} g
 
 #### Meal Schedule:
 """
 
-    for meal, items in meal_plan.items():
-        if meal == 'breakfast':
-            multiplier = 0.25
-        elif meal == 'snack':
-            multiplier = 0.10
-        elif meal == 'lunch':
-            multiplier = 0.35
-        else:
-            multiplier = 0.30
+    # Use first day of the weekly plan for the prompt (or all days if you prefer)
+    if weekly_plan:
+        day = weekly_plan[0]
+        meals = day.get("meals", {})
+        day_totals = day.get("day_totals", {})
 
-        meal_target = round(targets.get('calories_kcal', 0) * multiplier, 1)
-        user_content += f"- **{meal.capitalize()}** (Target: {meal_target} kcal):\n"
-        for item in items:
-            user_content += f"  * {item.get('food_name', 'N/A')} (Category: {item.get('category', 'N/A')}): {item.get('portion_size_g', 'N/A')}g ({item.get('calories_kcal', 'N/A')} kcal, {item.get('protein_g', 'N/A')}g protein, {item.get('iron_mg', 'N/A')}mg iron)\n"
+        for meal_name, items in meals.items():
+            user_content += f"- **{meal_name.replace('_', ' ').title()}**:\n"
+            for item in items:
+                name = item.get("name") or item.get("food_name", "N/A")
+                portion = item.get("portion_desc") or item.get("portion_unit", "")
+                kcal = item.get("kcal") or item.get("calories_kcal", "N/A")
+                protein = item.get("protein_g", "N/A")
+                user_content += f"  * {name} ({portion}) — {kcal} kcal, {protein}g protein\n"
+
+        user_content += f"\nDay Totals: {day_totals.get('kcal', 'N/A')} kcal | "
+        user_content += f"Protein {day_totals.get('protein_g', 'N/A')} g | "
+        user_content += f"Fat {day_totals.get('fat_g', 'N/A')} g | "
+        user_content += f"Carb {day_totals.get('carb_g', 'N/A')} g\n"
+    else:
+        # Fallback for old format
+        meal_plan = plan.get("meal_plan") or {}
+        for meal, items in meal_plan.items():
+            user_content += f"- **{meal.capitalize()}**:\n"
+            for item in items:
+                user_content += f"  * {item.get('food_name', 'N/A')}: {item.get('portion_size_g', 'N/A')}g\n"
+
+    if general_advice:
+        user_content += "\n### Planner Advice:\n"
+        for adv in general_advice:
+            user_content += f"- {adv}\n"
 
     user_content += "\n### Retrieved Pediatric Nutrition Guidelines (RAG Context):\n"
     for doc in rag_context:

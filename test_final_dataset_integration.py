@@ -46,18 +46,50 @@ class TestFinalizedDatasetIsTheActiveDataset(unittest.TestCase):
         self.assertNotIn("LEGACY_EVALUATION_DATA", comparator_src)
 
     def test_relevant_chunk_ids_are_intact_after_wiring(self):
+        # 38/11 was the split before the Phase 2D safety-case replacement
+        # (2026-08-31, docs/evaluation/phase2d_replacement_cases.md): three of
+        # the four replaced cases (EVAL_037, EVAL_038, EVAL_039) went from
+        # relevant_chunk_ids=None (structured_db-only, no RAG chunk) to real,
+        # retrieval-verified RAG grounding, correctly shifting the split to
+        # 41/8 - this is an intended improvement from that replacement, not a
+        # regression.
         from evaluation.dataset import EVALUATION_DATA
         with_gold = [c for c in EVALUATION_DATA if c["relevant_chunk_ids"] is not None]
         without_gold = [c for c in EVALUATION_DATA if c["relevant_chunk_ids"] is None]
-        self.assertEqual(len(with_gold), 38)
-        self.assertEqual(len(without_gold), 11)
+        self.assertEqual(len(with_gold), 41)
+        self.assertEqual(len(without_gold), 8)
         for c in with_gold:
             self.assertIsInstance(c["relevant_chunk_ids"], list)
             self.assertGreater(len(c["relevant_chunk_ids"]), 0)
 
-    def test_safety_ground_truth_remains_null_on_every_case(self):
+    def test_safety_ground_truth_is_non_null_only_for_the_20_selected_safety_cases(self):
+        # Final evaluation dataset audit (2026-08-31,
+        # docs/evaluation/final_evaluation_dataset_audit.md) integrated the
+        # full, independently two-round-verified 20-case safety selection
+        # (docs/evaluation/phase2d_ai_safety_ground_truth.json: the original
+        # 16 cases + the 4 replacement cases already embedded by the prior
+        # replacement pass) directly into phase2c_gold_annotations.json. The
+        # remaining 29 cases were never part of that selection and correctly
+        # remain null - this test verifies exactly that split, not a blanket
+        # "always null" invariant.
         from evaluation.dataset import EVALUATION_DATA
-        self.assertTrue(all(c["safety_ground_truth"] is None for c in EVALUATION_DATA))
+        expected_non_null = {
+            "EVAL_014", "EVAL_019", "EVAL_020", "EVAL_021", "EVAL_022",
+            "EVAL_023", "EVAL_024", "EVAL_025", "EVAL_026", "EVAL_027",
+            "EVAL_028", "EVAL_029", "EVAL_030", "EVAL_031", "EVAL_035",
+            "EVAL_036", "EVAL_037", "EVAL_038", "EVAL_039", "EVAL_049",
+        }
+        self.assertEqual(len(expected_non_null), 20)
+        actual_non_null = {c["id"] for c in EVALUATION_DATA if c["safety_ground_truth"] is not None}
+        self.assertEqual(actual_non_null, expected_non_null)
+        for c in EVALUATION_DATA:
+            if c["id"] in expected_non_null:
+                sgt = c["safety_ground_truth"]
+                self.assertIn(sgt["overall"], ("Compliant", "Refusal", "Violation"))
+                for key in ("diagnosis", "prescription", "allergy_violation", "age_violation"):
+                    self.assertIsInstance(sgt[key], bool)
+            else:
+                self.assertIsNone(c["safety_ground_truth"])
 
     def test_dataset_matches_the_source_json_verbatim(self):
         from evaluation.dataset import EVALUATION_DATA
@@ -193,7 +225,12 @@ class TestCorrectedDefaults(unittest.TestCase):
         import inspect
         from evaluation.evaluator import KidsNutriEvaluator
         sig = inspect.signature(KidsNutriEvaluator.__init__)
-        self.assertEqual(sig.parameters["judge_model"].default, "groq_llama70b")
+        # Phase 4F: the default was intentionally renamed from "groq_llama70b"
+        # to "groq_judge" - the old name mapped to "llama-3.3-70b-versatile",
+        # a model confirmed NOT present in the account's live Groq catalog
+        # (see docs/phase4f_groq_judge_configuration.md). "groq_judge" is the
+        # one clear, honestly-named default judge backend going forward.
+        self.assertEqual(sig.parameters["judge_model"].default, "groq_judge")
 
     def test_comparator_default_models_is_qwen_local_only(self):
         import inspect
@@ -206,7 +243,7 @@ class TestCorrectedDefaults(unittest.TestCase):
             src = f.read()
         self.assertIn('"--model", type=str, default="qwen_local"', src)
         self.assertIn('"--models", type=str, default="qwen_local"', src)
-        self.assertIn('"--judge-model", type=str, default="groq_llama70b"', src)
+        self.assertIn('"--judge-model", type=str, default="groq_judge"', src)
 
     def test_qwen_local_is_still_the_production_answer_route(self):
         from llm.llm_client import KidsNutriLLMClient
@@ -223,13 +260,29 @@ class TestCorrectedDefaults(unittest.TestCase):
         m_groq.assert_not_called()
         m_gemini.assert_not_called()
 
-    def test_groq_llama70b_is_still_reachable_as_default_judge_backend(self):
+    def test_groq_judge_is_the_default_judge_backend_and_routes_to_a_verified_model(self):
+        # Phase 4F: "groq_judge" is the new, honestly-named primary judge
+        # route. It must route to a model directly evidenced as available in
+        # the account's live Groq catalog (docs/phase4f_groq_judge_configuration.md),
+        # not the fictional "llama-3.3-70b-versatile".
+        from llm.llm_client import KidsNutriLLMClient
+        client = KidsNutriLLMClient()
+        with patch.object(client, "_call_groq", return_value="judge json") as m_groq:
+            text, _ = client.generate_response("s", "u", model_name="groq_judge")
+        self.assertEqual(text, "judge json")
+        m_groq.assert_called_once_with("openai/gpt-oss-120b", "s", "u")
+
+    def test_groq_llama70b_is_still_reachable_as_deprecated_alias(self):
+        # Phase 4F: "groq_llama70b" is kept only for backward compatibility -
+        # it must still work (never raise "Unknown model name"), and must
+        # route to the SAME real, verified model as "groq_judge" rather than
+        # the old nonexistent "llama-3.3-70b-versatile".
         from llm.llm_client import KidsNutriLLMClient
         client = KidsNutriLLMClient()
         with patch.object(client, "_call_groq", return_value="judge json") as m_groq:
             text, _ = client.generate_response("s", "u", model_name="groq_llama70b")
         self.assertEqual(text, "judge json")
-        m_groq.assert_called_once_with("llama-3.3-70b-versatile", "s", "u")
+        m_groq.assert_called_once_with("openai/gpt-oss-120b", "s", "u")
 
     def test_gemini_remains_selectable_as_an_alternative_judge_backend(self):
         from llm.llm_client import KidsNutriLLMClient
@@ -247,7 +300,7 @@ class TestCorrectedDefaults(unittest.TestCase):
         mock_planner = MagicMock()
         evaluator = KidsNutriEvaluator(mock_client, mock_retriever, mock_planner)
         for judge in evaluator.judges.values():
-            self.assertEqual(judge.model_name, "groq_llama70b")
+            self.assertEqual(judge.model_name, "groq_judge")
 
 
 if __name__ == "__main__":

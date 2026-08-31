@@ -8,7 +8,7 @@ class KidsNutriEvaluator:
     Strictly coordinates the execution sequence.
     Contains no business logic, LLM prompts, or mathematical computations.
     """
-    def __init__(self, llm_client, retriever, planner, judge_model="groq_llama70b", judges=None, metrics=None):
+    def __init__(self, llm_client, retriever, planner, judge_model="groq_judge", judges=None, metrics=None):
         self.llm_client = llm_client
         self.retriever = retriever
         self.planner = planner
@@ -75,7 +75,20 @@ class KidsNutriEvaluator:
             for fact in (test_case.get("gold_facts") or [])
             if fact.get("fact_text")
         ]
-        
+        # Phase 4E root-cause fix (docs/phase4e_context_recall_fix.md): Context
+        # Recall's applicable-case scoping must agree with the official
+        # retrieval metrics' scoping (Recall@5/MAP@5/MRR@5), which already
+        # correctly treat `relevant_chunk_ids is None` as MISSING_GROUND_TRUTH,
+        # not a fabricated result. A case with no RAG ground truth (the 8
+        # genuinely structured-DB-only cases in the finalized dataset) was
+        # never meant to have its gold_facts checked against RAG-retrieved
+        # context in the first place - that context was never authored or
+        # expected to contain those facts. This flag is computed here (the
+        # evaluator is the only layer that sees the full test_case) and used
+        # below both to skip the mismatched judge call entirely and to tell
+        # calculate_context_recall_details the case is not applicable.
+        context_recall_applicable = test_case.get("relevant_chunk_ids") is not None
+
         # --- Step 1: System Execution ---
         retrieved_contexts = self.retriever.retrieve(question, top_k=5)
         # Retrieval-metric identity must be the source record's own rag_data.json "id"
@@ -104,8 +117,20 @@ class KidsNutriEvaluator:
         try:
             # Context Judge
             relevance_data = self.judges["context"].evaluate_precision(question, retrieved_contexts, q_id=q_id)
-            recall_data = self.judges["context"].evaluate_recall(retrieved_contexts, expected_context, q_id=q_id, question=question)
-            
+            # Context Precision is always applicable (a live judgment of
+            # retrieved-chunk relevance to the query, not gold-ID-based), so
+            # it runs unconditionally. Context Recall's judge call is skipped
+            # entirely for non-RAG-applicable cases (context_recall_applicable
+            # is False) - there is no point asking the judge to check gold
+            # facts against context they were never meant to be found in, and
+            # skipping the call also avoids spending a judge API call on a
+            # structurally inapplicable question. recall_data stays None as an
+            # explicit "never called" sentinel, handled in Layer 2 below.
+            if context_recall_applicable:
+                recall_data = self.judges["context"].evaluate_recall(retrieved_contexts, expected_context, q_id=q_id, question=question)
+            else:
+                recall_data = None
+
             # Grounding Judge
             grounding_data = self.judges["grounding"].evaluate_grounding(question, response, retrieved_contexts, plan, q_id=q_id)
             
@@ -119,7 +144,16 @@ class KidsNutriEvaluator:
             print(f"[!] Layer 1 Judge Error for QID {q_id}: {e}")
             traceback.print_exc()
             relevance_data = {"relevance_map": [], "parse_failed": True, "error": str(e)}
-            recall_data = {"facts": []}
+            # Phase 4E fix: this fallback previously set recall_data = {"facts": []}
+            # with no failure marker, which Layer 2 could not distinguish from
+            # a legitimate "nothing expected" result - both fed
+            # calculate_context_recall's old `if not facts_list: return 0.0`
+            # identically. A whole-Layer-1 crash is a real evaluation failure
+            # for this case, not a real zero, so it must carry parse_failed=True
+            # exactly like the other three judges' fallbacks here already do -
+            # for a non-RAG-applicable case (context_recall_applicable is
+            # False), this is moot, since Layer 2 checks applicability first.
+            recall_data = {"facts": [], "parse_failed": True, "error": str(e)}
             grounding_data = {"claims": [], "parse_failed": True, "error": str(e)}
             relevancy_data = {"generated_questions": [], "parse_failed": True, "error": str(e)}
             safety_data = {"overall": "Parse_Error"}
@@ -179,7 +213,25 @@ class KidsNutriEvaluator:
                 is_hallucinated = unsupported_claim_rate_details["score"] > 0
             else:
                 is_hallucinated = None
-            context_recall = gm.calculate_context_recall(recall_data.get("facts", []))
+            # Phase 4E root-cause fix (docs/phase4e_context_recall_fix.md):
+            # recall_data is None when context_recall_applicable was False
+            # (the judge was never called - see Step 2 above); otherwise it
+            # carries either a real {"facts": [...]} result or a
+            # {"parse_failed": True, ...} failure marker (from either
+            # ContextJudge.evaluate_recall's own retry exhaustion, or the
+            # whole-Layer-1-crashed fallback above). calculate_context_recall_details
+            # now distinguishes all of: a judge failure (EVALUATION_FAILURE,
+            # never a fake 0.0), a non-applicable case (MISSING_GROUND_TRUTH),
+            # a genuine zero-facts-supported result (REAL_ZERO), and a real
+            # partial/full result (VALID) - see that function's docstring.
+            context_recall_evaluation_failed = bool(recall_data is not None and recall_data.get("parse_failed"))
+            context_recall_facts = recall_data.get("facts") if recall_data is not None else None
+            context_recall_details = gm.calculate_context_recall_details(
+                context_recall_facts,
+                evaluation_failed=context_recall_evaluation_failed,
+                ground_truth_available=context_recall_applicable
+            )
+            context_recall = context_recall_details["score"]
             
             # 3. Relevancy Metrics
             relm = self.metrics["relevancy"]
@@ -256,7 +308,22 @@ class KidsNutriEvaluator:
                 "total_count": 0
             }
             is_hallucinated = None
-            context_recall = 0.0
+            # Phase 4E fix: this line previously hardcoded context_recall = 0.0
+            # directly, the third and most blatant of the three code paths
+            # that silently converted a Layer-2 computation failure into a
+            # fake real zero (see docs/phase4e_context_recall_fix.md) - every
+            # sibling metric in this same except block already correctly
+            # reports EVALUATION_FAILURE/None instead; Context Recall now does
+            # too, via the same details-dict shape used in the success path
+            # above, so callers reading context_recall_status never need to
+            # special-case this branch.
+            context_recall = None
+            context_recall_details = {
+                "score": None,
+                "status": "EVALUATION_FAILURE",
+                "supported_count": None,
+                "total_count": None
+            }
             answer_relevancy = None
             relevancy_scores = {
                 "question_scores": [],
@@ -297,6 +364,9 @@ class KidsNutriEvaluator:
             "mrr_5_retrieved_count": mrr_5_details["retrieved_count"],
             "mrr_5_gold_relevant_count": mrr_5_details["gold_relevant_count"],
             "context_recall": context_recall,
+            "context_recall_status": context_recall_details["status"],
+            "context_recall_supported_count": context_recall_details["supported_count"],
+            "context_recall_total_count": context_recall_details["total_count"],
             "faithfulness": faithfulness,
             "faithfulness_status": faithfulness_details["status"],
             "faithfulness_supported_count": faithfulness_details["supported_count"],

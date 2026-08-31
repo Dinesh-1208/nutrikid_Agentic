@@ -85,6 +85,37 @@ class BaseJudge:
         except Exception as e:
             print(f"[!] Warning: Failed to write debug log for {metric_name}: {e}")
 
+    @staticmethod
+    def _classify_api_error(exc):
+        """
+        Phase 4F: best-effort classification of a judge-call exception, used only
+        to decide whether retrying is worth attempting - it never changes what a
+        failure ultimately reports (still {"parse_failed": True, "error": ...},
+        never a fake 0.0 - see evaluator.py's status-enum handling).
+
+        - "daily_quota_exhausted": the provider's error text names a per-day
+          token/request limit (e.g. Groq TPD). Retrying within the same run
+          cannot help this - the quota resets on a daily cycle, not by waiting
+          seconds - so callers should fail fast instead of burning further
+          retries/requests against an already-exhausted daily budget.
+        - "rate_limited_transient": a per-minute/short-window throttle (e.g.
+          Groq TPM/RPM, generic 429 without a daily-limit phrase). Backoff and
+          retry is the correct response here.
+        - "other": anything else (network error, malformed response, invalid
+          request, etc.) - handled by the existing uniform backoff/retry path.
+
+        This is intentionally a string-matching heuristic, not a dependency on
+        provider-specific exception classes, since the project talks to Groq/
+        Gemini/OpenRouter/local Transformers through one shared judge interface.
+        """
+        text = str(exc).lower()
+        is_429 = "429" in text or "rate" in text or "ratelimiterror" in type(exc).__name__.lower()
+        if is_429 and ("per day" in text or "tpd" in text or "daily" in text or "requests per day" in text):
+            return "daily_quota_exhausted"
+        if is_429:
+            return "rate_limited_transient"
+        return "other"
+
     def call_llm_with_retry(self, prompt, max_retries=3, q_id="N/A", question="N/A", model_response="N/A"):
         """Calls the LLM with exponential backoff and parses JSON."""
         if self.model_name == "gemini" and not self.llm_client.gemini_key:
@@ -125,16 +156,26 @@ class BaseJudge:
                 
             except Exception as e:
                 latency = time.time() - start_time
-                print(f"[!] API or Parse Error (Attempt {attempt + 1}/{max_retries}): {e}")
+                error_class = self._classify_api_error(e)
+                print(f"[!] API or Parse Error (Attempt {attempt + 1}/{max_retries}, classified as '{error_class}'): {e}")
                 self._log_metadata(attempt, latency, str(e), success=False)
-                
+
+                if error_class == "daily_quota_exhausted":
+                    # Phase 4F: a daily token/request quota does not recover within
+                    # this run's lifetime - unlike a transient/per-minute throttle,
+                    # exponential backoff of a few seconds cannot help, and retrying
+                    # only spends further requests against an already-exhausted
+                    # daily budget. Fail fast instead of exhausting max_retries.
+                    print("[!] Daily quota exhaustion detected - not retryable within this run. Failing fast.")
+                    return {"parse_failed": True, "error": str(e), "error_class": error_class}
+
                 if attempt < max_retries - 1:
                     backoff_time = 2 ** attempt  # 1s, 2s, 4s...
                     print(f"[*] Retrying in {backoff_time} seconds...")
                     time.sleep(backoff_time)
                 else:
                     print("[!] Max retries reached. Returning failure.")
-                    return {"parse_failed": True, "error": str(e)}
+                    return {"parse_failed": True, "error": str(e), "error_class": error_class}
 
     def _log_metadata(self, attempt, latency, response, success):
         """Logs latency, retries, and raw text."""

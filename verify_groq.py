@@ -19,12 +19,31 @@ def verify_groq():
         return
 
     client = KidsNutriLLMClient()
-    
+
+    # Phase 4F: print the account's actual live model catalog before testing
+    # anything, so a stale symbolic-name mapping can never go unnoticed again
+    # (this is exactly the check that would have caught the old
+    # "groq_llama70b" -> "llama-3.3-70b-versatile" mismatch ahead of time -
+    # see docs/phase4f_groq_judge_configuration.md).
+    try:
+        from groq import Groq
+        raw_client = Groq(api_key=api_key)
+        live_models = sorted(m.id for m in raw_client.models.list().data)
+        print(f"[*] Live Groq model catalog for this account ({len(live_models)} models):")
+        for m in live_models:
+            print(f"    - {m}")
+    except Exception as e:
+        print(f"[!] Could not fetch live model catalog: {e}")
+
     system_prompt = "You are a helpful pediatric assistant."
     user_prompt = "What is the capital of France? Answer in one word."
 
-    models_to_test = ["groq_llama8b", "groq_llama70b"]
-    
+    # groq_judge is the project's real default judge backend; groq_llama8b is
+    # the optional smaller/faster alternative; groq_llama70b is kept only to
+    # prove the deprecated alias still works (it now routes to the same real
+    # model as groq_judge, not the old nonexistent llama-3.3-70b-versatile).
+    models_to_test = ["groq_judge", "groq_llama8b", "groq_llama70b"]
+
     for model_name in models_to_test:
         print(f"\n--- Testing Model: {model_name} ---")
         try:

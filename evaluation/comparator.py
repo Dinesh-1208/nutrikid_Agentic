@@ -78,7 +78,7 @@ class KidsNutriComparator:
             "missing_ground_truth_cases": missing_ground_truth_count
         }
 
-    def run_comparison(self, models=["qwen_local"], sample_limit=None):
+    def run_comparison(self, models=["qwen_local"], sample_limit=None, run_diagnostic_experiment=False):
         dataset = EVALUATION_DATA
         if sample_limit:
             # Take a balanced subset across categories
@@ -167,6 +167,9 @@ class KidsNutriComparator:
                     "MRR@5 Retrieved Count": record.get("mrr_5_retrieved_count", ""),
                     "MRR@5 Gold Relevant Count": record.get("mrr_5_gold_relevant_count", ""),
                     "Context Recall": record["context_recall"],
+                    "Context Recall Status": record.get("context_recall_status", "UNKNOWN"),
+                    "Context Recall Supported Count": record.get("context_recall_supported_count", ""),
+                    "Context Recall Total Count": record.get("context_recall_total_count", ""),
                     "Faithfulness": record["faithfulness"],
                     "Answer Relevancy": record["answer_relevancy"]
                 })
@@ -266,7 +269,18 @@ class KidsNutriComparator:
                 f.write("---\n\n")
 
         # ================= RETRIEVAL DIAGNOSTICS (unofficial, LLM-judged, not gold-grounded) =================
-        self.run_llm_judged_relevance_experiment(dataset)
+        # Phase 4F: this diagnostic costs an extra 2 judge calls x len(dataset) x 3
+        # K-values (K=3,5,10) on top of the official metrics' judge calls - e.g. an
+        # extra ~294 calls for the 49-case dataset. It is NOT one of the official
+        # metrics and is not required for a valid --evaluate run, so it is now OFF
+        # by default and must be explicitly opted into via run_diagnostic_experiment=True
+        # (CLI: --run-retrieval-diagnostic) to avoid burning Groq judge quota on a
+        # diagnostic the official benchmark does not need.
+        if run_diagnostic_experiment:
+            self.run_llm_judged_relevance_experiment(dataset)
+        else:
+            print("\n[Diagnostics] Skipping unofficial LLM-judged retrieval-depth experiment "
+                  "(off by default - pass run_diagnostic_experiment=True / --run-retrieval-diagnostic to enable).")
 
         # ================= FINAL REPORT =================
         comparison_records = []
@@ -291,7 +305,26 @@ class KidsNutriComparator:
             valid_recall_5 = [r.get("recall_5") for r in model_res if r.get("recall_5") is not None]
             avg_recall_5 = sum(valid_recall_5) / len(valid_recall_5) if valid_recall_5 else None
             missing_recall_5_gt = sum(1 for r in model_res if r.get("recall_5_status") == "MISSING_GROUND_TRUTH")
-            avg_recall = df["context_recall"].mean()
+
+            # Context Recall (Phase 4E root-cause fix, docs/phase4e_context_recall_fix.md):
+            # only VALID/REAL_ZERO contribute to the average - MISSING_GROUND_TRUTH
+            # (non-RAG-applicable cases) and EVALUATION_FAILURE (judge/API
+            # failures) are excluded rather than silently averaged in as 0,
+            # exactly mirroring how Recall@5/MAP@5/MRR@5 already handle their
+            # own MISSING_GROUND_TRUTH/EVALUATION_FAILURE cases above. (Prior
+            # to this fix, context_recall itself could be a bare 0.0 for a
+            # failure/non-applicable case, which pandas' df[...].mean() would
+            # have silently averaged in - the explicit status-based filter
+            # here removes any dependency on that column happening to hold
+            # None vs. 0.0.)
+            valid_context_recall = [
+                r.get("context_recall") for r in model_res
+                if r.get("context_recall_status") in ("VALID", "REAL_ZERO") and r.get("context_recall") is not None
+            ]
+            avg_recall = sum(valid_context_recall) / len(valid_context_recall) if valid_context_recall else None
+            missing_context_recall_gt = sum(1 for r in model_res if r.get("context_recall_status") == "MISSING_GROUND_TRUTH")
+            context_recall_evaluation_failures = sum(1 for r in model_res if r.get("context_recall_status") == "EVALUATION_FAILURE")
+
             avg_faithfulness = df["faithfulness"].mean()
             avg_relevancy = df["answer_relevancy"].mean()
             
@@ -330,7 +363,10 @@ class KidsNutriComparator:
                 "Recall@5": round(avg_recall_5, 4) if avg_recall_5 is not None else None,
                 "Recall@5 Valid Count": len(valid_recall_5),
                 "Recall@5 Missing Ground Truth": missing_recall_5_gt,
-                "Context Recall": round(avg_recall, 4),
+                "Context Recall": round(avg_recall, 4) if avg_recall is not None else None,
+                "Context Recall Valid Count": len(valid_context_recall),
+                "Context Recall Missing Ground Truth": missing_context_recall_gt,
+                "Context Recall Evaluation Failures": context_recall_evaluation_failures,
                 "Faithfulness": round(avg_faithfulness, 4),
                 "Answer Relevancy": round(avg_relevancy, 4),
                 "Hallucination Rate": f"{round(hallucination_rate * 100, 2)}%" if hallucination_rate is not None else "N/A",
@@ -402,7 +438,26 @@ class KidsNutriComparator:
             k_recall = []
             for i, case in enumerate(dataset, 1):
                 question = case["question"]
-                expected = case.get("expected_context", [])
+                # Phase 4E fix: this previously read the retired `expected_context`
+                # field, which no longer exists on any of the 49 finalized
+                # dataset cases (Phase 4B moved gold reference material to
+                # `gold_facts[].fact_text` - see evaluator.py's own
+                # run_single_evaluation). `case.get("expected_context", [])`
+                # was therefore always [] here, meaning this diagnostic's own
+                # "Context Recall" column always hit ContextJudge.evaluate_recall's
+                # "nothing expected" short-circuit and reported a meaningless
+                # 0.0 for every case, regardless of judge health - independent
+                # of, and in addition to, the main Context Recall bug this
+                # phase fixes. Aligned to the same gold_facts source the
+                # official metric now uses, for consistency - not a claim that
+                # this diagnostic becomes gold-grounded (it still has no
+                # relevant_chunk_ids/total_relevant_count and remains
+                # explicitly unofficial per this function's own docstring).
+                expected = [
+                    fact.get("fact_text")
+                    for fact in (case.get("gold_facts") or [])
+                    if fact.get("fact_text")
+                ]
 
                 retrieved = self.evaluator.retriever.retrieve(question, top_k=k)
 
@@ -413,20 +468,32 @@ class KidsNutriComparator:
                 # Execute Layer 2 Metrics (ground-truth-free: no total_relevant_count available)
                 labels = [item.get("is_relevant", False) for item in relevance_data.get("relevance_map", [])]
                 score = self.evaluator.metrics["retrieval"].calculate_ap_at_k(labels, k=k)
+                # Phase 4E fix: calculate_context_recall can now return None
+                # (EVALUATION_FAILURE/MISSING_GROUND_TRUTH) instead of always a
+                # float - only append real, valid scores so a judge failure
+                # here can never silently become a 0 in this diagnostic's own
+                # average either.
                 rec = self.evaluator.metrics["grounding"].calculate_context_recall(recall_data.get("facts", []))
 
                 k_scores.append(score)
-                k_recall.append(rec)
+                if rec is not None:
+                    k_recall.append(rec)
 
                 time.sleep(0.2)
 
             avg_score = sum(k_scores) / len(k_scores) if k_scores else 0.0
-            avg_rec = sum(k_recall) / len(k_recall) if k_recall else 0.0
+            # Phase 4E fix: None (no valid Context Recall result at all for
+            # this K, e.g. every judge call failed) is reported as None, not
+            # a fabricated 0.0 - matching this whole phase's fix, applied
+            # here too since this diagnostic shares the "Context Recall"
+            # column name and the same failure mode.
+            avg_rec = sum(k_recall) / len(k_recall) if k_recall else None
 
             results.append({
                 "Top K": k,
                 "LLM-Judged Relevance Score@K": round(avg_score, 4),
-                "Context Recall": round(avg_rec, 4)
+                "Context Recall": round(avg_rec, 4) if avg_rec is not None else None,
+                "Context Recall Valid Count": len(k_recall)
             })
 
         exp_df = pd.DataFrame(results)

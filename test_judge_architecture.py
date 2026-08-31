@@ -58,7 +58,7 @@ class TestBaseJudgeRetryAndFailureHandling(unittest.TestCase):
     this wrapper is exactly the mechanism that makes both backends compatible
     with the same judge interfaces)."""
 
-    def _make_judge(self, model_name="groq_llama70b"):
+    def _make_judge(self, model_name="groq_judge"):
         client = MagicMock()
         client.gemini_key = "fake-key-for-non-gemini-tests"
         judge = BaseJudge(client, model_name=model_name)
@@ -127,7 +127,7 @@ class TestBaseJudgeRetryAndFailureHandling(unittest.TestCase):
         # behavior (3 wasted retry attempts on a condition retrying cannot
         # fix) rather than asserting it is ideal - see phase3 audit "Problems
         # Found" for the recommendation to add a symmetric up-front check.
-        judge, client = self._make_judge(model_name="groq_llama70b")
+        judge, client = self._make_judge(model_name="groq_judge")
         client.generate_response.side_effect = ValueError("GROQ_API_KEY is not set. Please set it in your environment.")
 
         with _silence_sleep():
@@ -136,6 +136,45 @@ class TestBaseJudgeRetryAndFailureHandling(unittest.TestCase):
         self.assertTrue(result.get("parse_failed"))
         self.assertIn("GROQ_API_KEY", result.get("error", ""))
         self.assertEqual(client.generate_response.call_count, 3)
+
+    def test_daily_quota_exhaustion_fails_fast_without_burning_all_retries(self):
+        # Phase 4F: a Groq TPD (tokens-per-day) exhaustion error cannot be
+        # fixed by waiting a few seconds and retrying within the same run -
+        # unlike a transient/per-minute throttle, it should fail fast rather
+        # than spend max_retries-1 more requests and backoff time on a
+        # condition retrying cannot resolve. The eventual failure must still
+        # be a normal parse_failed=True result, never a fake success/zero.
+        judge, client = self._make_judge()
+        client.generate_response.side_effect = RuntimeError(
+            "Error code: 429 - Rate limit reached for model 'openai/gpt-oss-120b' "
+            "on tokens per day (TPD): Limit 200000, Used 199649, Requested 1422."
+        )
+
+        with _silence_sleep():
+            result = judge.call_llm_with_retry("some prompt", max_retries=3)
+
+        self.assertTrue(result.get("parse_failed"))
+        self.assertEqual(result.get("error_class"), "daily_quota_exhausted")
+        # Only 1 attempt should have been made - retrying a daily-exhausted
+        # quota within the same run cannot help, so the other 2 of the normal
+        # 3 retry attempts must be skipped, not wasted.
+        self.assertEqual(client.generate_response.call_count, 1)
+
+    def test_transient_rate_limit_still_uses_normal_backoff_retry(self):
+        # A per-minute/short-window 429 (no "per day"/"TPD" phrase) is exactly
+        # the case exponential backoff exists for, and must still recover
+        # within the retry budget like any other transient failure.
+        judge, client = self._make_judge()
+        client.generate_response.side_effect = [
+            RuntimeError("Error code: 429 - Rate limit reached. Please try again in 2.1s."),
+            ('{"relevance_map": []}', 0.1),
+        ]
+
+        with _silence_sleep():
+            result = judge.call_llm_with_retry("some prompt", max_retries=3)
+
+        self.assertNotIn("parse_failed", result)
+        self.assertEqual(client.generate_response.call_count, 2)
 
 
 class TestLlmClientBackendRouting(unittest.TestCase):
@@ -160,13 +199,43 @@ class TestLlmClientBackendRouting(unittest.TestCase):
         m_groq.assert_not_called()
         m_gemini.assert_not_called()
 
-    def test_judge_model_name_groq_llama70b_routes_to_groq_with_correct_model_id(self):
+    def test_judge_model_name_groq_judge_routes_to_groq_with_verified_model_id(self):
+        # Phase 4F: "groq_judge" is now the project's one clear default judge
+        # name, and must route to a model with direct evidence of being
+        # available in the account's live Groq catalog (see
+        # docs/phase4f_groq_judge_configuration.md), not the fictional
+        # "llama-3.3-70b-versatile" the old "groq_llama70b" name pointed to.
+        client = KidsNutriLLMClient()
+        with patch.object(client, "_call_groq", return_value="judge json") as m_groq, \
+             patch.object(client, "_call_local_transformers") as m_local:
+            text, _ = client.generate_response("sys", "usr", model_name="groq_judge")
+        self.assertEqual(text, "judge json")
+        m_groq.assert_called_once_with("openai/gpt-oss-120b", "sys", "usr")
+        m_local.assert_not_called()
+
+    def test_judge_model_name_groq_llama70b_routes_as_deprecated_alias_to_same_verified_model(self):
+        # The old name must keep working (backward compatibility for any
+        # external script/notebook still using it) but must route to the SAME
+        # real model as "groq_judge" - never the old nonexistent
+        # "llama-3.3-70b-versatile".
         client = KidsNutriLLMClient()
         with patch.object(client, "_call_groq", return_value="judge json") as m_groq, \
              patch.object(client, "_call_local_transformers") as m_local:
             text, _ = client.generate_response("sys", "usr", model_name="groq_llama70b")
         self.assertEqual(text, "judge json")
-        m_groq.assert_called_once_with("llama-3.3-70b-versatile", "sys", "usr")
+        m_groq.assert_called_once_with("openai/gpt-oss-120b", "sys", "usr")
+        m_local.assert_not_called()
+
+    def test_judge_model_name_groq_llama8b_routes_to_a_verified_model_id(self):
+        # Phase 4F: "llama-3.1-8b-instant" was also not in the account's live
+        # Groq catalog, so this was remapped to the verified-available
+        # "openai/gpt-oss-20b" alongside the "groq_judge" default fix.
+        client = KidsNutriLLMClient()
+        with patch.object(client, "_call_groq", return_value="judge json") as m_groq, \
+             patch.object(client, "_call_local_transformers") as m_local:
+            text, _ = client.generate_response("sys", "usr", model_name="groq_llama8b")
+        self.assertEqual(text, "judge json")
+        m_groq.assert_called_once_with("openai/gpt-oss-20b", "sys", "usr")
         m_local.assert_not_called()
 
     def test_judge_model_name_gemini_routes_to_gemini_only(self):
@@ -415,7 +484,15 @@ class TestEvaluatorFailureStatusPropagation(unittest.TestCase):
 
     def test_total_judge_outage_yields_evaluation_failure_not_fake_zero(self):
         evaluator = self._build_evaluator_with_raising_judges()
-        test_case = {"id": "T1", "category": "General Nutrition & Nutrients", "question": "q", "profile": {"age": 5}}
+        # relevant_chunk_ids is explicitly set (RAG-applicable) so this test
+        # verifies the outage-vs-fake-zero invariant in isolation, without the
+        # separate non-RAG-applicability gate (test_context_recall.py's
+        # TestContextRecallEvaluatorIntegration.test_case_c_... covers that
+        # dimension) being a confound.
+        test_case = {
+            "id": "T1", "category": "General Nutrition & Nutrients", "question": "q",
+            "profile": {"age": 5}, "relevant_chunk_ids": ["X"],
+        }
 
         result = evaluator.run_single_evaluation(test_case, "qwen_local")
 
@@ -426,10 +503,14 @@ class TestEvaluatorFailureStatusPropagation(unittest.TestCase):
         self.assertIsNone(result["is_hallucinated"])
         self.assertEqual(result["answer_relevancy_status"], "EVALUATION_FAILURE")
         self.assertIsNone(result["answer_relevancy"])
-        # context_recall has no status-enum layer (see phase3 audit finding) -
-        # it silently falls back to 0.0 on empty facts, which is exactly the
-        # gap this test documents rather than papers over.
-        self.assertEqual(result["context_recall"], 0.0)
+        # Phase 4E root-cause fix (docs/phase4e_context_recall_fix.md):
+        # context_recall now has the same status-enum layer as every sibling
+        # metric (the gap the old comment here documented is fixed, not just
+        # noted) - a total judge outage must report EVALUATION_FAILURE with
+        # score=None, never a fake real 0.0.
+        self.assertEqual(result["context_recall_status"], "EVALUATION_FAILURE")
+        self.assertIsNone(result["context_recall"])
+        self.assertNotEqual(result["context_recall"], 0.0)
 
 
 if __name__ == "__main__":

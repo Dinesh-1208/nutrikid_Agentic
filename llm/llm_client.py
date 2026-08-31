@@ -73,11 +73,42 @@ class KidsNutriLLMClient:
                 raise RuntimeError("Error: CUDA GPU not detected. Real local Llama inference requires a GPU.")
             response_text = self._call_local_transformers("meta-llama/Llama-3.1-8B-Instruct", system_prompt, user_prompt)
             
+        elif model_name == "groq_judge":
+            # Phase 4F: the project's one clear, evidenced default Groq judge
+            # model. `llama-3.3-70b-versatile` (the model this used to name)
+            # does not exist on the account actually used in Kaggle runs - its
+            # own groq.models.list() output never lists it, while every 429
+            # error body from the first real run explicitly named
+            # `openai/gpt-oss-120b` as the model that was actually called and
+            # rate-limited (see docs/phase4d_first_kaggle_results_audit.md
+            # section 16-17 and docs/phase4f_groq_judge_configuration.md).
+            # `openai/gpt-oss-120b` is used here because it is the only
+            # candidate with direct evidence from this project's own Kaggle
+            # environment of (a) being present in the account's live model
+            # catalog and (b) successfully producing parseable judge JSON
+            # across hundreds of real calls before its 200,000 TPD quota was
+            # exhausted - not because it is the largest available model.
+            response_text = self._call_groq("openai/gpt-oss-120b", system_prompt, user_prompt)
+
         elif model_name == "groq_llama70b":
-            response_text = self._call_groq("llama-3.3-70b-versatile", system_prompt, user_prompt)
-            
+            # Deprecated backward-compatible alias for "groq_judge" - kept so
+            # any old script/notebook/test that still passes this literal
+            # string keeps working, but it now honestly routes to the same
+            # verified-available model as "groq_judge" instead of the
+            # nonexistent "llama-3.3-70b-versatile" it used to name. New code
+            # should use "groq_judge" directly.
+            response_text = self._call_groq("openai/gpt-oss-120b", system_prompt, user_prompt)
+
         elif model_name == "groq_llama8b":
-            response_text = self._call_groq("llama-3.1-8b-instant", system_prompt, user_prompt)
+            # Phase 4F: "llama-3.1-8b-instant" has the same problem as the old
+            # "groq_llama70b" mapping did - it is not in the confirmed live
+            # groq.models.list() output from this project's own Kaggle
+            # environment either (see docs/phase4f_groq_judge_configuration.md).
+            # Remapped to "openai/gpt-oss-20b" - the confirmed-available,
+            # smaller/faster sibling of the "groq_judge" default model - so
+            # this name is no longer silently broken. Not the default judge
+            # backend; kept only as an optional smaller/faster alternative.
+            response_text = self._call_groq("openai/gpt-oss-20b", system_prompt, user_prompt)
             
         elif model_name == "groq_qwen":
             response_text = self._call_groq("qwen/qwen3.6-27b", system_prompt, user_prompt)

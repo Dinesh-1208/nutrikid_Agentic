@@ -306,9 +306,22 @@ def calculate_response_hallucination_type_details(claims_list, evaluation_failed
         "total_count": len(claims)
     }
 
+CONTEXT_RECALL_STATUS_VALID = "VALID"
+CONTEXT_RECALL_STATUS_REAL_ZERO = "REAL_ZERO"
+CONTEXT_RECALL_STATUS_MISSING_GROUND_TRUTH = "MISSING_GROUND_TRUTH"
+CONTEXT_RECALL_STATUS_EVALUATION_FAILURE = "EVALUATION_FAILURE"
+
 def calculate_context_recall(facts_list):
     """
-    Computes Context Recall based on expected fact statement extraction.
+    Backward-compatible wrapper around calculate_context_recall_details.
+    Returns the score only. May be None - see calculate_context_recall_details.
+    """
+    return calculate_context_recall_details(facts_list)["score"]
+
+def calculate_context_recall_details(facts_list, evaluation_failed=False, ground_truth_available=True):
+    """
+    Computes Context Recall based on expected fact statement extraction, with
+    an explicit validity status.
     Formula: Supported Expected Facts / Total Expected Facts
 
     Source: RAGAS Context Recall methodology/documentation
@@ -320,12 +333,85 @@ def calculate_context_recall(facts_list):
     context's own sentences that are relevant, not covered here). Context Recall
     requires a reference answer, sourced instead from RAGAS's later documentation.
 
+    Phase 4E root-cause fix (docs/phase4e_context_recall_fix.md): prior to this
+    fix, this function's only branch was `if not facts_list: return 0.0` — an
+    empty facts_list produced the exact same 0.0 output whether it meant (a) a
+    context judge call that genuinely found zero supported facts, (b) a judge/
+    API/parser failure that never produced any facts at all, or (c) a case with
+    no applicable RAG ground truth to check recall against in the first place.
+    All three collapsed into the same silent 0.0, contaminating the aggregate
+    average with a mix of real results and non-results. This function now
+    follows the same status-tracking pattern already used by every sibling
+    metric in this module (calculate_faithfulness_details,
+    calculate_unsupported_claim_rate_details) and in
+    evaluation/metrics/retrieval_metrics.py/safety_metrics.py
+    (VALID/REAL_ZERO/MISSING_GROUND_TRUTH/EVALUATION_FAILURE) rather than
+    inventing a new status vocabulary.
+
     Args:
-        facts_list (list): A list of fact dictionaries output by the ContextJudge.
+        facts_list (list): A list of fact dictionaries output by
+            ContextJudge.evaluate_recall (each `{"fact": str, "is_present": bool}`).
+        evaluation_failed (bool): True when the context judge/API/parser
+            failed to produce a usable result (e.g. ContextJudge.evaluate_recall
+            returned {"parse_failed": True, ...}, or the Layer 1 judge call
+            raised). Reported as EVALUATION_FAILURE, score=None - never
+            silently scored as a real 0.0.
+        ground_truth_available (bool): False when this case has no RAG
+            ground truth to check Context Recall against in the first place
+            (per this project's dataset, that means `relevant_chunk_ids` is
+            None - a genuinely structured-DB-only case, not a RAG-answerable
+            one). The caller (evaluator.py) determines this from the test
+            case, since this function only ever sees the judge's facts_list,
+            not the full test case. Reported as MISSING_GROUND_TRUTH,
+            score=None - mirrors exactly how calculate_recall_at_k_details/
+            calculate_ap_at_k_details/calculate_mrr_at_k_details already
+            report MISSING_GROUND_TRUTH when `relevant_chunk_ids` is None,
+            so Context Recall's applicable-case scoping now agrees with the
+            official retrieval metrics' scoping instead of silently disagreeing
+            with it.
+
     Returns:
-        float: Context Recall score between 0.0 and 1.0.
+        dict: {"score", "status", "supported_count", "total_count"}
     """
-    if not facts_list:
-        return 0.0
-    supported_facts = sum(1 for f in facts_list if f.get("is_present", False))
-    return supported_facts / len(facts_list)
+    facts = [] if facts_list is None else list(facts_list)
+
+    if evaluation_failed:
+        return {
+            "score": None,
+            "status": CONTEXT_RECALL_STATUS_EVALUATION_FAILURE,
+            "supported_count": None,
+            "total_count": len(facts)
+        }
+
+    if not ground_truth_available:
+        return {
+            "score": None,
+            "status": CONTEXT_RECALL_STATUS_MISSING_GROUND_TRUTH,
+            "supported_count": None,
+            "total_count": None
+        }
+
+    if not facts:
+        # Genuinely nothing expected (no gold facts) - not currently exercised
+        # by any of the 49 finalized dataset cases (every case has >=1 gold
+        # fact), preserved as a safe, honest default for any future case that
+        # might. Deliberately reuses MISSING_GROUND_TRUTH rather than a new
+        # "NO_FACTS_EXPECTED" status: there is nothing to measure recall
+        # against, which is exactly what MISSING_GROUND_TRUTH already means
+        # for every sibling metric in this codebase.
+        return {
+            "score": None,
+            "status": CONTEXT_RECALL_STATUS_MISSING_GROUND_TRUTH,
+            "supported_count": 0,
+            "total_count": 0
+        }
+
+    supported_count = sum(1 for f in facts if f.get("is_present", False))
+    score = supported_count / len(facts)
+
+    return {
+        "score": score,
+        "status": CONTEXT_RECALL_STATUS_REAL_ZERO if supported_count == 0 else CONTEXT_RECALL_STATUS_VALID,
+        "supported_count": supported_count,
+        "total_count": len(facts)
+    }

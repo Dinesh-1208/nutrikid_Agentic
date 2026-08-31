@@ -911,7 +911,7 @@
     "required_tags": [],
     "avoid_tags": [],
     "meal_pattern": "",
-    "description": "Gluten sensitivity leading to malabsorption.",
+    "description": "Coeliac disease: an autoimmune reaction to gluten causing small-intestinal malabsorption in genetically predisposed individuals. Distinct from non-coeliac gluten sensitivity, which does not involve this autoimmune mechanism.",
     "triggers": [
       "wheat",
       "ragi",
@@ -1972,7 +1972,7 @@
       "Clostridium_botulinum",
       "neurotoxin",
       "paralysis",
-      "SIDS_risk"
+      "infant_botulism_risk"
     ]
   },
   {
@@ -2015,6 +2015,31 @@
       "anaphylaxis",
       "IgE",
       "immediate_reaction"
+    ]
+  },
+  {
+    "condition_name": "food_allergy_non_ige_mediated",
+    "required_tags": [],
+    "avoid_tags": [],
+    "meal_pattern": "",
+    "description": "Delayed, non-IgE-mediated food hypersensitivity reaction. Symptoms are typically gastrointestinal or skin-related rather than anaphylactic, and appear hours to days after the trigger food rather than immediately.",
+    "onset": "Hours to days (delayed)",
+    "features": [
+      "Vomiting",
+      "Diarrhoea",
+      "Eczema flare",
+      "Poor weight gain (if chronic)"
+    ],
+    "common_allergens": [
+      "Cow's milk protein",
+      "Soy",
+      "Egg",
+      "Wheat"
+    ],
+    "tags": [
+      "non_IgE",
+      "delayed_reaction",
+      "food_protein_induced"
     ]
   },
   {

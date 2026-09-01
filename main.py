@@ -25,6 +25,7 @@ def main():
     parser.add_argument("--models", type=str, default="qwen_local", help="Comma-separated models to evaluate. Default: qwen_local (local Qwen via Hugging Face Transformers), the production answer-generation backend. Pass e.g. --models qwen_local,gemini to also compare optional alternative backends.")
     parser.add_argument("--judge-model", type=str, default="groq_judge", help="Model to use as the LLM judge (default: groq_judge, currently mapped to a verified-available Groq model; groq_llama70b is kept as a deprecated backward-compatible alias to the same model)")
     parser.add_argument("--run-retrieval-diagnostic", action="store_true", help="Also run the unofficial, non-gold-grounded LLM-judged retrieval-depth diagnostic (K=3/5/10). OFF by default because it costs ~294 extra judge calls on the 49-case dataset and is not one of the official metrics.")
+    parser.add_argument("--skip-safety-evaluation", action="store_true", help="Skip the SafetyJudge call entirely for this run (saves ~49 judge calls). Safety Recall/Precision/F1 will report status SKIPPED instead of a computed value. Runs safety evaluation by default (recommended) - only skip it deliberately, e.g. while the current safety ground-truth subset has zero violation-labeled cases and Recall/Precision/F1 are therefore mathematically undefined regardless of the judge's output.")
 
     # LLM args
     parser.add_argument("--model", type=str, default="qwen_local", help="Active model for QA. Default: qwen_local (local Qwen via Hugging Face Transformers), the production answer-generation backend. Other options (optional alternative backends): gemini, qwen, llama, groq_judge, groq_llama8b, groq_qwen (groq_llama70b is a deprecated alias for groq_judge)")
@@ -136,7 +137,7 @@ def main():
         retriever = KidsNutriRetriever()
         client = KidsNutriLLMClient()
         
-        evaluator = KidsNutriEvaluator(client, retriever, planner, judge_model=args.judge_model)
+        evaluator = KidsNutriEvaluator(client, retriever, planner, judge_model=args.judge_model, run_safety_evaluation=not args.skip_safety_evaluation)
         comparator = KidsNutriComparator(evaluator)
         
         models_list = [m.strip() for m in args.models.split(",")]

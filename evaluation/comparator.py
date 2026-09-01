@@ -10,6 +10,7 @@ from evaluation.metrics.safety_metrics import (
     evaluate_safety_batch,
     SAFETY_STATUS_MISSING_GROUND_TRUTH,
     SAFETY_STATUS_VALID,
+    SAFETY_STATUS_SKIPPED,
 )
 
 class KidsNutriComparator:
@@ -34,15 +35,17 @@ class KidsNutriComparator:
         a topic/safety-relevance flag (per XSTest: topic sensitivity is not
         the same as required outcome - a safety-sensitive question can have
         a legitimately safe/compliant answer) and is never used to infer an
-        outcome label here. No such ground-truth field exists in the
-        dataset yet, so every case is currently MISSING_GROUND_TRUTH - this
-        function reports that honestly (score=None) rather than fabricating
-        a result, matching Llama 2/NOHARM's expert/content-based annotation
-        standard rather than a topic-flag proxy.
+        outcome label here. A case with real ground truth whose SafetyJudge
+        call was deliberately not made this run (evaluator.py's
+        run_safety_evaluation=False) is reported as SKIPPED - a distinct
+        status from MISSING_GROUND_TRUTH (a dataset-authoring fact about
+        that case, not a runtime choice) - rather than fabricating a result
+        from data that was never produced.
         """
         preds = []
         gts = []
         missing_ground_truth_count = 0
+        skipped_count = 0
 
         for case in model_res:
             tc = next(t for t in dataset if t["id"] == case["id"])
@@ -54,17 +57,27 @@ class KidsNutriComparator:
                 missing_ground_truth_count += 1
                 continue
 
+            if case.get("safety_status") == "SKIPPED":
+                skipped_count += 1
+                continue
+
             preds.append(case.get("safety_judge_raw", {}))
             gts.append(ground_truth)
 
         if not gts:
+            # skipped_count > 0 with zero real predictions means safety
+            # evaluation was deliberately disabled for this run - a
+            # different, honestly-distinct reason from having no ground
+            # truth to begin with.
+            status = SAFETY_STATUS_SKIPPED if skipped_count else SAFETY_STATUS_MISSING_GROUND_TRUTH
             return {
-                "status": SAFETY_STATUS_MISSING_GROUND_TRUTH,
+                "status": status,
                 "recall": None,
                 "precision": None,
                 "f1": None,
                 "valid_cases": 0,
-                "missing_ground_truth_cases": missing_ground_truth_count
+                "missing_ground_truth_cases": missing_ground_truth_count,
+                "skipped_cases": skipped_count
             }
 
         batch_result = evaluate_safety_batch(preds, gts)
@@ -75,7 +88,8 @@ class KidsNutriComparator:
             "precision": overall["precision"],
             "f1": overall["f1"],
             "valid_cases": len(gts),
-            "missing_ground_truth_cases": missing_ground_truth_count
+            "missing_ground_truth_cases": missing_ground_truth_count,
+            "skipped_cases": skipped_count
         }
 
     def run_comparison(self, models=["qwen_local"], sample_limit=None, run_diagnostic_experiment=False):
@@ -241,6 +255,15 @@ class KidsNutriComparator:
         # ground truth for known-safe prompts exists - not computed here yet.
         def _write_safety_block(f, title, safety_result):
             f.write(f"### {title}\n")
+            if safety_result["status"] == SAFETY_STATUS_SKIPPED:
+                f.write(
+                    "**Not computed: safety evaluation was deliberately disabled for this run** "
+                    "(`run_safety_evaluation=False`) - "
+                    f"({safety_result.get('skipped_cases', 0)} case(s) with real `safety_ground_truth` "
+                    "were not sent to the SafetyJudge). This is a runtime choice, not a dataset gap - "
+                    "re-run with `run_safety_evaluation=True` (the default) to compute real values.\n\n"
+                )
+                return
             if safety_result["status"] == SAFETY_STATUS_MISSING_GROUND_TRUTH:
                 f.write(
                     "**Not reportable: valid safety ground truth does not yet exist.** "
@@ -372,9 +395,14 @@ class KidsNutriComparator:
                 "Hallucination Rate": f"{round(hallucination_rate * 100, 2)}%" if hallucination_rate is not None else "N/A",
                 "Intrinsic Response Rate": f"{round(intrinsic_response_rate * 100, 2)}%" if intrinsic_response_rate is not None else "N/A",
                 "Extrinsic Response Rate": f"{round(extrinsic_response_rate * 100, 2)}%" if extrinsic_response_rate is not None else "N/A",
-                "Safety Recall": round(safety_stats["recall"], 4) if safety_stats["recall"] is not None else "MISSING_GROUND_TRUTH",
-                "Safety Precision": round(safety_stats["precision"], 4) if safety_stats["precision"] is not None else "MISSING_GROUND_TRUTH",
-                "Safety F1": round(safety_stats["f1"], 4) if safety_stats["f1"] is not None else "MISSING_GROUND_TRUTH"
+                # Uses the real status string (MISSING_GROUND_TRUTH or SKIPPED)
+                # rather than a hardcoded "MISSING_GROUND_TRUTH" - these are two
+                # honestly different reasons for recall/precision/f1 being None
+                # (a dataset gap vs. a deliberate runtime choice to skip the
+                # judge call) and must not be conflated in the report.
+                "Safety Recall": round(safety_stats["recall"], 4) if safety_stats["recall"] is not None else safety_stats["status"],
+                "Safety Precision": round(safety_stats["precision"], 4) if safety_stats["precision"] is not None else safety_stats["status"],
+                "Safety F1": round(safety_stats["f1"], 4) if safety_stats["f1"] is not None else safety_stats["status"]
                 # Latency intentionally excluded from the official metric set/reporting
                 # (decision: 2026-08-25, docs/latency_final_audit.md) - raw per-case
                 # "latency" timing still exists in evaluator.py output for engineering use.

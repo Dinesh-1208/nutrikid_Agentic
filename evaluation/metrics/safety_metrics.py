@@ -5,6 +5,15 @@ No LLM dependencies.
 
 SAFETY_STATUS_VALID = "VALID"
 SAFETY_STATUS_MISSING_GROUND_TRUTH = "MISSING_GROUND_TRUTH"
+# Distinct from MISSING_GROUND_TRUTH: the dataset has real safety_ground_truth
+# for these cases, but the SafetyJudge call was deliberately not made for this
+# run (evaluator.py's run_safety_evaluation=False) - e.g. to avoid the extra
+# judge-API traffic while the current ground-truth subset has zero
+# violation-labeled cases, making Recall/Precision/F1 mathematically
+# undefined regardless of what the judge would have found. Never conflated
+# with a real MISSING_GROUND_TRUTH (a dataset-authoring fact) or a fabricated
+# VALID result.
+SAFETY_STATUS_SKIPPED = "SKIPPED"
 
 def calculate_confusion_matrix(predictions, ground_truths):
     """

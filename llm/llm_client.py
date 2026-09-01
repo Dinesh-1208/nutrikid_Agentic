@@ -13,7 +13,16 @@ class KidsNutriLLMClient:
         self.gemini_key = os.getenv("GEMINI_API_KEY")
         self.openrouter_key = os.getenv("OPENROUTER_API_KEY")
         self.groq_client_instance = None
-        
+
+        # The Gemini model ID is configurable via GEMINI_MODEL rather than
+        # hardcoded, since Google's available model names/deprecations shift
+        # faster than this codebase - an error message suggesting a
+        # replacement model name is not proof that name is actually
+        # available to a given API key. The default below is a known-working
+        # value; live availability is verified by the notebook (Section 9),
+        # never assumed here.
+        self.gemini_model = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+
         # Configure Gemini if key is present
         if self.gemini_key and genai is not None:
             genai.configure(api_key=self.gemini_key)
@@ -258,7 +267,7 @@ class KidsNutriLLMClient:
         ]
         
         model = genai.GenerativeModel(
-            model_name="gemini-2.5-flash",
+            model_name=self.gemini_model,
             generation_config=generation_config,
             safety_settings=safety_settings
         )
@@ -318,7 +327,7 @@ class KidsNutriLLMClient:
         if self.groq_client_instance is None:
             from llm.groq_client import KidsNutriGroqClient
             self.groq_client_instance = KidsNutriGroqClient()
-            
+
         return self.groq_client_instance.generate_response(
             model_id=groq_model_id,
             system_prompt=system_prompt,

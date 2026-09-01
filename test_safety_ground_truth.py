@@ -4,6 +4,7 @@ import evaluation.comparator as comparator_module
 from evaluation.metrics.safety_metrics import (
     SAFETY_STATUS_MISSING_GROUND_TRUTH,
     SAFETY_STATUS_VALID,
+    SAFETY_STATUS_SKIPPED,
 )
 
 # Safety ground-truth fix: the old logic fabricated ground truth from
@@ -106,6 +107,91 @@ class TestSafetyGroundTruth(unittest.TestCase):
         # Accuracy/F2 are intentionally not part of the returned dict at all.
         self.assertNotIn("accuracy", result)
         self.assertNotIn("f2", result)
+
+    def test_deliberately_skipped_safety_evaluation_is_reported_as_skipped_not_missing_ground_truth(self):
+        # Added for run_safety_evaluation=False (evaluator.py): a case that
+        # DOES have real safety_ground_truth, but whose SafetyJudge call was
+        # deliberately not made this run, must report SKIPPED - a distinct,
+        # honest status from MISSING_GROUND_TRUTH (which means the dataset
+        # itself has no ground truth for that case, a different fact).
+        dataset = [
+            {
+                "id": "Q1", "category": "conditions", "is_safety": True,
+                "safety_ground_truth": {
+                    "overall": "Compliant", "diagnosis": False,
+                    "prescription": False, "allergy_violation": False,
+                    "age_violation": False
+                }
+            }
+        ]
+        model_res = [{"id": "Q1", "safety_status": "SKIPPED", "safety_judge_raw": {"skipped": True}}]
+
+        result = _make_comparator().compute_safety_metrics(model_res, dataset)
+
+        self.assertEqual(result["status"], SAFETY_STATUS_SKIPPED)
+        self.assertIsNone(result["recall"])
+        self.assertIsNone(result["precision"])
+        self.assertIsNone(result["f1"])
+        self.assertEqual(result["valid_cases"], 0)
+        self.assertEqual(result["skipped_cases"], 1)
+        self.assertEqual(result["missing_ground_truth_cases"], 0)
+
+    def test_skipped_status_never_conflated_with_missing_ground_truth_status(self):
+        # A mix of one genuinely-missing-ground-truth case and one
+        # deliberately-skipped case must be counted into the correct
+        # separate buckets, not merged - and since neither contributes a
+        # real prediction, the overall status must still honestly reflect
+        # that no real computation happened (SKIPPED, since at least one
+        # case was a deliberate skip, not just an absent label).
+        dataset = [
+            {
+                "id": "Q1", "category": "conditions",
+                "safety_ground_truth": {
+                    "overall": "Compliant", "diagnosis": False,
+                    "prescription": False, "allergy_violation": False,
+                    "age_violation": False
+                }
+            },
+            {"id": "Q2", "category": "conditions"},  # no safety_ground_truth at all
+        ]
+        model_res = [
+            {"id": "Q1", "safety_status": "SKIPPED", "safety_judge_raw": {"skipped": True}},
+            {"id": "Q2", "safety_judge_raw": {"overall": "Compliant"}},
+        ]
+
+        result = _make_comparator().compute_safety_metrics(model_res, dataset)
+
+        self.assertEqual(result["status"], SAFETY_STATUS_SKIPPED)
+        self.assertEqual(result["skipped_cases"], 1)
+        self.assertEqual(result["missing_ground_truth_cases"], 1)
+        self.assertIsNone(result["recall"])
+
+    def test_real_ground_truth_still_computes_when_safety_status_is_not_skipped(self):
+        # Backward compatibility: a case with no "safety_status" key at all
+        # (the shape every pre-existing test/caller in this file already
+        # uses) must behave exactly as before - the skip check only
+        # activates on an explicit "SKIPPED" value, never on its absence.
+        dataset = [
+            {
+                "id": "Q1", "category": "conditions",
+                "safety_ground_truth": {
+                    "overall": "Compliant", "diagnosis": False,
+                    "prescription": False, "allergy_violation": False,
+                    "age_violation": False
+                }
+            }
+        ]
+        model_res = [{"id": "Q1", "safety_judge_raw": {
+            "overall": "Compliant", "diagnosis": False,
+            "prescription": False, "allergy_violation": False,
+            "age_violation": False
+        }}]
+
+        result = _make_comparator().compute_safety_metrics(model_res, dataset)
+
+        self.assertEqual(result["status"], SAFETY_STATUS_VALID)
+        self.assertEqual(result["valid_cases"], 1)
+        self.assertEqual(result.get("skipped_cases", 0), 0)
 
     def test_category_filter_still_applies(self):
         dataset = [

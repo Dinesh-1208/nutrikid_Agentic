@@ -3,7 +3,7 @@ from llm.llm_client import KidsNutriLLMClient
 
 def verify_groq():
     print("=== Groq Integration Diagnostics ===")
-    
+
     api_key = os.getenv("GROQ_API_KEY")
     if not api_key:
         print("[!] GROQ_API_KEY is not set. Please set it in your environment.")

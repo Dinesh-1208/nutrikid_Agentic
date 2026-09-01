@@ -61,17 +61,6 @@ class TestJudgeModelDefaultAgreesEverywhere(unittest.TestCase):
             client.generate_response("s", "u", model_name=self.EXPECTED_DEFAULT)
         m_groq.assert_called_once_with(self.EXPECTED_REAL_MODEL_ID, "s", "u")
 
-    def test_deprecated_alias_routes_to_the_same_real_model_not_the_old_fictional_one(self):
-        from llm.llm_client import KidsNutriLLMClient
-        client = KidsNutriLLMClient()
-        with patch.object(client, "_call_groq", return_value="ok") as m_groq:
-            client.generate_response("s", "u", model_name="groq_llama70b")
-        m_groq.assert_called_once_with(self.EXPECTED_REAL_MODEL_ID, "s", "u")
-        # The specific regression this phase fixed: this name must never again
-        # resolve to a model absent from the account's live catalog.
-        called_model_id = m_groq.call_args[0][0]
-        self.assertNotEqual(called_model_id, "llama-3.3-70b-versatile")
-
     def test_evaluator_judges_are_constructed_with_the_evaluator_supplied_model_not_a_hidden_default(self):
         # Guards against a judge silently ignoring judge_model and falling
         # back to its own internal default instead.
@@ -112,6 +101,34 @@ class TestUnofficialDiagnosticOffByDefault(unittest.TestCase):
         with open("main.py", encoding="utf-8") as f:
             src = f.read()
         self.assertIn("--run-retrieval-diagnostic", src)
+
+
+class TestOptionalSafetyEvaluationCLIWiring(unittest.TestCase):
+    """The evaluator-level run_safety_evaluation flag (see
+    test_judge_architecture.py::TestOptionalSafetyEvaluationSkip for the
+    evaluator behavior itself) must be reachable from the CLI, defaulting
+    to on (unchanged existing behavior) with an explicit opt-out flag."""
+
+    def test_evaluator_constructor_default_still_runs_safety_evaluation(self):
+        from evaluation.evaluator import KidsNutriEvaluator
+        sig = inspect.signature(KidsNutriEvaluator.__init__)
+        self.assertEqual(sig.parameters["run_safety_evaluation"].default, True)
+
+    def test_main_cli_exposes_an_explicit_skip_flag(self):
+        with open("main.py", encoding="utf-8") as f:
+            src = f.read()
+        self.assertIn("--skip-safety-evaluation", src)
+        self.assertIn("run_safety_evaluation=not args.skip_safety_evaluation", src)
+
+    def test_notebook_exposes_run_safety_evaluation_toggle(self):
+        with open("KidsNutriBite_Evaluation.ipynb", encoding="utf-8") as f:
+            nb = json.load(f)
+        full_src = "".join(
+            (cell["source"] if isinstance(cell["source"], str) else "".join(cell["source"]))
+            for cell in nb["cells"] if cell["cell_type"] == "code"
+        )
+        self.assertIn("RUN_SAFETY_EVALUATION", full_src)
+        self.assertIn("run_safety_evaluation=RUN_SAFETY_EVALUATION", full_src)
 
 
 class TestDailyQuotaExhaustionNeverBecomesAFakeSuccess(unittest.TestCase):

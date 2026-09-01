@@ -225,11 +225,11 @@ class TestCorrectedDefaults(unittest.TestCase):
         import inspect
         from evaluation.evaluator import KidsNutriEvaluator
         sig = inspect.signature(KidsNutriEvaluator.__init__)
-        # Phase 4F: the default was intentionally renamed from "groq_llama70b"
-        # to "groq_judge" - the old name mapped to "llama-3.3-70b-versatile",
-        # a model confirmed NOT present in the account's live Groq catalog
-        # (see docs/phase4f_groq_judge_configuration.md). "groq_judge" is the
-        # one clear, honestly-named default judge backend going forward.
+        # Phase 4F renamed the default from "groq_llama70b" to "groq_judge" -
+        # the old name mapped to "llama-3.3-70b-versatile", a model confirmed
+        # NOT present in the account's live Groq catalog (see
+        # docs/phase4f_groq_judge_configuration.md). "groq_judge" is the one
+        # clear, honestly-named default judge backend.
         self.assertEqual(sig.parameters["judge_model"].default, "groq_judge")
 
     def test_comparator_default_models_is_qwen_local_only(self):

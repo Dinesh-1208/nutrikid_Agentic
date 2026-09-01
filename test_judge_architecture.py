@@ -160,10 +160,10 @@ class TestBaseJudgeRetryAndFailureHandling(unittest.TestCase):
         # 3 retry attempts must be skipped, not wasted.
         self.assertEqual(client.generate_response.call_count, 1)
 
-    def test_transient_rate_limit_still_uses_normal_backoff_retry(self):
-        # A per-minute/short-window 429 (no "per day"/"TPD" phrase) is exactly
-        # the case exponential backoff exists for, and must still recover
-        # within the retry budget like any other transient failure.
+    def test_transient_rate_limit_still_recovers_within_the_retry_budget(self):
+        # A per-minute/short-window 429 (no "per day"/"TPD" phrase) must still
+        # recover within the retry budget like any other transient failure -
+        # it should not be treated as unrecoverable.
         judge, client = self._make_judge()
         client.generate_response.side_effect = [
             RuntimeError("Error code: 429 - Rate limit reached. Please try again in 2.1s."),
@@ -175,6 +175,95 @@ class TestBaseJudgeRetryAndFailureHandling(unittest.TestCase):
 
         self.assertNotIn("parse_failed", result)
         self.assertEqual(client.generate_response.call_count, 2)
+
+    def test_transient_rate_limit_uses_a_much_longer_backoff_than_a_generic_failure(self):
+        # Live evidence (a real Kaggle run against a Groq account with an
+        # 8,000 TPM limit) showed the previous 1s/2s exponential backoff never
+        # gave a per-minute throttle window any real chance to clear before
+        # retries were exhausted. rate_limited_transient/empty_response must
+        # now use a much longer backoff (20s, 40s) than a generic failure
+        # (1s, 2s) - verified here by asserting the actual sleep durations,
+        # not just that some retry happened.
+        judge, client = self._make_judge()
+        client.generate_response.side_effect = [
+            RuntimeError("Error code: 429 - Rate limit reached. Please try again in 2.1s."),
+            RuntimeError("Error code: 429 - Rate limit reached. Please try again in 2.1s."),
+            ('{"relevance_map": []}', 0.1),
+        ]
+
+        with patch("time.sleep") as mock_sleep:
+            result = judge.call_llm_with_retry("some prompt", max_retries=3)
+
+        self.assertNotIn("parse_failed", result)
+        mock_sleep.assert_any_call(20)
+        mock_sleep.assert_any_call(40)
+
+    def test_empty_response_is_classified_distinctly_and_uses_the_longer_backoff(self):
+        # "Received empty response from API." is raised internally (not by
+        # the provider SDK) and was previously lumped into the generic
+        # 'other' bucket with a short 1s/2s backoff. Live evidence showed it
+        # clustering with explicit TPM 429s on the same throttled account, so
+        # it now gets the same longer backoff treatment as
+        # rate_limited_transient.
+        judge, client = self._make_judge()
+        client.generate_response.side_effect = [
+            ("   ", 0.1),  # blank -> triggers "Received empty response from API."
+            ('{"relevance_map": []}', 0.1),
+        ]
+
+        with patch("time.sleep") as mock_sleep:
+            result = judge.call_llm_with_retry("some prompt", max_retries=3)
+
+        self.assertNotIn("parse_failed", result)
+        mock_sleep.assert_called_once_with(20)
+
+    def test_malformed_json_still_uses_the_short_backoff_not_the_long_one(self):
+        # A persistently malformed response is not resource-recovery-
+        # dependent - waiting longer would not improve the odds of success -
+        # so it must keep the original short 1s/2s schedule, not the longer
+        # rate-limit-oriented one.
+        judge, client = self._make_judge()
+        client.generate_response.return_value = ("not json, just prose", 0.1)
+
+        with patch("time.sleep") as mock_sleep:
+            judge.call_llm_with_retry("some prompt", max_retries=3)
+
+        mock_sleep.assert_any_call(1)
+        mock_sleep.assert_any_call(2)
+
+    def test_auth_permission_failure_fails_fast_via_typed_exception(self):
+        # A provider SDK's own typed exception (e.g. an
+        # AuthenticationError/PermissionDeniedError) must fail fast, since
+        # retrying with the same invalid/unauthorized credential cannot
+        # succeed within this run.
+        class PermissionDeniedError(Exception):
+            pass
+
+        judge, client = self._make_judge()
+        client.generate_response.side_effect = PermissionDeniedError("403 - caller does not have permission")
+
+        with _silence_sleep():
+            result = judge.call_llm_with_retry("some prompt", max_retries=3)
+
+        self.assertTrue(result.get("parse_failed"))
+        self.assertEqual(result.get("error_class"), "auth_permission_failure")
+        self.assertEqual(client.generate_response.call_count, 1)
+
+    def test_auth_permission_failure_fails_fast_via_string_match_fallback(self):
+        # Same contract as above, but for a provider (e.g. Groq, Gemini) whose
+        # error surfaces as a generic exception type with a 401/403/
+        # "permission" phrase in the message rather than a typed exception.
+        judge, client = self._make_judge()
+        client.generate_response.side_effect = RuntimeError(
+            "Error code: 401 - Unauthorized: invalid API key provided"
+        )
+
+        with _silence_sleep():
+            result = judge.call_llm_with_retry("some prompt", max_retries=3)
+
+        self.assertTrue(result.get("parse_failed"))
+        self.assertEqual(result.get("error_class"), "auth_permission_failure")
+        self.assertEqual(client.generate_response.call_count, 1)
 
 
 class TestLlmClientBackendRouting(unittest.TestCase):
@@ -296,6 +385,72 @@ class TestGroqClientCallShape(unittest.TestCase):
             gc = KidsNutriGroqClient()
             with self.assertRaises(ValueError):
                 gc.generate_response(model_id="llama-3.3-70b-versatile", system_prompt="s", user_prompt="u")
+
+    def test_first_call_is_never_paced(self):
+        # No prior call has happened yet, so there is nothing to pace against -
+        # the first call in a run must not be delayed.
+        from llm.groq_client import KidsNutriGroqClient
+
+        with patch("llm.groq_client.Groq") as MockGroq:
+            mock_client_instance = MagicMock()
+            mock_response = MagicMock()
+            mock_response.choices = [MagicMock(message=MagicMock(content='{"ok": true}'))]
+            mock_client_instance.chat.completions.create.return_value = mock_response
+            MockGroq.return_value = mock_client_instance
+
+            with patch.dict("os.environ", {"GROQ_API_KEY": "fake-key-for-test"}), \
+                 patch("llm.groq_client.time.sleep") as mock_sleep:
+                gc = KidsNutriGroqClient()
+                gc.generate_response(model_id="m", system_prompt="s", user_prompt="u")
+
+        mock_sleep.assert_not_called()
+
+    def test_second_call_within_the_pacing_window_is_delayed(self):
+        # Added after a real Kaggle run against a Groq account with an 8,000
+        # TPM limit (see base_judge.py's _classify_api_error docstring for
+        # the live evidence). A second call made immediately after the first
+        # must be delayed by roughly the configured minimum interval, so the
+        # project's 5-calls-per-case judge sequence cannot burst straight
+        # through the account's real per-minute budget.
+        from llm.groq_client import KidsNutriGroqClient
+
+        with patch("llm.groq_client.Groq") as MockGroq:
+            mock_client_instance = MagicMock()
+            mock_response = MagicMock()
+            mock_response.choices = [MagicMock(message=MagicMock(content='{"ok": true}'))]
+            mock_client_instance.chat.completions.create.return_value = mock_response
+            MockGroq.return_value = mock_client_instance
+
+            with patch.dict("os.environ", {"GROQ_API_KEY": "fake-key-for-test", "GROQ_MIN_CALL_INTERVAL_SECONDS": "8"}), \
+                 patch("llm.groq_client.time.sleep") as mock_sleep:
+                gc = KidsNutriGroqClient()
+                gc.generate_response(model_id="m", system_prompt="s", user_prompt="u")
+                gc.generate_response(model_id="m", system_prompt="s", user_prompt="u")
+
+        mock_sleep.assert_called_once()
+        # Should be close to the configured 8s window (allow slack for the
+        # negligible real time elapsed between the two mocked calls above).
+        slept_seconds = mock_sleep.call_args[0][0]
+        self.assertGreater(slept_seconds, 7.0)
+        self.assertLessEqual(slept_seconds, 8.0)
+
+    def test_pacing_can_be_disabled_via_zero_interval(self):
+        from llm.groq_client import KidsNutriGroqClient
+
+        with patch("llm.groq_client.Groq") as MockGroq:
+            mock_client_instance = MagicMock()
+            mock_response = MagicMock()
+            mock_response.choices = [MagicMock(message=MagicMock(content='{"ok": true}'))]
+            mock_client_instance.chat.completions.create.return_value = mock_response
+            MockGroq.return_value = mock_client_instance
+
+            with patch.dict("os.environ", {"GROQ_API_KEY": "fake-key-for-test", "GROQ_MIN_CALL_INTERVAL_SECONDS": "0"}), \
+                 patch("llm.groq_client.time.sleep") as mock_sleep:
+                gc = KidsNutriGroqClient()
+                gc.generate_response(model_id="m", system_prompt="s", user_prompt="u")
+                gc.generate_response(model_id="m", system_prompt="s", user_prompt="u")
+
+        mock_sleep.assert_not_called()
 
 
 class TestGeminiRetryBehavior(unittest.TestCase):
@@ -511,6 +666,83 @@ class TestEvaluatorFailureStatusPropagation(unittest.TestCase):
         self.assertEqual(result["context_recall_status"], "EVALUATION_FAILURE")
         self.assertIsNone(result["context_recall"])
         self.assertNotEqual(result["context_recall"], 0.0)
+
+
+class TestOptionalSafetyEvaluationSkip(unittest.TestCase):
+    """run_safety_evaluation=False (evaluator.py): SafetyJudge must never be
+    called, and the skip must surface as an explicit, honest status - never
+    a fabricated Compliant/Refusal/Violation classification. Added after a
+    real Kaggle run where all 20 safety-ground-truth cases were labeled
+    "Compliant" (zero "Violation" cases), making Safety Recall/Precision/F1
+    mathematically undefined (0/0) regardless of judge output - see
+    comparator.py::compute_safety_metrics and its SAFETY_STATUS_SKIPPED
+    tests in test_safety_ground_truth.py for the aggregate-level half of
+    this fix."""
+
+    def _build_evaluator(self, run_safety_evaluation):
+        from evaluation.evaluator import KidsNutriEvaluator
+
+        mock_retriever = MagicMock()
+        mock_retriever.retrieve.return_value = [{"id": "RAG_1", "source_id": "RAG_1", "text": "x", "score": 0.1}]
+        mock_planner = MagicMock()
+        mock_planner.generate_meal_plan.return_value = {
+            "profile": {"age": 4, "weight_kg": 15, "goal": "g", "condition": "c", "allergies": []},
+            "targets": {"calories_kcal": 1200}, "totals": {"calories_kcal": 1200, "protein_g": 30, "fat_g": 30, "carbs_g": 150, "iron_mg": 6},
+            "meal_plan": {},
+        }
+        mock_llm_client = MagicMock()
+        mock_llm_client.generate_response.return_value = ("some safe answer", 0.1)
+
+        mock_judges = {
+            "context": MagicMock(),
+            "grounding": MagicMock(),
+            "relevancy": MagicMock(),
+            "safety": MagicMock(),
+        }
+        mock_judges["context"].evaluate_precision.return_value = {"relevance_map": []}
+        mock_judges["context"].evaluate_recall.return_value = {"facts": []}
+        mock_judges["grounding"].evaluate_grounding.return_value = {"claims": []}
+        mock_judges["relevancy"].generate_hypothetical_questions.return_value = {"generated_questions": []}
+        mock_judges["safety"].evaluate_safety.return_value = {"overall": "Compliant"}
+
+        evaluator = KidsNutriEvaluator(
+            mock_llm_client, mock_retriever, mock_planner,
+            run_safety_evaluation=run_safety_evaluation, judges=mock_judges
+        )
+        return evaluator, mock_judges
+
+    def test_disabled_safety_evaluation_never_calls_the_safety_judge(self):
+        evaluator, mock_judges = self._build_evaluator(run_safety_evaluation=False)
+        test_case = {
+            "id": "T1", "category": "General Nutrition & Nutrients", "question": "q",
+            "profile": {"age": 5}, "relevant_chunk_ids": ["X"],
+        }
+
+        result = evaluator.run_single_evaluation(test_case, "qwen_local")
+
+        mock_judges["safety"].evaluate_safety.assert_not_called()
+        self.assertEqual(result["safety_status"], "SKIPPED")
+        # Must never be silently coerced into either a safe or unsafe
+        # classification - "not evaluated" is its own explicit state.
+        self.assertIsNone(result["is_safe"])
+        self.assertEqual(result["violation_type"], "not_evaluated")
+        self.assertTrue(result["safety_judge_raw"].get("skipped"))
+
+    def test_default_still_calls_the_safety_judge_and_computes_a_real_classification(self):
+        # Backward compatibility: omitting run_safety_evaluation (the
+        # default) must behave exactly as before this change.
+        evaluator, mock_judges = self._build_evaluator(run_safety_evaluation=True)
+        test_case = {
+            "id": "T1", "category": "General Nutrition & Nutrients", "question": "q",
+            "profile": {"age": 5}, "relevant_chunk_ids": ["X"],
+        }
+
+        result = evaluator.run_single_evaluation(test_case, "qwen_local")
+
+        mock_judges["safety"].evaluate_safety.assert_called_once()
+        self.assertEqual(result["safety_status"], "EVALUATED")
+        self.assertTrue(result["is_safe"])
+        self.assertEqual(result["violation_type"], "none")
 
 
 if __name__ == "__main__":

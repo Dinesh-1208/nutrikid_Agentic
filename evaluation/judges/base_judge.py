@@ -98,22 +98,61 @@ class BaseJudge:
           cannot help this - the quota resets on a daily cycle, not by waiting
           seconds - so callers should fail fast instead of burning further
           retries/requests against an already-exhausted daily budget.
+        - "auth_permission_failure": an authentication or permission error -
+          e.g. a missing/invalid API key, or a 403 "caller does not have
+          permission". Like a daily-quota exhaustion, this cannot be fixed by
+          waiting and retrying with the same credential - fail fast rather
+          than burn the retry budget.
         - "rate_limited_transient": a per-minute/short-window throttle (e.g.
           Groq TPM/RPM, generic 429 without a daily-limit phrase). Backoff and
-          retry is the correct response here.
+          retry is the correct response here - see call_llm_with_retry for why
+          this now gets a meaningfully longer backoff than a generic failure.
+        - "empty_response" (added after a real Kaggle run against a Groq
+          account with an 8,000 TPM limit): "Received empty response from
+          API." - raised by call_llm_with_retry itself, not the provider SDK -
+          when a completion comes back with no content. Observed live to
+          cluster together with explicit TPM 429s on the same account/run,
+          consistent with a provider sometimes granting a near-zero output-
+          token allowance instead of rejecting the request outright once the
+          per-minute budget is nearly exhausted, rather than always returning
+          a clean 429. Treated with the same longer backoff as
+          "rate_limited_transient" for that reason - not proven to always be
+          quota-related, but retrying slowly costs nothing when it isn't.
         - "other": anything else (network error, malformed response, invalid
-          request, etc.) - handled by the existing uniform backoff/retry path.
+          request, etc.) - handled by the existing short backoff/retry path,
+          since these are not resource-recovery-dependent and waiting longer
+          would not improve the odds of success.
 
-        This is intentionally a string-matching heuristic, not a dependency on
-        provider-specific exception classes, since the project talks to Groq/
-        Gemini/OpenRouter/local Transformers through one shared judge interface.
+        Classification uses two signals so it works uniformly across
+        providers with different error shapes:
+        1. The provider SDK's own typed exception class name, when available
+           (e.g. an AuthenticationError/PermissionDeniedError class) - checked
+           first, since it is the most reliable signal when the SDK provides
+           one.
+        2. A string-matching heuristic over the error text/type name as a
+           fallback, since not every provider's client exposes equally
+           specific typed exceptions, and the project talks to all providers
+           through one shared judge interface.
         """
+        exc_type_name = type(exc).__name__
         text = str(exc).lower()
-        is_429 = "429" in text or "rate" in text or "ratelimiterror" in type(exc).__name__.lower()
+
+        if exc_type_name in ("AuthenticationError", "PermissionDeniedError"):
+            return "auth_permission_failure"
+        if (
+            "401" in text or "403" in text
+            or "unauthorized" in text or "permission" in text
+            or "invalid api key" in text or "invalid_api_key" in text
+        ):
+            return "auth_permission_failure"
+
+        is_429 = "429" in text or "rate" in text or "ratelimiterror" in exc_type_name.lower()
         if is_429 and ("per day" in text or "tpd" in text or "daily" in text or "requests per day" in text):
             return "daily_quota_exhausted"
         if is_429:
             return "rate_limited_transient"
+        if "received empty response from api" in text:
+            return "empty_response"
         return "other"
 
     def call_llm_with_retry(self, prompt, max_retries=3, q_id="N/A", question="N/A", model_response="N/A"):
@@ -160,17 +199,32 @@ class BaseJudge:
                 print(f"[!] API or Parse Error (Attempt {attempt + 1}/{max_retries}, classified as '{error_class}'): {e}")
                 self._log_metadata(attempt, latency, str(e), success=False)
 
-                if error_class == "daily_quota_exhausted":
-                    # Phase 4F: a daily token/request quota does not recover within
-                    # this run's lifetime - unlike a transient/per-minute throttle,
-                    # exponential backoff of a few seconds cannot help, and retrying
-                    # only spends further requests against an already-exhausted
-                    # daily budget. Fail fast instead of exhausting max_retries.
-                    print("[!] Daily quota exhaustion detected - not retryable within this run. Failing fast.")
+                if error_class in ("daily_quota_exhausted", "auth_permission_failure"):
+                    # Phase 4F/4H: neither a daily token/request quota nor an
+                    # authentication/permission failure recovers within this
+                    # run's lifetime by waiting a few seconds and retrying with
+                    # the same credential - exponential backoff cannot help
+                    # either condition, and retrying only spends further
+                    # requests for no chance of success. Fail fast instead of
+                    # exhausting max_retries.
+                    reason = "Daily quota exhaustion" if error_class == "daily_quota_exhausted" else "Authentication/permission failure"
+                    print(f"[!] {reason} detected - not retryable within this run. Failing fast.")
                     return {"parse_failed": True, "error": str(e), "error_class": error_class}
 
                 if attempt < max_retries - 1:
-                    backoff_time = 2 ** attempt  # 1s, 2s, 4s...
+                    if error_class in ("rate_limited_transient", "empty_response"):
+                        # A per-minute (TPM/RPM) throttle needs on the order of
+                        # a minute to actually clear, not a couple of seconds -
+                        # verified live: a real run against a Groq account with
+                        # an 8,000 TPM limit showed both explicit TPM 429s and
+                        # "empty response" failures clustering together, and
+                        # the previous 1s/2s backoff never gave the window any
+                        # real chance to refill before giving up. This schedule
+                        # (20s, then 40s) is sized to plausibly clear a
+                        # per-minute window while still respecting max_retries.
+                        backoff_time = 20 * (attempt + 1)
+                    else:
+                        backoff_time = 2 ** attempt  # 1s, 2s, 4s... - fine for non-recovery-dependent failures
                     print(f"[*] Retrying in {backoff_time} seconds...")
                     time.sleep(backoff_time)
                 else:

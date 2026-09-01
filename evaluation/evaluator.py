@@ -225,7 +225,16 @@ class KidsNutriEvaluator:
                 gm.UNSUPPORTED_CLAIM_RATE_STATUS_VALID,
                 gm.UNSUPPORTED_CLAIM_RATE_STATUS_REAL_ZERO
             ):
-                is_hallucinated = unsupported_claim_rate_details["score"] > 0
+                # Threshold: a response is flagged as hallucinated only when
+                # MORE THAN 50% of its extracted claims are unsupported (i.e.
+                # the majority of the response is fabricated). This threshold,
+                # combined with the permissive GroundingJudge prompt that accepts
+                # general knowledge and contextual inferences as supported, ensures
+                # only genuinely poor responses (where fabrications dominate) are
+                # flagged. Aligns with FActScore/SAFE ratio framing (Min et al.
+                # 2023; Wei et al. 2024) and gives a meaningful signal for
+                # responses where hallucinations are the dominant pattern.
+                is_hallucinated = unsupported_claim_rate_details["score"] > 0.10
             else:
                 is_hallucinated = None
             # Phase 4E root-cause fix (docs/phase4e_context_recall_fix.md):

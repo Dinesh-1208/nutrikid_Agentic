@@ -21,7 +21,7 @@ class KidsNutriLLMClient:
         # available to a given API key. The default below is a known-working
         # value; live availability is verified by the notebook (Section 9),
         # never assumed here.
-        self.gemini_model = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+        self.gemini_model = os.getenv("GEMINI_MODEL", "gemini-3.6-flash")
 
         # Configure Gemini if key is present
         if self.gemini_key and genai is not None:

@@ -452,6 +452,114 @@ class TestGroqClientCallShape(unittest.TestCase):
 
         mock_sleep.assert_not_called()
 
+    def _mock_groq_returning(self, content):
+        MockGroq_patch = patch("llm.groq_client.Groq")
+        MockGroq = MockGroq_patch.start()
+        self.addCleanup(MockGroq_patch.stop)
+        mock_client_instance = MagicMock()
+        mock_response = MagicMock()
+        mock_response.choices = [MagicMock(message=MagicMock(content=content))]
+        mock_client_instance.chat.completions.create.return_value = mock_response
+        MockGroq.return_value = mock_client_instance
+        return mock_client_instance
+
+    def test_gpt_oss_model_gets_low_reasoning_effort_and_hidden_reasoning_format_by_default(self):
+        # Root cause fix: a live direct test against openai/gpt-oss-120b
+        # proved the model's internal reasoning tokens share the completion
+        # budget with the visible answer (completion_tokens=20,
+        # reasoning_tokens=18, empty content). "low" effort + hidden format
+        # keeps more of the budget for the actual JSON and keeps content
+        # free of any leaked reasoning trace.
+        from llm.groq_client import KidsNutriGroqClient
+
+        mock_client_instance = self._mock_groq_returning('{"ok": true}')
+        with patch.dict("os.environ", {"GROQ_API_KEY": "fake-key-for-test"}, clear=False):
+            gc = KidsNutriGroqClient()
+            gc.generate_response(model_id="openai/gpt-oss-120b", system_prompt="s", user_prompt="u")
+
+        call_kwargs = mock_client_instance.chat.completions.create.call_args.kwargs
+        self.assertEqual(call_kwargs["reasoning_effort"], "low")
+        self.assertEqual(call_kwargs["reasoning_format"], "hidden")
+
+    def test_gpt_oss_model_uses_the_larger_2048_judge_completion_budget_by_default(self):
+        # Previously this silently reused self.gen_config["max_new_tokens"]
+        # (1024, shared with local Transformers generation) - now Groq judge
+        # calls get their own dedicated, larger budget sized to cover both
+        # reasoning tokens and the largest judge schema (GroundingJudge).
+        from llm.groq_client import KidsNutriGroqClient
+
+        mock_client_instance = self._mock_groq_returning('{"ok": true}')
+        with patch.dict("os.environ", {"GROQ_API_KEY": "fake-key-for-test"}, clear=False):
+            gc = KidsNutriGroqClient()
+            gc.generate_response(model_id="openai/gpt-oss-120b", system_prompt="s", user_prompt="u")
+
+        call_kwargs = mock_client_instance.chat.completions.create.call_args.kwargs
+        self.assertEqual(call_kwargs["max_tokens"], 2048)
+
+    def test_explicit_max_tokens_overrides_the_judge_default(self):
+        from llm.groq_client import KidsNutriGroqClient
+
+        mock_client_instance = self._mock_groq_returning('{"ok": true}')
+        with patch.dict("os.environ", {"GROQ_API_KEY": "fake-key-for-test"}, clear=False):
+            gc = KidsNutriGroqClient()
+            gc.generate_response(model_id="openai/gpt-oss-120b", system_prompt="s", user_prompt="u", max_tokens=4096)
+
+        call_kwargs = mock_client_instance.chat.completions.create.call_args.kwargs
+        self.assertEqual(call_kwargs["max_tokens"], 4096)
+
+    def test_non_gpt_oss_model_does_not_receive_reasoning_params(self):
+        # reasoning_effort/reasoning_format are GPT-OSS-specific controls -
+        # sending them to an unrelated Groq model family (e.g. the optional
+        # "groq_qwen" route) is not confirmed safe, so they must be omitted
+        # entirely for any model_id outside the openai/gpt-oss-* family.
+        from llm.groq_client import KidsNutriGroqClient
+
+        mock_client_instance = self._mock_groq_returning('{"ok": true}')
+        with patch.dict("os.environ", {"GROQ_API_KEY": "fake-key-for-test"}, clear=False):
+            gc = KidsNutriGroqClient()
+            gc.generate_response(model_id="qwen/qwen3.6-27b", system_prompt="s", user_prompt="u")
+
+        call_kwargs = mock_client_instance.chat.completions.create.call_args.kwargs
+        self.assertNotIn("reasoning_effort", call_kwargs)
+        self.assertNotIn("reasoning_format", call_kwargs)
+        # The larger completion budget is still safe and applied universally
+        # (it is only a ceiling, not a fixed cost).
+        self.assertEqual(call_kwargs["max_tokens"], 2048)
+
+    def test_reasoning_effort_and_format_are_configurable_via_env_vars(self):
+        from llm.groq_client import KidsNutriGroqClient
+
+        mock_client_instance = self._mock_groq_returning('{"ok": true}')
+        with patch.dict("os.environ", {
+            "GROQ_API_KEY": "fake-key-for-test",
+            "GROQ_JUDGE_REASONING_EFFORT": "medium",
+            "GROQ_JUDGE_REASONING_FORMAT": "parsed",
+            "GROQ_JUDGE_MAX_COMPLETION_TOKENS": "3000",
+        }, clear=False):
+            gc = KidsNutriGroqClient()
+            gc.generate_response(model_id="openai/gpt-oss-120b", system_prompt="s", user_prompt="u")
+
+        call_kwargs = mock_client_instance.chat.completions.create.call_args.kwargs
+        self.assertEqual(call_kwargs["reasoning_effort"], "medium")
+        self.assertEqual(call_kwargs["reasoning_format"], "parsed")
+        self.assertEqual(call_kwargs["max_tokens"], 3000)
+
+    def test_call_groq_no_longer_hardwires_the_local_generation_token_budget(self):
+        # _call_groq (llm_client.py) must not pass
+        # max_tokens=self.gen_config["max_new_tokens"] any more - that
+        # setting is for local Transformers generation and has no
+        # relationship to Groq's reasoning-model token accounting. Letting
+        # the call fall through to KidsNutriGroqClient's own judge default
+        # (2048) is the fix.
+        client = KidsNutriLLMClient()
+        client.groq_client_instance = MagicMock()
+        client.groq_client_instance.generate_response.return_value = '{"ok": true}'
+
+        client._call_groq("openai/gpt-oss-120b", "sys", "usr")
+
+        call_kwargs = client.groq_client_instance.generate_response.call_args.kwargs
+        self.assertNotIn("max_tokens", call_kwargs)
+
 
 class TestGeminiRetryBehavior(unittest.TestCase):
     """Static verification of Gemini's own internal rate-limit retry loop in

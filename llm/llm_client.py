@@ -328,13 +328,22 @@ class KidsNutriLLMClient:
             from llm.groq_client import KidsNutriGroqClient
             self.groq_client_instance = KidsNutriGroqClient()
 
+        # Deliberately do NOT pass max_tokens=self.gen_config["max_new_tokens"]
+        # here. That setting (1024) is sized for local Transformers answer
+        # generation (qwen_local/llama_local) and has no relationship to
+        # Groq's reasoning-model token accounting - a live direct test
+        # against openai/gpt-oss-120b proved that a shared/small completion
+        # budget lets the model's internal reasoning consume nearly the
+        # whole budget, returning empty visible content even though the API
+        # call itself succeeded. Groq judge calls now use their own
+        # dedicated completion budget and reasoning controls, sized for the
+        # judges' JSON schemas - see KidsNutriGroqClient.__init__.
         return self.groq_client_instance.generate_response(
             model_id=groq_model_id,
             system_prompt=system_prompt,
             user_prompt=user_prompt,
             temperature=self.gen_config["temperature"],
-            top_p=self.gen_config["top_p"],
-            max_tokens=self.gen_config["max_new_tokens"]
+            top_p=self.gen_config["top_p"]
         )
 
 if __name__ == '__main__':

@@ -56,7 +56,62 @@ class KidsNutriGroqClient:
         self.min_call_interval_seconds = float(os.getenv("GROQ_MIN_CALL_INTERVAL_SECONDS", "8"))
         self._last_call_started_at = None
 
-    def generate_response(self, model_id, system_prompt, user_prompt, temperature=0.1, top_p=0.9, max_tokens=1024):
+        # Root cause (confirmed via a live direct API test against
+        # openai/gpt-oss-120b): GPT-OSS is a reasoning model, and Groq's
+        # completion budget is shared between its internal reasoning tokens
+        # and the final visible answer. The direct test proved this
+        # concretely - with a small completion budget, the model returned
+        # completion_tokens=20, reasoning_tokens=18, and empty visible
+        # content: reasoning alone consumed nearly the entire budget before
+        # any answer text could be produced. This is a real API-usage
+        # behavior, not a bug in this project's retry/parsing logic - a
+        # judge call can succeed at the HTTP level and still return nothing
+        # usable.
+        #
+        # Two independent controls address this, both real Groq
+        # chat-completions parameters (verified against the installed groq
+        # SDK's actual create() signature, not assumed):
+        #
+        # - reasoning_effort: this project's judge tasks (binary chunk
+        #   relevance, atomic-claim decomposition + support verification,
+        #   a fixed safety rubric, reverse-engineering N hypothetical
+        #   questions) are bounded extraction/classification tasks with an
+        #   explicit output schema and a worked example in every prompt -
+        #   not open-ended multi-step reasoning. "low" is deliberately
+        #   chosen over the API's higher defaults so more of the completion
+        #   budget goes to the visible JSON instead of internal reasoning.
+        #   Raise GROQ_JUDGE_REASONING_EFFORT if judge output quality ever
+        #   indicates more reasoning depth is actually needed.
+        # - reasoning_format="hidden": keeps whatever reasoning the model
+        #   still performs out of the returned `content` string entirely,
+        #   so content is exactly the judge's final JSON - nothing to strip
+        #   out before parsing.
+        self.judge_reasoning_effort = os.getenv("GROQ_JUDGE_REASONING_EFFORT", "low")
+        self.judge_reasoning_format = os.getenv("GROQ_JUDGE_REASONING_FORMAT", "hidden")
+
+        # Completion budget (max_completion_tokens) must cover BOTH the
+        # reasoning tokens above AND the largest judge's visible JSON. Sized
+        # against this project's four judge schemas (evaluation/judges/):
+        # ContextJudge (relevance_map / facts lists, ~5-15 short objects),
+        # RelevancyJudge (exactly num_questions=3 short objects),
+        # SafetyJudge (4 booleans + one CoT "reasoning" string field written
+        # directly into the JSON schema + one classification label) - all
+        # comfortably a few hundred tokens - and GroundingJudge, which is
+        # the largest and previously the most failure-prone: it asks for a
+        # "claims" array with one object per atomic factual claim in the
+        # generated answer (claim text, support flags, evidence
+        # references), which can run to a dozen or more claims for a
+        # thorough answer. 2048 gives real margin over that worst case plus
+        # "low"-effort reasoning overhead, without being an unbounded or
+        # reckless ceiling - it is a maximum the model can stop well short
+        # of, not a fixed cost. Previously this value was not Groq-specific
+        # at all - it silently reused self.gen_config["max_new_tokens"]
+        # (1024), a setting sized for local Transformers answer generation
+        # with no relationship to Groq's reasoning-model token accounting.
+        self.judge_max_completion_tokens = int(os.getenv("GROQ_JUDGE_MAX_COMPLETION_TOKENS", "2048"))
+
+    def generate_response(self, model_id, system_prompt, user_prompt, temperature=0.1, top_p=0.9,
+                           max_tokens=None, reasoning_effort=None, reasoning_format=None):
         if self.client is None:
             if Groq is None:
                 raise ImportError("The 'groq' library is not installed. Please install it using 'pip install groq'.")
@@ -70,18 +125,40 @@ class KidsNutriGroqClient:
                 time.sleep(remaining)
         self._last_call_started_at = time.time()
 
+        # None means "use this instance's judge defaults" (see __init__) -
+        # an explicit value from the caller always wins. The completion
+        # budget is safe to raise for any model (it is only a ceiling the
+        # model can stop well short of), so it applies universally.
+        if max_tokens is None:
+            max_tokens = self.judge_max_completion_tokens
+
         messages = [
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt}
         ]
 
-        response = self.client.chat.completions.create(
+        create_kwargs = dict(
             model=model_id,
             messages=messages,
             temperature=temperature,
             top_p=top_p,
             max_tokens=max_tokens
         )
+
+        # reasoning_effort/reasoning_format are GPT-OSS-specific reasoning
+        # controls (see __init__) - only send them for the openai/gpt-oss-*
+        # model family this project actually routes judge calls to
+        # ("groq_judge"/"groq_llama70b" -> openai/gpt-oss-120b,
+        # "groq_llama8b" -> openai/gpt-oss-20b). Other Groq model families
+        # (e.g. "groq_qwen" -> qwen/qwen3.6-27b) are not confirmed to accept
+        # these fields, so they are omitted for anything outside this
+        # family rather than risk an API-level rejection on an unrelated
+        # model this fix was never meant to touch.
+        if model_id.startswith("openai/gpt-oss"):
+            create_kwargs["reasoning_effort"] = reasoning_effort if reasoning_effort is not None else self.judge_reasoning_effort
+            create_kwargs["reasoning_format"] = reasoning_format if reasoning_format is not None else self.judge_reasoning_format
+
+        response = self.client.chat.completions.create(**create_kwargs)
 
         # Phase 4F: capture real token usage for quota visibility, best-effort
         # only - never let a missing/unexpected usage shape break a call that

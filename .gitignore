@@ -1,3 +1,7 @@
 .env
 __pycache__/
 .claude/
+reports/debug/
+reports/judge_parse_failures.csv
+reports/judge_raw_outputs.log
+*.code-workspace
